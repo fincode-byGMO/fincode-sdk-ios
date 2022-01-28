@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="55"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-cY-H5B">
+                    <rect key="frame" x="5" y="0.0" width="395" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="a4G-gY-m2s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inv-21-Top">
+                    <rect key="frame" x="0.0" y="17" width="200" height="38"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR">
+                            <rect key="frame" x="5" y="2" width="192" height="34"/>
+                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="SbE-au-Rw2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Gze-iS-wnR" secondAttribute="trailing" constant="3" id="k6q-a7-P0g"/>
+                        <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="leading" constant="5" id="rRZ-fP-119"/>
+                        <constraint firstItem="Gze-iS-wnR" firstAttribute="centerY" secondItem="inv-21-Top" secondAttribute="centerY" id="sCG-vF-bjB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
+                    <rect key="frame" x="200" y="17" width="200" height="38"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY">
+                            <rect key="frame" x="3" y="2" width="192" height="34"/>
+                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="I8c-SE-hsC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" constant="3" id="773-n2-0zl"/>
+                        <constraint firstItem="xdE-9h-piY" firstAttribute="centerY" secondItem="LPK-9F-Snu" secondAttribute="centerY" id="cxL-AN-p2W"/>
+                        <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" constant="5" id="qz1-XX-pzb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="inv-21-Top" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="57L-4Z-h3u"/>
+                <constraint firstItem="inv-21-Top" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="ONj-QZ-bdD"/>
+                <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" id="OOE-zp-IwI"/>
+                <constraint firstItem="oi9-cY-H5B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Tpg-tZ-cfS"/>
+                <constraint firstItem="oi9-cY-H5B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="UAV-eD-i1I"/>
+                <constraint firstAttribute="trailing" secondItem="LPK-9F-Snu" secondAttribute="trailing" id="UYh-Ed-8dV"/>
+                <constraint firstAttribute="bottom" secondItem="inv-21-Top" secondAttribute="bottom" id="Y3Y-0L-jwm"/>
+                <constraint firstAttribute="bottom" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="fcm-kd-mlC"/>
+                <constraint firstItem="inv-21-Top" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" id="nLn-uP-8gh"/>
+                <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="trailing" id="pgb-J3-9CP"/>
+                <constraint firstAttribute="trailing" secondItem="oi9-cY-H5B" secondAttribute="trailing" id="qnA-l2-Np7"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="101.45089285714285"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>A1F19DE8-5A3C-46E1-9A66-15C9964B0BF9</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A1F19DE8-5A3C-46E1-9A66-15C9964B0BF9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>FincodeSDK project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>FincodeSDK</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
+			<key>timeStartedRecording</key>
+			<real>663673977.08913004</real>
+			<key>timeStoppedRecording</key>
+			<real>663673993.68359601</real>
+			<key>title</key>
+			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
+			<key>uniqueIdentifier</key>
+			<string>A1F19DE8-5A3C-46E1-9A66-15C9964B0BF9</string>
+		</dict>
+		<key>D1473431-F6C5-4826-BCC6-54B633C30527</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D1473431-F6C5-4826-BCC6-54B633C30527.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>FincodeSDK project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>FincodeSDK</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
+			<key>timeStartedRecording</key>
+			<real>663673995.75707901</real>
+			<key>timeStoppedRecording</key>
+			<real>663674016.74869001</real>
+			<key>title</key>
+			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
+			<key>uniqueIdentifier</key>
+			<string>D1473431-F6C5-4826-BCC6-54B633C30527</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
