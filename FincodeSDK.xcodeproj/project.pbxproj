@@ -1,0 +1,1181 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		4F25A47C278D2927004F8ADC /* Create-XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4F25A47D278D2927004F8ADC /* Build configuration list for PBXAggregateTarget "Create-XCFramework" */;
+			buildPhases = (
+				4F25A480278D2936004F8ADC /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Create-XCFramework";
+			productName = "Create-XCFramework";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		4F25A3A3278D2004004F8ADC /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A380278D2004004F8ADC /* PaymentInteractor.swift */; };
+		4F25A3A4278D2004004F8ADC /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A380278D2004004F8ADC /* PaymentInteractor.swift */; };
+		4F25A3A5278D2004004F8ADC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A383278D2004004F8ADC /* ApiManager.swift */; };
+		4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A383278D2004004F8ADC /* ApiManager.swift */; };
+		4F25A3A7278D2004004F8ADC /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A384278D2004004F8ADC /* APIResult.swift */; };
+		4F25A3A8278D2004004F8ADC /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A384278D2004004F8ADC /* APIResult.swift */; };
+		4F25A3A9278D2004004F8ADC /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A385278D2004004F8ADC /* APIEndpoint.swift */; };
+		4F25A3AA278D2004004F8ADC /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A385278D2004004F8ADC /* APIEndpoint.swift */; };
+		4F25A3AB278D2004004F8ADC /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A387278D2004004F8ADC /* ApiConfiguration.swift */; };
+		4F25A3AC278D2004004F8ADC /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A387278D2004004F8ADC /* ApiConfiguration.swift */; };
+		4F25A3AD278D2004004F8ADC /* AuthorizationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A388278D2004004F8ADC /* AuthorizationMethod.swift */; };
+		4F25A3AE278D2004004F8ADC /* AuthorizationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A388278D2004004F8ADC /* AuthorizationMethod.swift */; };
+		4F25A3AF278D2004004F8ADC /* FincodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A389278D2004004F8ADC /* FincodeConfiguration.swift */; };
+		4F25A3B0278D2004004F8ADC /* FincodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A389278D2004004F8ADC /* FincodeConfiguration.swift */; };
+		4F25A3B8278D2004004F8ADC /* FincodePaymentVerticalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A38E278D2004004F8ADC /* FincodePaymentVerticalView.xib */; };
+		4F25A3B9278D2004004F8ADC /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A390278D2004004F8ADC /* Configurations.plist */; };
+		4F25A3BA278D2004004F8ADC /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A390278D2004004F8ADC /* Configurations.plist */; };
+		4F25A3BB278D2004004F8ADC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A392278D2004004F8ADC /* Log.swift */; };
+		4F25A3BC278D2004004F8ADC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A392278D2004004F8ADC /* Log.swift */; };
+		4F25A3BD278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A394278D2004004F8ADC /* Request+ErrorHandler.swift */; };
+		4F25A3BE278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A394278D2004004F8ADC /* Request+ErrorHandler.swift */; };
+		4F25A3BF278D2004004F8ADC /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A395278D2004004F8ADC /* NSDate.swift */; };
+		4F25A3C0278D2004004F8ADC /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A395278D2004004F8ADC /* NSDate.swift */; };
+		4F25A3C1278D2004004F8ADC /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A397278D2004004F8ADC /* PaymentPresenter.swift */; };
+		4F25A3C2278D2005004F8ADC /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A397278D2004004F8ADC /* PaymentPresenter.swift */; };
+		4F25A3C3278D2005004F8ADC /* SettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39A278D2004004F8ADC /* SettingUseCase.swift */; };
+		4F25A3C4278D2005004F8ADC /* SettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39A278D2004004F8ADC /* SettingUseCase.swift */; };
+		4F25A3C5278D2005004F8ADC /* PaymentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39B278D2004004F8ADC /* PaymentUseCase.swift */; };
+		4F25A3C6278D2005004F8ADC /* PaymentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39B278D2004004F8ADC /* PaymentUseCase.swift */; };
+		4F25A3C7278D2005004F8ADC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39D278D2004004F8ADC /* APIError.swift */; };
+		4F25A3C8278D2005004F8ADC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39D278D2004004F8ADC /* APIError.swift */; };
+		4F25A3C9278D2005004F8ADC /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39E278D2004004F8ADC /* PaymentRequest.swift */; };
+		4F25A3CA278D2005004F8ADC /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A39E278D2004004F8ADC /* PaymentRequest.swift */; };
+		4F25A3CB278D2005004F8ADC /* FcConfigurationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A3A0278D2004004F8ADC /* FcConfigurationException.swift */; };
+		4F25A3CC278D2005004F8ADC /* FcConfigurationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A3A0278D2004004F8ADC /* FcConfigurationException.swift */; };
+		4F25A3CD278D2005004F8ADC /* PaymentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A3A2278D2004004F8ADC /* PaymentRepository.swift */; };
+		4F25A3CE278D2005004F8ADC /* PaymentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A3A2278D2004004F8ADC /* PaymentRepository.swift */; };
+		4F25A3D0278D2345004F8ADC /* FincodePaymentVerticalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A38E278D2004004F8ADC /* FincodePaymentVerticalView.xib */; };
+		4F25A453278D2803004F8ADC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A441278D2803004F8ADC /* Result.swift */; };
+		4F25A454278D2803004F8ADC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A441278D2803004F8ADC /* Result.swift */; };
+		4F25A455278D2803004F8ADC /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A442278D2803004F8ADC /* SessionDelegate.swift */; };
+		4F25A456278D2803004F8ADC /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A442278D2803004F8ADC /* SessionDelegate.swift */; };
+		4F25A457278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A443278D2803004F8ADC /* NetworkReachabilityManager.swift */; };
+		4F25A458278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A443278D2803004F8ADC /* NetworkReachabilityManager.swift */; };
+		4F25A459278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A444278D2803004F8ADC /* ServerTrustPolicy.swift */; };
+		4F25A45A278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A444278D2803004F8ADC /* ServerTrustPolicy.swift */; };
+		4F25A45B278D2804004F8ADC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A445278D2803004F8ADC /* Request.swift */; };
+		4F25A45C278D2804004F8ADC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A445278D2803004F8ADC /* Request.swift */; };
+		4F25A45D278D2804004F8ADC /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A446278D2803004F8ADC /* ResponseSerialization.swift */; };
+		4F25A45E278D2804004F8ADC /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A446278D2803004F8ADC /* ResponseSerialization.swift */; };
+		4F25A45F278D2804004F8ADC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A447278D2803004F8ADC /* MultipartFormData.swift */; };
+		4F25A460278D2804004F8ADC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A447278D2803004F8ADC /* MultipartFormData.swift */; };
+		4F25A461278D2804004F8ADC /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A448278D2803004F8ADC /* Timeline.swift */; };
+		4F25A462278D2804004F8ADC /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A448278D2803004F8ADC /* Timeline.swift */; };
+		4F25A463278D2804004F8ADC /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A449278D2803004F8ADC /* ParameterEncoding.swift */; };
+		4F25A464278D2804004F8ADC /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A449278D2803004F8ADC /* ParameterEncoding.swift */; };
+		4F25A465278D2804004F8ADC /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44A278D2803004F8ADC /* Validation.swift */; };
+		4F25A466278D2804004F8ADC /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44A278D2803004F8ADC /* Validation.swift */; };
+		4F25A467278D2804004F8ADC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44B278D2803004F8ADC /* SessionManager.swift */; };
+		4F25A468278D2804004F8ADC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44B278D2803004F8ADC /* SessionManager.swift */; };
+		4F25A469278D2804004F8ADC /* Alamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F25A44C278D2803004F8ADC /* Alamofire.h */; };
+		4F25A46A278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44D278D2803004F8ADC /* DispatchQueue+Alamofire.swift */; };
+		4F25A46B278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44D278D2803004F8ADC /* DispatchQueue+Alamofire.swift */; };
+		4F25A46C278D2804004F8ADC /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44E278D2803004F8ADC /* Notifications.swift */; };
+		4F25A46D278D2804004F8ADC /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44E278D2803004F8ADC /* Notifications.swift */; };
+		4F25A46E278D2804004F8ADC /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44F278D2803004F8ADC /* Alamofire.swift */; };
+		4F25A46F278D2804004F8ADC /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A44F278D2803004F8ADC /* Alamofire.swift */; };
+		4F25A470278D2804004F8ADC /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A450278D2803004F8ADC /* AFError.swift */; };
+		4F25A471278D2804004F8ADC /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A450278D2803004F8ADC /* AFError.swift */; };
+		4F25A472278D2804004F8ADC /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A451278D2803004F8ADC /* TaskDelegate.swift */; };
+		4F25A473278D2804004F8ADC /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A451278D2803004F8ADC /* TaskDelegate.swift */; };
+		4F25A474278D2804004F8ADC /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A452278D2803004F8ADC /* Response.swift */; };
+		4F25A475278D2804004F8ADC /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A452278D2803004F8ADC /* Response.swift */; };
+		4F25A479278D2862004F8ADC /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F25A477278D2862004F8ADC /* SwiftyJSON.h */; };
+		4F25A47A278D2862004F8ADC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A478278D2862004F8ADC /* SwiftyJSON.swift */; };
+		4F25A47B278D2862004F8ADC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A478278D2862004F8ADC /* SwiftyJSON.swift */; };
+		4F25A5EF278D7668004F8ADC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5EE278D7668004F8ADC /* AppConfiguration.swift */; };
+		4F25A5F0278D7668004F8ADC /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5EE278D7668004F8ADC /* AppConfiguration.swift */; };
+		4F25A5F2278D98DC004F8ADC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5F1278D98DC004F8ADC /* UIView.swift */; };
+		4F25A5F3278D98DC004F8ADC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5F1278D98DC004F8ADC /* UIView.swift */; };
+		4F25A5F5278DA961004F8ADC /* FincodeCardNoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A5F4278DA961004F8ADC /* FincodeCardNoView.xib */; };
+		4F25A5F6278DA961004F8ADC /* FincodeCardNoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25A5F4278DA961004F8ADC /* FincodeCardNoView.xib */; };
+		4F25A5F8278DA978004F8ADC /* FincodeCardNoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5F7278DA978004F8ADC /* FincodeCardNoView.swift */; };
+		4F25A5F9278DA978004F8ADC /* FincodeCardNoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A5F7278DA978004F8ADC /* FincodeCardNoView.swift */; };
+		4F45D18A278D1D6B00FB3483 /* FincodeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */; };
+		4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F45D18E278D1D6B00FB3483 /* FincodeSDKTests.swift */; };
+		4F45D190278D1D6B00FB3483 /* FincodeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F45D184278D1D6A00FB3483 /* FincodeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB402790FB4E003ECE1D /* ImageAssets.xcassets */; };
+		4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB402790FB4E003ECE1D /* ImageAssets.xcassets */; };
+		4F6ACB442790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB432790FE8A003ECE1D /* FincodeSelectCardView.xib */; };
+		4F6ACB452790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB432790FE8A003ECE1D /* FincodeSelectCardView.xib */; };
+		4F6ACB472790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB462790FEA5003ECE1D /* FincodeSelectCardView.swift */; };
+		4F6ACB482790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB462790FEA5003ECE1D /* FincodeSelectCardView.swift */; };
+		4F6ACB4F279134EA003ECE1D /* CardPickerParts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB4E279134EA003ECE1D /* CardPickerParts.xib */; };
+		4F6ACB50279134EA003ECE1D /* CardPickerParts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6ACB4E279134EA003ECE1D /* CardPickerParts.xib */; };
+		4F6ACB5227913524003ECE1D /* CardPickerParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5127913524003ECE1D /* CardPickerParts.swift */; };
+		4F6ACB5327913524003ECE1D /* CardPickerParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5127913524003ECE1D /* CardPickerParts.swift */; };
+		4F6ACB5627913DBA003ECE1D /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5527913DBA003ECE1D /* CardInfo.swift */; };
+		4F6ACB5727913DBA003ECE1D /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5527913DBA003ECE1D /* CardInfo.swift */; };
+		4F6ACB5C27917491003ECE1D /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */; };
+		4F6ACB5D27917491003ECE1D /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */; };
+		4F7713A627982FCA00B2CB81 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardType.swift */; };
+		4F7713A727982FCA00B2CB81 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardType.swift */; };
+		4F7713A927993CAD00B2CB81 /* RadioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713A827993CAD00B2CB81 /* RadioView.xib */; };
+		4F7713AA27993CAE00B2CB81 /* RadioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713A827993CAD00B2CB81 /* RadioView.xib */; };
+		4F7713AC27993E3E00B2CB81 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713AB27993E3E00B2CB81 /* RadioView.swift */; };
+		4F7713AD27993E3E00B2CB81 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713AB27993E3E00B2CB81 /* RadioView.swift */; };
+		4F7713AF27994D6A00B2CB81 /* RadioType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713AE27994D6A00B2CB81 /* RadioType.swift */; };
+		4F7713B027994D6A00B2CB81 /* RadioType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713AE27994D6A00B2CB81 /* RadioType.swift */; };
+		4F7713B22799584900B2CB81 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713B12799584900B2CB81 /* ColorAssets.xcassets */; };
+		4F7713B32799584900B2CB81 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713B12799584900B2CB81 /* ColorAssets.xcassets */; };
+		4F86CB9E2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F86CB9D2798016D005E49E9 /* FincodeSubmitButtonView.xib */; };
+		4F86CB9F2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F86CB9D2798016D005E49E9 /* FincodeSubmitButtonView.xib */; };
+		4F86CBA12798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F86CBA02798019D005E49E9 /* FincodeSubmitButtonView.swift */; };
+		4F86CBA22798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F86CBA02798019D005E49E9 /* FincodeSubmitButtonView.swift */; };
+		4F86CBA52798118C005E49E9 /* SubmitButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F86CBA42798118C005E49E9 /* SubmitButtonType.swift */; };
+		4F86CBA62798118C005E49E9 /* SubmitButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F86CBA42798118C005E49E9 /* SubmitButtonType.swift */; };
+		4FBEF15827A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
+		4FBEF15927A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
+		4FE777F9278EA7C500414CD3 /* FincodeExpireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE777F8278EA7C500414CD3 /* FincodeExpireView.xib */; };
+		4FE777FA278EA7C500414CD3 /* FincodeExpireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE777F8278EA7C500414CD3 /* FincodeExpireView.xib */; };
+		4FE777FC278EA84200414CD3 /* FincodeExpireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE777FB278EA84200414CD3 /* FincodeExpireView.swift */; };
+		4FE777FD278EA84200414CD3 /* FincodeExpireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE777FB278EA84200414CD3 /* FincodeExpireView.swift */; };
+		4FE777FF278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE777FE278EAFF700414CD3 /* FincodeSecurityCodeView.xib */; };
+		4FE77800278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FE777FE278EAFF700414CD3 /* FincodeSecurityCodeView.xib */; };
+		4FE77802278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE77801278EB00900414CD3 /* FincodeSecurityCodeView.swift */; };
+		4FE77803278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE77801278EB00900414CD3 /* FincodeSecurityCodeView.swift */; };
+		4FF24B9D279A36DE00360959 /* FincodePaymentVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9C279A36DE00360959 /* FincodePaymentVerticalView.swift */; };
+		4FF24B9E279A36DE00360959 /* FincodePaymentVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9C279A36DE00360959 /* FincodePaymentVerticalView.swift */; };
+		4FF24BA0279A3B8E00360959 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9F279A3B8E00360959 /* RadioViewController.swift */; };
+		4FF24BA1279A3B8E00360959 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9F279A3B8E00360959 /* RadioViewController.swift */; };
+		97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F45D18B278D1D6B00FB3483 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F45D178278D1D6A00FB3483 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F45D180278D1D6A00FB3483;
+			remoteInfo = FincodeSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK_FincodeSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F25A380278D2004004F8ADC /* PaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInteractor.swift; sourceTree = "<group>"; };
+		4F25A383278D2004004F8ADC /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		4F25A384278D2004004F8ADC /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		4F25A385278D2004004F8ADC /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		4F25A387278D2004004F8ADC /* ApiConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		4F25A388278D2004004F8ADC /* AuthorizationMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationMethod.swift; sourceTree = "<group>"; };
+		4F25A389278D2004004F8ADC /* FincodeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FincodeConfiguration.swift; sourceTree = "<group>"; };
+		4F25A38E278D2004004F8ADC /* FincodePaymentVerticalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FincodePaymentVerticalView.xib; sourceTree = "<group>"; };
+		4F25A390278D2004004F8ADC /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
+		4F25A392278D2004004F8ADC /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		4F25A394278D2004004F8ADC /* Request+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+ErrorHandler.swift"; sourceTree = "<group>"; };
+		4F25A395278D2004004F8ADC /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
+		4F25A397278D2004004F8ADC /* PaymentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		4F25A39A278D2004004F8ADC /* SettingUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUseCase.swift; sourceTree = "<group>"; };
+		4F25A39B278D2004004F8ADC /* PaymentUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentUseCase.swift; sourceTree = "<group>"; };
+		4F25A39D278D2004004F8ADC /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		4F25A39E278D2004004F8ADC /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		4F25A3A0278D2004004F8ADC /* FcConfigurationException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FcConfigurationException.swift; sourceTree = "<group>"; };
+		4F25A3A2278D2004004F8ADC /* PaymentRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRepository.swift; sourceTree = "<group>"; };
+		4F25A441278D2803004F8ADC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4F25A442278D2803004F8ADC /* SessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
+		4F25A443278D2803004F8ADC /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		4F25A444278D2803004F8ADC /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		4F25A445278D2803004F8ADC /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		4F25A446278D2803004F8ADC /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		4F25A447278D2803004F8ADC /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		4F25A448278D2803004F8ADC /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		4F25A449278D2803004F8ADC /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		4F25A44A278D2803004F8ADC /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		4F25A44B278D2803004F8ADC /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		4F25A44C278D2803004F8ADC /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		4F25A44D278D2803004F8ADC /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		4F25A44E278D2803004F8ADC /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		4F25A44F278D2803004F8ADC /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		4F25A450278D2803004F8ADC /* AFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
+		4F25A451278D2803004F8ADC /* TaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDelegate.swift; sourceTree = "<group>"; };
+		4F25A452278D2803004F8ADC /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		4F25A477278D2862004F8ADC /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
+		4F25A478278D2862004F8ADC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		4F25A5EE278D7668004F8ADC /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		4F25A5F1278D98DC004F8ADC /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4F25A5F4278DA961004F8ADC /* FincodeCardNoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeCardNoView.xib; sourceTree = "<group>"; };
+		4F25A5F7278DA978004F8ADC /* FincodeCardNoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardNoView.swift; sourceTree = "<group>"; };
+		4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F45D184278D1D6A00FB3483 /* FincodeSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FincodeSDK.h; sourceTree = "<group>"; };
+		4F45D189278D1D6B00FB3483 /* FincodeSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FincodeSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F45D18E278D1D6B00FB3483 /* FincodeSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSDKTests.swift; sourceTree = "<group>"; };
+		4F6ACB402790FB4E003ECE1D /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		4F6ACB432790FE8A003ECE1D /* FincodeSelectCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeSelectCardView.xib; sourceTree = "<group>"; };
+		4F6ACB462790FEA5003ECE1D /* FincodeSelectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSelectCardView.swift; sourceTree = "<group>"; };
+		4F6ACB4E279134EA003ECE1D /* CardPickerParts.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardPickerParts.xib; sourceTree = "<group>"; };
+		4F6ACB5127913524003ECE1D /* CardPickerParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPickerParts.swift; sourceTree = "<group>"; };
+		4F6ACB5527913DBA003ECE1D /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
+		4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		4F7713A527982FCA00B2CB81 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		4F7713A827993CAD00B2CB81 /* RadioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioView.xib; sourceTree = "<group>"; };
+		4F7713AB27993E3E00B2CB81 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		4F7713AE27994D6A00B2CB81 /* RadioType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioType.swift; sourceTree = "<group>"; };
+		4F7713B12799584900B2CB81 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		4F86CB9D2798016D005E49E9 /* FincodeSubmitButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeSubmitButtonView.xib; sourceTree = "<group>"; };
+		4F86CBA02798019D005E49E9 /* FincodeSubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSubmitButtonView.swift; sourceTree = "<group>"; };
+		4F86CBA42798118C005E49E9 /* SubmitButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonType.swift; sourceTree = "<group>"; };
+		4FBEF15727A26D0300D8E145 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
+		4FE777F8278EA7C500414CD3 /* FincodeExpireView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeExpireView.xib; sourceTree = "<group>"; };
+		4FE777FB278EA84200414CD3 /* FincodeExpireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeExpireView.swift; sourceTree = "<group>"; };
+		4FE777FE278EAFF700414CD3 /* FincodeSecurityCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeSecurityCodeView.xib; sourceTree = "<group>"; };
+		4FE77801278EB00900414CD3 /* FincodeSecurityCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSecurityCodeView.swift; sourceTree = "<group>"; };
+		4FF24B9C279A36DE00360959 /* FincodePaymentVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodePaymentVerticalView.swift; sourceTree = "<group>"; };
+		4FF24B9F279A3B8E00360959 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F45D17E278D1D6A00FB3483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F45D186278D1D6B00FB3483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F45D18A278D1D6B00FB3483 /* FincodeSDK.framework in Frameworks */,
+				97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F25A060278D1FCD004F8ADC /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A476278D281B004F8ADC /* SwiftyJSON */,
+				4F25A40B278D2799004F8ADC /* Alamofire */,
+			);
+			name = Library;
+			path = FincodeSDK/Library;
+			sourceTree = "<group>";
+		};
+		4F25A37F278D2004004F8ADC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A380278D2004004F8ADC /* PaymentInteractor.swift */,
+			);
+			name = Interactor;
+			path = FincodeSDK/Interactor;
+			sourceTree = "<group>";
+		};
+		4F25A381278D2004004F8ADC /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A382278D2004004F8ADC /* API */,
+			);
+			name = Infra;
+			path = FincodeSDK/Infra;
+			sourceTree = "<group>";
+		};
+		4F25A382278D2004004F8ADC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A383278D2004004F8ADC /* ApiManager.swift */,
+				4F25A384278D2004004F8ADC /* APIResult.swift */,
+				4F25A385278D2004004F8ADC /* APIEndpoint.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4F25A386278D2004004F8ADC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A388278D2004004F8ADC /* AuthorizationMethod.swift */,
+				4F25A389278D2004004F8ADC /* FincodeConfiguration.swift */,
+				4F25A387278D2004004F8ADC /* ApiConfiguration.swift */,
+				4F25A5EE278D7668004F8ADC /* AppConfiguration.swift */,
+			);
+			name = Config;
+			path = FincodeSDK/Config;
+			sourceTree = "<group>";
+		};
+		4F25A38A278D2004004F8ADC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4F6ACB4D279134BA003ECE1D /* Parts */,
+				4FF24B9C279A36DE00360959 /* FincodePaymentVerticalView.swift */,
+				4F25A38E278D2004004F8ADC /* FincodePaymentVerticalView.xib */,
+				4F25A5F7278DA978004F8ADC /* FincodeCardNoView.swift */,
+				4F25A5F4278DA961004F8ADC /* FincodeCardNoView.xib */,
+				4FE777FB278EA84200414CD3 /* FincodeExpireView.swift */,
+				4FE777F8278EA7C500414CD3 /* FincodeExpireView.xib */,
+				4FE77801278EB00900414CD3 /* FincodeSecurityCodeView.swift */,
+				4FE777FE278EAFF700414CD3 /* FincodeSecurityCodeView.xib */,
+				4F6ACB462790FEA5003ECE1D /* FincodeSelectCardView.swift */,
+				4F6ACB432790FE8A003ECE1D /* FincodeSelectCardView.xib */,
+				4F86CBA02798019D005E49E9 /* FincodeSubmitButtonView.swift */,
+				4F86CB9D2798016D005E49E9 /* FincodeSubmitButtonView.xib */,
+			);
+			name = Component;
+			path = FincodeSDK/Component;
+			sourceTree = "<group>";
+		};
+		4F25A38F278D2004004F8ADC /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A390278D2004004F8ADC /* Configurations.plist */,
+				4F6ACB402790FB4E003ECE1D /* ImageAssets.xcassets */,
+				4F7713B12799584900B2CB81 /* ColorAssets.xcassets */,
+			);
+			name = SupportingFiles;
+			path = FincodeSDK/SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4F25A391278D2004004F8ADC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A392278D2004004F8ADC /* Log.swift */,
+				4FBEF15727A26D0300D8E145 /* ColorController.swift */,
+				4FF24B9F279A3B8E00360959 /* RadioViewController.swift */,
+				4F25A393278D2004004F8ADC /* Extensions */,
+			);
+			name = Common;
+			path = FincodeSDK/Common;
+			sourceTree = "<group>";
+		};
+		4F25A393278D2004004F8ADC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A5F1278D98DC004F8ADC /* UIView.swift */,
+				4F25A394278D2004004F8ADC /* Request+ErrorHandler.swift */,
+				4F25A395278D2004004F8ADC /* NSDate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4F25A396278D2004004F8ADC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A397278D2004004F8ADC /* PaymentPresenter.swift */,
+			);
+			name = Presenter;
+			path = FincodeSDK/Presenter;
+			sourceTree = "<group>";
+		};
+		4F25A398278D2004004F8ADC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Router;
+			path = FincodeSDK/Router;
+			sourceTree = "<group>";
+		};
+		4F25A399278D2004004F8ADC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A39A278D2004004F8ADC /* SettingUseCase.swift */,
+				4F25A39B278D2004004F8ADC /* PaymentUseCase.swift */,
+			);
+			name = UseCase;
+			path = FincodeSDK/UseCase;
+			sourceTree = "<group>";
+		};
+		4F25A39C278D2004004F8ADC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4F6ACB5427913D79003ECE1D /* SubEntity */,
+				4F25A39D278D2004004F8ADC /* APIError.swift */,
+				4F25A39E278D2004004F8ADC /* PaymentRequest.swift */,
+			);
+			name = Entity;
+			path = FincodeSDK/Entity;
+			sourceTree = "<group>";
+		};
+		4F25A39F278D2004004F8ADC /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A3A0278D2004004F8ADC /* FcConfigurationException.swift */,
+			);
+			name = Exception;
+			path = FincodeSDK/Exception;
+			sourceTree = "<group>";
+		};
+		4F25A3A1278D2004004F8ADC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A3A2278D2004004F8ADC /* PaymentRepository.swift */,
+			);
+			name = Repository;
+			path = FincodeSDK/Repository;
+			sourceTree = "<group>";
+		};
+		4F25A40B278D2799004F8ADC /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A450278D2803004F8ADC /* AFError.swift */,
+				4F25A44C278D2803004F8ADC /* Alamofire.h */,
+				4F25A44F278D2803004F8ADC /* Alamofire.swift */,
+				4F25A44D278D2803004F8ADC /* DispatchQueue+Alamofire.swift */,
+				4F25A447278D2803004F8ADC /* MultipartFormData.swift */,
+				4F25A443278D2803004F8ADC /* NetworkReachabilityManager.swift */,
+				4F25A44E278D2803004F8ADC /* Notifications.swift */,
+				4F25A449278D2803004F8ADC /* ParameterEncoding.swift */,
+				4F25A445278D2803004F8ADC /* Request.swift */,
+				4F25A452278D2803004F8ADC /* Response.swift */,
+				4F25A446278D2803004F8ADC /* ResponseSerialization.swift */,
+				4F25A441278D2803004F8ADC /* Result.swift */,
+				4F25A444278D2803004F8ADC /* ServerTrustPolicy.swift */,
+				4F25A442278D2803004F8ADC /* SessionDelegate.swift */,
+				4F25A44B278D2803004F8ADC /* SessionManager.swift */,
+				4F25A451278D2803004F8ADC /* TaskDelegate.swift */,
+				4F25A448278D2803004F8ADC /* Timeline.swift */,
+				4F25A44A278D2803004F8ADC /* Validation.swift */,
+			);
+			name = Alamofire;
+			path = Alamofire/Source;
+			sourceTree = "<group>";
+		};
+		4F25A476278D281B004F8ADC /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				4F25A477278D2862004F8ADC /* SwiftyJSON.h */,
+				4F25A478278D2862004F8ADC /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			path = SwiftyJSON/Source/SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		4F45D177278D1D6A00FB3483 = {
+			isa = PBXGroup;
+			children = (
+				4F45D183278D1D6A00FB3483 /* FincodeSDK */,
+				4F25A060278D1FCD004F8ADC /* Library */,
+				4F86CBA327981163005E49E9 /* ValueObject */,
+				4F25A391278D2004004F8ADC /* Common */,
+				4F25A38A278D2004004F8ADC /* Component */,
+				4F25A386278D2004004F8ADC /* Config */,
+				4F25A39F278D2004004F8ADC /* Exception */,
+				4F25A381278D2004004F8ADC /* Infra */,
+				4F25A37F278D2004004F8ADC /* Interactor */,
+				4F25A396278D2004004F8ADC /* Presenter */,
+				4F25A3A1278D2004004F8ADC /* Repository */,
+				4F25A398278D2004004F8ADC /* Router */,
+				4F25A399278D2004004F8ADC /* UseCase */,
+				4F25A39C278D2004004F8ADC /* Entity */,
+				4F25A38F278D2004004F8ADC /* SupportingFiles */,
+				4F45D18D278D1D6B00FB3483 /* FincodeSDKTests */,
+				4F45D182278D1D6A00FB3483 /* Products */,
+				96E814BB4EF0A4C0133F6BFF /* Pods */,
+				87991D53D46A22DC7F07FDD8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F45D182278D1D6A00FB3483 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */,
+				4F45D189278D1D6B00FB3483 /* FincodeSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F45D183278D1D6A00FB3483 /* FincodeSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4F45D184278D1D6A00FB3483 /* FincodeSDK.h */,
+			);
+			path = FincodeSDK;
+			sourceTree = "<group>";
+		};
+		4F45D18D278D1D6B00FB3483 /* FincodeSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F45D18E278D1D6B00FB3483 /* FincodeSDKTests.swift */,
+			);
+			path = FincodeSDKTests;
+			sourceTree = "<group>";
+		};
+		4F6ACB4D279134BA003ECE1D /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				4F6ACB5127913524003ECE1D /* CardPickerParts.swift */,
+				4F6ACB4E279134EA003ECE1D /* CardPickerParts.xib */,
+				4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */,
+				4F7713A827993CAD00B2CB81 /* RadioView.xib */,
+				4F7713AB27993E3E00B2CB81 /* RadioView.swift */,
+			);
+			name = Parts;
+			sourceTree = "<group>";
+		};
+		4F6ACB5427913D79003ECE1D /* SubEntity */ = {
+			isa = PBXGroup;
+			children = (
+				4F6ACB5527913DBA003ECE1D /* CardInfo.swift */,
+			);
+			name = SubEntity;
+			sourceTree = "<group>";
+		};
+		4F86CBA327981163005E49E9 /* ValueObject */ = {
+			isa = PBXGroup;
+			children = (
+				4F86CBA42798118C005E49E9 /* SubmitButtonType.swift */,
+				4F7713A527982FCA00B2CB81 /* CardType.swift */,
+				4F7713AE27994D6A00B2CB81 /* RadioType.swift */,
+			);
+			path = ValueObject;
+			sourceTree = "<group>";
+		};
+		87991D53D46A22DC7F07FDD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */,
+				17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96E814BB4EF0A4C0133F6BFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */,
+				C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */,
+				4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */,
+				25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4F45D17C278D1D6A00FB3483 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F25A479278D2862004F8ADC /* SwiftyJSON.h in Headers */,
+				4F45D190278D1D6B00FB3483 /* FincodeSDK.h in Headers */,
+				4F25A469278D2804004F8ADC /* Alamofire.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4F45D180278D1D6A00FB3483 /* FincodeSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F45D193278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDK" */;
+			buildPhases = (
+				C479CA0A214D5F84AE1987E7 /* [CP] Check Pods Manifest.lock */,
+				4F45D17C278D1D6A00FB3483 /* Headers */,
+				4F45D17D278D1D6A00FB3483 /* Sources */,
+				4F45D17E278D1D6A00FB3483 /* Frameworks */,
+				4F45D17F278D1D6A00FB3483 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FincodeSDK;
+			productName = FincodeSDK;
+			productReference = 4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4F45D188278D1D6B00FB3483 /* FincodeSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F45D196278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDKTests" */;
+			buildPhases = (
+				7D2D243E94720777726061A4 /* [CP] Check Pods Manifest.lock */,
+				4F45D185278D1D6B00FB3483 /* Sources */,
+				4F45D186278D1D6B00FB3483 /* Frameworks */,
+				4F45D187278D1D6B00FB3483 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F45D18C278D1D6B00FB3483 /* PBXTargetDependency */,
+			);
+			name = FincodeSDKTests;
+			productName = FincodeSDKTests;
+			productReference = 4F45D189278D1D6B00FB3483 /* FincodeSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F45D178278D1D6A00FB3483 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					4F25A47C278D2927004F8ADC = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					4F45D180278D1D6A00FB3483 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					4F45D188278D1D6B00FB3483 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 4F45D17B278D1D6A00FB3483 /* Build configuration list for PBXProject "FincodeSDK" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F45D177278D1D6A00FB3483;
+			productRefGroup = 4F45D182278D1D6A00FB3483 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F45D180278D1D6A00FB3483 /* FincodeSDK */,
+				4F45D188278D1D6B00FB3483 /* FincodeSDKTests */,
+				4F25A47C278D2927004F8ADC /* Create-XCFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F45D17F278D1D6A00FB3483 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F25A3D0278D2345004F8ADC /* FincodePaymentVerticalView.xib in Resources */,
+				4F6ACB442790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */,
+				4F25A5F5278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
+				4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
+				4F86CB9E2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
+				4FE777F9278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4FE777FF278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
+				4F7713B22799584900B2CB81 /* ColorAssets.xcassets in Resources */,
+				4F7713A927993CAD00B2CB81 /* RadioView.xib in Resources */,
+				4F6ACB4F279134EA003ECE1D /* CardPickerParts.xib in Resources */,
+				4F25A3B9278D2004004F8ADC /* Configurations.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F45D187278D1D6B00FB3483 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F25A3B8278D2004004F8ADC /* FincodePaymentVerticalView.xib in Resources */,
+				4F6ACB452790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */,
+				4F25A5F6278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
+				4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
+				4F86CB9F2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
+				4FE777FA278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4FE77800278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
+				4F7713B32799584900B2CB81 /* ColorAssets.xcassets in Resources */,
+				4F7713AA27993CAE00B2CB81 /* RadioView.xib in Resources */,
+				4F6ACB50279134EA003ECE1D /* CardPickerParts.xib in Resources */,
+				4F25A3BA278D2004004F8ADC /* Configurations.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F25A480278D2936004F8ADC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# xcframeworkを作成します\n# SDK名\nSDK_NAME=FincodeSDK\n\n# 出力先ディレクトリ（プロジェクトの直下）\nOUTPUT_DIR=${PROJECT_DIR}/Output\n\n# 中間ファイルの出力先ディレクトリ\nDERIVED_DIR=${OUTPUT_DIR}/Derived\n\n# archiveの出力先ディレクトリ\nARCHIVE_DIR=${OUTPUT_DIR}/Archive\n\n# xcframeworkの出力先ディレクトリ\nXCFRAMEWORK_DIR=${OUTPUT_DIR}/${SDK_NAME}\n\n# 出力先ディレクトリ削除\nrm -rf ${OUTPUT_DIR}\n\n# 中間ファイルの出力先ディレクトリ作成\nmkdir -p ${DERIVED_DIR}\n\n# アーカイブファイルの出力先ディレクトリ作成\nmkdir -p ${ARCHIVE_DIR}\n\n# xcframeworkの出力先ディレクトリ作成\nmkdir -p ${XCFRAMEWORK_DIR}\n\n# iOS実機用のarchiveファイル\nARCHIVE_FILE_IOS=${ARCHIVE_DIR}/ios.xcarchive\necho \"ARCHIVE_FILE_IOS:${ARCHIVE_FILE_IOS}\"\n\n# iOSシミュレータ用のarchiveファイル\nARCHIVE_FILE_IOS_SIMULATOR=${ARCHIVE_DIR}/iossimulator.xcarchive\necho \"ARCHIVE_FILE_IOS_SIMULATOR:${ARCHIVE_FILE_IOS_SIMULATOR}\"\n\n# iOS実機用のarchiveファイル作成\nxcodebuild \\\n'ARCHS=arm64 arm64e' \\\n'VALID_ARCHS = arm64 arm64e' \\\narchive \\\n-project 'FincodeSDK.xcodeproj' \\\n-scheme ${PROJECT_NAME} \\\n-destination=\"iOS\" \\\n-archivePath $ARCHIVE_FILE_IOS \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphoneos \\\nSKIP_INSTALL=NO \\\nBUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n-configuration 'Debug'\n\n# iOSシミュレータ用のarchiveファイル作成\nxcodebuild \\\n'ARCHS=i386 x86_64' \\\n'VALID_ARCHS = i386 x86_64' \\\narchive \\\n-project 'FincodeSDK.xcodeproj' \\\n-scheme ${PROJECT_NAME} \\\n-destination=\"iOS Simulator\" \\\n-archivePath $ARCHIVE_FILE_IOS_SIMULATOR \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphonesimulator \\\nSKIP_INSTALL=NO \\\nBUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\nxcodebuild -create-xcframework \\\n-framework $ARCHIVE_FILE_IOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_SIMULATOR/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-output $XCFRAMEWORK_DIR/${SDK_NAME}.xcframework\n\n# xcframeworkの出力ディレクトリをFinderで開く\nopen ${XCFRAMEWORK_DIR}\n";
+		};
+		7D2D243E94720777726061A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FincodeSDK-FincodeSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C479CA0A214D5F84AE1987E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FincodeSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F45D17D278D1D6A00FB3483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F25A3C7278D2005004F8ADC /* APIError.swift in Sources */,
+				4F25A3BF278D2004004F8ADC /* NSDate.swift in Sources */,
+				4F25A3C9278D2005004F8ADC /* PaymentRequest.swift in Sources */,
+				4F25A459278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */,
+				4F25A3AB278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
+				4F25A474278D2804004F8ADC /* Response.swift in Sources */,
+				4F25A3BD278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
+				4F6ACB5C27917491003ECE1D /* CustomPickerView.swift in Sources */,
+				4F25A47A278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
+				4F25A3A5278D2004004F8ADC /* ApiManager.swift in Sources */,
+				4F25A470278D2804004F8ADC /* AFError.swift in Sources */,
+				4F6ACB5627913DBA003ECE1D /* CardInfo.swift in Sources */,
+				4F25A3BB278D2004004F8ADC /* Log.swift in Sources */,
+				4F25A46A278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
+				4F6ACB472790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */,
+				4F25A461278D2804004F8ADC /* Timeline.swift in Sources */,
+				4F25A3A9278D2004004F8ADC /* APIEndpoint.swift in Sources */,
+				4F25A3C5278D2005004F8ADC /* PaymentUseCase.swift in Sources */,
+				4F25A3A3278D2004004F8ADC /* PaymentInteractor.swift in Sources */,
+				4F25A45D278D2804004F8ADC /* ResponseSerialization.swift in Sources */,
+				4F25A46E278D2804004F8ADC /* Alamofire.swift in Sources */,
+				4F25A3C1278D2004004F8ADC /* PaymentPresenter.swift in Sources */,
+				4F25A45B278D2804004F8ADC /* Request.swift in Sources */,
+				4F25A3CB278D2005004F8ADC /* FcConfigurationException.swift in Sources */,
+				4F25A45F278D2804004F8ADC /* MultipartFormData.swift in Sources */,
+				4F25A3C3278D2005004F8ADC /* SettingUseCase.swift in Sources */,
+				4F25A463278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
+				4F25A467278D2804004F8ADC /* SessionManager.swift in Sources */,
+				4F25A3A7278D2004004F8ADC /* APIResult.swift in Sources */,
+				4F25A5F2278D98DC004F8ADC /* UIView.swift in Sources */,
+				4FF24B9D279A36DE00360959 /* FincodePaymentVerticalView.swift in Sources */,
+				4F25A46C278D2804004F8ADC /* Notifications.swift in Sources */,
+				4F86CBA12798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */,
+				4F25A3AF278D2004004F8ADC /* FincodeConfiguration.swift in Sources */,
+				4FE77802278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */,
+				4F86CBA52798118C005E49E9 /* SubmitButtonType.swift in Sources */,
+				4F25A3AD278D2004004F8ADC /* AuthorizationMethod.swift in Sources */,
+				4F25A453278D2803004F8ADC /* Result.swift in Sources */,
+				4F7713A627982FCA00B2CB81 /* CardType.swift in Sources */,
+				4F25A472278D2804004F8ADC /* TaskDelegate.swift in Sources */,
+				4F25A457278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */,
+				4FF24BA0279A3B8E00360959 /* RadioViewController.swift in Sources */,
+				4F7713AF27994D6A00B2CB81 /* RadioType.swift in Sources */,
+				4FE777FC278EA84200414CD3 /* FincodeExpireView.swift in Sources */,
+				4F25A5EF278D7668004F8ADC /* AppConfiguration.swift in Sources */,
+				4F7713AC27993E3E00B2CB81 /* RadioView.swift in Sources */,
+				4F25A3CD278D2005004F8ADC /* PaymentRepository.swift in Sources */,
+				4F25A5F8278DA978004F8ADC /* FincodeCardNoView.swift in Sources */,
+				4F25A465278D2804004F8ADC /* Validation.swift in Sources */,
+				4FBEF15827A26D0300D8E145 /* ColorController.swift in Sources */,
+				4F6ACB5227913524003ECE1D /* CardPickerParts.swift in Sources */,
+				4F25A455278D2803004F8ADC /* SessionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F45D185278D1D6B00FB3483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F25A462278D2804004F8ADC /* Timeline.swift in Sources */,
+				4F25A3CC278D2005004F8ADC /* FcConfigurationException.swift in Sources */,
+				4FE777FD278EA84200414CD3 /* FincodeExpireView.swift in Sources */,
+				4F25A45C278D2804004F8ADC /* Request.swift in Sources */,
+				4F25A5F0278D7668004F8ADC /* AppConfiguration.swift in Sources */,
+				4F25A460278D2804004F8ADC /* MultipartFormData.swift in Sources */,
+				4F25A3C0278D2004004F8ADC /* NSDate.swift in Sources */,
+				4F25A3BC278D2004004F8ADC /* Log.swift in Sources */,
+				4F25A5F3278D98DC004F8ADC /* UIView.swift in Sources */,
+				4F25A46F278D2804004F8ADC /* Alamofire.swift in Sources */,
+				4F25A3C4278D2005004F8ADC /* SettingUseCase.swift in Sources */,
+				4F86CBA22798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */,
+				4F25A3AE278D2004004F8ADC /* AuthorizationMethod.swift in Sources */,
+				4F25A3AA278D2004004F8ADC /* APIEndpoint.swift in Sources */,
+				4F25A3AC278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
+				4F25A3C2278D2005004F8ADC /* PaymentPresenter.swift in Sources */,
+				4F25A3B0278D2004004F8ADC /* FincodeConfiguration.swift in Sources */,
+				4F25A464278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
+				4F6ACB5D27917491003ECE1D /* CustomPickerView.swift in Sources */,
+				4F25A3A8278D2004004F8ADC /* APIResult.swift in Sources */,
+				4F25A468278D2804004F8ADC /* SessionManager.swift in Sources */,
+				4F7713AD27993E3E00B2CB81 /* RadioView.swift in Sources */,
+				4F25A458278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */,
+				4FF24BA1279A3B8E00360959 /* RadioViewController.swift in Sources */,
+				4F25A473278D2804004F8ADC /* TaskDelegate.swift in Sources */,
+				4F7713A727982FCA00B2CB81 /* CardType.swift in Sources */,
+				4F25A466278D2804004F8ADC /* Validation.swift in Sources */,
+				4F25A454278D2803004F8ADC /* Result.swift in Sources */,
+				4F25A46B278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
+				4F86CBA62798118C005E49E9 /* SubmitButtonType.swift in Sources */,
+				4F25A45E278D2804004F8ADC /* ResponseSerialization.swift in Sources */,
+				4F25A3BE278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
+				4F25A456278D2803004F8ADC /* SessionDelegate.swift in Sources */,
+				4F25A47B278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
+				4F6ACB482790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */,
+				4FE77803278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */,
+				4F7713B027994D6A00B2CB81 /* RadioType.swift in Sources */,
+				4F25A475278D2804004F8ADC /* Response.swift in Sources */,
+				4F25A3C6278D2005004F8ADC /* PaymentUseCase.swift in Sources */,
+				4F25A3CA278D2005004F8ADC /* PaymentRequest.swift in Sources */,
+				4F25A3A4278D2004004F8ADC /* PaymentInteractor.swift in Sources */,
+				4F25A5F9278DA978004F8ADC /* FincodeCardNoView.swift in Sources */,
+				4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */,
+				4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */,
+				4F25A3CE278D2005004F8ADC /* PaymentRepository.swift in Sources */,
+				4F6ACB5327913524003ECE1D /* CardPickerParts.swift in Sources */,
+				4F25A471278D2804004F8ADC /* AFError.swift in Sources */,
+				4F25A3C8278D2005004F8ADC /* APIError.swift in Sources */,
+				4FF24B9E279A36DE00360959 /* FincodePaymentVerticalView.swift in Sources */,
+				4F25A46D278D2804004F8ADC /* Notifications.swift in Sources */,
+				4FBEF15927A26D0300D8E145 /* ColorController.swift in Sources */,
+				4F6ACB5727913DBA003ECE1D /* CardInfo.swift in Sources */,
+				4F25A45A278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F45D18C278D1D6B00FB3483 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F45D180278D1D6A00FB3483 /* FincodeSDK */;
+			targetProxy = 4F45D18B278D1D6B00FB3483 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4F25A47E278D2927004F8ADC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8AM8623352;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4F25A47F278D2927004F8ADC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8AM8623352;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4F45D191278D1D6B00FB3483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4F45D192278D1D6B00FB3483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4F45D194278D1D6B00FB3483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A52CDR6PDK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.gmopg.japanpost;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4F45D195278D1D6B00FB3483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = A52CDR6PDK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.gmopg.japanpost;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4F45D197278D1D6B00FB3483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A52CDR6PDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmo-pg.fincode-dev.FincodeSDKTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F45D198278D1D6B00FB3483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A52CDR6PDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmo-pg.fincode-dev.FincodeSDKTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F25A47D278D2927004F8ADC /* Build configuration list for PBXAggregateTarget "Create-XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F25A47E278D2927004F8ADC /* Debug */,
+				4F25A47F278D2927004F8ADC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F45D17B278D1D6A00FB3483 /* Build configuration list for PBXProject "FincodeSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F45D191278D1D6B00FB3483 /* Debug */,
+				4F45D192278D1D6B00FB3483 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F45D193278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F45D194278D1D6B00FB3483 /* Debug */,
+				4F45D195278D1D6B00FB3483 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F45D196278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F45D197278D1D6B00FB3483 /* Debug */,
+				4F45D198278D1D6B00FB3483 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F45D178278D1D6A00FB3483 /* Project object */;
+}
