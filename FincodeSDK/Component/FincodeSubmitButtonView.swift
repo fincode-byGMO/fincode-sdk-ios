@@ -8,62 +8,68 @@
 import Foundation
 import UIKit
 
+protocol FincodeSubmitButtonViewDelegate: AnyObject {
+    func fincodeSubmitButtonView() -> PaymentPresenter?
+}
+
 @IBDesignable
 class FincodeSubmitButtonView: UIView {
     
     @IBOutlet weak var submitButton: UIButton!
     
-    var buttonType: SubmitButtonType = .none
+    private var useCaseType: UseCase = .none
+    var delegate: FincodeSubmitButtonViewDelegate?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
+        initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         viewSetup()
+        initialize()
     }
     
     fileprivate func initialize() {
-        
-        var title: String = ""
-        switch(buttonType) {
-        case .registerCard:
-            title = "クレジットカードを登録"
-        case .updateCard:
-            title = "クレジットカードを更新"
-        case .payment:
-            title = "お支払い"
-        default:
-            break
+    }
+    
+    var useCase: UseCase {
+        get {
+            return useCaseType
         }
-        submitButton.setTitle(title, for: .normal)
+        set {
+            useCaseType = newValue
+            submitButton.setTitle(useCaseType.rawValue, for: .normal)
+        }
     }
     
     @IBAction func didTouchButton(_ sender: Any) {
         
-        switch(buttonType) {
+        guard let presenter: PaymentPresenter = delegate?.fincodeSubmitButtonView() else { return }
+        
+        switch(useCase) {
         case .registerCard:
-            registerCard()
+            registerCard(presenter)
         case .updateCard:
-            updateCard()
+            updateCard(presenter)
         case .payment:
-            payment()
+            payment(presenter)
         default:
             break
         }
     }
     
-    fileprivate func registerCard() {
+    fileprivate func registerCard(_ presenter :PaymentPresenter) {
         
     }
     
-    fileprivate func updateCard() {
+    fileprivate func updateCard(_ presenter :PaymentPresenter) {
         
     }
     
-    fileprivate func payment() {
-        
+    fileprivate func payment(_ presenter :PaymentPresenter) {
+        presenter.didTapPayment()
     }
 }

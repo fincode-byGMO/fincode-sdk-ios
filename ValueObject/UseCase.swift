@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum SubmitButtonType {
+public enum UseCase: String {
     /// なし
     case none
     /// クレジットカードを登録
-    case registerCard
+    case registerCard = "クレジットカードを登録"
     /// クレジットカードを更新
-    case updateCard
+    case updateCard = "クレジットカードを更新"
     /// お支払い
-    case payment
+    case payment = "お支払い"
 }
