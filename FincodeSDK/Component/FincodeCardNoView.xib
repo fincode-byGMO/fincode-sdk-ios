@@ -96,7 +96,7 @@
                                         <constraint firstAttribute="height" constant="22" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" カード番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" カード番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="10" y="7.5" width="230" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
@@ -108,6 +108,10 @@
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                             <color key="value" name="text_placeholder"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                            <integer key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="fourDigitsSpace"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>
@@ -180,6 +184,11 @@
             <point key="canvasLocation" x="411.59420289855075" y="-76.339285714285708"/>
         </view>
     </objects>
+    <designables>
+        <designable name="3G6-fm-KWx">
+            <size key="intrinsicContentSize" width="80.5" height="19.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="card_american-xpress_ic" width="100" height="78"/>
         <image name="card_diners-club_ic" width="100" height="78"/>

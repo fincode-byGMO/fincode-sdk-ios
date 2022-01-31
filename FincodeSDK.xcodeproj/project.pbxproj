@@ -23,6 +23,18 @@
 /* Begin PBXBuildFile section */
 		4F1DE77F27A78C240057CB9F /* UITextField .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE77E27A78C240057CB9F /* UITextField .swift */; };
 		4F1DE78027A78C240057CB9F /* UITextField .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE77E27A78C240057CB9F /* UITextField .swift */; };
+		4F1DE78227A7ACC80057CB9F /* SelectCardAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1DE78127A7ACC80057CB9F /* SelectCardAreaView.xib */; };
+		4F1DE78327A7ACC80057CB9F /* SelectCardAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1DE78127A7ACC80057CB9F /* SelectCardAreaView.xib */; };
+		4F1DE78527A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78427A7B39B0057CB9F /* SelectCardAreaView.swift */; };
+		4F1DE78627A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78427A7B39B0057CB9F /* SelectCardAreaView.swift */; };
+		4F1DE78B27A7D6520057CB9F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78A27A7D6520057CB9F /* CustomTextField.swift */; };
+		4F1DE78C27A7D6520057CB9F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78A27A7D6520057CB9F /* CustomTextField.swift */; };
+		4F1DE78E27A7F99F0057CB9F /* TextFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */; };
+		4F1DE78F27A7F99F0057CB9F /* TextFormatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */; };
+		4F1DE79127A80DA50057CB9F /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE79027A80DA50057CB9F /* TextUtil.swift */; };
+		4F1DE79227A80DA50057CB9F /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE79027A80DA50057CB9F /* TextUtil.swift */; };
+		4F1DE79427A80E480057CB9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE79327A80E480057CB9F /* Constants.swift */; };
+		4F1DE79527A80E480057CB9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DE79327A80E480057CB9F /* Constants.swift */; };
 		4F25A3A3278D2004004F8ADC /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A380278D2004004F8ADC /* PaymentInteractor.swift */; };
 		4F25A3A4278D2004004F8ADC /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A380278D2004004F8ADC /* PaymentInteractor.swift */; };
 		4F25A3A5278D2004004F8ADC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25A383278D2004004F8ADC /* ApiManager.swift */; };
@@ -176,6 +188,12 @@
 		45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F1DE77E27A78C240057CB9F /* UITextField .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField .swift"; sourceTree = "<group>"; };
+		4F1DE78127A7ACC80057CB9F /* SelectCardAreaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCardAreaView.xib; sourceTree = "<group>"; };
+		4F1DE78427A7B39B0057CB9F /* SelectCardAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardAreaView.swift; sourceTree = "<group>"; };
+		4F1DE78A27A7D6520057CB9F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatType.swift; sourceTree = "<group>"; };
+		4F1DE79027A80DA50057CB9F /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
+		4F1DE79327A80E480057CB9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4F25A380278D2004004F8ADC /* PaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInteractor.swift; sourceTree = "<group>"; };
 		4F25A383278D2004004F8ADC /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		4F25A384278D2004004F8ADC /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
@@ -354,6 +372,8 @@
 		4F25A391278D2004004F8ADC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F1DE79027A80DA50057CB9F /* TextUtil.swift */,
+				4F1DE79327A80E480057CB9F /* Constants.swift */,
 				4F25A392278D2004004F8ADC /* Log.swift */,
 				4F6CBDEF27A3DE3200BFF64E /* ValidateDelegate.swift */,
 				4FBEF15727A26D0300D8E145 /* ColorController.swift */,
@@ -525,6 +545,9 @@
 				4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */,
 				4F7713A827993CAD00B2CB81 /* RadioView.xib */,
 				4F7713AB27993E3E00B2CB81 /* RadioView.swift */,
+				4F1DE78127A7ACC80057CB9F /* SelectCardAreaView.xib */,
+				4F1DE78427A7B39B0057CB9F /* SelectCardAreaView.swift */,
+				4F1DE78A27A7D6520057CB9F /* CustomTextField.swift */,
 			);
 			name = Parts;
 			sourceTree = "<group>";
@@ -543,6 +566,7 @@
 				4F86CBA42798118C005E49E9 /* UseCase.swift */,
 				4F7713A527982FCA00B2CB81 /* CardType.swift */,
 				4F7713AE27994D6A00B2CB81 /* RadioType.swift */,
+				4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */,
 			);
 			path = ValueObject;
 			sourceTree = "<group>";
@@ -668,6 +692,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F25A3D0278D2345004F8ADC /* FincodePaymentVerticalView.xib in Resources */,
+				4F1DE78227A7ACC80057CB9F /* SelectCardAreaView.xib in Resources */,
 				4F6ACB442790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */,
 				4F25A5F5278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
 				4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
@@ -686,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F25A3B8278D2004004F8ADC /* FincodePaymentVerticalView.xib in Resources */,
+				4F1DE78327A7ACC80057CB9F /* SelectCardAreaView.xib in Resources */,
 				4F6ACB452790FE8A003ECE1D /* FincodeSelectCardView.xib in Resources */,
 				4F25A5F6278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
 				4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
@@ -776,9 +802,11 @@
 				4F25A459278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */,
 				4F25A3AB278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
 				4F25A474278D2804004F8ADC /* Response.swift in Sources */,
+				4F1DE79127A80DA50057CB9F /* TextUtil.swift in Sources */,
 				4F25A3BD278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
 				4F6ACB5C27917491003ECE1D /* CustomPickerView.swift in Sources */,
 				4F25A47A278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
+				4F1DE78527A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */,
 				4F25A3A5278D2004004F8ADC /* ApiManager.swift in Sources */,
 				4F25A470278D2804004F8ADC /* AFError.swift in Sources */,
 				4F6ACB5627913DBA003ECE1D /* CardInfo.swift in Sources */,
@@ -786,7 +814,9 @@
 				4F25A46A278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
 				4F6ACB472790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */,
 				4F25A461278D2804004F8ADC /* Timeline.swift in Sources */,
+				4F1DE79427A80E480057CB9F /* Constants.swift in Sources */,
 				4F25A3A9278D2004004F8ADC /* APIEndpoint.swift in Sources */,
+				4F1DE78E27A7F99F0057CB9F /* TextFormatType.swift in Sources */,
 				4F25A3C5278D2005004F8ADC /* PaymentUseCase.swift in Sources */,
 				4F25A3A3278D2004004F8ADC /* PaymentInteractor.swift in Sources */,
 				4F25A45D278D2804004F8ADC /* ResponseSerialization.swift in Sources */,
@@ -797,6 +827,7 @@
 				4F1DE77F27A78C240057CB9F /* UITextField .swift in Sources */,
 				4F25A45F278D2804004F8ADC /* MultipartFormData.swift in Sources */,
 				4F25A3C3278D2005004F8ADC /* SettingUseCase.swift in Sources */,
+				4F1DE78B27A7D6520057CB9F /* CustomTextField.swift in Sources */,
 				4F25A463278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
 				4F25A467278D2804004F8ADC /* SessionManager.swift in Sources */,
 				4F25A3A7278D2004004F8ADC /* APIResult.swift in Sources */,
@@ -832,9 +863,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F25A462278D2804004F8ADC /* Timeline.swift in Sources */,
+				4F1DE78627A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */,
 				4F25A3CC278D2005004F8ADC /* FcConfigurationException.swift in Sources */,
 				4FE777FD278EA84200414CD3 /* FincodeExpireView.swift in Sources */,
 				4F25A45C278D2804004F8ADC /* Request.swift in Sources */,
+				4F1DE78F27A7F99F0057CB9F /* TextFormatType.swift in Sources */,
+				4F1DE78C27A7D6520057CB9F /* CustomTextField.swift in Sources */,
 				4F25A5F0278D7668004F8ADC /* AppConfiguration.swift in Sources */,
 				4F25A460278D2804004F8ADC /* MultipartFormData.swift in Sources */,
 				4F25A3C0278D2004004F8ADC /* NSDate.swift in Sources */,
@@ -863,9 +897,11 @@
 				4F25A454278D2803004F8ADC /* Result.swift in Sources */,
 				4F25A46B278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
 				4F86CBA62798118C005E49E9 /* UseCase.swift in Sources */,
+				4F1DE79527A80E480057CB9F /* Constants.swift in Sources */,
 				4F25A45E278D2804004F8ADC /* ResponseSerialization.swift in Sources */,
 				4F25A3BE278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
 				4F25A456278D2803004F8ADC /* SessionDelegate.swift in Sources */,
+				4F1DE79227A80DA50057CB9F /* TextUtil.swift in Sources */,
 				4F25A47B278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
 				4F6ACB482790FEA5003ECE1D /* FincodeSelectCardView.swift in Sources */,
 				4FE77803278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */,

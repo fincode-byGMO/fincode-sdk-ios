@@ -41,7 +41,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEu-KF-loz">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="52"/>
                             <subviews>
-                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="5" y="3" width="290" height="34"/>
                                     <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -58,6 +58,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                            <integer key="value" value="4"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
@@ -104,6 +107,11 @@
             <point key="canvasLocation" x="128.98550724637681" y="104.46428571428571"/>
         </view>
     </objects>
+    <designables>
+        <designable name="bLr-gh-dZ5">
+            <size key="intrinsicContentSize" width="59" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="help_ic" width="19" height="19"/>
         <namedColor name="border_default">

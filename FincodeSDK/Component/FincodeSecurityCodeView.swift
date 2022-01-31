@@ -11,17 +11,23 @@ import UIKit
 @IBDesignable
 class FincodeSecurityCodeView: UIView {
     
-    @IBOutlet weak var cvcTextView: UITextField!
+    @IBOutlet weak var cvcTextView: CustomTextField!
     @IBOutlet weak var errorLabelView: UILabel!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
+        initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         viewSetup()
+        initialize()
+    }
+    
+    fileprivate func initialize() {
+        cvcTextView.closable()
     }
 }
 

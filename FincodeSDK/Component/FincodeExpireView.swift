@@ -11,19 +11,26 @@ import UIKit
 @IBDesignable
 class FincodeExpireView: UIView {
     
-    @IBOutlet weak var monthTextView: UITextField!
+    @IBOutlet weak var monthTextView: CustomTextField!
     @IBOutlet weak var errorMonthLabelView: UILabel!
-    @IBOutlet weak var yearTextView: UITextField!
+    @IBOutlet weak var yearTextView: CustomTextField!
     @IBOutlet weak var errorYearLabelView: UILabel!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
+        initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         viewSetup()
+        initialize()
+    }
+    
+    fileprivate func initialize() {
+        monthTextView.closable()
+        yearTextView.closable()
     }
 }
 

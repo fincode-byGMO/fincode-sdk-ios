@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class FincodeCardNoView: UIView {
     
-    @IBOutlet weak var cardNumberTextView: UITextField!
+    @IBOutlet weak var cardNumberTextView: CustomTextField!
     @IBOutlet weak var selectCardImage: UIImageView!
     @IBOutlet weak var errorLabelView: UILabel!
     @IBOutlet weak var borderView: UIView!
@@ -25,27 +25,40 @@ class FincodeCardNoView: UIView {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         viewSetup()
+        initialize()
     }
     
     fileprivate func initialize() {
+        cardNumberTextView.closable()
         
+        //cardNumberTextView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
+    
+//    @objc func textFieldDidChange(_ textField: UITextField) {
+//        if let text = textField.text {
+//            print(text)
+//        }
+//    }
 }
 
 extension FincodeCardNoView: UITextFieldDelegate {
     
-    // フォーカス外れた後
-    func textFieldDidEndEditing(_ textField: UITextField) {
-     
-//        cardNumberTextView.endEditing(true)
-    }
+//    func textFieldDidChangeSelection(_ textField: UITextField) {
+//
+//    }
     
-    // キーボードのreturnタップ後
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
-        cardNumberTextView.endEditing(true)
-        return true
-    }
+//    // フォーカス外れた後
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//
+//
+//    }
+    
+//    // キーボードのreturnタップ後
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        cardNumberTextView.endEditing(true)
+//        return true
+//    }
 }
 
 extension FincodeCardNoView: ValidateDelegate {

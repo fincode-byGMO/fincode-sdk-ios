@@ -10,6 +10,19 @@ import UIKit
 @IBDesignable
 extension UITextField {
     
+    // TODO 見直す
+    func closable() {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .edit,
+            target: self, action: #selector(UITextField.didTouchDone(_:)))
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        toolbar.items = [barButton]
+        self.inputAccessoryView = toolbar
+    }
+    
+    @objc func didTouchDone(_ sender: AnyObject) {
+        self.resignFirstResponder()
+    }
+    
     func isPlaceholderError(_ status: Bool) {
         if status {
             placeholderColor = ColorController.instance.color(.borderError)
