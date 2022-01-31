@@ -43,6 +43,14 @@ extension UIView {
                                               constant: 0))
     }
     
+    func isBorderError(_ status: Bool) {
+        if status {
+            borderColor = ColorController.instance.color(.borderError)
+        } else {
+            borderColor = ColorController.instance.color(.borderDefault)
+        }
+    }
+    
     /// 角の丸みを取得・設定
     @IBInspectable public var cornerRadius: CGFloat {
         get {

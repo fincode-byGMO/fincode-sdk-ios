@@ -13,6 +13,8 @@ class ColorController {
     enum ColorName: String {
         case primary = "primary"
         case radioCheckedOff = "radio_checked_off"
+        case borderDefault = "border_default"
+        case borderError = "border_error"
     }
     
     static let instance = ColorController()
