@@ -34,7 +34,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inv-21-Top">
                     <rect key="frame" x="0.0" y="21" width="200" height="49"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="5" y="0.0" width="192" height="34"/>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -52,6 +52,10 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="twoDigitsPaddingZero"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (月) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-tI-KfW">
@@ -74,7 +78,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
                     <rect key="frame" x="200" y="21" width="200" height="49"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="3" y="0.0" width="192" height="34"/>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -92,6 +96,10 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="twoDigitsPaddingZero"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (年) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-6k-IlQ">
@@ -131,6 +139,14 @@
             <point key="canvasLocation" x="131.8840579710145" y="108.48214285714285"/>
         </view>
     </objects>
+    <designables>
+        <designable name="Gze-iS-wnR">
+            <size key="intrinsicContentSize" width="84.5" height="34"/>
+        </designable>
+        <designable name="xdE-9h-piY">
+            <size key="intrinsicContentSize" width="77.5" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
