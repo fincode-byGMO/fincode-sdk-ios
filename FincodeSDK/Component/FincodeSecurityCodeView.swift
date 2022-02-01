@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class FincodeSecurityCodeView: UIView {
     
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var helpImage: UIImageView!
     @IBOutlet weak var cvcTextView: CustomTextField!
     @IBOutlet weak var errorLabelView: UILabel!
     
@@ -28,6 +30,12 @@ class FincodeSecurityCodeView: UIView {
     
     fileprivate func initialize() {
         cvcTextView.closable()
+        isHeadingHidden(false)
+    }
+    
+    private func isHeadingHidden(_ status: Bool) {
+        headingLabel.isHidden = status
+        helpImage.isHidden = status
     }
 }
 

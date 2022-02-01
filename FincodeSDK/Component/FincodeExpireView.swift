@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable
 class FincodeExpireView: UIView {
     
+    @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var monthTextView: CustomTextField!
     @IBOutlet weak var errorMonthLabelView: UILabel!
     @IBOutlet weak var yearTextView: CustomTextField!
@@ -31,6 +32,11 @@ class FincodeExpireView: UIView {
     fileprivate func initialize() {
         monthTextView.closable()
         yearTextView.closable()
+        isHeadingHidden(false)
+    }
+    
+    private func isHeadingHidden(_ status: Bool) {
+        headingLabel.isHidden = status
     }
 }
 

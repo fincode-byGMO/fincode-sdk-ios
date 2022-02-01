@@ -12,8 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
                 <outlet property="borderView" destination="cTa-v9-qOg" id="ZgO-fM-gbR"/>
+                <outlet property="cardImageView" destination="F0L-7n-DTC" id="RAO-RE-tIj"/>
                 <outlet property="cardNumberTextView" destination="3G6-fm-KWx" id="yhQ-Hj-FlG"/>
                 <outlet property="errorLabelView" destination="zyU-f6-FYa" id="9XQ-UH-bYv"/>
+                <outlet property="headingLabel" destination="DMJ-ai-wXn" id="Ys8-hu-Iwc"/>
                 <outlet property="selectCardImage" destination="DnG-wS-TnZ" id="4kH-tW-9wk"/>
             </connections>
         </placeholder>
