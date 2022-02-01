@@ -11,6 +11,8 @@ import UIKit
 //@IBDesignable
 class CustomTextField: UITextField {
         
+    var borderView: UIView?
+    private var borderError: Bool = false
     private var length: Int = 0
     private var formatType: TextFormatType = .none
     
@@ -74,11 +76,13 @@ extension CustomTextField: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        borderFocus(true)
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = beginEditingConvert(text)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        borderFocus(false)
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = endEditingConvert(text)
     }
@@ -104,6 +108,45 @@ extension CustomTextField: UITextFieldDelegate {
             return TextUtil.twoDigitsPaddingZero(text)
         default:
             return text
+        }
+    }
+    
+    // TODO　確認結果に応じて実装する（入力エラー状態項目が入力中になった場合、赤枠のまま）
+//    private func borderFocus(_ status: Bool) {
+//        guard !borderError else { return }
+//
+//        if let view = borderView {
+//            view.isBorderFocus(status)
+//        } else {
+//            self.isBorderFocus(status)
+//        }
+//    }
+    
+    private func borderFocus(_ status: Bool) {
+        var view: UIView?
+        if borderView != nil {
+            view = borderView
+        } else {
+            view = self
+        }
+        
+        if status {
+            view?.isBorderFocus(status)
+        } else {
+            if !borderError {
+                view?.isBorderFocus(status)
+            } else {
+                view?.isBorderError(true)
+            }
+        }
+    }
+    
+    override func isBorderError(_ status: Bool) {
+        borderError = status
+        if let view = borderView {
+            view.isBorderError(status)
+        } else {
+            super.isBorderError(status)
         }
     }
 }

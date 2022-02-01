@@ -43,9 +43,17 @@ extension UIView {
                                               constant: 0))
     }
     
-    func isBorderError(_ status: Bool) {
+    @objc func isBorderError(_ status: Bool) {
         if status {
             borderColor = ColorController.instance.color(.borderError)
+        } else {
+            borderColor = ColorController.instance.color(.borderDefault)
+        }
+    }
+    
+    func isBorderFocus(_ status: Bool) {
+        if status {
+            borderColor = ColorController.instance.color(.primary)
         } else {
             borderColor = ColorController.instance.color(.borderDefault)
         }

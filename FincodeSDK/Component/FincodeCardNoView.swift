@@ -34,6 +34,7 @@ class FincodeCardNoView: UIView {
     fileprivate func initialize() {
         cardNumberTextView.closable()
         isHeadingHidden(false)
+        cardNumberTextView.borderView = borderView
     }
     
     private func isHeadingHidden(_ status: Bool) {
@@ -47,7 +48,7 @@ extension FincodeCardNoView: ValidateDelegate {
     
     func validate() -> Bool {
         let err = cardNumberTextView.text?.isEmpty ?? false
-        borderView.isBorderError(err)
+        cardNumberTextView.isBorderError(err)
         cardNumberTextView.isPlaceholderError(err)
         errorLabelView.isHidden = !err
         
