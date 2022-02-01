@@ -11,10 +11,13 @@ import UIKit
 @IBDesignable
 class FincodeCardNoView: UIView {
     
+    @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var cardNumberTextView: CustomTextField!
     @IBOutlet weak var selectCardImage: UIImageView!
     @IBOutlet weak var errorLabelView: UILabel!
     @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var cardImageView: UIView!
+    
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,35 +33,14 @@ class FincodeCardNoView: UIView {
     
     fileprivate func initialize() {
         cardNumberTextView.closable()
-        
-        //cardNumberTextView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        isHeadingHidden(false)
     }
     
-//    @objc func textFieldDidChange(_ textField: UITextField) {
-//        if let text = textField.text {
-//            print(text)
-//        }
-//    }
-}
-
-extension FincodeCardNoView: UITextFieldDelegate {
-    
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//
-//    }
-    
-//    // フォーカス外れた後
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//
-//    }
-    
-//    // キーボードのreturnタップ後
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//
-//        cardNumberTextView.endEditing(true)
-//        return true
-//    }
+    private func isHeadingHidden(_ status: Bool) {
+        headingLabel.isHidden = status
+        // selectCardImage.isHidden = status
+        // cardImageView.isHidden = status
+    }
 }
 
 extension FincodeCardNoView: ValidateDelegate {

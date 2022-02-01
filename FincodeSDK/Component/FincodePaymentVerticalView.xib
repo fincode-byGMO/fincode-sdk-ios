@@ -38,19 +38,19 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="85" width="400" height="70"/>
+                            <rect key="frame" x="0.0" y="70" width="400" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="AZS-us-hOw"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="170" width="240" height="70"/>
+                            <rect key="frame" x="0.0" y="140" width="240" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="0ag-eK-MvT"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="255" width="400" height="45"/>
+                            <rect key="frame" x="0.0" y="225" width="400" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="9D4-Pb-I5r"/>
                             </constraints>
@@ -61,8 +61,8 @@
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="JRk-WT-b5o"/>
                         <constraint firstItem="KcG-gr-Fap" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="On2-ls-LfF"/>
                         <constraint firstItem="KcG-gr-Fap" firstAttribute="top" secondItem="ncJ-uk-XCe" secondAttribute="bottom" constant="15" id="P7A-9q-NxM"/>
-                        <constraint firstItem="ncJ-uk-XCe" firstAttribute="top" secondItem="Elx-H1-JJa" secondAttribute="bottom" constant="15" id="RGu-CM-bmX"/>
-                        <constraint firstItem="Elx-H1-JJa" firstAttribute="top" secondItem="HQQ-rZ-fER" secondAttribute="bottom" constant="15" id="cTH-5f-eA6"/>
+                        <constraint firstItem="ncJ-uk-XCe" firstAttribute="top" secondItem="Elx-H1-JJa" secondAttribute="bottom" id="RGu-CM-bmX"/>
+                        <constraint firstItem="Elx-H1-JJa" firstAttribute="top" secondItem="HQQ-rZ-fER" secondAttribute="bottom" id="cTH-5f-eA6"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="eS0-pD-UjC"/>
                         <constraint firstItem="Elx-H1-JJa" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="mun-2J-TCo"/>
                         <constraint firstAttribute="trailing" secondItem="KcG-gr-Fap" secondAttribute="trailing" id="t3b-RU-Yp4"/>

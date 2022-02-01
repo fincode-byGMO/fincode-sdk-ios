@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="errorMonthLabelView" destination="fXI-tI-KfW" id="VWS-tN-vW7"/>
                 <outlet property="errorYearLabelView" destination="3T7-6k-IlQ" id="nwU-5q-dwb"/>
+                <outlet property="headingLabel" destination="oi9-cY-H5B" id="KKa-wM-pN2"/>
                 <outlet property="monthTextView" destination="Gze-iS-wnR" id="6BH-R1-nbY"/>
                 <outlet property="yearTextView" destination="xdE-9h-piY" id="R02-GF-J8o"/>
             </connections>
