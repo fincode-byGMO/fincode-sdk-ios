@@ -8,42 +8,21 @@
 import UIKit
 
 @IBDesignable
-class FincodePaymentVerticalView: UIView {
+class FincodePaymentVerticalView: FincodeCommon {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
     @IBOutlet weak var expireView: FincodeExpireView!
     @IBOutlet weak var securityCodeView: FincodeSecurityCodeView!
     @IBOutlet weak var submitButtonView: FincodeSubmitButtonView!
-    
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
-
-    private var presenter: PaymentPresenter!
-    private var componentDelegateList: [ComponentDelegate] = []
-    private var config :FincodeConfiguration = FincodeConfiguration()
     
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        viewSetup()
-        initialize()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        viewSetup()
-        initialize()
-    }
-    
-    private func initialize() {
-        self.presenter = PaymentPresenter(view: nil, interactor: PaymentInteractor())
+    override func initialize(_ delegateList :[ComponentDelegate]?) {
+        super.initialize([cardNoView, expireView, securityCodeView, submitButtonView])
         
-        componentDelegateList.append(contentsOf: [cardNoView, expireView, securityCodeView, submitButtonView])
         submitButtonView.delegate = self
-        
-        
         submitButtonView.useCase = config.useCase
 
-        
         // TODO 分岐を実装する
         if true {
             addSelectCardArea()
@@ -63,22 +42,7 @@ class FincodePaymentVerticalView: UIView {
     public func setConfiguration(_ config :FincodeConfiguration) {
         self.config = config
     }
-
-    @IBInspectable public var headingHidden: Bool {
-        get {
-            var result = false
-            for item in componentDelegateList {
-                result = result || item.headingHidden
-            }
-            return result
-        }
-        set {
-            //componentDelegateList.append(contentsOf: [cardNoView, expireView, securityCodeView, submitButtonView])
-            for item in componentDelegateList {
-                item.headingHidden = newValue
-            }
-        }
-    }
+    
 }
 
 extension FincodePaymentVerticalView: FincodeSubmitButtonViewDelegate {
@@ -90,7 +54,7 @@ extension FincodePaymentVerticalView: FincodeSubmitButtonViewDelegate {
     
     fileprivate func validate() -> Bool {
         var isError = false
-        for item in componentDelegateList {
+        for item in getComponentDelegateList {
             let result = item.validate()
             isError = isError || result
         }

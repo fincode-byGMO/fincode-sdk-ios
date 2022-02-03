@@ -8,9 +8,6 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVerticalView" customModule="FincodeSDK" customModuleProvider="target">
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="headingHidden" value="YES"/>
-            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardNoView" destination="HQQ-rZ-fER" id="6Wf-M1-I7D"/>
                 <outlet property="expireView" destination="Elx-H1-JJa" id="xvS-JS-Beq"/>
