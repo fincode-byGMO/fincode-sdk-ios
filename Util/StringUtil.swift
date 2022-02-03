@@ -1,5 +1,5 @@
 //
-//  TextUtil.swift
+//  StringUtil.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/01/31.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TextUtil {
+class StringUtil {
     
     static func fourDigitsSpace(_ text: String) -> String {
         let value = text

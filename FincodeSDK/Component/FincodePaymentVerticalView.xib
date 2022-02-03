@@ -8,6 +8,9 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVerticalView" customModule="FincodeSDK" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="headingHidden" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardNoView" destination="HQQ-rZ-fER" id="6Wf-M1-I7D"/>
                 <outlet property="expireView" destination="Elx-H1-JJa" id="xvS-JS-Beq"/>
@@ -19,40 +22,46 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="533"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="420"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-fz-42d">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="162"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="124"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="162" id="hTW-KM-2wp"/>
+                        <constraint firstAttribute="height" constant="124" id="hTW-KM-2wp"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">
-                    <rect key="frame" x="0.0" y="162" width="400" height="371"/>
+                    <rect key="frame" x="0.0" y="124" width="400" height="296"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+                            <rect key="frame" x="0.0" y="10" width="400" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="GUC-OZ-odg"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="70" width="400" height="70"/>
+                            <rect key="frame" x="0.0" y="80" width="400" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="AZS-us-hOw"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="140" width="240" height="70"/>
+                            <rect key="frame" x="0.0" y="150" width="240" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="0ag-eK-MvT"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="225" width="400" height="45"/>
+                            <rect key="frame" x="0.0" y="235" width="400" height="34"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="45" id="9D4-Pb-I5r"/>
+                                <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -66,13 +75,12 @@
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="eS0-pD-UjC"/>
                         <constraint firstItem="Elx-H1-JJa" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="mun-2J-TCo"/>
                         <constraint firstAttribute="trailing" secondItem="KcG-gr-Fap" secondAttribute="trailing" id="t3b-RU-Yp4"/>
-                        <constraint firstItem="HQQ-rZ-fER" firstAttribute="top" secondItem="Vur-6f-JZZ" secondAttribute="top" id="tdm-fG-GBZ"/>
+                        <constraint firstItem="HQQ-rZ-fER" firstAttribute="top" secondItem="Vur-6f-JZZ" secondAttribute="top" constant="10" id="tdm-fG-GBZ"/>
                         <constraint firstItem="HQQ-rZ-fER" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="teR-KA-HDT"/>
                         <constraint firstAttribute="trailing" secondItem="HQQ-rZ-fER" secondAttribute="trailing" id="xnG-pS-rDa"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.74780095886152886" green="1" blue="0.99259958882454435" alpha="0.18875253437370654" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Vur-6f-JZZ" firstAttribute="top" secondItem="U3r-fz-42d" secondAttribute="bottom" id="1eN-2u-QFW"/>
                 <constraint firstAttribute="trailing" secondItem="U3r-fz-42d" secondAttribute="trailing" id="MUX-Re-E3D"/>
@@ -85,7 +93,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="197.10144927536234" y="-118.86160714285714"/>
+            <point key="canvasLocation" x="197.10144927536234" y="-153.34821428571428"/>
         </view>
     </objects>
 </document>

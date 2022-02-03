@@ -1,15 +1,15 @@
 //
-//  FincodePaymentVerticalView.swift
-//  FincodeIos
+//  FincodePaymentHorizontal.swift
+//  FincodeSDK
 //
-//  Created by 中嶋彰 on 2021/12/26.
+//  Created by 中嶋彰 on 2022/02/01.
 //
 
 import UIKit
 
 @IBDesignable
-class FincodePaymentVerticalView: UIView {
-    
+class FincodePaymentHorizontal: UIView {
+
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
     @IBOutlet weak var expireView: FincodeExpireView!
@@ -17,11 +17,11 @@ class FincodePaymentVerticalView: UIView {
     @IBOutlet weak var submitButtonView: FincodeSubmitButtonView!
     
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
-
+    
     private var presenter: PaymentPresenter!
     private var componentDelegateList: [ComponentDelegate] = []
     private var config :FincodeConfiguration = FincodeConfiguration()
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
@@ -34,15 +34,16 @@ class FincodePaymentVerticalView: UIView {
         initialize()
     }
     
-    private func initialize() {
+    fileprivate func initialize() {
         self.presenter = PaymentPresenter(view: nil, interactor: PaymentInteractor())
         
         componentDelegateList.append(contentsOf: [cardNoView, expireView, securityCodeView, submitButtonView])
         submitButtonView.delegate = self
         
-        
         submitButtonView.useCase = config.useCase
-
+//        for item in componentDelegateList {
+//            item.headingHidden(config.) // TODO 設定情報を反映する
+//        }
         
         // TODO 分岐を実装する
         if true {
@@ -50,9 +51,10 @@ class FincodePaymentVerticalView: UIView {
         } else {
             viewConstraints.constant = 0
         }
+        
     }
 
-    private func addSelectCardArea() {
+    fileprivate func addSelectCardArea() {
         let selectCardAreaView = SelectCardAreaView()
         view.addSubview(selectCardAreaView)
         selectCardAreaView.anchorAll(equalTo: view)
@@ -64,24 +66,9 @@ class FincodePaymentVerticalView: UIView {
         self.config = config
     }
 
-    @IBInspectable public var headingHidden: Bool {
-        get {
-            var result = false
-            for item in componentDelegateList {
-                result = result || item.headingHidden
-            }
-            return result
-        }
-        set {
-            //componentDelegateList.append(contentsOf: [cardNoView, expireView, securityCodeView, submitButtonView])
-            for item in componentDelegateList {
-                item.headingHidden = newValue
-            }
-        }
-    }
 }
 
-extension FincodePaymentVerticalView: FincodeSubmitButtonViewDelegate {
+extension FincodePaymentHorizontal: FincodeSubmitButtonViewDelegate {
 
     func fincodeSubmitButtonView() -> PaymentPresenter? {
         guard validate() else { return nil }

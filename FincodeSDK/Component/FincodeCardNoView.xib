@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="borderView" destination="cTa-v9-qOg" id="ZgO-fM-gbR"/>
                 <outlet property="cardImageView" destination="F0L-7n-DTC" id="RAO-RE-tIj"/>
+                <outlet property="cardImageWidthConstraints" destination="g38-Q3-NMI" id="bVy-Eo-FXI"/>
                 <outlet property="cardNumberTextView" destination="3G6-fm-KWx" id="yhQ-Hj-FlG"/>
                 <outlet property="errorLabelView" destination="zyU-f6-FYa" id="9XQ-UH-bYv"/>
                 <outlet property="headingLabel" destination="DMJ-ai-wXn" id="Ys8-hu-Iwc"/>
@@ -76,6 +77,7 @@
                                 <constraint firstItem="QGU-Yg-axP" firstAttribute="top" secondItem="x6f-GY-u4z" secondAttribute="bottom" id="HLW-Yc-6tI"/>
                                 <constraint firstItem="wsl-eN-pWT" firstAttribute="width" secondItem="wsl-eN-pWT" secondAttribute="height" multiplier="1:0.78" id="HXZ-NG-0DN"/>
                                 <constraint firstItem="bth-kY-TdY" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="JId-6i-KJ0"/>
+                                <constraint firstAttribute="height" constant="55" id="Mk2-ql-pec"/>
                                 <constraint firstItem="0jk-o0-8hV" firstAttribute="leading" secondItem="QGU-Yg-axP" secondAttribute="trailing" constant="2" id="eN2-px-bUr"/>
                                 <constraint firstAttribute="bottom" secondItem="QGU-Yg-axP" secondAttribute="bottom" id="hwH-Bm-tBV"/>
                                 <constraint firstItem="wsl-eN-pWT" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="jqK-JG-zv2"/>
@@ -151,7 +153,6 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="zyU-f6-FYa" firstAttribute="top" secondItem="jal-eF-zTH" secondAttribute="top" id="By8-LA-Qs9"/>
-                                <constraint firstAttribute="bottom" secondItem="zyU-f6-FYa" secondAttribute="bottom" id="LVp-jl-fMR"/>
                                 <constraint firstAttribute="trailing" secondItem="zyU-f6-FYa" secondAttribute="trailing" id="iwW-bX-fbC"/>
                                 <constraint firstItem="zyU-f6-FYa" firstAttribute="leading" secondItem="jal-eF-zTH" secondAttribute="leading" constant="10" id="l3e-fx-4dA"/>
                             </constraints>

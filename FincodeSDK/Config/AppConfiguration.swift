@@ -33,8 +33,9 @@ public class AppConfiguration {
     }
     
     fileprivate func getPlistPath(_ name: String) -> String? {
-        let bundle = Bundle(for: type(of: self))
-        guard let path = bundle.path(forResource: name, ofType: "plist") else { return nil }
+        // let bundle = Bundle(for: type(of: self))
+        // guard let path = bundle.path(forResource: name, ofType: "plist") else { return nil }
+        guard let path = BundleUtil.instance.bundle.path(forResource: name, ofType: "plist") else { return nil }
         
         return path
     }

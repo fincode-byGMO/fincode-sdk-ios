@@ -18,6 +18,9 @@ class FincodeCardNoView: UIView {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var cardImageView: UIView!
     
+    @IBOutlet weak var cardImageWidthConstraints: NSLayoutConstraint!
+    
+    private var mLayoutType: LayoutType = .vertical
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,25 +36,55 @@ class FincodeCardNoView: UIView {
     
     fileprivate func initialize() {
         cardNumberTextView.closable()
-        isHeadingHidden(false)
         cardNumberTextView.borderView = borderView
+        cardNumberTextView.validateDelegate = self
     }
     
-    private func isHeadingHidden(_ status: Bool) {
-        headingLabel.isHidden = status
-        // selectCardImage.isHidden = status
-        // cardImageView.isHidden = status
+    private func horizontalLayout() {
+        selectCardImage.isHidden = true
+        cardImageWidthConstraints.isActive = false
+        cardImageView.setViewGoneHorizontal()
+    }
+    
+    /// LayoutTypeの値のみを設定してください。
+    /// ・水平配置の場合: horizontal
+    /// ・垂直配置の場合: vertical
+    @IBInspectable public var layoutType: String {
+        get {
+            return mLayoutType.rawValue
+        }
+        set {
+            mLayoutType = LayoutType(rawValue: newValue) ?? .vertical
+            if mLayoutType == .horizontal {
+                horizontalLayout()
+            }
+        }
     }
 }
 
-extension FincodeCardNoView: ValidateDelegate {
+extension FincodeCardNoView: ComponentDelegate {
+    
+    var headingHidden: Bool {
+        get {
+            return headingLabel.isHidden
+        }
+        set {
+            headingLabel.isHidden = newValue
+        }
+    }
     
     func validate() -> Bool {
-        let err = cardNumberTextView.text?.isEmpty ?? false
-        cardNumberTextView.isBorderError(err)
-        cardNumberTextView.isPlaceholderError(err)
-        errorLabelView.isHidden = !err
+        return cardNumberTextView.validete()
+    }
+}
+
+extension FincodeCardNoView: CustomTextFieldDelegate {
+    
+    func customTextFieldValidate(_ view: CustomTextField) -> Bool {
+        let isError = cardNumberTextView.text?.isEmpty ?? false
+        errorLabelView.text = AppStrings.errorCardNumber.value
+        errorLabelView.isHidden = !isError
         
-        return err
+        return isError
     }
 }

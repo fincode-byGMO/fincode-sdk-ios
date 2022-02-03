@@ -8,13 +8,19 @@
 import Foundation
 import UIKit
 
+protocol CustomTextFieldDelegate: AnyObject {
+    func customTextFieldValidate(_ view: CustomTextField) -> Bool
+}
+
 //@IBDesignable
 class CustomTextField: UITextField {
-        
+    
+    var validateDelegate: CustomTextFieldDelegate?
     var borderView: UIView?
-    private var borderError: Bool = false
+    //private var borderError: Bool = false
     private var length: Int = 0
     private var formatType: TextFormatType = .none
+    var identifier: String?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +36,64 @@ class CustomTextField: UITextField {
 
     fileprivate func initialize() {
         self.delegate = self
+    }
+    
+    private func beginEditingConvert(_ text: String) -> String {
+        var value = text
+        switch(formatType) {
+        case .fourDigitsSpace:
+            value.removeAll { $0 == Character(Constants.halfSpace) }
+            return value
+        case .twoDigitsPaddingZero:
+            return value
+        default:
+            return value
+        }
+    }
+    
+    private func endEditingConvert(_ text: String) -> String {
+        switch(formatType) {
+        case .fourDigitsSpace:
+            return StringUtil.fourDigitsSpace(text)
+        case .twoDigitsPaddingZero:
+            return StringUtil.twoDigitsPaddingZero(text)
+        default:
+            return text
+        }
+    }
+    
+    private func beginEditingBorder() {
+        var view: UIView?
+        if borderView != nil {
+            view = borderView
+        } else {
+            view = self
+        }
+        
+        view?.isBorderFocus(true)
+    }
+    
+    private func endEditingBorder(_ isError: Bool) {
+        var view: UIView?
+        if borderView != nil {
+            view = borderView
+        } else {
+            view = self
+        }
+        
+        if !isError {
+            view?.isBorderFocus(false)
+        } else {
+            view?.isBorderError(true)
+        }
+    }
+    
+    override func isBorderError(_ status: Bool) {
+        if let view = borderView {
+            view.isBorderError(status)
+        } else {
+            super.isBorderError(status)
+        }
     }
     
     /// 入力可能な文字数を取得・設定
@@ -76,77 +140,23 @@ extension CustomTextField: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        borderFocus(true)
+        beginEditingBorder()
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = beginEditingConvert(text)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        borderFocus(false)
+        validete()
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = endEditingConvert(text)
     }
     
-    private func beginEditingConvert(_ text: String) -> String {
-        var value = text
-        switch(formatType) {
-        case .fourDigitsSpace:
-            value.removeAll { $0 == Character(Constants.halfSpace) }
-            return value
-        case .twoDigitsPaddingZero:
-            return value
-        default:
-            return value
-        }
-    }
-    
-    private func endEditingConvert(_ text: String) -> String {
-        switch(formatType) {
-        case .fourDigitsSpace:
-            return TextUtil.fourDigitsSpace(text)
-        case .twoDigitsPaddingZero:
-            return TextUtil.twoDigitsPaddingZero(text)
-        default:
-            return text
-        }
-    }
-    
-    // TODO　確認結果に応じて実装する（入力エラー状態項目が入力中になった場合、赤枠のまま）
-//    private func borderFocus(_ status: Bool) {
-//        guard !borderError else { return }
-//
-//        if let view = borderView {
-//            view.isBorderFocus(status)
-//        } else {
-//            self.isBorderFocus(status)
-//        }
-//    }
-    
-    private func borderFocus(_ status: Bool) {
-        var view: UIView?
-        if borderView != nil {
-            view = borderView
-        } else {
-            view = self
-        }
+    func validete() -> Bool {
+        guard let valid = validateDelegate else { return false }
+        let isError = valid.customTextFieldValidate(self)
+        endEditingBorder(isError)
+        isPlaceholderError(isError)
         
-        if status {
-            view?.isBorderFocus(status)
-        } else {
-            if !borderError {
-                view?.isBorderFocus(status)
-            } else {
-                view?.isBorderError(true)
-            }
-        }
-    }
-    
-    override func isBorderError(_ status: Bool) {
-        borderError = status
-        if let view = borderView {
-            view.isBorderError(status)
-        } else {
-            super.isBorderError(status)
-        }
+        return isError
     }
 }

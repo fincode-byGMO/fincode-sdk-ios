@@ -33,6 +33,8 @@ class FincodeSubmitButtonView: UIView {
     }
     
     fileprivate func initialize() {
+        //submitButton.titleLabel?.numberOfLines = 1
+        submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
     }
     
     var useCase: UseCase {
@@ -41,7 +43,7 @@ class FincodeSubmitButtonView: UIView {
         }
         set {
             useCaseType = newValue
-            submitButton.setTitle(useCaseType.rawValue, for: .normal)
+            submitButton.setTitle(useCaseType.title, for: .normal)
         }
     }
     
@@ -71,5 +73,23 @@ class FincodeSubmitButtonView: UIView {
     
     fileprivate func payment(_ presenter :PaymentPresenter) {
         presenter.didTapPayment()
+    }
+}
+
+extension FincodeSubmitButtonView: ComponentDelegate {
+    
+    var headingHidden: Bool {
+        get {
+            // do nothing
+            return false
+        }
+        set {
+            // do nothing
+        }
+    }
+    
+    func validate() -> Bool {
+        // do nothing
+        return false
     }
 }

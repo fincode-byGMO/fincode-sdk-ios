@@ -15,13 +15,13 @@ enum RadioType: String {
     /// 新しいクレジットカード
     case newCard = "newCard"
     
-    var text: String {
+    var title: String {
         get {
             switch(self) {
             case .registeredCard:
-                return "登録済みのカード"
+                return AppStrings.titleRegisteredCardRadio.value
             case .newCard:
-                return "新しいクレジットカード"
+                return AppStrings.titleNewCardRadio.value
             default:
                 return ""
             }
