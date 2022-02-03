@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
+                <outlet property="borderView" destination="LPK-9F-Snu" id="2P8-hx-GgV"/>
+                <outlet property="boundaryLabel" destination="kG4-Yt-Xbo" id="jIX-ia-Nve"/>
                 <outlet property="errorMonthLabelView" destination="fXI-tI-KfW" id="VWS-tN-vW7"/>
                 <outlet property="errorYearLabelView" destination="3T7-6k-IlQ" id="nwU-5q-dwb"/>
                 <outlet property="headingLabel" destination="oi9-cY-H5B" id="KKa-wM-pN2"/>
@@ -32,11 +34,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inv-21-Top">
-                    <rect key="frame" x="0.0" y="21" width="200" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
+                    <rect key="frame" x="5" y="21" width="390" height="34"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="5" y="0.0" width="192" height="34"/>
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="34"/>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -59,28 +61,18 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="twoDigitsPaddingZero"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (月) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-tI-KfW">
-                            <rect key="frame" x="10" y="34" width="185" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" systemColor="systemPinkColor"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kG4-Yt-Xbo">
+                            <rect key="frame" x="190" y="0.0" width="10" height="34"/>
+                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="1sa-YY-O3Z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="fXI-tI-KfW" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="leading" constant="10" id="8Dw-kI-Fhw"/>
-                        <constraint firstItem="fXI-tI-KfW" firstAttribute="top" secondItem="Gze-iS-wnR" secondAttribute="bottom" id="E98-TK-Vuc"/>
-                        <constraint firstAttribute="bottom" secondItem="fXI-tI-KfW" secondAttribute="bottom" id="dLa-gn-2XK"/>
-                        <constraint firstAttribute="trailing" secondItem="fXI-tI-KfW" secondAttribute="trailing" constant="5" id="gYp-rA-9Q4"/>
-                        <constraint firstAttribute="trailing" secondItem="Gze-iS-wnR" secondAttribute="trailing" constant="3" id="k6q-a7-P0g"/>
-                        <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="leading" constant="5" id="rRZ-fP-119"/>
-                        <constraint firstItem="Gze-iS-wnR" firstAttribute="top" secondItem="inv-21-Top" secondAttribute="top" id="sVO-69-d42"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
-                    <rect key="frame" x="200" y="21" width="200" height="49"/>
-                    <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="3" y="0.0" width="192" height="34"/>
+                            <rect key="frame" x="200" y="0.0" width="190" height="34"/>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -103,41 +95,52 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="twoDigitsPaddingZero"/>
                             </userDefinedRuntimeAttributes>
                         </textField>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (年) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-6k-IlQ">
-                            <rect key="frame" x="10" y="34" width="185" height="15"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" systemColor="systemPinkColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" constant="3" id="773-n2-0zl"/>
-                        <constraint firstAttribute="trailing" secondItem="3T7-6k-IlQ" secondAttribute="trailing" constant="5" id="AEi-CY-yNO"/>
-                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" constant="10" id="Nbi-pw-jDA"/>
-                        <constraint firstItem="xdE-9h-piY" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="j6u-Ew-w8Y"/>
-                        <constraint firstAttribute="bottom" secondItem="3T7-6k-IlQ" secondAttribute="bottom" id="ogg-Lc-zrG"/>
-                        <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" constant="5" id="qz1-XX-pzb"/>
-                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="top" secondItem="xdE-9h-piY" secondAttribute="bottom" id="uZq-K9-t6h"/>
+                        <constraint firstItem="Gze-iS-wnR" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="5UC-19-ciW"/>
+                        <constraint firstItem="kG4-Yt-Xbo" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="8mJ-fD-eqe"/>
+                        <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="E7t-Tm-OvW"/>
+                        <constraint firstItem="kG4-Yt-Xbo" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="trailing" id="F7d-5P-IyD"/>
+                        <constraint firstAttribute="bottom" secondItem="xdE-9h-piY" secondAttribute="bottom" id="O6Q-HA-Udi"/>
+                        <constraint firstAttribute="bottom" secondItem="Gze-iS-wnR" secondAttribute="bottom" id="RNR-BP-gDn"/>
+                        <constraint firstItem="xdE-9h-piY" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="Uvx-i9-Aqw"/>
+                        <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="kG4-Yt-Xbo" secondAttribute="trailing" id="fYc-z7-UMU"/>
+                        <constraint firstItem="kG4-Yt-Xbo" firstAttribute="centerX" secondItem="LPK-9F-Snu" secondAttribute="centerX" id="naj-VK-hTz"/>
+                        <constraint firstAttribute="bottom" secondItem="kG4-Yt-Xbo" secondAttribute="bottom" id="pNC-5W-Zep"/>
+                        <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" id="rgJ-PK-pGe"/>
+                        <constraint firstAttribute="height" constant="34" id="sWZ-Uh-zXn"/>
                     </constraints>
                 </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (月) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-tI-KfW">
+                    <rect key="frame" x="10" y="55" width="138.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" systemColor="systemPinkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (年) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-6k-IlQ">
+                    <rect key="frame" x="210" y="55" width="185" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" systemColor="systemPinkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="inv-21-Top" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="57L-4Z-h3u"/>
-                <constraint firstItem="inv-21-Top" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="ONj-QZ-bdD"/>
-                <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" constant="4" id="OOE-zp-IwI"/>
+                <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" constant="4" id="23I-Pv-dPg"/>
+                <constraint firstItem="3T7-6k-IlQ" firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="4il-71-7gn"/>
+                <constraint firstItem="3T7-6k-IlQ" firstAttribute="leading" secondItem="xdE-9h-piY" secondAttribute="leading" constant="5" id="5ti-SP-M6N"/>
+                <constraint firstItem="3T7-6k-IlQ" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="TVF-vp-MtP"/>
                 <constraint firstItem="oi9-cY-H5B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Tpg-tZ-cfS"/>
                 <constraint firstItem="oi9-cY-H5B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="UAV-eD-i1I"/>
-                <constraint firstAttribute="trailing" secondItem="LPK-9F-Snu" secondAttribute="trailing" id="UYh-Ed-8dV"/>
-                <constraint firstAttribute="bottom" secondItem="inv-21-Top" secondAttribute="bottom" id="Y3Y-0L-jwm"/>
-                <constraint firstAttribute="bottom" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="fcm-kd-mlC"/>
-                <constraint firstItem="inv-21-Top" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" constant="4" id="nLn-uP-8gh"/>
-                <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="trailing" id="pgb-J3-9CP"/>
+                <constraint firstAttribute="trailing" secondItem="LPK-9F-Snu" secondAttribute="trailing" constant="5" id="USd-mv-TAP"/>
+                <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="huE-mR-Lst"/>
+                <constraint firstItem="fXI-tI-KfW" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="m2k-r8-fI0"/>
                 <constraint firstAttribute="trailing" secondItem="oi9-cY-H5B" secondAttribute="trailing" id="qnA-l2-Np7"/>
+                <constraint firstItem="fXI-tI-KfW" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="leading" constant="5" id="vLB-Xj-MMe"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="131.8840579710145" y="108.48214285714285"/>
+            <point key="canvasLocation" x="131.8840579710145" y="158.03571428571428"/>
         </view>
     </objects>
     <designables>

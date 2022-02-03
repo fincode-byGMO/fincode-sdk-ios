@@ -23,7 +23,8 @@ class ColorController {
     
     func color(_ name: ColorName) -> UIColor {
         
-        let bundle = Bundle(for: type(of: self))
+        // let bundle = Bundle(for: type(of: self))
+        let bundle = BundleUtil.instance.bundle
         return UIColor(named: name.rawValue, in: bundle, compatibleWith: nil) ?? UIColor.clear
     }
 }

@@ -13,7 +13,8 @@ extension UIView {
     func viewSetup() {
         
         let name = String(describing: type(of: self))
-        let nib = UINib(nibName: name, bundle: Bundle(for: type(of: self)))
+        // let nib = UINib(nibName: name, bundle: Bundle(for: type(of: self)))
+        let nib = UINib(nibName: name, bundle: BundleUtil.instance.bundle)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
             fatalError("Failed to load nib")
         }
@@ -32,10 +33,25 @@ extension UIView {
         rightAnchor.constraint(equalTo: equalTo.rightAnchor, constant: 0).isActive = true
     }
     
+    func anchorRight(equalTo: UIView) {
+        rightAnchor.constraint(equalTo: equalTo.rightAnchor, constant: 0).isActive = true
+    }
+    
     func setViewGoneVertical() {
         self.isHidden = true
         self.addConstraint(NSLayoutConstraint(item: self,
                                               attribute: NSLayoutConstraint.Attribute.height,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
+                                              toItem: nil,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+                                              multiplier: 1,
+                                              constant: 0))
+    }
+    
+    func setViewGoneHorizontal() {
+        self.isHidden = true
+        self.addConstraint(NSLayoutConstraint(item: self,
+                                              attribute: NSLayoutConstraint.Attribute.width,
                                               relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: nil,
                                               attribute: NSLayoutConstraint.Attribute.notAnAttribute,

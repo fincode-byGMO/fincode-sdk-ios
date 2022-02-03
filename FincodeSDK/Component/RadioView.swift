@@ -51,7 +51,7 @@ class RadioView: UIControl {
         }
         set {
             self.rtype = RadioType(rawValue: newValue) ?? .none
-            labelView.text = self.rtype.text
+            labelView.text = self.rtype.title
         }
     }
     

@@ -30,24 +30,34 @@ class FincodeSecurityCodeView: UIView {
     
     fileprivate func initialize() {
         cvcTextView.closable()
-        isHeadingHidden(false)
+        cvcTextView.validateDelegate = self
     }
     
-    private func isHeadingHidden(_ status: Bool) {
-        headingLabel.isHidden = status
-        helpImage.isHidden = status
+}
+
+extension FincodeSecurityCodeView: ComponentDelegate {
+    
+    var headingHidden: Bool {
+        get {
+            return headingLabel.isHidden
+        }
+        set {
+            headingLabel.isHidden = newValue
+        }
+    }
+    
+    func validate() -> Bool {
+        return cvcTextView.validete()
     }
 }
 
-extension FincodeSecurityCodeView: ValidateDelegate {
+extension FincodeSecurityCodeView: CustomTextFieldDelegate {
     
-    func validate() -> Bool {
+    func customTextFieldValidate(_ view: CustomTextField) -> Bool {
+        let isError = cvcTextView.text?.isEmpty ?? false
+        errorLabelView.text = AppStrings.errorSecurityCode.value
+        errorLabelView.isHidden = !isError
         
-        let err = cvcTextView.text?.isEmpty ?? false
-        cvcTextView.isBorderError(err)
-        cvcTextView.isPlaceholderError(err)
-        errorLabelView.isHidden = !err
-        
-        return false
+        return isError
     }
 }
