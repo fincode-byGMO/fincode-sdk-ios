@@ -12,9 +12,9 @@ import UIKit
 class FincodeSecurityCodeView: UIView {
     
     @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var helpImage: UIImageView!
     @IBOutlet weak var cvcTextView: CustomTextField!
     @IBOutlet weak var errorLabelView: UILabel!
+    @IBOutlet weak var borderView: UIView!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +31,7 @@ class FincodeSecurityCodeView: UIView {
     fileprivate func initialize() {
         cvcTextView.closable()
         cvcTextView.validateDelegate = self
+        cvcTextView.borderView = borderView
     }
     
 }
