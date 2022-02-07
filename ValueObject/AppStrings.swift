@@ -15,6 +15,7 @@ enum AppStrings: String {
     case titleUpdateCardButton
     case titlePaymentButton
     
+    case errorExpireMonthFormat
     case errorCardNumber
     case errorExpireMonth
     case errorExpireYear

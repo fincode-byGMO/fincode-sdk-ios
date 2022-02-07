@@ -37,6 +37,12 @@ extension UIView {
         rightAnchor.constraint(equalTo: equalTo.rightAnchor, constant: 0).isActive = true
     }
     
+    func anchorBottom(equalTo: UIView) -> NSLayoutConstraint {
+        let constraint: NSLayoutConstraint = bottomAnchor.constraint(equalTo: equalTo.bottomAnchor, constant: 0)
+        constraint.isActive = true
+        return constraint
+    }
+    
     func setViewGoneVertical() {
         self.isHidden = true
         self.addConstraint(NSLayoutConstraint(item: self,
