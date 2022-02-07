@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable
 class FincodeExpireView: UIView {
     
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var monthTextView: CustomTextField!
     @IBOutlet weak var errorMonthLabelView: UILabel!
@@ -19,7 +20,15 @@ class FincodeExpireView: UIView {
     @IBOutlet weak var boundaryLabel: UILabel!
     @IBOutlet weak var borderView: UIView!
     
+    @IBOutlet weak var errorMonthLabelViewConstraints: NSLayoutConstraint!
+    @IBOutlet weak var errorYearLabelViewConstraints: NSLayoutConstraint!
+    
+    var monthConstraints: NSLayoutConstraint?
+    var yearConstraints: NSLayoutConstraint?
+    
+    private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^[1-9]$)|(^0[1-9]$)|(^1[0-2]$)")
     private var mLayoutType: LayoutType = .vertical
+    private var errorMonthMsg: String = ""
     private var isErrorMonth: Bool = false
     private var isErrorYear: Bool = false
     let monthIdentifier = "monthIdentifier"
@@ -68,11 +77,17 @@ class FincodeExpireView: UIView {
         borderView.borderWidth = 1
         borderView.borderColor = ColorController.instance.color(.borderDefault)
         
-        errorMonthLabelView.numberOfLines = 0
+        errorYearLabelViewConstraints.isActive = false
         errorMonthLabelView.anchorRight(equalTo: yearTextView)
     }
     
     private func verticalLayout() {
+        errorMonthLabelViewConstraints.isActive = false
+        errorYearLabelViewConstraints.isActive = false
+        
+        monthConstraints = setConstraints(errorMonthLabelView, constraint: monthConstraints, isActive: true)
+        yearConstraints = setConstraints(errorYearLabelView, constraint: yearConstraints, isActive: true)
+        
         errorMonthLabelView.anchorRight(equalTo: monthTextView)
     }
     
@@ -89,7 +104,6 @@ class FincodeExpireView: UIView {
                 verticalLayout()
             } else {
                 horizontalLayout()
-                //errorMonthLabelView.numberOfLines = 2
             }
         }
     }
@@ -119,7 +133,11 @@ extension FincodeExpireView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        let isError = view.text?.isEmpty ?? false
+        guard let text = view.text else { return false }
+        var isError: Bool = text.isEmpty
+        if view.identifier == monthIdentifier {
+            isError = isError || errorMonthFormat(text)
+        }
         
         if view.identifier == monthIdentifier {
             isErrorMonth = isError
@@ -138,28 +156,107 @@ extension FincodeExpireView: CustomTextFieldDelegate {
     
     private func errorVertical(_ view: CustomTextField, isError: Bool) {
         if view.identifier == monthIdentifier {
-            errorMonthLabelView.text = AppStrings.errorExpireMonth.value
+            errorMonthLabelView.text = getMonthErrorMessage(view.text)
             errorMonthLabelView.isHidden = !isError
+            setFormatErrorColor(view)
         } else {
-            errorYearLabelView.text = AppStrings.errorExpireYear.value
+            errorYearLabelView.text = getYearErrorMessage(view.text)
             errorYearLabelView.isHidden = !isError
         }
+        adjustmentConstraintVertical(errorMonth: errorMonthLabelView, errorYear: errorYearLabelView)
     }
     
     private func errorHorizontal(_ view: CustomTextField, isErrorMonth: Bool, isErrorYear: Bool) {
-        var msg: String = ""
-        if isErrorMonth, isErrorYear {
-            msg = AppStrings.errorExpireMonth.value + "\n" + AppStrings.errorExpireYear.value
-        } else if isErrorMonth {
-            msg = AppStrings.errorExpireMonth.value
-        } else if isErrorYear {
-            msg = AppStrings.errorExpireYear.value
-        } else {
-            msg = ""
+        var result: String = ""
+        if view.identifier == monthIdentifier {
+            errorMonthMsg = getMonthErrorMessage(view.text)
         }
-        errorMonthLabelView.text = msg
         
+        if isErrorMonth, isErrorYear {
+            result = errorMonthMsg + "\n" + AppStrings.errorExpireYear.value
+        } else if isErrorMonth {
+            result = errorMonthMsg
+        } else if isErrorYear {
+            result = AppStrings.errorExpireYear.value
+        } else {
+            result = ""
+        }
+        errorMonthLabelView.text = result
         errorMonthLabelView.isHidden = !(isErrorMonth || isErrorYear)
         errorYearLabelView.isHidden = true
+        setFormatErrorColor(view)
+    }
+    
+    private func setFormatErrorColor(_ view: CustomTextField) {
+        guard let value = view.text else { return }
+        if errorMonthFormat(value) {
+            view.textColor = UIColor.red
+        } else {
+            view.textColor = UIColor.black
+        }
+    }
+    
+    private func getMonthErrorMessage(_ value: String?) -> String {
+        guard let val = value else { return "" }
+        if val.isEmpty {
+            return AppStrings.errorExpireMonth.value
+        } else if errorMonthFormat(val) {
+            return AppStrings.errorExpireMonthFormat.value
+        } else {
+            // ブランクだと表示領域の高さだけ縮まるためダミーを返す
+            return " "
+        }
+    }
+    
+    private func getYearErrorMessage(_ value: String?) -> String {
+        guard let val = value else { return "" }
+        if val.isEmpty {
+            return AppStrings.errorExpireYear.value
+        } else {
+            // ブランクだと表示領域の高さだけ縮まるためダミーを返す
+            return " "
+        }
+    }
+    
+    private func errorMonthFormat(_ value: String?) -> Bool {
+        guard let regex = monthFormatRegex, let val = value else { return false }
+        if 0 < regex.matches(in: val, range: NSRange(location: 0, length: val.count)).count {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    // 文言が左上に表示されるように制約を制御
+    private func adjustmentConstraintVertical(errorMonth: UILabel, errorYear: UILabel) {
+        if getLins(errorMonth) == getLins(errorYear) {
+            monthConstraints = setConstraints(errorMonth, constraint: monthConstraints, isActive: true)
+            yearConstraints = setConstraints(errorYear, constraint: yearConstraints, isActive: true)
+        } else if getLins(errorMonth) < getLins(errorYear) {
+            monthConstraints = setConstraints(errorMonth, constraint: monthConstraints, isActive: false)
+            yearConstraints = setConstraints(errorYear, constraint: yearConstraints, isActive: true)
+        } else if getLins(errorMonth) > getLins(errorYear) {
+            monthConstraints = setConstraints(errorMonth, constraint: monthConstraints, isActive: true)
+            yearConstraints = setConstraints(errorYear, constraint: yearConstraints, isActive: false)
+        } else {
+            monthConstraints = setConstraints(errorMonth, constraint: monthConstraints, isActive: true)
+            yearConstraints = setConstraints(errorYear, constraint: yearConstraints, isActive: true)
+        }
+    }
+    
+    private func setConstraints(_ view: UILabel, constraint: NSLayoutConstraint?, isActive: Bool) -> NSLayoutConstraint? {
+        if isActive == false, let cons = constraint {
+            //view.removeConstraint(cons)
+            cons.isActive = false
+            return nil
+        } else if isActive == true, constraint == nil {
+            return view.anchorBottom(equalTo: rootView)
+        }
+        return constraint
+    }
+    
+    private func getLins(_ label: UILabel) -> Int {
+        label.sizeToFit()
+        return Int(label.frame.height / label.font.lineHeight)
     }
 }

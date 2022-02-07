@@ -87,7 +87,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="セキュリティコード (CVC) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-ff-i7b">
-                            <rect key="frame" x="5" y="55" width="295" height="14.5"/>
+                            <rect key="frame" x="5" y="55" width="295" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" systemColor="systemPinkColor"/>
                             <nil key="highlightedColor"/>
@@ -97,6 +97,7 @@
                         <constraint firstItem="CrH-ci-7pA" firstAttribute="top" secondItem="NXI-HT-f53" secondAttribute="bottom" constant="4" id="523-6t-Bt0"/>
                         <constraint firstItem="b2d-ff-i7b" firstAttribute="top" secondItem="CrH-ci-7pA" secondAttribute="bottom" id="52Z-pD-bPR"/>
                         <constraint firstItem="CrH-ci-7pA" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="69f-Nl-iQh"/>
+                        <constraint firstAttribute="bottom" secondItem="b2d-ff-i7b" secondAttribute="bottom" id="NU8-8W-HjX"/>
                         <constraint firstAttribute="trailing" secondItem="CrH-ci-7pA" secondAttribute="trailing" id="SD3-q4-SFH"/>
                         <constraint firstItem="NXI-HT-f53" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="d6s-cK-Ima"/>
                         <constraint firstItem="NXI-HT-f53" firstAttribute="top" secondItem="R0r-H9-HMC" secondAttribute="top" id="fv3-wM-VEN"/>

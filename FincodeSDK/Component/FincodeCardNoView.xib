@@ -153,7 +153,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jal-eF-zTH">
                             <rect key="frame" x="0.0" y="55" width="400" height="15"/>
                             <subviews>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード番号が無効です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-f6-FYa">
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード番号が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-f6-FYa">
                                     <rect key="frame" x="10" y="0.0" width="390" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" systemColor="systemPinkColor"/>
@@ -162,6 +162,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="zyU-f6-FYa" firstAttribute="top" secondItem="jal-eF-zTH" secondAttribute="top" id="By8-LA-Qs9"/>
+                                <constraint firstAttribute="bottom" secondItem="zyU-f6-FYa" secondAttribute="bottom" id="R1p-qK-GBh"/>
                                 <constraint firstAttribute="trailing" secondItem="zyU-f6-FYa" secondAttribute="trailing" id="iwW-bX-fbC"/>
                                 <constraint firstItem="zyU-f6-FYa" firstAttribute="leading" secondItem="jal-eF-zTH" secondAttribute="leading" constant="10" id="l3e-fx-4dA"/>
                             </constraints>
