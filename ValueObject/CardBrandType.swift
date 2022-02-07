@@ -89,4 +89,12 @@ enum CardBrandType: String {
             }
         }
     }
+    
+    func validateDigits(_ value: String) -> Bool {
+        if self != .none {
+            return value.count != digits
+        } else {
+            return false
+        }
+    }
 }

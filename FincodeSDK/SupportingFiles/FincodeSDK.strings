@@ -13,6 +13,7 @@ titleRegisterCardButton = "クレジットカードを登録";
 titleUpdateCardButton = "クレジットカードを更新";
 titlePaymentButton = "お支払い";
 
+errorCardNumberFormat = "カード番号の書式が正しくありません";
 errorCardNumber = "カード番号が無効です";
 errorExpireMonthFormat = "有効期限 (月) の書式が正しくありません";
 errorExpireMonth = "有効期限 (月) が無効です";
