@@ -41,8 +41,8 @@ class FincodeExpireView: UIView {
         monthTextView.closable()
         yearTextView.closable()
         
-        monthTextView.validateDelegate = self
-        yearTextView.validateDelegate = self
+        monthTextView.customTextFieldDelegate = self
+        yearTextView.customTextFieldDelegate = self
         
         monthTextView.identifier = monthIdentifier
         yearTextView.identifier = yearIdentifier
@@ -114,8 +114,11 @@ extension FincodeExpireView: ComponentDelegate {
 }
 
 extension FincodeExpireView: CustomTextFieldDelegate {
+    func textChanged(_ view: CustomTextField) {
+        // do nothing
+    }
     
-    func customTextFieldValidate(_ view: CustomTextField) -> Bool {
+    func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
         let isError = view.text?.isEmpty ?? false
         
         if view.identifier == monthIdentifier {

@@ -140,8 +140,8 @@
 		4F6ACB5D27917491003ECE1D /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */; };
 		4F6CBDF027A3DE3200BFF64E /* ComponentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CBDEF27A3DE3200BFF64E /* ComponentDelegate.swift */; };
 		4F6CBDF127A3DE3200BFF64E /* ComponentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CBDEF27A3DE3200BFF64E /* ComponentDelegate.swift */; };
-		4F7713A627982FCA00B2CB81 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardType.swift */; };
-		4F7713A727982FCA00B2CB81 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardType.swift */; };
+		4F7713A627982FCA00B2CB81 /* CardBrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardBrandType.swift */; };
+		4F7713A727982FCA00B2CB81 /* CardBrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713A527982FCA00B2CB81 /* CardBrandType.swift */; };
 		4F7713A927993CAD00B2CB81 /* RadioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713A827993CAD00B2CB81 /* RadioView.xib */; };
 		4F7713AA27993CAE00B2CB81 /* RadioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7713A827993CAD00B2CB81 /* RadioView.xib */; };
 		4F7713AC27993E3E00B2CB81 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7713AB27993E3E00B2CB81 /* RadioView.swift */; };
@@ -264,7 +264,7 @@
 		4F6ACB5527913DBA003ECE1D /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		4F6CBDEF27A3DE3200BFF64E /* ComponentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentDelegate.swift; sourceTree = "<group>"; };
-		4F7713A527982FCA00B2CB81 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		4F7713A527982FCA00B2CB81 /* CardBrandType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBrandType.swift; sourceTree = "<group>"; };
 		4F7713A827993CAD00B2CB81 /* RadioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioView.xib; sourceTree = "<group>"; };
 		4F7713AB27993E3E00B2CB81 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		4F7713AE27994D6A00B2CB81 /* RadioType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioType.swift; sourceTree = "<group>"; };
@@ -598,7 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				4F86CBA42798118C005E49E9 /* UseCase.swift */,
-				4F7713A527982FCA00B2CB81 /* CardType.swift */,
+				4F7713A527982FCA00B2CB81 /* CardBrandType.swift */,
 				4F7713AE27994D6A00B2CB81 /* RadioType.swift */,
 				4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */,
 				4F90049827A9295500AFFE10 /* LayoutType.swift */,
@@ -885,7 +885,7 @@
 				4F86CBA52798118C005E49E9 /* UseCase.swift in Sources */,
 				4F25A3AD278D2004004F8ADC /* AuthorizationMethod.swift in Sources */,
 				4F25A453278D2803004F8ADC /* Result.swift in Sources */,
-				4F7713A627982FCA00B2CB81 /* CardType.swift in Sources */,
+				4F7713A627982FCA00B2CB81 /* CardBrandType.swift in Sources */,
 				4F25A472278D2804004F8ADC /* TaskDelegate.swift in Sources */,
 				4F25A457278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */,
 				4FF24BA0279A3B8E00360959 /* RadioViewController.swift in Sources */,
@@ -939,7 +939,7 @@
 				4F6CBDF127A3DE3200BFF64E /* ComponentDelegate.swift in Sources */,
 				4FF24BA1279A3B8E00360959 /* RadioViewController.swift in Sources */,
 				4F25A473278D2804004F8ADC /* TaskDelegate.swift in Sources */,
-				4F7713A727982FCA00B2CB81 /* CardType.swift in Sources */,
+				4F7713A727982FCA00B2CB81 /* CardBrandType.swift in Sources */,
 				4F25A466278D2804004F8ADC /* Validation.swift in Sources */,
 				4F25A454278D2803004F8ADC /* Result.swift in Sources */,
 				4F25A46B278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
