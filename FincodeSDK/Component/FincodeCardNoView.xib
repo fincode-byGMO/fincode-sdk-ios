@@ -40,38 +40,46 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0L-7n-DTC">
                             <rect key="frame" x="300" y="0.0" width="100" height="55"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_jcb_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-eN-pWT">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_master_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-eN-pWT">
                                     <rect key="frame" x="0.0" y="33" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="qUv-Il-AJy"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_american-xpress_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Yg-axP">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Yg-axP">
                                     <rect key="frame" x="30" y="33" width="28.5" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="w7u-iC-6hj"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_diners-club_ic" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-o0-8hV">
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-o0-8hV">
                                     <rect key="frame" x="60.5" y="33" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="eRb-Ip-9ta"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bth-kY-TdY">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_american-xpress_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bth-kY-TdY">
                                     <rect key="frame" x="0.0" y="11" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="e2S-Ir-lnc"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_master_ic" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-GY-u4z">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_diners-club_ic" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-GY-u4z">
                                     <rect key="frame" x="30" y="11" width="28.5" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="KvH-J9-Bz7"/>
                                     </constraints>
                                 </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_jcb_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-QK-1E3">
+                                    <rect key="frame" x="60.5" y="11" width="28" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="bbv-QK-1E3" secondAttribute="height" multiplier="1:0.78" id="CT8-Co-XDz"/>
+                                        <constraint firstAttribute="height" constant="22" id="ScJ-j8-ff7"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="0jk-o0-8hV" firstAttribute="top" secondItem="bbv-QK-1E3" secondAttribute="bottom" id="7ca-oO-b4G"/>
                                 <constraint firstItem="x6f-GY-u4z" firstAttribute="leading" secondItem="bth-kY-TdY" secondAttribute="trailing" constant="2" id="8KG-O0-kae"/>
                                 <constraint firstItem="QGU-Yg-axP" firstAttribute="leading" secondItem="wsl-eN-pWT" secondAttribute="trailing" constant="2" id="G3a-dW-Op9"/>
                                 <constraint firstItem="QGU-Yg-axP" firstAttribute="top" secondItem="x6f-GY-u4z" secondAttribute="bottom" id="HLW-Yc-6tI"/>
@@ -79,6 +87,7 @@
                                 <constraint firstItem="bth-kY-TdY" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="JId-6i-KJ0"/>
                                 <constraint firstAttribute="height" constant="55" id="Mk2-ql-pec"/>
                                 <constraint firstItem="0jk-o0-8hV" firstAttribute="leading" secondItem="QGU-Yg-axP" secondAttribute="trailing" constant="2" id="eN2-px-bUr"/>
+                                <constraint firstItem="bbv-QK-1E3" firstAttribute="leading" secondItem="x6f-GY-u4z" secondAttribute="trailing" constant="2" id="gzc-T0-5lM"/>
                                 <constraint firstAttribute="bottom" secondItem="QGU-Yg-axP" secondAttribute="bottom" id="hwH-Bm-tBV"/>
                                 <constraint firstItem="wsl-eN-pWT" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="jqK-JG-zv2"/>
                                 <constraint firstItem="QGU-Yg-axP" firstAttribute="width" secondItem="QGU-Yg-axP" secondAttribute="height" multiplier="1:0.78" id="juV-9f-ny6"/>
@@ -93,7 +102,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-v9-qOg">
                             <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
                                     <rect key="frame" x="245" y="6" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DnG-wS-TnZ" secondAttribute="height" multiplier="1:0.78" id="KsQ-ga-FZW"/>
@@ -115,7 +124,7 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                             <integer key="value" value="16"/>
                                         </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="fourDigitsSpace"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="cardNumber"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                             </subviews>

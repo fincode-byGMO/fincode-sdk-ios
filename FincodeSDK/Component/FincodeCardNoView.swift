@@ -37,7 +37,7 @@ class FincodeCardNoView: UIView {
     fileprivate func initialize() {
         cardNumberTextView.closable()
         cardNumberTextView.borderView = borderView
-        cardNumberTextView.validateDelegate = self
+        cardNumberTextView.customTextFieldDelegate = self
     }
     
     private func horizontalLayout() {
@@ -79,8 +79,14 @@ extension FincodeCardNoView: ComponentDelegate {
 }
 
 extension FincodeCardNoView: CustomTextFieldDelegate {
+    func textChanged(_ view: CustomTextField) {
+        guard let text = view.text else { return }
+        let cardBrandType = CardBrandType.getType(text)
+        selectCardImage.image = cardBrandType.cardImage
+        view.maxLength = cardBrandType.digits
+    }
     
-    func customTextFieldValidate(_ view: CustomTextField) -> Bool {
+    func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
         let isError = cardNumberTextView.text?.isEmpty ?? false
         errorLabelView.text = AppStrings.errorCardNumber.value
         errorLabelView.isHidden = !isError

@@ -30,7 +30,7 @@ class FincodeSecurityCodeView: UIView {
     
     fileprivate func initialize() {
         cvcTextView.closable()
-        cvcTextView.validateDelegate = self
+        cvcTextView.customTextFieldDelegate = self
         cvcTextView.borderView = borderView
     }
     
@@ -53,8 +53,11 @@ extension FincodeSecurityCodeView: ComponentDelegate {
 }
 
 extension FincodeSecurityCodeView: CustomTextFieldDelegate {
+    func textChanged(_ view: CustomTextField) {
+        // do nothing
+    }
     
-    func customTextFieldValidate(_ view: CustomTextField) -> Bool {
+    func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
         let isError = cvcTextView.text?.isEmpty ?? false
         errorLabelView.text = AppStrings.errorSecurityCode.value
         errorLabelView.isHidden = !isError

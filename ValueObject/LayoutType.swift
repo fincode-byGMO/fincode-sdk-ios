@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum LayoutType: String {
+enum LayoutType: String {
     /// 水平配置
     case horizontal = "horizontal"
     /// 垂直配置

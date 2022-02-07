@@ -9,42 +9,43 @@ import Foundation
 import UIKit
 
 protocol CustomTextFieldDelegate: AnyObject {
-    func customTextFieldValidate(_ view: CustomTextField) -> Bool
+    /// 入力確定後
+    func textChanged(_ view: CustomTextField)
+    /// フォーカスOUT時のバリデーション
+    /// - Returns: true: 異常, false: 正常
+    func valideteTextEndEditing(_ view: CustomTextField) -> Bool
 }
 
-//@IBDesignable
 class CustomTextField: UITextField {
     
-    var validateDelegate: CustomTextFieldDelegate?
+    var customTextFieldDelegate: CustomTextFieldDelegate?
     var borderView: UIView?
-    //private var borderError: Bool = false
-    private var length: Int = 0
+    private var mMaxlength: Int = 0
     private var formatType: TextFormatType = .none
     var identifier: String?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-//        viewSetup()
         initialize()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        viewSetup()
         initialize()
     }
 
     fileprivate func initialize() {
         self.delegate = self
+        self.addTarget(self, action: #selector(self.textFieldEditingChanged(_:)), for: .editingChanged)
     }
     
     private func beginEditingConvert(_ text: String) -> String {
         var value = text
         switch(formatType) {
-        case .fourDigitsSpace:
+        case .cardNumber:
             value.removeAll { $0 == Character(Constants.halfSpace) }
             return value
-        case .twoDigitsPaddingZero:
+        case .expire:
             return value
         default:
             return value
@@ -53,9 +54,9 @@ class CustomTextField: UITextField {
     
     private func endEditingConvert(_ text: String) -> String {
         switch(formatType) {
-        case .fourDigitsSpace:
-            return StringUtil.fourDigitsSpace(text)
-        case .twoDigitsPaddingZero:
+        case .cardNumber:
+            return CardBrandType.getType(text).delimit(text)
+        case .expire:
             return StringUtil.twoDigitsPaddingZero(text)
         default:
             return text
@@ -99,16 +100,16 @@ class CustomTextField: UITextField {
     /// 入力可能な文字数を取得・設定
     @IBInspectable public var maxLength: Int {
         get {
-            return self.length
+            return self.mMaxlength
         }
         set {
-            self.length = newValue
+            self.mMaxlength = newValue
         }
     }
     
     /// TextFormatTypeの値のみを設定してください。
-    /// ・4桁ごとに半角スペース区切りの場合: fourDigitsSpace
-    /// ・0埋めの場合: twoDigitsPaddingZero
+    /// ・カードブランドに応じた半角スペース区切りの場合: cardNumber
+    /// ・0埋めの場合: expire
     @IBInspectable public var textFormatType: String {
         get {
             return self.formatType.rawValue
@@ -120,10 +121,10 @@ class CustomTextField: UITextField {
 }
 
 extension CustomTextField: UITextFieldDelegate {
-    
+    // 1文字ごとの確定前
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if self.length <= 0 {
+        if self.mMaxlength <= 0 {
             return true
         }
         
@@ -132,19 +133,26 @@ extension CustomTextField: UITextFieldDelegate {
             return true
         }
         
-        if let text = textField.text, text.count < self.length {
+        if let text = textField.text, text.count < self.mMaxlength {
             return true
         } else {
             return false
         }
     }
     
+    // 1文字ごとの入力確定後
+    @objc private func textFieldEditingChanged(_ sender: UITextField) {
+        customTextFieldDelegate?.textChanged(self)
+    }
+    
+    // フォーカスIN
     func textFieldDidBeginEditing(_ textField: UITextField) {
         beginEditingBorder()
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = beginEditingConvert(text)
     }
     
+    // フォーカスOUT
     func textFieldDidEndEditing(_ textField: UITextField) {
         validete()
         guard let text = textField.text, !text.isEmpty else { return }
@@ -152,8 +160,8 @@ extension CustomTextField: UITextFieldDelegate {
     }
     
     func validete() -> Bool {
-        guard let valid = validateDelegate else { return false }
-        let isError = valid.customTextFieldValidate(self)
+        guard let valid = customTextFieldDelegate else { return false }
+        let isError = valid.valideteTextEndEditing(self)
         endEditingBorder(isError)
         isPlaceholderError(isError)
         

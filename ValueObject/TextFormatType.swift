@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum TextFormatType: String {
+enum TextFormatType: String {
     /// なし
     case none = ""
-    /// 4桁ごとに半角スペース区切り
-    case fourDigitsSpace = "fourDigitsSpace"
-    /// 0埋め
-    case twoDigitsPaddingZero = "twoDigitsPaddingZero"
+    /// カード番号
+    case cardNumber = "cardNumber"
+    /// 有効期限
+    case expire = "expire"
 }
