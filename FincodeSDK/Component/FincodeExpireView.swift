@@ -133,7 +133,7 @@ extension FincodeExpireView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        guard let text = view.text else { return false }
+        guard let text = view.text else { return true }
         var isError: Bool = text.isEmpty
         if view.identifier == monthIdentifier {
             isError = isError || errorMonthFormat(text)
@@ -246,7 +246,6 @@ extension FincodeExpireView: CustomTextFieldDelegate {
     
     private func setConstraints(_ view: UILabel, constraint: NSLayoutConstraint?, isActive: Bool) -> NSLayoutConstraint? {
         if isActive == false, let cons = constraint {
-            //view.removeConstraint(cons)
             cons.isActive = false
             return nil
         } else if isActive == true, constraint == nil {

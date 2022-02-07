@@ -87,10 +87,34 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        let isError = cardNumberTextView.text?.isEmpty ?? false
-        errorLabelView.text = AppStrings.errorCardNumber.value
+        guard let value = cardNumberTextView.text else { return true }
+        let isError = value.isEmpty || CardBrandType.getType(value).validateDigits(value)
+        
+        errorLabelView.text = getErrorMessage(value)
         errorLabelView.isHidden = !isError
+        setFormatErrorColor(view)
         
         return isError
+    }
+    
+    private func setFormatErrorColor(_ view: CustomTextField) {
+        guard let value = cardNumberTextView.text else { return }
+        if CardBrandType.getType(value).validateDigits(value) {
+            view.textColor = UIColor.red
+        } else {
+            view.textColor = UIColor.black
+        }
+    }
+    
+    private func getErrorMessage(_ value: String?) -> String {
+        guard let val = value else { return "" }
+        if val.isEmpty {
+            return AppStrings.errorCardNumber.value
+        } else if CardBrandType.getType(val).validateDigits(val) {
+            return AppStrings.errorCardNumberFormat.value
+        } else {
+            // ブランクだと表示領域の高さだけ縮まるためダミーを返す
+            return " "
+        }
     }
 }
