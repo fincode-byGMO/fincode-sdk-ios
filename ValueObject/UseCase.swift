@@ -14,7 +14,7 @@ public enum UseCase {
     case registerCard
     /// クレジットカードを更新
     case updateCard
-    /// お支払い
+    /// 決済
     case payment
     
     var title: String {

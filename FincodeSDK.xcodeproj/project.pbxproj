@@ -634,8 +634,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F25A479278D2862004F8ADC /* SwiftyJSON.h in Headers */,
 				4F45D190278D1D6B00FB3483 /* FincodeSDK.h in Headers */,
+				4F25A479278D2862004F8ADC /* SwiftyJSON.h in Headers */,
 				4F25A469278D2804004F8ADC /* Alamofire.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

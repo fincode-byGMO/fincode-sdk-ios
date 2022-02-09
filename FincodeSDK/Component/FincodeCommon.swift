@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class FincodeCommon: UIView {
+public class FincodeCommon: UIView {
     
     private var mHeadingHidden: Bool = false
     private var componentDelegateList: [ComponentDelegate]?

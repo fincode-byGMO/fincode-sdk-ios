@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class FincodePaymentVerticalView: FincodeCommon {
+public class FincodePaymentVerticalView: FincodeCommon {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!

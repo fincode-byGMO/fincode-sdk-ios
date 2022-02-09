@@ -9,25 +9,34 @@
 import Foundation
 
 public class FincodeConfiguration {
-    #if DEBUG
-    //************** Debug向け ************** // TODO 削除予定
-    /// ユースケース
+
+    /// 利用目的を選択
+    ///
+    /// payment : 決済
+    ///
+    /// registerCard : クレジットカード登録
+    ///
+    /// updateCard :  クレジットカード更新
     public var useCase: UseCase = .payment
-    /// 認証方式およびAPIキー
-    public var authorizationMethod: AuthorizationMethod = .Bearer(apiKey: "1qaz2WSX3EdC")
-    /// マイナーバージョン
-    public var apiVersion: String = "20220101"
-    /// オーダーID
-    public var id: String = "tran1234567890"
-    #else
-    //************** Release向け **************
-    /// ユースケース
-    public var useCase: UseCase = .none
-    /// 認証方式およびAPIキー
-    public var authorizationMethod: AuthorizationMethod = .none
-    /// マイナーバージョン
+    
+    /// 認証方式およびAPIキーを設定
+    ///
+    /// Basic認証 ( Base64でエンコードしたAPIキー )
+    ///
+    /// Bearer認証
+    public var authorizationMethod: AuthorizationMethod = .Bearer(apiKey: "")
+    
+    /// APIバージョンを設定
     public var apiVersion: String = ""
-    /// オーダーID
+    
+    /// 決済する対象の取引IDを設定
+    public var accessId: String = ""
+    
+    /// オーダーIDを設定
+    ///
+    /// 利用目的が決済の場合、決済する対象のオーダーIDを設定
     public var id: String = ""
-    #endif
+    
+    public init() {
+    }
 }
