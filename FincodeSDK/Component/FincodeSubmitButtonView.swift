@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FincodeSubmitButtonViewDelegate: AnyObject {
-    func fincodeSubmitButtonView() -> PaymentPresenter?
+    func fincodeSubmitButtonView() -> PaymentPresenterDelegate?
 }
 
 @IBDesignable
@@ -17,7 +17,7 @@ class FincodeSubmitButtonView: UIView {
     
     @IBOutlet weak var submitButton: UIButton!
     
-    private var useCaseType: UseCase = .none
+    private var mConfig: FincodeConfiguration?
     var delegate: FincodeSubmitButtonViewDelegate?
     
     override public init(frame: CGRect) {
@@ -33,25 +33,22 @@ class FincodeSubmitButtonView: UIView {
     }
     
     fileprivate func initialize() {
-        //submitButton.titleLabel?.numberOfLines = 1
         submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
     }
     
-    var useCase: UseCase {
+    var config: FincodeConfiguration? {
         get {
-            return useCaseType
+            return mConfig
         }
         set {
-            useCaseType = newValue
-            submitButton.setTitle(useCaseType.title, for: .normal)
+            mConfig = newValue
+            submitButton.setTitle(mConfig?.useCase.title, for: .normal)
         }
     }
     
     @IBAction func didTouchButton(_ sender: Any) {
-        
-        guard let presenter: PaymentPresenter = delegate?.fincodeSubmitButtonView() else { return }
-        
-        switch(useCase) {
+        guard let presenter = delegate?.fincodeSubmitButtonView(), let config = mConfig else { return }
+        switch(config.useCase) {
         case .registerCard:
             registerCard(presenter)
         case .updateCard:
@@ -63,16 +60,16 @@ class FincodeSubmitButtonView: UIView {
         }
     }
     
-    fileprivate func registerCard(_ presenter :PaymentPresenter) {
+    fileprivate func registerCard(_ presenter :PaymentPresenterDelegate) {
         
     }
     
-    fileprivate func updateCard(_ presenter :PaymentPresenter) {
+    fileprivate func updateCard(_ presenter :PaymentPresenterDelegate) {
         
     }
     
-    fileprivate func payment(_ presenter :PaymentPresenter) {
-        presenter.didTapPayment()
+    fileprivate func payment(_ presenter :PaymentPresenterDelegate) {
+        presenter.payment()
     }
 }
 

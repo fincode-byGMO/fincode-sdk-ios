@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class FincodePaymentHorizontal: FincodeCommon {
+public class FincodePaymentHorizontal: FincodeCommon {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
@@ -19,45 +19,25 @@ class FincodePaymentHorizontal: FincodeCommon {
     
     override func initialize(_ delegateList: [ComponentDelegate]? = nil) {
         super.initialize([cardNoView, expireView, securityCodeView, submitButtonView])
+    }
+    
+    override func getInputInfo() -> InputInfo {
+        let cardNo = cardNoView.cardNumber
+        let expireMonth = expireView.month
+        let expireYear = expireView.year
+        let securityCode = securityCodeView.cvc
         
-        submitButtonView.delegate = self
-        submitButtonView.useCase = config.useCase
-
-        // TODO 分岐を実装する
-        if true {
-            addSelectCardArea()
+        return InputInfo(cardNumber: cardNo, expireMonth: expireMonth, expireYear: expireYear, securityCode: securityCode)
+    }
+    
+    override func setCardList(_ list: [CardInfo]?) {
+        if let li = list, 0 < li.count {
+            let selectCardAreaView = SelectCardAreaView()
+            selectCardAreaView.cardInfoList = li
+            view.addSubview(selectCardAreaView)
+            selectCardAreaView.anchorAll(equalTo: view)
         } else {
             viewConstraints.constant = 0
         }
-    }
-
-    fileprivate func addSelectCardArea() {
-        let selectCardAreaView = SelectCardAreaView()
-        view.addSubview(selectCardAreaView)
-        selectCardAreaView.anchorAll(equalTo: view)
-    }
-        
-    /// 設定情報
-    /// - Parameter config:
-    public func setConfiguration(_ config :FincodeConfiguration) {
-        self.config = config
-    }
-
-}
-
-extension FincodePaymentHorizontal: FincodeSubmitButtonViewDelegate {
-
-    func fincodeSubmitButtonView() -> PaymentPresenter? {
-        guard validate() else { return nil }
-        return presenter
-    }
-    
-    fileprivate func validate() -> Bool {
-        var isError = false
-        for item in getComponentDelegateList {
-            let result = item.validate()
-            isError = isError || result
-        }
-        return isError
     }
 }

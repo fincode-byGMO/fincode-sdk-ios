@@ -18,7 +18,10 @@ class PaymentRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func payment(_ id: String, request: PaymentRequest, header: [String: String], complete: @escaping (_ result: APIResult<PaymentResponse>) -> Void)
+    func payment(_ id: String,
+                 request: PaymentRequest,
+                 header: [String: String],
+                 complete: @escaping (_ result: APIResult<PaymentResponse>) -> Void)
     {
         APIEndpoint
             .payment(id: id, data: request.parameters(), header: header)
@@ -32,4 +35,26 @@ class PaymentRepository {
             }
         }
     }
+    
+//    /// カード一覧取得
+//    /// - Parameters:
+//    ///   - customerId: 顧客ID
+//    ///   - header: ヘッダー
+//    ///   - complete: 結果返却
+//    func cardInfoList(_ customerId: String,
+//                      header: [String: String],
+//                      complete: @escaping (_ result: APIResult<CardInfoListResponse>) -> Void)
+//    {
+//        APIEndpoint
+//            .cardInfoList(customer_id: customerId, header: header)
+//            .apiRequest
+//            .responseJSONWithErrorHandler
+//        { response in
+//            if response.result.isSuccess, let json = response.result.value {
+//                complete(.success(CardInfoListResponse(json: JSON(json))))
+//            } else {
+//                complete(.failure(APIError(response: response.response, data: response.data)))
+//            }
+//        }
+//    }
 }

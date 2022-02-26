@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentHorizontal">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVertical" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
                 <outlet property="cardNoView" destination="oPZ-tW-4QE" id="Gq3-V7-5ff"/>
                 <outlet property="expireView" destination="Sed-Qa-kk2" id="Hpa-Bh-gbx"/>
@@ -29,7 +29,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-qL-zqn">
-                    <rect key="frame" x="0.0" y="134" width="1290" height="159"/>
+                    <rect key="frame" x="0.0" y="134" width="1290" height="69.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-tW-4QE" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="387" height="69.5"/>
@@ -47,7 +47,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sed-Qa-kk2" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="387" y="0.0" width="258" height="84"/>
+                            <rect key="frame" x="387" y="0.0" width="258" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="horizontal"/>
                             </userDefinedRuntimeAttributes>
@@ -61,6 +61,7 @@
                         <constraint firstItem="Erc-JK-fh6" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" id="Bp6-9V-aPq"/>
                         <constraint firstItem="Erc-JK-fh6" firstAttribute="leading" secondItem="Sed-Qa-kk2" secondAttribute="trailing" id="Mqq-Km-GPd"/>
                         <constraint firstItem="Jrl-8z-6ek" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" constant="18" id="QON-D9-o9v"/>
+                        <constraint firstAttribute="bottom" secondItem="Sed-Qa-kk2" secondAttribute="bottom" id="XL3-uc-azN"/>
                         <constraint firstItem="Sed-Qa-kk2" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" id="dm1-lp-Zbb"/>
                         <constraint firstItem="Jrl-8z-6ek" firstAttribute="width" secondItem="QWW-qL-zqn" secondAttribute="width" multiplier="0.25" id="nAX-Yv-XKb"/>
                         <constraint firstItem="Sed-Qa-kk2" firstAttribute="width" secondItem="QWW-qL-zqn" secondAttribute="width" multiplier="0.2" id="q9h-K5-6Uf"/>
@@ -77,7 +78,6 @@
                 <constraint firstItem="Ai2-fi-po6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UWn-De-W06"/>
                 <constraint firstItem="QWW-qL-zqn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UtY-Zc-JvU"/>
                 <constraint firstItem="Ai2-fi-po6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uH2-7w-LFv"/>
-                <constraint firstAttribute="bottom" secondItem="QWW-qL-zqn" secondAttribute="bottom" id="vFD-cz-Jfd"/>
                 <constraint firstAttribute="trailing" secondItem="Ai2-fi-po6" secondAttribute="trailing" id="zfL-Gh-rtf"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

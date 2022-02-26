@@ -18,9 +18,9 @@ enum CardBrandType: String {
     case amex = "card_american-xpress_ic"
     
     static private let visaRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^4[0-9]{0,15}$")
-    static private let masterRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^5[0-9]{0,15}$")
+    static private let masterRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^5[1-5][0-9]{0,14}$)|(^2[2-7][0-9]{0,14}$)")
     static private let jcbRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^35[0-9]{0,14}$")
-    static private let dinersRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^36[0-9]{0,12}$")
+    static private let dinersRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^30[0-9]{0,12}$)|(^36[0-9]{0,12}$)|(^38[0-9]{0,12}$)|(^39[0-9]{0,12}$)")
     static private let amexRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^34[0-9]{0,13}$)|(^37[0-9]{0,13}$)")
     
     static func getType(_ value: String) -> CardBrandType {

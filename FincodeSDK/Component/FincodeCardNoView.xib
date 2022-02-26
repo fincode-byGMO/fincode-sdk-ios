@@ -40,37 +40,38 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0L-7n-DTC">
                             <rect key="frame" x="300" y="0.0" width="100" height="55"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_master_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-eN-pWT">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_jcb_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-eN-pWT">
                                     <rect key="frame" x="0.0" y="33" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="qUv-Il-AJy"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Yg-axP">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_american-xpress_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Yg-axP">
                                     <rect key="frame" x="30" y="33" width="28.5" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="w7u-iC-6hj"/>
                                     </constraints>
                                 </imageView>
-                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-o0-8hV">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_diners-club_ic" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-o0-8hV">
                                     <rect key="frame" x="60.5" y="33" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="eRb-Ip-9ta"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_american-xpress_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bth-kY-TdY">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bth-kY-TdY">
                                     <rect key="frame" x="0.0" y="11" width="28" height="22"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="e2S-Ir-lnc"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_diners-club_ic" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-GY-u4z">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_master_ic" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-GY-u4z">
                                     <rect key="frame" x="30" y="11" width="28.5" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="KvH-J9-Bz7"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_jcb_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-QK-1E3">
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-QK-1E3">
                                     <rect key="frame" x="60.5" y="11" width="28" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="bbv-QK-1E3" secondAttribute="height" multiplier="1:0.78" id="CT8-Co-XDz"/>
@@ -103,14 +104,14 @@
                             <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
-                                    <rect key="frame" x="245" y="6" width="28" height="22"/>
+                                    <rect key="frame" x="242" y="5" width="31" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DnG-wS-TnZ" secondAttribute="height" multiplier="1:0.78" id="KsQ-ga-FZW"/>
-                                        <constraint firstAttribute="height" constant="22" id="auA-Wr-ADb"/>
+                                        <constraint firstAttribute="height" constant="24" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" カード番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="7.5" width="230" height="19.5"/>
+                                    <rect key="frame" x="10" y="7.5" width="227" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
                                     </constraints>
@@ -207,7 +208,7 @@
         <image name="card_diners-club_ic" width="100" height="78"/>
         <image name="card_jcb_ic" width="100" height="78"/>
         <image name="card_master_ic" width="100" height="78"/>
-        <image name="card_visa_ic" width="100" height="78"/>
+        <image name="card_visa_ic" width="241" height="78"/>
         <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

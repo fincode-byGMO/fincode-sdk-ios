@@ -10,6 +10,22 @@ import Foundation
 
 public class FincodeConfiguration {
 
+    /// 決済種別
+    public var payType: String = ""
+    
+    /// 支払方法
+    ///
+    /// "1" : 一括
+    ///
+    /// "2" : 分割
+    ///
+    /// "3" : ボーナス一括
+    ///
+    /// "4" : ボーナス分割
+    /// 
+    /// "5" : リボ
+    public var method: String?
+    
     /// 利用目的を選択
     ///
     /// payment : 決済
@@ -17,14 +33,21 @@ public class FincodeConfiguration {
     /// registerCard : クレジットカード登録
     ///
     /// updateCard :  クレジットカード更新
-    public var useCase: UseCase = .payment
+    public var useCase: UseCase = .none
     
-    /// 認証方式およびAPIキーを設定
+    /// 認証方式およびシークレットキーを設定
     ///
-    /// Basic認証 ( Base64でエンコードしたAPIキー )
+    /// Basic認証 ( Base64でエンコードしたシークレットキー)
     ///
     /// Bearer認証
-    public var authorizationMethod: AuthorizationMethod = .Bearer(apiKey: "")
+    public var authorizationSecret: Authorization = .Bearer(apiKey: "")
+    
+    /// 認証方式およびパブリックキーを設定
+    ///
+    /// Basic認証 ( Base64でエンコードしたパブリックキー )
+    ///
+    /// Bearer認証
+    public var authorizationPublic: Authorization = .Bearer(apiKey: "")
     
     /// APIバージョンを設定
     public var apiVersion: String = ""
@@ -36,6 +59,9 @@ public class FincodeConfiguration {
     ///
     /// 利用目的が決済の場合、決済する対象のオーダーIDを設定
     public var id: String = ""
+    
+    /// 顧客ID
+    public var customerId = ""
     
     public init() {
     }

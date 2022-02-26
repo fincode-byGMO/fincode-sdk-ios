@@ -60,6 +60,14 @@ class FincodeCardNoView: UIView {
             }
         }
     }
+    
+    var cardNumber: String {
+        get {
+            guard var value = cardNumberTextView.text else { return "" }
+            value.removeAll { $0 == Character(Constants.halfSpace) }
+            return value
+        }
+    }
 }
 
 extension FincodeCardNoView: ComponentDelegate {
