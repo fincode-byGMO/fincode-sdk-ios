@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum APIResult<T> {
+public enum APIResult<T> {
     case success(T)
     case failure(APIError)
 

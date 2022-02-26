@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVerticalView" customModule="FincodeSDK" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVertical" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
                 <outlet property="cardNoView" destination="HQQ-rZ-fER" id="6Wf-M1-I7D"/>
                 <outlet property="expireView" destination="Elx-H1-JJa" id="xvS-JS-Beq"/>
@@ -23,30 +23,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-fz-42d">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="124"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="124" id="hTW-KM-2wp"/>
+                        <constraint firstAttribute="height" id="hTW-KM-2wp"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">
-                    <rect key="frame" x="0.0" y="124" width="400" height="296"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="420"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="10" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="79.5" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="149" width="240" height="69.5"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="233.5" width="400" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>

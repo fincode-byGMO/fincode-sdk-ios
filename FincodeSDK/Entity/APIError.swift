@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIError: Error {
+public class APIError: Error {
 
     enum ErrorCode: String {
         case expiredAccessToken = "expire_access_token"
@@ -24,8 +24,6 @@ class APIError: Error {
     let description: String?
     let detailMessage: String?
     let parameter: String?
-    
-    //var exception: FcConfigurationException? = nil
 
     init(response: HTTPURLResponse? = nil, data: Data? = nil) {
         statusCode = response?.statusCode ?? -1
@@ -59,8 +57,6 @@ class APIError: Error {
             description = nil
             detailMessage = nil
             parameter = nil
-            //exception = FcConfigurationException(kind: .responseMappingFailed)
-            logger("Response", "error : \(ErrorKind.responseMappingFailed.rawValue)")
         }
     }
 

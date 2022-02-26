@@ -10,33 +10,80 @@ import Foundation
 import UIKit
 
 protocol PaymentPresenterDelegate: AnyObject {
-    func didTapPayment() throws
+    var inputInfo: InputInfo? { get set }
+    var externalResultDelegate: ResultDelegate? { get set }
+    func payment()
 }
 
 class PaymentPresenter {
     
-    private weak var view: UIButton?
-    private var interactor: PaymentInteractorDelegate
-    var config: FincodeConfiguration = FincodeConfiguration()
+    private let interactor: PaymentInteractorDelegate
+    private let config: FincodeConfiguration
+    private let uiview: FincodeCommon
+    private var mExternalResultDelegate: ResultDelegate?
+    private var mInputInfo: InputInfo?
     
-    init(view: UIButton?, interactor: PaymentInteractorDelegate) {
-        self.view = view
+    init(_ config: FincodeConfiguration, interactor: PaymentInteractorDelegate, uiview: FincodeCommon) {
+        self.config = config
         self.interactor = interactor
+        self.uiview = uiview
     }
 }
 
 extension PaymentPresenter: PaymentPresenterDelegate {
     
-    func didTapPayment() {
-        let header = ApiConfiguration.instance.requestHeader(config)
-        let id = ApiConfiguration.instance.orderId(config)
-        self.interactor.payment(id, request: getRequestParam(), header: header)
+    var inputInfo: InputInfo? {
+        get {
+            return mInputInfo
+        }
+        set {
+            mInputInfo = newValue
+        }
     }
     
-    private func getRequestParam() -> PaymentRequest {
-        // TODO リクエストパラメータを実装する
-        let param = PaymentRequest(sample: "")
+    var externalResultDelegate: ResultDelegate? {
+        get {
+            return mExternalResultDelegate
+        }
+        set {
+            mExternalResultDelegate = newValue
+        }
+    }
+    
+    func payment() {
+        let param = PaymentRequest()
+        param.payType = config.payType
+        param.accessId = config.accessId
+        param.id = config.id
+        param.cardNo = inputInfo?.cardNumber ?? ""
+        let year = inputInfo?.expireYear ?? ""
+        let month = inputInfo?.expireMonth ?? ""
+        param.expire = year + month
+        param.securityCode = inputInfo?.securityCode ?? ""
+        param.method = config.method
         
-        return param
+        let header = ApiConfiguration.instance.requestHeader(config)
+        
+        interactor.delegate = self
+        interactor.payment(config.id, request: param, header: header)
+    }
+}
+
+extension PaymentPresenter: ResultDelegate {
+    
+    func success(_ result: FincodeResult) {
+        if let ext = mExternalResultDelegate {
+            ext.success(result)
+        } else {
+            uiview.showAlert("正常", message: "")
+        }
+    }
+    
+    func failure() {
+        if let ext = mExternalResultDelegate {
+            ext.failure()
+        } else {
+            uiview.showAlert("異常", message: "")
+        }
     }
 }

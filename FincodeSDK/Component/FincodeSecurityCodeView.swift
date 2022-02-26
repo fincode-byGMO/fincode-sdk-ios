@@ -15,6 +15,7 @@ class FincodeSecurityCodeView: UIView {
     @IBOutlet weak var cvcTextView: CustomTextField!
     @IBOutlet weak var errorLabelView: UILabel!
     @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +35,11 @@ class FincodeSecurityCodeView: UIView {
         cvcTextView.borderView = borderView
     }
     
+    var cvc: String {
+        get {
+            return cvcTextView.text ?? ""
+        }
+    }
 }
 
 extension FincodeSecurityCodeView: ComponentDelegate {
@@ -61,6 +67,10 @@ extension FincodeSecurityCodeView: CustomTextFieldDelegate {
         let isError = cvcTextView.text?.isEmpty ?? false
         errorLabelView.text = AppStrings.errorSecurityCode.value
         errorLabelView.isHidden = !isError
+        
+        imageView.image = isError ?
+                UIImage(named: "cvc_error_ic", in: BundleUtil.instance.bundle, compatibleWith: nil) :
+                UIImage(named: "cvc_ic", in: BundleUtil.instance.bundle, compatibleWith: nil)
         
         return isError
     }

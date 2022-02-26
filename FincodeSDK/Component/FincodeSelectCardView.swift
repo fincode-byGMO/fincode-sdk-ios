@@ -14,7 +14,8 @@ class FincodeSelectCardView: UIView {
     @IBOutlet weak var selectedCardInfo: UIView!
     @IBOutlet weak var pickerView: CustomPickerView!
     
-    fileprivate var cardInfoList: [CardInfo] = []
+    fileprivate var mCardInfoList: [CardInfo] = []
+    fileprivate var selected: CardInfo?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,8 +36,19 @@ class FincodeSelectCardView: UIView {
         pickerView.picker = pi
     }
     
-    func setData(_ list: [CardInfo]) {
-        cardInfoList = list
+    var cardInfoList: [CardInfo] {
+        get {
+            return mCardInfoList
+        }
+        set {
+            mCardInfoList = newValue
+        }
+    }
+    
+    var cardNumber: String {
+        get {
+            return selected?.cardNo ?? ""
+        }
     }
 }
 
@@ -54,13 +66,14 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 1行ごとの初期化
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
         return getParts(cardInfoList[row])
     }
     
+    // 選択後
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        applyCardInfo(getParts(cardInfoList[row]))
+        let value = cardInfoList[row]
+        selected = value
+        applyCardInfo(getParts(value))
     }
     
     func applyCardInfo(_ parts: CardPickerParts) {

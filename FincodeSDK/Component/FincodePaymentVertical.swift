@@ -1,15 +1,15 @@
 //
-//  FincodePaymentHorizontal.swift
-//  FincodeSDK
+//  FincodePaymentVerticalView.swift
+//  FincodeIos
 //
-//  Created by 中嶋彰 on 2022/02/01.
+//  Created by 中嶋彰 on 2021/12/26.
 //
 
 import UIKit
 
 @IBDesignable
-public class FincodePaymentHorizontal: FincodeCommon {
-
+public class FincodePaymentVertical: FincodeCommon {
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
     @IBOutlet weak var expireView: FincodeExpireView!
@@ -17,7 +17,7 @@ public class FincodePaymentHorizontal: FincodeCommon {
     @IBOutlet weak var submitButtonView: FincodeSubmitButtonView!
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
     
-    override func initialize(_ delegateList: [ComponentDelegate]? = nil) {
+    override func initialize(_ delegateList :[ComponentDelegate]?) {
         super.initialize([cardNoView, expireView, securityCodeView, submitButtonView])
     }
     
@@ -32,12 +32,11 @@ public class FincodePaymentHorizontal: FincodeCommon {
     
     override func setCardList(_ list: [CardInfo]?) {
         if let li = list, 0 < li.count {
+            viewConstraints.constant = 124
             let selectCardAreaView = SelectCardAreaView()
             selectCardAreaView.cardInfoList = li
             view.addSubview(selectCardAreaView)
             selectCardAreaView.anchorAll(equalTo: view)
-        } else {
-            viewConstraints.constant = 0
         }
     }
 }

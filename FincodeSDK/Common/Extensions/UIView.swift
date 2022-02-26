@@ -1,5 +1,5 @@
 //
-//  BaseView.swift
+//  UIView.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/01/11.
@@ -63,6 +63,31 @@ extension UIView {
                                               attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                               multiplier: 1,
                                               constant: 0))
+    }
+    
+    func showAlert(message: String) {
+        showAlert("エラー", message: message)
+    }
+    
+    func showAlert(_ title: String, message: String, buttonTitle: String = "OK") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: buttonTitle, style: .default) { action in
+            // do nothing
+        }
+        alert.addAction(yesAction)
+        guard let vc = parentViewController() else { return }
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
+    func parentViewController() -> UIViewController? {
+        var parent: UIResponder? = self
+        while let next = parent?.next {
+            if let viewController = next as? UIViewController {
+                return viewController
+            }
+            parent = next
+        }
+        return nil
     }
     
     @objc func isBorderError(_ status: Bool) {

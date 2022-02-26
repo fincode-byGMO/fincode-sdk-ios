@@ -1,5 +1,5 @@
 //
-//  AuthorizationMethod.swift
+//  Authorization.swift
 //  fincode-ios
 //
 //  Created by 中嶋彰 on 2021/12/15.
@@ -7,7 +7,7 @@
 //
 
 /// 認証方式
-public enum AuthorizationMethod {
+public enum Authorization {
     
     case none
     /// Basic認証 ( Base64でエンコードしたAPIキー )

@@ -31,9 +31,14 @@ class SelectCardAreaView: UIView {
 
     fileprivate func initialize() {
         radioViewController = RadioViewController(radioRegisteredCardView, radioNewCardView)
-        
-        // DEBUG用 削除予定
-        let cardInfoList = [CardInfo("5555 7777 8888 6666", "09/23"), CardInfo("3333 5555 6666 8888", "10/24")]
-        selectCardView.setData(cardInfoList)
+    }
+    
+    var cardInfoList: [CardInfo] {
+        get {
+            return selectCardView.cardInfoList
+        }
+        set {
+            selectCardView.cardInfoList = newValue
+        }
     }
 }

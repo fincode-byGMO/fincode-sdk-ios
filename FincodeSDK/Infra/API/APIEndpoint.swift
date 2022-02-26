@@ -16,6 +16,8 @@ enum APIEndpoint {
     case cardRegister(customer_id: String, data: [String: AnyObject], header: [String: String])
     /// カード更新
     case cardUpdate(customer_id: String, id: String, data: [String: AnyObject], header: [String: String])
+    /// カード一覧取得
+    case cardInfoList(customer_id: String, header: [String: String])
     
     // ///////////////////////////////
     // endpoint
@@ -34,6 +36,9 @@ enum APIEndpoint {
             
         case .cardUpdate(let customer_id, let id, _, _):
             path = "/customers/\(customer_id)/cards/\(id)"
+            
+        case .cardInfoList(let customer_id, _):
+            path = "/customers/\(customer_id)/cards"
         }
         
         return APIEndpoint.urlString(path)
@@ -54,6 +59,9 @@ enum APIEndpoint {
             
         case .cardUpdate(_, _, data: let data, header: let header):
             return executeApi(method: .put, data: data, headers: header)
+
+        case .cardInfoList(_, header: let header):
+            return executeApi(method: .get, headers: header)
         }
     }
     
@@ -71,7 +79,7 @@ enum APIEndpoint {
             .request(urlString,
                      method: method,
                      parameters: data,
-                     encoding: URLEncoding.default,
+                     encoding: JSONEncoding.default, //URLEncoding.default,
                      headers: headers)
             .validate()
         

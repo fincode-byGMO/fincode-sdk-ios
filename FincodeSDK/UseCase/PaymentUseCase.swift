@@ -11,6 +11,8 @@ import Foundation
 protocol PaymentUseCaseDelegate: AnyObject {
     func paymentUseCase(_ useCase: PaymentUseCase, response: PaymentResponse)
     func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: APIError)
+
+//    func paymentUseCase(_ result: APIResult<PaymentResponse>)
 }
 
 class PaymentUseCase {
@@ -22,6 +24,7 @@ class PaymentUseCase {
     /// - Parameter header: ヘッダー
     func payment(_ id: String, request: PaymentRequest, header: [String: String]) {
         PaymentRepository.sharedInstance.payment(id, request: request, header: header) { result in
+            //self.delegate?.paymentUseCase(result)
             switch result {
             case .success(let data):
                 self.delegate?.paymentUseCase(self, response: data)

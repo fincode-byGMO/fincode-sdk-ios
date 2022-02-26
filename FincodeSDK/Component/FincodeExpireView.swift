@@ -107,6 +107,18 @@ class FincodeExpireView: UIView {
             }
         }
     }
+    
+    var month: String {
+        get {
+            return monthTextView.text ?? ""
+        }
+    }
+    
+    var year: String {
+        get {
+            return yearTextView.text ?? ""
+        }
+    }
 }
 
 extension FincodeExpireView: ComponentDelegate {
