@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PaymentUseCaseDelegate: AnyObject {
-    func paymentUseCase(_ useCase: PaymentUseCase, response: PaymentResponse)
+    func paymentUseCase(_ useCase: PaymentUseCase, response: FincodePaymentResponse)
     func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: APIError)
 
 //    func paymentUseCase(_ result: APIResult<PaymentResponse>)
@@ -22,7 +22,7 @@ class PaymentUseCase {
     /// - Parameter id: オーダーID
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
-    func payment(_ id: String, request: PaymentRequest, header: [String: String]) {
+    func payment(_ id: String, request: FincodePaymentRequest, header: [String: String]) {
         PaymentRepository.sharedInstance.payment(id, request: request, header: header) { result in
             //self.delegate?.paymentUseCase(result)
             switch result {

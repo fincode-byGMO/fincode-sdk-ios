@@ -1,5 +1,5 @@
 //
-//  CardInfoListRequest.swift
+//  FincodeCardInfoListRequest.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/02/21.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class CardInfoListRequest {
+class FincodeCardInfoListRequest {
 }
 
-public class CardInfoListResponse: FincodeResult {
+class FincodeCardInfoListResponse: FincodeResult {
 
     let cardInfoList: [CardInfo]
     

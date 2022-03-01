@@ -17,7 +17,6 @@ class FincodeSubmitButtonView: UIView {
     
     @IBOutlet weak var submitButton: UIButton!
     
-    private var mConfig: FincodeConfiguration?
     var delegate: FincodeSubmitButtonViewDelegate?
     
     override public init(frame: CGRect) {
@@ -36,18 +35,13 @@ class FincodeSubmitButtonView: UIView {
         submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
     }
     
-    var config: FincodeConfiguration? {
-        get {
-            return mConfig
-        }
-        set {
-            mConfig = newValue
-            submitButton.setTitle(mConfig?.useCase.title, for: .normal)
-        }
+    func buttonTitle(_ title: String) {
+        submitButton.setTitle(title, for: .normal)
     }
     
     @IBAction func didTouchButton(_ sender: Any) {
-        guard let presenter = delegate?.fincodeSubmitButtonView(), let config = mConfig else { return }
+        guard let presenter = delegate?.fincodeSubmitButtonView(),
+              let config = DataHolder.instance.config else { return }
         switch(config.useCase) {
         case .registerCard:
             registerCard(presenter)
@@ -60,16 +54,25 @@ class FincodeSubmitButtonView: UIView {
         }
     }
     
-    fileprivate func registerCard(_ presenter :PaymentPresenterDelegate) {
-        
+    // カード登録
+    fileprivate func registerCard(_ presenter :BasePresenterDelegate) {
+        guard let pre = presenter as? CardOperatePresenterDelegate,
+              let config = DataHolder.instance.config else { return }
+        pre.registerCard(config)
     }
     
-    fileprivate func updateCard(_ presenter :PaymentPresenterDelegate) {
-        
+    // カード更新
+    fileprivate func updateCard(_ presenter :BasePresenterDelegate) {
+        guard let pre = presenter as? CardOperatePresenterDelegate,
+              let config = DataHolder.instance.config else { return }
+        pre.updateCard(config)
     }
     
-    fileprivate func payment(_ presenter :PaymentPresenterDelegate) {
-        presenter.payment()
+    // 決済
+    fileprivate func payment(_ presenter :BasePresenterDelegate) {
+        guard let pre = presenter as? PaymentPresenterDelegate,
+              let config = DataHolder.instance.config  else { return }
+        pre.payment(config)
     }
 }
 

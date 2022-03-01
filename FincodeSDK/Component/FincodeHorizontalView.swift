@@ -1,5 +1,5 @@
 //
-//  FincodePaymentHorizontal.swift
+//  FincodeHorizontalView.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/02/01.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-public class FincodePaymentHorizontal: FincodeCommon {
+public class FincodeHorizontalView: FincodeCommon {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
@@ -32,12 +32,11 @@ public class FincodePaymentHorizontal: FincodeCommon {
     
     override func setCardList(_ list: [CardInfo]?) {
         if let li = list, 0 < li.count {
+            viewConstraints.constant = 124
             let selectCardAreaView = SelectCardAreaView()
             selectCardAreaView.cardInfoList = li
             view.addSubview(selectCardAreaView)
             selectCardAreaView.anchorAll(equalTo: view)
-        } else {
-            viewConstraints.constant = 0
         }
     }
 }

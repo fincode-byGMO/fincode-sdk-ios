@@ -7,14 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePaymentVertical" customModule="FincodeSDK" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeHorizontalView" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
                 <outlet property="cardNoView" destination="oPZ-tW-4QE" id="Gq3-V7-5ff"/>
                 <outlet property="expireView" destination="Sed-Qa-kk2" id="Hpa-Bh-gbx"/>
                 <outlet property="securityCodeView" destination="Erc-JK-fh6" id="eQE-OG-bUK"/>
                 <outlet property="submitButtonView" destination="Jrl-8z-6ek" id="Ytu-oW-bvo"/>
                 <outlet property="view" destination="Ai2-fi-po6" id="ILx-tJ-q9m"/>
-                <outlet property="viewConstraints" destination="DIH-Cr-JKE" id="M90-gk-Uah"/>
+                <outlet property="viewConstraints" destination="DIH-Cr-JKE" id="ZJJ-zw-pie"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ai2-fi-po6">
-                    <rect key="frame" x="0.0" y="0.0" width="1290" height="124"/>
+                    <rect key="frame" x="0.0" y="0.0" width="1290" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="124" id="DIH-Cr-JKE"/>
+                        <constraint firstAttribute="height" id="DIH-Cr-JKE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-qL-zqn">
-                    <rect key="frame" x="0.0" y="134" width="1290" height="69.5"/>
+                    <rect key="frame" x="0.0" y="10" width="1290" height="69.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-tW-4QE" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="387" height="69.5"/>

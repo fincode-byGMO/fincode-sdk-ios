@@ -10,7 +10,7 @@ import Foundation
 
 protocol PaymentInteractorDelegate: AnyObject {
     var delegate: ResultDelegate? { get set }
-    func payment(_ id: String, request: PaymentRequest, header: [String: String])
+    func payment(_ id: String, request: FincodePaymentRequest, header: [String: String])
 }
 
 class PaymentInteractor {
@@ -26,17 +26,14 @@ class PaymentInteractor {
 
 extension PaymentInteractor: PaymentInteractorDelegate {
     
-    func payment(_ id: String, request: PaymentRequest, header: [String: String]) {
+    func payment(_ id: String, request: FincodePaymentRequest, header: [String: String]) {
         paymentUseCase.payment(id, request: request, header: header)
     }
 }
 
 extension PaymentInteractor: PaymentUseCaseDelegate {
-//    func paymentUseCase(_ result: FincodeResult) {
-//        delegate?.success(result)
-//    }
-    
-    func paymentUseCase(_ useCase: PaymentUseCase, response: PaymentResponse) {
+
+    func paymentUseCase(_ useCase: PaymentUseCase, response: FincodePaymentResponse) {
         // TODO API成功の実装をする
         delegate?.success(response)
     }

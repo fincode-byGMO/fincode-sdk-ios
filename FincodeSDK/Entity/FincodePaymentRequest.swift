@@ -1,5 +1,5 @@
 //
-//  PaymentRequest.swift
+//  FincodePaymentRequest.swift
 //  fincode-ios
 //
 //  Created by 中嶋彰 on 2021/12/06.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PaymentRequest {
+class FincodePaymentRequest {
     
     var payType: String?
     var accessId: String?
@@ -32,7 +32,7 @@ public class PaymentRequest {
     }
 }
 
-public class PaymentResponse: FincodeResult {
+public class FincodePaymentResponse: FincodeResult {
 
     let message: String?
     

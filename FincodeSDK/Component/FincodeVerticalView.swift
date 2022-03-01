@@ -1,5 +1,5 @@
 //
-//  FincodePaymentVerticalView.swift
+//  FincodeVerticalView.swift
 //  FincodeIos
 //
 //  Created by 中嶋彰 on 2021/12/26.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-public class FincodePaymentVertical: FincodeCommon {
+public class FincodeVerticalView: FincodeCommon {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var cardNoView: FincodeCardNoView!
