@@ -19,3 +19,4 @@ errorExpireMonthFormat = "有効期限 (月) の書式が正しくありませ�
 errorExpireMonth = "有効期限 (月) が無効です";
 errorExpireYear = "有効期限 (年) が無効です";
 errorSecurityCode = "セキュリティコード (CVC) が無効です";
+errorHolderName = "カード名義人の書式が正しくありません";
