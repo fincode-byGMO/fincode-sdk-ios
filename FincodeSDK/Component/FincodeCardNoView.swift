@@ -34,7 +34,7 @@ class FincodeCardNoView: UIView {
         initialize()
     }
     
-    fileprivate func initialize() {
+    private func initialize() {
         cardNumberTextView.closable()
         cardNumberTextView.borderView = borderView
         cardNumberTextView.customTextFieldDelegate = self
@@ -49,7 +49,7 @@ class FincodeCardNoView: UIView {
     /// LayoutTypeの値のみを設定してください。
     /// ・水平配置の場合: horizontal
     /// ・垂直配置の場合: vertical
-    @IBInspectable public var layoutType: String {
+    @IBInspectable var layoutType: String {
         get {
             return mLayoutType.rawValue
         }
@@ -66,6 +66,15 @@ class FincodeCardNoView: UIView {
             guard var value = cardNumberTextView.text else { return "" }
             value.removeAll { $0 == Character(Constants.halfSpace) }
             return value
+        }
+    }
+    
+    var dynamicLogDisplay: Bool {
+        get {
+            return selectCardImage.isHidden
+        }
+        set {
+            selectCardImage.isHidden = newValue
         }
     }
 }
