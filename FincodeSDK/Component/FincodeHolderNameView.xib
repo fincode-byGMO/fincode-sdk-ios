@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
+            <connections>
+                <outlet property="borderView" destination="CrH-ci-7pA" id="Eab-TZ-uV9"/>
+                <outlet property="errorLabelView" destination="b2d-ff-i7b" id="4Vm-ui-f7E"/>
+                <outlet property="headingLabel" destination="NXI-HT-f53" id="c7b-7x-eMd"/>
+                <outlet property="holderTextView" destination="bLr-gh-dZ5" id="dWg-Vc-ljU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0r-H9-HMC">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード名義人名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-HT-f53">
+                            <rect key="frame" x="5" y="0.0" width="107.5" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="VG3-29-6ST"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrH-ci-7pA">
+                            <rect key="frame" x="5" y="21" width="290" height="34"/>
+                            <subviews>
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="カード名義人名 (TARO YAMADA)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="7.5" width="270" height="19.5"/>
+                                    <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="aTm-sJ-WAr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                            <color key="value" name="text_placeholder"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                            <integer key="value" value="50"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="bLr-gh-dZ5" firstAttribute="centerY" secondItem="CrH-ci-7pA" secondAttribute="centerY" id="6ge-Ln-wlB"/>
+                                <constraint firstAttribute="trailing" secondItem="bLr-gh-dZ5" secondAttribute="trailing" constant="10" id="Cdz-7N-lon"/>
+                                <constraint firstAttribute="height" constant="34" id="Pow-1e-8eE"/>
+                                <constraint firstItem="bLr-gh-dZ5" firstAttribute="leading" secondItem="CrH-ci-7pA" secondAttribute="leading" constant="10" id="XZc-BC-AIa"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" name="border_default"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード名義人の書式が正しくありません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-ff-i7b">
+                            <rect key="frame" x="5" y="55" width="295" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" systemColor="systemPinkColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="CrH-ci-7pA" firstAttribute="top" secondItem="NXI-HT-f53" secondAttribute="bottom" constant="4" id="523-6t-Bt0"/>
+                        <constraint firstItem="b2d-ff-i7b" firstAttribute="top" secondItem="CrH-ci-7pA" secondAttribute="bottom" id="52Z-pD-bPR"/>
+                        <constraint firstItem="CrH-ci-7pA" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="69f-Nl-iQh"/>
+                        <constraint firstAttribute="bottom" secondItem="b2d-ff-i7b" secondAttribute="bottom" id="NU8-8W-HjX"/>
+                        <constraint firstAttribute="trailing" secondItem="CrH-ci-7pA" secondAttribute="trailing" constant="5" id="SD3-q4-SFH"/>
+                        <constraint firstItem="NXI-HT-f53" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="d6s-cK-Ima"/>
+                        <constraint firstItem="NXI-HT-f53" firstAttribute="top" secondItem="R0r-H9-HMC" secondAttribute="top" id="fv3-wM-VEN"/>
+                        <constraint firstItem="b2d-ff-i7b" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="gId-wF-VU4"/>
+                        <constraint firstAttribute="trailing" secondItem="b2d-ff-i7b" secondAttribute="trailing" id="thX-dt-Ud3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="R0r-H9-HMC" secondAttribute="bottom" id="Omb-cs-hf4"/>
+                <constraint firstItem="R0r-H9-HMC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rm4-jS-4Zt"/>
+                <constraint firstItem="R0r-H9-HMC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="s77-NJ-tk3"/>
+                <constraint firstAttribute="trailing" secondItem="R0r-H9-HMC" secondAttribute="trailing" id="xW2-Gl-6CJ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="128.98550724637681" y="150.66964285714286"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="bLr-gh-dZ5">
+            <size key="intrinsicContentSize" width="226.5" height="19.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="border_default">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_placeholder">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

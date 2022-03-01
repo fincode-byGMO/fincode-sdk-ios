@@ -21,6 +21,7 @@ enum AppStrings: String {
     case errorExpireMonth
     case errorExpireYear
     case errorSecurityCode
+    case errorHolderName
     
     var value: String {
         return NSLocalizedString(rawValue,

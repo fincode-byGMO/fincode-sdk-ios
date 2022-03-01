@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="cardNoView" destination="oPZ-tW-4QE" id="Gq3-V7-5ff"/>
                 <outlet property="expireView" destination="Sed-Qa-kk2" id="Hpa-Bh-gbx"/>
+                <outlet property="holderNameView" destination="f8X-2G-Epc" id="6Wn-QK-QMv"/>
                 <outlet property="securityCodeView" destination="Erc-JK-fh6" id="eQE-OG-bUK"/>
                 <outlet property="submitButtonView" destination="Jrl-8z-6ek" id="Ytu-oW-bvo"/>
                 <outlet property="view" destination="Ai2-fi-po6" id="ILx-tJ-q9m"/>
@@ -29,7 +30,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-qL-zqn">
-                    <rect key="frame" x="0.0" y="10" width="1290" height="69.5"/>
+                    <rect key="frame" x="0.0" y="10" width="1290" height="139"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPZ-tW-4QE" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="387" height="69.5"/>
@@ -52,6 +53,9 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="horizontal"/>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8X-2G-Epc" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="69.5" width="645" height="69.5"/>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Jrl-8z-6ek" firstAttribute="leading" secondItem="Erc-JK-fh6" secondAttribute="trailing" id="08G-mK-b2v"/>
@@ -60,9 +64,12 @@
                         <constraint firstItem="oPZ-tW-4QE" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" id="BAF-Y5-LMc"/>
                         <constraint firstItem="Erc-JK-fh6" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" id="Bp6-9V-aPq"/>
                         <constraint firstItem="Erc-JK-fh6" firstAttribute="leading" secondItem="Sed-Qa-kk2" secondAttribute="trailing" id="Mqq-Km-GPd"/>
+                        <constraint firstItem="f8X-2G-Epc" firstAttribute="width" secondItem="QWW-qL-zqn" secondAttribute="width" multiplier="0.5" id="Own-Mg-Zad"/>
                         <constraint firstItem="Jrl-8z-6ek" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" constant="18" id="QON-D9-o9v"/>
-                        <constraint firstAttribute="bottom" secondItem="Sed-Qa-kk2" secondAttribute="bottom" id="XL3-uc-azN"/>
+                        <constraint firstItem="f8X-2G-Epc" firstAttribute="leading" secondItem="QWW-qL-zqn" secondAttribute="leading" id="TOs-3x-h7o"/>
+                        <constraint firstAttribute="bottom" secondItem="f8X-2G-Epc" secondAttribute="bottom" id="ayM-Jb-xx7"/>
                         <constraint firstItem="Sed-Qa-kk2" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="top" id="dm1-lp-Zbb"/>
+                        <constraint firstItem="f8X-2G-Epc" firstAttribute="top" secondItem="oPZ-tW-4QE" secondAttribute="bottom" id="isR-Fi-SUN"/>
                         <constraint firstItem="Jrl-8z-6ek" firstAttribute="width" secondItem="QWW-qL-zqn" secondAttribute="width" multiplier="0.25" id="nAX-Yv-XKb"/>
                         <constraint firstItem="Sed-Qa-kk2" firstAttribute="width" secondItem="QWW-qL-zqn" secondAttribute="width" multiplier="0.2" id="q9h-K5-6Uf"/>
                         <constraint firstItem="oPZ-tW-4QE" firstAttribute="leading" secondItem="QWW-qL-zqn" secondAttribute="leading" id="ti6-GI-dka"/>

@@ -15,19 +15,20 @@ public class FincodeVerticalView: FincodeCommon {
     @IBOutlet weak var expireView: FincodeExpireView!
     @IBOutlet weak var securityCodeView: FincodeSecurityCodeView!
     @IBOutlet weak var submitButtonView: FincodeSubmitButtonView!
+    @IBOutlet weak var holderNameView: FincodeHolderNameView!
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
     
     override func initialize(_ delegateList :[ComponentDelegate]?) {
-        super.initialize([cardNoView, expireView, securityCodeView, submitButtonView])
+        super.initialize([cardNoView, expireView, securityCodeView, submitButtonView, holderNameView])
     }
     
     override func getInputInfo() -> InputInfo {
-        let cardNo = cardNoView.cardNumber
-        let expireMonth = expireView.month
-        let expireYear = expireView.year
-        let securityCode = securityCodeView.cvc
-        
-        return InputInfo(cardNumber: cardNo, expireMonth: expireMonth, expireYear: expireYear, securityCode: securityCode)
+        return InputInfo(
+            cardNumber: cardNoView.cardNumber,
+            expireMonth: expireView.month,
+            expireYear: expireView.year,
+            securityCode: securityCodeView.cvc,
+            holderName: holderNameView.holderName)
     }
     
     override func setCardList(_ list: [CardInfo]?) {
