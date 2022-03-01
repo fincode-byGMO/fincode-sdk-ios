@@ -11,7 +11,6 @@ import UIKit
 protocol ComponentDelegate: AnyObject {
     /// バリデーション チェック
     func validate() -> Bool
-//    /// 見出しの表示・非表示
-//    func headingHidden(_ isHidden: Bool)
+    /// 見出しの表示・非表示
     var headingHidden: Bool { get set }
 }

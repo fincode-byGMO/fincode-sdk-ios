@@ -12,6 +12,7 @@ import UIKit
 public class FincodeCommon: UIView {   
     
     private var mHeadingHidden: Bool = false
+    private var mDynamicLogDisplay: Bool = false
     private var componentDelegateList: [ComponentDelegate] = []
     private var externalResultDelegate :ResultDelegate?
     var paymentPresenter: PaymentPresenterDelegate?
@@ -53,9 +54,11 @@ public class FincodeCommon: UIView {
         }
     }
     
-    private func setHeadingHidden() {
-        for item in componentDelegateList {
-            item.headingHidden = mHeadingHidden
+    private func getCardNoView() -> FincodeCardNoView? {
+        if let view = componentDelegateList.filter({ type(of: $0) ==  FincodeCardNoView.self}).first as? FincodeCardNoView {
+            return view
+        } else {
+            return nil
         }
     }
     
@@ -77,13 +80,31 @@ public class FincodeCommon: UIView {
         }
     }
     
+    /// 見出しの表示・非表示を設定します
+    ///
+    /// true: 表示
+    ///
+    /// false: 非表示
     @IBInspectable public var headingHidden: Bool {
         get {
             return mHeadingHidden
         }
         set {
             mHeadingHidden = newValue
-            setHeadingHidden()
+            for item in componentDelegateList {
+                item.headingHidden = !newValue
+            }
+        }
+    }
+    
+    @IBInspectable public var dynamicLogDisplay: Bool {
+        get {
+            return mDynamicLogDisplay
+        }
+        set {
+            mDynamicLogDisplay = newValue
+            guard let view: FincodeCardNoView = getCardNoView() else { return }
+            view.dynamicLogDisplay = !newValue
         }
     }
     
