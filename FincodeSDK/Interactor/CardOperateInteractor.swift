@@ -10,6 +10,8 @@ import Foundation
 protocol CardOperateInteractorDelegate: AnyObject {
     var delegate: ResultDelegate? { get set }
     func cardInfoList(_ customerId: String, header: [String: String])
+    func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String])
+    func updateCard(_ customerId: String, cardId: String , request: FincodeCardUpdateRequest, header: [String: String])
 }
 
 class CardOperateInteractor {
@@ -28,15 +30,30 @@ extension CardOperateInteractor: CardOperateInteractorDelegate {
     func cardInfoList(_ customerId: String, header: [String: String]) {
         cardUseCase.cardInfoList(customerId, header: header)
     }
+    
+    func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String : String]) {
+        cardUseCase.registerCard(customerId, request:request, header: header)
+    }
+    
+    func updateCard(_ customerId: String, cardId: String, request: FincodeCardUpdateRequest, header: [String : String]) {
+        cardUseCase.updateCard(customerId, cardId: cardId, request:request, header: header)
+    }
 }
 
 extension CardOperateInteractor: CardUseCaseDelegate {
 
-    func CardUseCase(_ useCase: CardOperateUseCase, response: CardInfoListResponse) {
-        // TODO API成功の実装をする
+    func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardInfoListResponse) {
+        delegate?.success(response)
+    }
+    
+    func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardRegisterResponse) {
         delegate?.success(response)
     }
 
+    func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardUpdateResponse) {
+        delegate?.success(response)
+    }
+    
     func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: APIError) {
         // TODO API失敗の実装をする
         delegate?.failure()

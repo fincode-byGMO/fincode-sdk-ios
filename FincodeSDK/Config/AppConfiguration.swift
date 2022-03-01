@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AppConfiguration {
+class AppConfiguration {
     
     fileprivate struct Constants {
         static let fileName = "Configurations"

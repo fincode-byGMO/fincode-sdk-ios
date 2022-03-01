@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ApiConfiguration {
+class ApiConfiguration {
     
     fileprivate struct Constants {
         static let contentType = "Content-Type"

@@ -9,37 +9,24 @@
 import Foundation
 import UIKit
 
-protocol PaymentPresenterDelegate: AnyObject {
-    var inputInfo: InputInfo? { get set }
-    var externalResultDelegate: ResultDelegate? { get set }
-    func payment()
+protocol PaymentPresenterDelegate: BasePresenterDelegate {
+    func payment(_ config: FincodeConfiguration)
 }
 
 class PaymentPresenter {
     
     private let interactor: PaymentInteractorDelegate
-    private let config: FincodeConfiguration
     private let uiview: FincodeCommon
     private var mExternalResultDelegate: ResultDelegate?
     private var mInputInfo: InputInfo?
     
-    init(_ config: FincodeConfiguration, interactor: PaymentInteractorDelegate, uiview: FincodeCommon) {
-        self.config = config
+    init(interactor: PaymentInteractorDelegate, uiview: FincodeCommon) {
         self.interactor = interactor
         self.uiview = uiview
     }
 }
 
 extension PaymentPresenter: PaymentPresenterDelegate {
-    
-    var inputInfo: InputInfo? {
-        get {
-            return mInputInfo
-        }
-        set {
-            mInputInfo = newValue
-        }
-    }
     
     var externalResultDelegate: ResultDelegate? {
         get {
@@ -49,17 +36,20 @@ extension PaymentPresenter: PaymentPresenterDelegate {
             mExternalResultDelegate = newValue
         }
     }
-    
-    func payment() {
-        let param = PaymentRequest()
+
+    func payment(_ config: FincodeConfiguration) {
+        guard let config = config as? FincodePaymentConfiguration,
+              let inputInfo = DataHolder.instance.inputInfo else { return } // TODO: 設定値がない場合はエラーハンドラを呼び出す
+         
+        let param = FincodePaymentRequest()
         param.payType = config.payType
         param.accessId = config.accessId
         param.id = config.id
-        param.cardNo = inputInfo?.cardNumber ?? ""
-        let year = inputInfo?.expireYear ?? ""
-        let month = inputInfo?.expireMonth ?? ""
+        param.cardNo = inputInfo.cardNumber
+        let year = inputInfo.expireYear
+        let month = inputInfo.expireMonth
         param.expire = year + month
-        param.securityCode = inputInfo?.securityCode ?? ""
+        param.securityCode = inputInfo.securityCode
         param.method = config.method
         
         let header = ApiConfiguration.instance.requestHeader(config)

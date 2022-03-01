@@ -13,7 +13,6 @@ public class FincodeCommon: UIView {
     
     private var mHeadingHidden: Bool = false
     private var componentDelegateList: [ComponentDelegate] = []
-    private var config :FincodeConfiguration = FincodeConfiguration()
     private var externalResultDelegate :ResultDelegate?
     var paymentPresenter: PaymentPresenterDelegate?
     var cardOperatePresenter: CardOperatePresenterDelegate?
@@ -35,8 +34,6 @@ public class FincodeCommon: UIView {
         if let button = getSubmitButtonView() {
             button.delegate = self
         }
-        paymentPresenter = PaymentPresenter(config, interactor: PaymentInteractor(), uiview: self)
-        cardOperatePresenter = CardOperatePresenter(config, interactor: CardOperateInteractor(), uiview: self)
     }
     
     func setCardList(_ list: [CardInfo]?) {
@@ -62,6 +59,24 @@ public class FincodeCommon: UIView {
         }
     }
     
+    private func initComponent() {
+        guard let config = DataHolder.instance.config, let button = getSubmitButtonView() else { return }
+        
+        button.buttonTitle(config.useCase.title)
+        switch config.useCase {
+        case .registerCard:
+            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
+        case .updateCard:
+            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
+        case .payment:
+            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), uiview: self)
+            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
+            cardOperatePresenter?.cardInfoList(config)
+        default:
+            break
+        }
+    }
+    
     @IBInspectable public var headingHidden: Bool {
         get {
             return mHeadingHidden
@@ -73,6 +88,14 @@ public class FincodeCommon: UIView {
     }
     
     /// 処理結果を返します
+    ///
+    /// 処理に対応したクラスを使用してください
+    ///
+    /// - 決済: FincodePaymentRequest
+    ///
+    /// - カード登録: FincodeCardRegisterRequest
+    ///
+    /// - カード更新: FincodeCardUpdateResponse
     public var resultDelegate: ResultDelegate? {
         get {
             return paymentPresenter?.externalResultDelegate
@@ -83,36 +106,25 @@ public class FincodeCommon: UIView {
     }
     
     /// 処理に必要な情報を設定します
-    public var configuration: FincodeConfiguration {
-        get {
-            return config
-        }
-        set {
-            config = newValue
-            if let button = getSubmitButtonView() {
-                button.config = config
-            }
-            cardOperatePresenter?.cardInfoList(newValue)
-        }
+    ///
+    /// 処理に対応したクラスを使用してください
+    ///
+    /// - 決済: FincodePaymentConfiguration
+    ///
+    /// - カード登録: FincodeCardRegisterConfiguration
+    ///
+    /// - カード更新: FincodeCardUpdateConfiguration
+    public func configuration(_ config: FincodeConfiguration?) {
+        DataHolder.instance.config = config
+        initComponent()
     }
-    
-//    /// 設定情報
-//    /// - Parameter config:設定値
-//    /// - Parameter resultDelegate:処理結果
-//    public func setConfiguration(_ config :FincodeConfiguration, resultDelegate: ResultDelegate? = nil) {
-//        self.externalResultDelegate = resultDelegate
-//        self.config = config
-//        if let button = getSubmitButtonView() {
-//            button.config = config
-//        }
-//    }
 }
 
 extension FincodeCommon: FincodeSubmitButtonViewDelegate {
 
     func fincodeSubmitButtonView() -> PaymentPresenterDelegate? {
         guard !validate(), let presenter = paymentPresenter else { return nil }
-        presenter.inputInfo = getInputInfo()
+        DataHolder.instance.inputInfo = getInputInfo()
         presenter.externalResultDelegate = externalResultDelegate
         return presenter
     }

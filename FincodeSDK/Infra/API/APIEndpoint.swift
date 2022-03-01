@@ -13,11 +13,11 @@ enum APIEndpoint {
     /// 決済実行
     case payment(id: String, data: [String: AnyObject], header: [String: String])
     /// カード登録
-    case cardRegister(customer_id: String, data: [String: AnyObject], header: [String: String])
+    case cardRegister(customerId: String, data: [String: AnyObject], header: [String: String])
     /// カード更新
-    case cardUpdate(customer_id: String, id: String, data: [String: AnyObject], header: [String: String])
+    case cardUpdate(customerId: String, cardId: String, data: [String: AnyObject], header: [String: String])
     /// カード一覧取得
-    case cardInfoList(customer_id: String, header: [String: String])
+    case cardInfoList(customerId: String, header: [String: String])
     
     // ///////////////////////////////
     // endpoint
@@ -34,8 +34,8 @@ enum APIEndpoint {
         case .cardRegister(let customer_id, _, _):
             path = "/customers/\(customer_id)/cards"
             
-        case .cardUpdate(let customer_id, let id, _, _):
-            path = "/customers/\(customer_id)/cards/\(id)"
+        case .cardUpdate(let customer_id, let cardId, _, _):
+            path = "/customers/\(customer_id)/cards/\(cardId)"
             
         case .cardInfoList(let customer_id, _):
             path = "/customers/\(customer_id)/cards"
