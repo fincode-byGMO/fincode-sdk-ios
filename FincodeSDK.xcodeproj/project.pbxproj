@@ -21,10 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4F0526A727D07C620047546D /* PayTimesPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A627D07C620047546D /* PayTimesPickerField.swift */; };
+		4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A627D07C620047546D /* PayTimesPickerField.swift */; };
+		4F0526AA27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
+		4F0526AB27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
 		4F0ABCE727C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCE827C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
-		4F0ABCEA27C71DE300E12B13 /* CardOperatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardOperatePresenter.swift */; };
-		4F0ABCEB27C71DE300E12B13 /* CardOperatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardOperatePresenter.swift */; };
+		4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
+		4F0ABCEB27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
 		4F17161C27C3C08500CC9D96 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161B27C3C08500CC9D96 /* JSON.swift */; };
 		4F17161D27C3C08500CC9D96 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161B27C3C08500CC9D96 /* JSON.swift */; };
 		4F17161F27C3C49900CC9D96 /* CardOperateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161E27C3C49900CC9D96 /* CardOperateUseCase.swift */; };
@@ -192,6 +196,10 @@
 		4F90049A27A9295500AFFE10 /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90049827A9295500AFFE10 /* LayoutType.swift */; };
 		4FBEF15827A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
 		4FBEF15927A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
+		4FC4DE1B27CF568300723574 /* FincodePayTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */; };
+		4FC4DE1C27CF568300723574 /* FincodePayTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */; };
+		4FC4DE1E27CF57B100723574 /* FincodePayTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */; };
+		4FC4DE1F27CF57B100723574 /* FincodePayTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */; };
 		4FD2F99D27CDCBB40076374E /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99C27CDCBB40076374E /* DataHolder.swift */; };
 		4FD2F99E27CDCBB40076374E /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99C27CDCBB40076374E /* DataHolder.swift */; };
 		4FD2F9A027CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99F27CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift */; };
@@ -233,8 +241,10 @@
 		25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F0526A627D07C620047546D /* PayTimesPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTimesPickerField.swift; sourceTree = "<group>"; };
+		4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUpdatePresenter.swift; sourceTree = "<group>"; };
 		4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOperateRepository.swift; sourceTree = "<group>"; };
-		4F0ABCE927C71DE300E12B13 /* CardOperatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOperatePresenter.swift; sourceTree = "<group>"; };
+		4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRegisterPresenter.swift; sourceTree = "<group>"; };
 		4F17161B27C3C08500CC9D96 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		4F17161E27C3C49900CC9D96 /* CardOperateUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOperateUseCase.swift; sourceTree = "<group>"; };
 		4F17162127C3C75300CC9D96 /* CardOperateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOperateInteractor.swift; sourceTree = "<group>"; };
@@ -322,6 +332,8 @@
 		4F90049527A924E700AFFE10 /* FincodeHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeHorizontalView.xib; sourceTree = "<group>"; };
 		4F90049827A9295500AFFE10 /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
 		4FBEF15727A26D0300D8E145 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
+		4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodePayTimesView.xib; sourceTree = "<group>"; };
+		4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodePayTimesView.swift; sourceTree = "<group>"; };
 		4FD2F99C27CDCBB40076374E /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		4FD2F99F27CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardRegisterConfiguration.swift; sourceTree = "<group>"; };
 		4FD2F9A627CE39B80076374E /* FincodeHolderNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FincodeHolderNameView.swift; sourceTree = "<group>"; };
@@ -431,6 +443,8 @@
 				4F86CB9D2798016D005E49E9 /* FincodeSubmitButtonView.xib */,
 				4FD2F9A627CE39B80076374E /* FincodeHolderNameView.swift */,
 				4FD2F9A727CE39B80076374E /* FincodeHolderNameView.xib */,
+				4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */,
+				4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */,
 			);
 			name = Component;
 			path = FincodeSDK/Component;
@@ -480,7 +494,8 @@
 			children = (
 				4F67A89427CCCF6700A6E665 /* BasePresenterDelegate.swift */,
 				4F25A397278D2004004F8ADC /* PaymentPresenter.swift */,
-				4F0ABCE927C71DE300E12B13 /* CardOperatePresenter.swift */,
+				4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */,
+				4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */,
 			);
 			name = Presenter;
 			path = FincodeSDK/Presenter;
@@ -619,6 +634,7 @@
 		4F6ACB4D279134BA003ECE1D /* Parts */ = {
 			isa = PBXGroup;
 			children = (
+				4F0526A627D07C620047546D /* PayTimesPickerField.swift */,
 				4F6ACB5127913524003ECE1D /* CardPickerParts.swift */,
 				4F6ACB4E279134EA003ECE1D /* CardPickerParts.xib */,
 				4F6ACB5B27917491003ECE1D /* CustomPickerView.swift */,
@@ -792,6 +808,7 @@
 				4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9E2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
 				4FE777F9278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4FC4DE1B27CF568300723574 /* FincodePayTimesView.xib in Resources */,
 				4FE777FF278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
 				4F7713B22799584900B2CB81 /* ColorAssets.xcassets in Resources */,
 				4F7713A927993CAD00B2CB81 /* RadioView.xib in Resources */,
@@ -814,6 +831,7 @@
 				4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9F2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
 				4FE777FA278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4FC4DE1C27CF568300723574 /* FincodePayTimesView.xib in Resources */,
 				4FE77800278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
 				4F7713B32799584900B2CB81 /* ColorAssets.xcassets in Resources */,
 				4F7713AA27993CAE00B2CB81 /* RadioView.xib in Resources */,
@@ -902,7 +920,8 @@
 				4F0ABCE727C71D2900E12B13 /* CardOperateRepository.swift in Sources */,
 				4F25A459278D2803004F8ADC /* ServerTrustPolicy.swift in Sources */,
 				4F25A3AB278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
-				4F0ABCEA27C71DE300E12B13 /* CardOperatePresenter.swift in Sources */,
+				4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */,
+				4F0526A727D07C620047546D /* PayTimesPickerField.swift in Sources */,
 				4FF97F7C27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */,
 				4F25A474278D2804004F8ADC /* Response.swift in Sources */,
 				4F1DE79127A80DA50057CB9F /* StringUtil.swift in Sources */,
@@ -931,11 +950,13 @@
 				4F25A3C1278D2004004F8ADC /* PaymentPresenter.swift in Sources */,
 				4F25A45B278D2804004F8ADC /* Request.swift in Sources */,
 				4F17161C27C3C08500CC9D96 /* JSON.swift in Sources */,
+				4FC4DE1E27CF57B100723574 /* FincodePayTimesView.swift in Sources */,
 				4F1DE77F27A78C240057CB9F /* UITextField .swift in Sources */,
 				4F25A45F278D2804004F8ADC /* MultipartFormData.swift in Sources */,
 				4F1DE78B27A7D6520057CB9F /* CustomTextField.swift in Sources */,
 				4F25A463278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
 				4F25A467278D2804004F8ADC /* SessionManager.swift in Sources */,
+				4F0526AA27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */,
 				4F25A3A7278D2004004F8ADC /* APIResult.swift in Sources */,
 				4F25A5F2278D98DC004F8ADC /* UIView.swift in Sources */,
 				4FF24B9D279A36DE00360959 /* FincodeVerticalView.swift in Sources */,
@@ -994,6 +1015,7 @@
 				4F25A3C0278D2004004F8ADC /* NSDate.swift in Sources */,
 				4F25A3BC278D2004004F8ADC /* Log.swift in Sources */,
 				4F25A5F3278D98DC004F8ADC /* UIView.swift in Sources */,
+				4F0526AB27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */,
 				4F25A46F278D2804004F8ADC /* Alamofire.swift in Sources */,
 				4F86CBA22798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */,
 				4F25A3AE278D2004004F8ADC /* Authorization.swift in Sources */,
@@ -1007,7 +1029,7 @@
 				4F6ACB5D27917491003ECE1D /* CustomPickerView.swift in Sources */,
 				4F25A3A8278D2004004F8ADC /* APIResult.swift in Sources */,
 				4F25A468278D2804004F8ADC /* SessionManager.swift in Sources */,
-				4F0ABCEB27C71DE300E12B13 /* CardOperatePresenter.swift in Sources */,
+				4F0ABCEB27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */,
 				4F1DE78027A78C240057CB9F /* UITextField .swift in Sources */,
 				4F7713AD27993E3E00B2CB81 /* RadioView.swift in Sources */,
 				4F25A458278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */,
@@ -1019,6 +1041,7 @@
 				4F67A89C27CCDE5400A6E665 /* FincodeCardUpdateRequest.swift in Sources */,
 				4F25A454278D2803004F8ADC /* Result.swift in Sources */,
 				4F25A46B278D2804004F8ADC /* DispatchQueue+Alamofire.swift in Sources */,
+				4FC4DE1F27CF57B100723574 /* FincodePayTimesView.swift in Sources */,
 				4F17161D27C3C08500CC9D96 /* JSON.swift in Sources */,
 				4F86CBA62798118C005E49E9 /* UseCase.swift in Sources */,
 				4F1DE79527A80E480057CB9F /* Constants.swift in Sources */,
@@ -1047,6 +1070,7 @@
 				4F20E84927B3957600C9DE22 /* InputInfo.swift in Sources */,
 				4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */,
 				4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */,
+				4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */,
 				4F25A3CE278D2005004F8ADC /* PaymentRepository.swift in Sources */,
 				4F6ACB5327913524003ECE1D /* CardPickerParts.swift in Sources */,
 				4F25A471278D2804004F8ADC /* AFError.swift in Sources */,

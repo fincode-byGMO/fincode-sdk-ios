@@ -14,6 +14,7 @@ public class InputInfo {
     private let mExpireYear: String
     private let mSecurityCode: String
     private let mHolderName: String?
+    private let mPayTimes: String?
     
     init() {
         self.mCardNumber = ""
@@ -21,14 +22,16 @@ public class InputInfo {
         self.mExpireYear = ""
         self.mSecurityCode = ""
         self.mHolderName = ""
+        self.mPayTimes = ""
     }
     
-    init(cardNumber: String, expireMonth: String, expireYear: String, securityCode: String, holderName: String?) {
+    init(cardNumber: String, expireMonth: String, expireYear: String, securityCode: String, holderName: String?, payTimes: String?) {
         self.mCardNumber = cardNumber
         self.mExpireMonth = expireMonth
         self.mExpireYear = expireYear
         self.mSecurityCode = securityCode
         self.mHolderName = holderName
+        self.mPayTimes = payTimes
     }
     
     var cardNumber: String {
@@ -49,5 +52,9 @@ public class InputInfo {
     
     var holderName: String? {
         return mHolderName
+    }
+    
+    var payTimes: String? {
+        return mPayTimes
     }
 }

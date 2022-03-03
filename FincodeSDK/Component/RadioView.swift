@@ -45,6 +45,8 @@ class RadioView: UIControl {
     /// RadioTypeの値のみを設定してください。
     /// ・登録済みのカードの場合: registeredCard
     /// ・新しいクレジットカードの場合: newCard
+    /// ・決済（一括）の場合: titlePaymentBulkRadio
+    /// ・決済（分割）の場合: titlePaymentDivisionRadio
     @IBInspectable public var radioType: String {
         get {
             return self.rtype.rawValue

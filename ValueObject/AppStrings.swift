@@ -11,6 +11,8 @@ enum AppStrings: String {
     
     case titleRegisteredCardRadio
     case titleNewCardRadio
+    case titlePaymentBulkRadio
+    case titlePaymentDivisionRadio
     case titleRegisterCardButton
     case titleUpdateCardButton
     case titlePaymentButton
@@ -22,6 +24,13 @@ enum AppStrings: String {
     case errorExpireYear
     case errorSecurityCode
     case errorHolderName
+    
+    case apiPaymentSuccessMessage
+    case apiPaymentFailureMessage
+    case apiCardRegisterSuccessMessage
+    case apiCardRegisterFailureMessage
+    case apiCardUpdateSuccessMessage
+    case apiCardUpdateFailureMessage
     
     var value: String {
         return NSLocalizedString(rawValue,

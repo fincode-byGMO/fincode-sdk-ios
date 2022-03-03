@@ -9,4 +9,5 @@ import Foundation
 
 protocol BasePresenterDelegate: AnyObject {
     var externalResultDelegate: ResultDelegate? { get set }
+    func execute(_ config: FincodeConfiguration, inputInfo: InputInfo)
 }
