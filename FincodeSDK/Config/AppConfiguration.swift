@@ -13,6 +13,7 @@ class AppConfiguration {
         static let fileName = "Configurations"
         static let apiBaseURL = "APIBaseURL"
         static let apiMajorVersion = "APIMajorVersion"
+        static let payTimes = "PayTimes"
     }
     
     static let instance = AppConfiguration()
@@ -24,6 +25,13 @@ class AppConfiguration {
             let baseUrl = plist[Constants.apiBaseURL] as? String ?? ""
             let majorVersion = plist[Constants.apiMajorVersion] as? String ?? ""
             return baseUrl + majorVersion
+        }
+    }
+    
+    var payTimes: NSArray? {
+        get {
+            let plist =  self.getPlistWithDictionary(Constants.fileName)
+            return plist[Constants.payTimes] as? NSArray ?? nil
         }
     }
     

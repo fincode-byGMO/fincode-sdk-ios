@@ -10,7 +10,7 @@ import Foundation
 class FincodeCardInfoListRequest {
 }
 
-class FincodeCardInfoListResponse: FincodeResult {
+class FincodeCardInfoListResponse {
 
     let cardInfoList: [CardInfo]
     

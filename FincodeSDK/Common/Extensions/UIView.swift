@@ -65,11 +65,11 @@ extension UIView {
                                               constant: 0))
     }
     
-    func showAlert(message: String) {
-        showAlert("エラー", message: message)
+    func showAlert(_ message: String) {
+        showMessage(message, title: "エラー")
     }
     
-    func showAlert(_ title: String, message: String, buttonTitle: String = "OK") {
+    func showMessage(_ message: String, title: String = "", buttonTitle: String = "OK") {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: buttonTitle, style: .default) { action in
             // do nothing

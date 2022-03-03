@@ -9,14 +9,40 @@ import Foundation
 import UIKit
 
 @IBDesignable
-public class FincodeCommon: UIView {   
+public class FincodeCommon: UIView {
+    
+    struct Components {
+        var cardNoView: FincodeCardNoView
+        var expireView: FincodeExpireView
+        var securityCodeView: FincodeSecurityCodeView
+        var submitButtonView: FincodeSubmitButtonView
+        var holderNameView: FincodeHolderNameView
+        var payTimesView: FincodePayTimesView
+        
+        init(cardNoView: FincodeCardNoView, expireView: FincodeExpireView, securityCodeView: FincodeSecurityCodeView,
+             submitButtonView: FincodeSubmitButtonView, holderNameView: FincodeHolderNameView, payTimesView: FincodePayTimesView) {
+            self.cardNoView = cardNoView
+            self.expireView = expireView
+            self.securityCodeView = securityCodeView
+            self.submitButtonView = submitButtonView
+            self.holderNameView = holderNameView
+            self.payTimesView = payTimesView
+        }
+        
+        func componetList() -> [ComponentDelegate] {
+            return [cardNoView, expireView, securityCodeView, submitButtonView, holderNameView, payTimesView]
+        }
+    }
     
     private var mHeadingHidden: Bool = false
     private var mDynamicLogDisplay: Bool = false
-    private var componentDelegateList: [ComponentDelegate] = []
+    private var mHolderNameHidden: Bool = false
+    private var mMethodHidden: Bool = false
+    private var components: Components?
     private var externalResultDelegate :ResultDelegate?
     var paymentPresenter: PaymentPresenterDelegate?
-    var cardOperatePresenter: CardOperatePresenterDelegate?
+    var cardOperatePresenter: CardRegisterPresenterDelegate?
+    var cardUpdatePresenter: CardUpdatePresenterDelegate?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,11 +56,9 @@ public class FincodeCommon: UIView {
         initialize()
     }
     
-    func initialize(_ delegateList: [ComponentDelegate]? = nil) {
-        componentDelegateList = delegateList ?? []
-        if let button = getSubmitButtonView() {
-            button.delegate = self
-        }
+    func initialize(_ componets: Components? = nil) {
+        self.components = componets
+        self.components?.submitButtonView.delegate = self
     }
     
     func setCardList(_ list: [CardInfo]?) {
@@ -46,35 +70,18 @@ public class FincodeCommon: UIView {
         return InputInfo()
     }
     
-    private func getSubmitButtonView() -> FincodeSubmitButtonView? {
-        if let button = componentDelegateList.filter({ type(of: $0) ==  FincodeSubmitButtonView.self}).first as? FincodeSubmitButtonView {
-            return button
-        } else {
-            return nil
-        }
-    }
-    
-    private func getCardNoView() -> FincodeCardNoView? {
-        if let view = componentDelegateList.filter({ type(of: $0) ==  FincodeCardNoView.self}).first as? FincodeCardNoView {
-            return view
-        } else {
-            return nil
-        }
-    }
-    
     private func initComponent() {
-        guard let config = DataHolder.instance.config, let button = getSubmitButtonView() else { return }
+        guard let config = DataHolder.instance.config, let button = components?.submitButtonView else { return }
         
         button.buttonTitle(config.useCase.title)
         switch config.useCase {
         case .registerCard:
-            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
+            cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor(), uiview: self)
         case .updateCard:
-            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
+            cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor(), uiview: self)
         case .payment:
-            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), uiview: self)
-            cardOperatePresenter = CardOperatePresenter(interactor: CardOperateInteractor(), uiview: self)
-            cardOperatePresenter?.cardInfoList(config)
+            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), uiview: self)
+            paymentPresenter?.cardInfoList(config)
         default:
             break
         }
@@ -91,20 +98,58 @@ public class FincodeCommon: UIView {
         }
         set {
             mHeadingHidden = newValue
-            for item in componentDelegateList {
+            guard let comp = components else { return }
+            for item in comp.componetList() {
                 item.headingHidden = !newValue
             }
         }
     }
     
+    /// ブランド画像 動的切り替えの表示・非表示を設定します
+    ///
+    /// true: 表示
+    ///
+    /// false: 非表示
     @IBInspectable public var dynamicLogDisplay: Bool {
         get {
             return mDynamicLogDisplay
         }
         set {
             mDynamicLogDisplay = newValue
-            guard let view: FincodeCardNoView = getCardNoView() else { return }
+            guard let view: FincodeCardNoView = components?.cardNoView else { return }
             view.dynamicLogDisplay = !newValue
+        }
+    }
+    
+    /// 名義人名の表示・非表示を設定します
+    ///
+    /// true: 表示
+    ///
+    /// false: 非表示
+    @IBInspectable public var holderNameHidden: Bool {
+        get {
+            return mHolderNameHidden
+        }
+        set {
+            mHolderNameHidden = newValue
+            guard !newValue, let view: FincodeHolderNameView = components?.holderNameView else { return }
+            view.setViewGoneVertical()
+        }
+    }
+    
+    /// お支払い回数の表示・非表示を設定します
+    ///
+    /// true: 表示
+    ///
+    /// false: 非表示
+    @IBInspectable public var methodHidden: Bool {
+        get {
+            return mMethodHidden
+        }
+        set {
+            mMethodHidden = newValue
+            guard !newValue, let view: FincodePayTimesView = components?.payTimesView else { return }
+            view.setViewGoneVertical()
         }
     }
     
@@ -119,10 +164,10 @@ public class FincodeCommon: UIView {
     /// - カード更新: FincodeCardUpdateResponse
     public var resultDelegate: ResultDelegate? {
         get {
-            return paymentPresenter?.externalResultDelegate
+            return externalResultDelegate
         }
         set {
-            paymentPresenter?.externalResultDelegate = newValue
+            externalResultDelegate = newValue
         }
     }
     
@@ -143,16 +188,34 @@ public class FincodeCommon: UIView {
 
 extension FincodeCommon: FincodeSubmitButtonViewDelegate {
 
-    func fincodeSubmitButtonView() -> PaymentPresenterDelegate? {
-        guard !validate(), let presenter = paymentPresenter else { return nil }
+    func fincodeSubmitButtonView() -> BasePresenterDelegate? {
         DataHolder.instance.inputInfo = getInputInfo()
-        presenter.externalResultDelegate = externalResultDelegate
-        return presenter
+        guard !validate(), let config = DataHolder.instance.config else { return nil }
+
+        var presenter: BasePresenterDelegate? = nil
+        switch config.useCase {
+        case .registerCard:
+            presenter = cardOperatePresenter
+        case .updateCard:
+            presenter = cardUpdatePresenter
+        case .payment:
+            presenter = paymentPresenter
+        default:
+            break
+        }
+
+        if let pre = presenter {
+            pre.externalResultDelegate = externalResultDelegate
+            return pre
+        } else {
+            return presenter
+        }
     }
     
     fileprivate func validate() -> Bool {
+        guard let comp = components else { return false }
         var isError = false
-        for item in componentDelegateList {
+        for item in comp.componetList() {
             let result = item.validate()
             isError = isError || result
         }

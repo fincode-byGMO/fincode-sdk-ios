@@ -191,7 +191,7 @@ extension FincodeExpireView: CustomTextFieldDelegate {
         } else if isErrorYear {
             result = AppStrings.errorExpireYear.value
         } else {
-            result = ""
+            result = " "
         }
         errorMonthLabelView.text = result
         errorMonthLabelView.isHidden = !(isErrorMonth || isErrorYear)

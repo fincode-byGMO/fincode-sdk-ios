@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FincodeSubmitButtonViewDelegate: AnyObject {
-    func fincodeSubmitButtonView() -> PaymentPresenterDelegate?
+    func fincodeSubmitButtonView() -> BasePresenterDelegate?
 }
 
 @IBDesignable
@@ -40,40 +40,34 @@ class FincodeSubmitButtonView: UIView {
     }
     
     @IBAction func didTouchButton(_ sender: Any) {
-        guard let presenter = delegate?.fincodeSubmitButtonView(),
-              let config = DataHolder.instance.config else { return }
-        switch(config.useCase) {
-        case .registerCard:
-            registerCard(presenter)
-        case .updateCard:
-            updateCard(presenter)
-        case .payment:
-            payment(presenter)
-        default:
-            break
+        guard let presenter = delegate?.fincodeSubmitButtonView(), let inputInfo = DataHolder.instance.inputInfo else { return }
+        guard let config = DataHolder.instance.config else {
+            showAlert("no config")
+            return
         }
+        presenter.execute(config, inputInfo: inputInfo)
     }
     
-    // カード登録
-    fileprivate func registerCard(_ presenter :BasePresenterDelegate) {
-        guard let pre = presenter as? CardOperatePresenterDelegate,
-              let config = DataHolder.instance.config else { return }
-        pre.registerCard(config)
-    }
-    
-    // カード更新
-    fileprivate func updateCard(_ presenter :BasePresenterDelegate) {
-        guard let pre = presenter as? CardOperatePresenterDelegate,
-              let config = DataHolder.instance.config else { return }
-        pre.updateCard(config)
-    }
-    
-    // 決済
-    fileprivate func payment(_ presenter :BasePresenterDelegate) {
-        guard let pre = presenter as? PaymentPresenterDelegate,
-              let config = DataHolder.instance.config  else { return }
-        pre.payment(config)
-    }
+//    // カード登録
+//    fileprivate func registerCard(_ presenter :BasePresenterDelegate) {
+//        guard let pre = presenter as? CardRegisterPresenterDelegate,
+//              let config = DataHolder.instance.config else { return }
+//        pre.registerCard(config)
+//    }
+//
+//    // カード更新
+//    fileprivate func updateCard(_ presenter :BasePresenterDelegate) {
+//        guard let pre = presenter as? CardUpdatePresenterDelegate,
+//              let config = DataHolder.instance.config else { return }
+//        pre.updateCard(config)
+//    }
+//
+//    // 決済
+//    fileprivate func payment(_ presenter :BasePresenterDelegate) {
+//        guard let pre = presenter as? PaymentPresenterDelegate,
+//              let config = DataHolder.instance.config  else { return }
+//        pre.payment(config)
+//    }
 }
 
 extension FincodeSubmitButtonView: ComponentDelegate {

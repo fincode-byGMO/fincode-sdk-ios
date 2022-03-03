@@ -10,36 +10,36 @@ import Foundation
 import UIKit
 
 protocol PaymentPresenterDelegate: BasePresenterDelegate {
-    func payment(_ config: FincodeConfiguration)
+    func cardInfoList(_ config: FincodeConfiguration)
 }
 
 class PaymentPresenter {
     
     private let interactor: PaymentInteractorDelegate
+    private let interactorCard: CardOperateInteractorDelegate
     private let uiview: FincodeCommon
-    private var mExternalResultDelegate: ResultDelegate?
     private var mInputInfo: InputInfo?
+    var externalResultDelegate: ResultDelegate?
     
-    init(interactor: PaymentInteractorDelegate, uiview: FincodeCommon) {
+    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, uiview: FincodeCommon) {
         self.interactor = interactor
+        self.interactorCard = interactorCard
         self.uiview = uiview
     }
 }
 
 extension PaymentPresenter: PaymentPresenterDelegate {
-    
-    var externalResultDelegate: ResultDelegate? {
-        get {
-            return mExternalResultDelegate
-        }
-        set {
-            mExternalResultDelegate = newValue
-        }
-    }
 
-    func payment(_ config: FincodeConfiguration) {
-        guard let config = config as? FincodePaymentConfiguration,
-              let inputInfo = DataHolder.instance.inputInfo else { return } // TODO: 設定値がない場合はエラーハンドラを呼び出す
+    func cardInfoList(_ config: FincodeConfiguration) {
+        guard let config = config as? FincodePaymentConfiguration else { return }
+        
+        let header = ApiConfiguration.instance.requestHeader(config)
+        interactorCard.cardInfoListDelegate = self
+        interactorCard.cardInfoList(config.customerId, header: header)
+    }
+    
+    func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
+        guard let config = config as? FincodePaymentConfiguration else { return }
          
         let param = FincodePaymentRequest()
         param.payType = config.payType
@@ -59,21 +59,28 @@ extension PaymentPresenter: PaymentPresenterDelegate {
     }
 }
 
+extension PaymentPresenter: CardInfoListDelegate {
+    
+    func success(_ result: FincodeCardInfoListResponse) {
+        uiview.setCardList(result.cardInfoList)
+    }
+}
+
 extension PaymentPresenter: ResultDelegate {
     
     func success(_ result: FincodeResult) {
-        if let ext = mExternalResultDelegate {
+        if let ext = externalResultDelegate {
             ext.success(result)
         } else {
-            uiview.showAlert("正常", message: "")
+            uiview.showMessage(AppStrings.apiPaymentSuccessMessage.value)
         }
     }
     
     func failure() {
-        if let ext = mExternalResultDelegate {
+        if let ext = externalResultDelegate {
             ext.failure()
         } else {
-            uiview.showAlert("異常", message: "")
+            uiview.showAlert(AppStrings.apiPaymentFailureMessage.value)
         }
     }
 }
