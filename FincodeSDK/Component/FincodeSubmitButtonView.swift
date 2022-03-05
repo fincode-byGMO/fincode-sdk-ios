@@ -47,27 +47,6 @@ class FincodeSubmitButtonView: UIView {
         }
         presenter.execute(config, inputInfo: inputInfo)
     }
-    
-//    // カード登録
-//    fileprivate func registerCard(_ presenter :BasePresenterDelegate) {
-//        guard let pre = presenter as? CardRegisterPresenterDelegate,
-//              let config = DataHolder.instance.config else { return }
-//        pre.registerCard(config)
-//    }
-//
-//    // カード更新
-//    fileprivate func updateCard(_ presenter :BasePresenterDelegate) {
-//        guard let pre = presenter as? CardUpdatePresenterDelegate,
-//              let config = DataHolder.instance.config else { return }
-//        pre.updateCard(config)
-//    }
-//
-//    // 決済
-//    fileprivate func payment(_ presenter :BasePresenterDelegate) {
-//        guard let pre = presenter as? PaymentPresenterDelegate,
-//              let config = DataHolder.instance.config  else { return }
-//        pre.payment(config)
-//    }
 }
 
 extension FincodeSubmitButtonView: ComponentDelegate {

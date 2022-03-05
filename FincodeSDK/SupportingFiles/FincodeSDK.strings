@@ -23,9 +23,9 @@ errorExpireYear = "有効期限 (年) が無効です";
 errorSecurityCode = "セキュリティコード (CVC) が無効です";
 errorHolderName = "カード名義人の書式が正しくありません";
 
-apiPaymentSuccessMessage = "お支払いが完了しました";
-apiPaymentFailureMessage = "お支払いに失敗しました";
-apiCardRegisterSuccessMessage = "カード情報の登録が完了しました";
-apiCardRegisterFailureMessage = "カード情報の登録に失敗しました";
-apiCardUpdateSuccessMessage = "カード情報の更新が完了しました";
-apiCardUpdateFailureMessage = "カード情報の更新に失敗しました";
+//apiPaymentSuccessMessage = "お支払いが完了しました";
+//apiPaymentFailureMessage = "お支払いに失敗しました";
+//apiCardRegisterSuccessMessage = "カード情報の登録が完了しました";
+//apiCardRegisterFailureMessage = "カード情報の登録に失敗しました";
+//apiCardUpdateSuccessMessage = "カード情報の更新が完了しました";
+//apiCardUpdateFailureMessage = "カード情報の更新に失敗しました";

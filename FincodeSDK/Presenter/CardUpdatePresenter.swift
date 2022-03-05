@@ -30,11 +30,11 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
         guard let config = config as? FincodeCardUpdateConfiguration else { return }
         
         let param = FincodeCardUpdateRequest()
-        param.defaultFlag = ""
-        param.expire = ""
-        param.holderName = ""
-        param.securityCode = ""
-        param.token = ""
+        param.defaultFlag = config.defaultFlag.rawValue
+        param.expire = inputInfo.expireYear + inputInfo.expireMonth
+        param.holderName = inputInfo.holderName
+        param.securityCode = inputInfo.securityCode
+        param.token = config.token
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
@@ -46,18 +46,12 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
 extension CardUpdatePresenter: ResultDelegate {
     
     func success(_ result: FincodeResult) {
-        if let ext = externalResultDelegate {
-            ext.success(result)
-        } else {
-            uiview.showMessage(AppStrings.apiCardUpdateSuccessMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.success(result)
     }
     
     func failure() {
-        if let ext = externalResultDelegate {
-            ext.failure()
-        } else {
-            uiview.showAlert(AppStrings.apiCardUpdateFailureMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.failure()
     }
 }
