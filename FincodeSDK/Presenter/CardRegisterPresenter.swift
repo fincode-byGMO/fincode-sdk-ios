@@ -30,12 +30,12 @@ extension CardRegisterPresenter: CardRegisterPresenterDelegate {
         guard let config = config as? FincodeCardRegisterConfiguration else { return }
         
         let param = FincodeCardRegisterRequest()
-        param.defaultFlag = ""
-        param.cardNo = ""
-        param.expire = ""
-        param.holderName = ""
-        param.securityCode = ""
-        param.token = ""
+        param.defaultFlag = config.defaultFlag.rawValue
+        param.cardNo = inputInfo.cardNumber
+        param.expire = inputInfo.expireYear + inputInfo.expireMonth
+        param.holderName = inputInfo.holderName
+        param.securityCode = inputInfo.securityCode
+        param.token = config.token
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
@@ -47,18 +47,12 @@ extension CardRegisterPresenter: CardRegisterPresenterDelegate {
 extension CardRegisterPresenter: ResultDelegate {
     
     func success(_ result: FincodeResult) {
-        if let ext = externalResultDelegate {
-            ext.success(result)
-        } else {
-            uiview.showMessage(AppStrings.apiCardRegisterSuccessMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.success(result)
     }
     
     func failure() {
-        if let ext = externalResultDelegate {
-            ext.failure()
-        } else {
-            uiview.showAlert(AppStrings.apiCardRegisterFailureMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.failure()
     }
 }

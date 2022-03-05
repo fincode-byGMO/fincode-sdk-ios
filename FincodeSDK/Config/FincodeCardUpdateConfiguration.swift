@@ -12,4 +12,10 @@ public class FincodeCardUpdateConfiguration: FincodeConfiguration {
     ///
     /// ※カード更新する場合に使用します
     public var cardId = ""
+    
+    /// デフォルトフラグ
+    public var defaultFlag: DefaultFlg = .OFF
+    
+    /// トークン
+    public var token = ""
 }

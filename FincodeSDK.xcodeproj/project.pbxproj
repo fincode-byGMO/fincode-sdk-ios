@@ -25,6 +25,8 @@
 		4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A627D07C620047546D /* PayTimesPickerField.swift */; };
 		4F0526AA27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
 		4F0526AB27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
+		4F0526AD27D101B60047546D /* DefaultFlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526AC27D101B60047546D /* DefaultFlg.swift */; };
+		4F0526AE27D101B60047546D /* DefaultFlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526AC27D101B60047546D /* DefaultFlg.swift */; };
 		4F0ABCE727C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCE827C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
@@ -243,6 +245,7 @@
 		4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F0526A627D07C620047546D /* PayTimesPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTimesPickerField.swift; sourceTree = "<group>"; };
 		4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUpdatePresenter.swift; sourceTree = "<group>"; };
+		4F0526AC27D101B60047546D /* DefaultFlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFlg.swift; sourceTree = "<group>"; };
 		4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOperateRepository.swift; sourceTree = "<group>"; };
 		4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRegisterPresenter.swift; sourceTree = "<group>"; };
 		4F17161B27C3C08500CC9D96 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -674,6 +677,7 @@
 				4F1DE78D27A7F99F0057CB9F /* TextFormatType.swift */,
 				4F90049827A9295500AFFE10 /* LayoutType.swift */,
 				4F8040EB27AB78AF0036742D /* AppStrings.swift */,
+				4F0526AC27D101B60047546D /* DefaultFlg.swift */,
 			);
 			path = ValueObject;
 			sourceTree = "<group>";
@@ -923,6 +927,7 @@
 				4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */,
 				4F0526A727D07C620047546D /* PayTimesPickerField.swift in Sources */,
 				4FF97F7C27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */,
+				4F0526AD27D101B60047546D /* DefaultFlg.swift in Sources */,
 				4F25A474278D2804004F8ADC /* Response.swift in Sources */,
 				4F1DE79127A80DA50057CB9F /* StringUtil.swift in Sources */,
 				4F25A3BD278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
@@ -1069,6 +1074,7 @@
 				4F25A5F9278DA978004F8ADC /* FincodeCardNoView.swift in Sources */,
 				4F20E84927B3957600C9DE22 /* InputInfo.swift in Sources */,
 				4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */,
+				4F0526AE27D101B60047546D /* DefaultFlg.swift in Sources */,
 				4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */,
 				4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */,
 				4F25A3CE278D2005004F8ADC /* PaymentRepository.swift in Sources */,

@@ -46,9 +46,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         param.accessId = config.accessId
         param.id = config.id
         param.cardNo = inputInfo.cardNumber
-        let year = inputInfo.expireYear
-        let month = inputInfo.expireMonth
-        param.expire = year + month
+        param.expire = inputInfo.expireYear + inputInfo.expireMonth
         param.securityCode = inputInfo.securityCode
         param.method = config.method
         
@@ -69,18 +67,12 @@ extension PaymentPresenter: CardInfoListDelegate {
 extension PaymentPresenter: ResultDelegate {
     
     func success(_ result: FincodeResult) {
-        if let ext = externalResultDelegate {
-            ext.success(result)
-        } else {
-            uiview.showMessage(AppStrings.apiPaymentSuccessMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.success(result)
     }
     
     func failure() {
-        if let ext = externalResultDelegate {
-            ext.failure()
-        } else {
-            uiview.showAlert(AppStrings.apiPaymentFailureMessage.value)
-        }
+        guard let ext = externalResultDelegate else { return }
+        ext.failure()
     }
 }

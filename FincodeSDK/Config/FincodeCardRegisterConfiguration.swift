@@ -8,4 +8,9 @@
 import Foundation
 
 public class FincodeCardRegisterConfiguration: FincodeConfiguration {
+    /// デフォルトフラグ
+    public var defaultFlag: DefaultFlg = .OFF
+    
+    /// トークン
+    public var token = ""
 }

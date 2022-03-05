@@ -25,12 +25,12 @@ enum AppStrings: String {
     case errorSecurityCode
     case errorHolderName
     
-    case apiPaymentSuccessMessage
-    case apiPaymentFailureMessage
-    case apiCardRegisterSuccessMessage
-    case apiCardRegisterFailureMessage
-    case apiCardUpdateSuccessMessage
-    case apiCardUpdateFailureMessage
+//    case apiPaymentSuccessMessage
+//    case apiPaymentFailureMessage
+//    case apiCardRegisterSuccessMessage
+//    case apiCardRegisterFailureMessage
+//    case apiCardUpdateSuccessMessage
+//    case apiCardUpdateFailureMessage
     
     var value: String {
         return NSLocalizedString(rawValue,

@@ -16,7 +16,7 @@ class FincodeCardRegisterRequest {
     var token: String?
     var cardNo: String?
     
-    func parameters() -> [String: AnyObject] {
+    func parameters() -> [String: AnyObject] { // TODO: パラメータの必須でないのはリクエスト載せないようにする
         var data: [String: AnyObject] = [:]
         data["default_flag"] = defaultFlag as AnyObject
         data["expire"] = expire as AnyObject
