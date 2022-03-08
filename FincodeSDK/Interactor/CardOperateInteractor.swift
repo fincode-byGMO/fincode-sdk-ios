@@ -7,23 +7,27 @@
 
 import Foundation
 
-protocol CardInfoListDelegate: AnyObject {
-    func success(_ result: FincodeCardInfoListResponse)
-}
-
 protocol CardOperateInteractorDelegate: AnyObject {
-    var delegate: ResultDelegate? { get set }
-    var cardInfoListDelegate: CardInfoListDelegate? { get set }
+    // PresenterからInteractorに委譲する処理を定義
     func cardInfoList(_ customerId: String, header: [String: String])
     func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String])
     func updateCard(_ customerId: String, cardId: String , request: FincodeCardUpdateRequest, header: [String: String])
+    // InteractorからPresenterに通知する際のインスタンスを保持
+    var presenterNotify: CardOperateInteractorNotify! { get set }
+}
+
+protocol CardOperateInteractorNotify: AnyObject {
+    // InteractorからPresenterに通知する処理を定義
+    func cardInfoListSuccess(_ result: FincodeCardInfoListResponse)
+    func cardRegisterSuccess(_ result: FincodeResult)
+    func cardUpdateSuccess(_ result: FincodeResult)
+    func cardOperateFailure()
 }
 
 class CardOperateInteractor {
  
     private let cardUseCase = CardOperateUseCase()
-    weak var delegate: ResultDelegate?
-    weak var cardInfoListDelegate: CardInfoListDelegate?
+    weak var presenterNotify: CardOperateInteractorNotify!
     
     init() {
         self.cardUseCase.delegate = self
@@ -49,19 +53,19 @@ extension CardOperateInteractor: CardOperateInteractorDelegate {
 extension CardOperateInteractor: CardUseCaseDelegate {
 
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardInfoListResponse) {
-        cardInfoListDelegate?.success(response)
+        presenterNotify?.cardInfoListSuccess(response)
     }
     
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardRegisterResponse) {
-        delegate?.success(response)
+        presenterNotify?.cardRegisterSuccess(response)
     }
 
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardUpdateResponse) {
-        delegate?.success(response)
+        presenterNotify?.cardUpdateSuccess(response)
     }
     
     func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: APIError) {
         // TODO API失敗の実装をする
-        delegate?.failure()
+        presenterNotify?.cardOperateFailure()
     }
 }

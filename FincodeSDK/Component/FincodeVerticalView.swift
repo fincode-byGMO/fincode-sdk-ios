@@ -34,7 +34,7 @@ public class FincodeVerticalView: FincodeCommon {
             payTimes: payTimesView.payTimes)
     }
     
-    override func setCardList(_ list: [CardInfo]?) {
+    override func cardListSuccess(_ list: [CardInfo]?) {
         if let li = list, 0 < li.count {
             viewConstraints.constant = 124
             let selectCardAreaView = SelectCardAreaView()

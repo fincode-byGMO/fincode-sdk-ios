@@ -10,21 +10,31 @@ import Foundation
 import UIKit
 
 protocol PaymentPresenterDelegate: BasePresenterDelegate {
+    // ViewからPresenterに委譲する処理を定義
     func cardInfoList(_ config: FincodeConfiguration)
+    // PresenterからViewに通知する際のインスタンスを保持
+    var viewNotify: PaymentPresenterNotify! { get set }
+}
+
+protocol PaymentPresenterNotify: AnyObject {
+    // PresenterからViewに通知する処理を定義
+    func cardListSuccess(_ list: [CardInfo]?)
+    func cardListFailure()
+    func paymentSuccess(_ result: FincodeResult)
+    func paymentFailure()
 }
 
 class PaymentPresenter {
     
+    weak var viewNotify: PaymentPresenterNotify!
     private let interactor: PaymentInteractorDelegate
     private let interactorCard: CardOperateInteractorDelegate
-    private let uiview: FincodeCommon
     private var mInputInfo: InputInfo?
     var externalResultDelegate: ResultDelegate?
     
-    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, uiview: FincodeCommon) {
+    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate) {
         self.interactor = interactor
         self.interactorCard = interactorCard
-        self.uiview = uiview
     }
 }
 
@@ -34,7 +44,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         guard let config = config as? FincodePaymentConfiguration else { return }
         
         let header = ApiConfiguration.instance.requestHeader(config)
-        interactorCard.cardInfoListDelegate = self
+        interactorCard.presenterNotify = self
         interactorCard.cardInfoList(config.customerId, header: header)
     }
     
@@ -52,27 +62,37 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
-        interactor.delegate = self
+        interactor.presenterNotify = self
         interactor.payment(config.id, request: param, header: header)
     }
 }
 
-extension PaymentPresenter: CardInfoListDelegate {
+extension PaymentPresenter: CardOperateInteractorNotify {
     
-    func success(_ result: FincodeCardInfoListResponse) {
-        uiview.setCardList(result.cardInfoList)
+    func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
+        viewNotify.cardListSuccess(result.cardInfoList)
+    }
+    
+    func cardRegisterSuccess(_ result: FincodeResult) {
+        // no thing
+    }
+    
+    func cardUpdateSuccess(_ result: FincodeResult) {
+        // no thing
+    }
+    
+    func cardOperateFailure() {
+        viewNotify.cardListFailure()
     }
 }
 
-extension PaymentPresenter: ResultDelegate {
+extension PaymentPresenter: PaymentInteractorNotify {
     
     func success(_ result: FincodeResult) {
-        guard let ext = externalResultDelegate else { return }
-        ext.success(result)
+        externalResultDelegate?.success(result)
     }
     
     func failure() {
-        guard let ext = externalResultDelegate else { return }
-        ext.failure()
+        externalResultDelegate?.failure()
     }
 }

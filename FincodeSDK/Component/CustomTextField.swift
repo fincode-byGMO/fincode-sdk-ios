@@ -159,7 +159,7 @@ extension CustomTextField: UITextFieldDelegate {
     
     // フォーカスOUT
     func textFieldDidEndEditing(_ textField: UITextField) {
-        validete()
+        let _ = validete()
         guard let text = textField.text, !text.isEmpty else { return }
         textField.text = endEditingConvert(text)
     }
