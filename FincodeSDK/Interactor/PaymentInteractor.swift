@@ -9,14 +9,22 @@
 import Foundation
 
 protocol PaymentInteractorDelegate: AnyObject {
-    var delegate: ResultDelegate? { get set }
+    // PresenterからInteractorに委譲する処理を定義
     func payment(_ id: String, request: FincodePaymentRequest, header: [String: String])
+    // InteractorからPresenterに通知する際のインスタンスを保持
+    var presenterNotify: PaymentInteractorNotify? { get set }
+}
+
+protocol PaymentInteractorNotify: AnyObject {
+    // InteractorからPresenterに通知する処理を定義
+    func success(_ result: FincodeResult)
+    func failure()
 }
 
 class PaymentInteractor {
  
     private let paymentUseCase = PaymentUseCase()
-    var delegate: ResultDelegate?
+    var presenterNotify: PaymentInteractorNotify?
     
     init() {
         self.paymentUseCase.delegate = self
@@ -34,12 +42,11 @@ extension PaymentInteractor: PaymentInteractorDelegate {
 extension PaymentInteractor: PaymentUseCaseDelegate {
 
     func paymentUseCase(_ useCase: PaymentUseCase, response: FincodePaymentResponse) {
-        // TODO API成功の実装をする
-        delegate?.success(response)
+        presenterNotify?.success(response)
     }
 
     func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: APIError) {
         // TODO API失敗の実装をする
-        delegate?.failure()
+        presenterNotify?.failure()
     }
 }

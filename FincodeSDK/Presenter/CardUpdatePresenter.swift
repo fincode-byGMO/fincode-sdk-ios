@@ -9,18 +9,24 @@ import Foundation
 import UIKit
 
 protocol CardUpdatePresenterDelegate: BasePresenterDelegate {
+    // PresenterからViewに通知する際のインスタンスを保持
+    var viewNotify: CardUpdatePresenterNotify! { get set }
+}
+
+protocol CardUpdatePresenterNotify: AnyObject {
+    // PresenterからViewに通知する処理を定義
+    func cardUpdateSuccess(_ result: FincodeResult)
+    func cardUpdateFailure()
 }
 
 class CardUpdatePresenter {
     
     private let interactor: CardOperateInteractorDelegate
-    private let uiview: FincodeCommon
     private var mInputInfo: InputInfo?
-    var externalResultDelegate: ResultDelegate?
+    weak var viewNotify: CardUpdatePresenterNotify!
     
-    init(interactor: CardOperateInteractorDelegate, uiview: FincodeCommon) {
+    init(interactor: CardOperateInteractorDelegate) {
         self.interactor = interactor
-        self.uiview = uiview
     }
 }
 
@@ -38,20 +44,25 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
-        interactor.delegate = self
+        interactor.presenterNotify = self
         interactor.updateCard(config.customerId, cardId: "", request: param, header: header)
     }
 }
 
-extension CardUpdatePresenter: ResultDelegate {
-    
-    func success(_ result: FincodeResult) {
-        guard let ext = externalResultDelegate else { return }
-        ext.success(result)
+extension CardUpdatePresenter: CardOperateInteractorNotify {
+    func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
+        // no thing
     }
     
-    func failure() {
-        guard let ext = externalResultDelegate else { return }
-        ext.failure()
+    func cardRegisterSuccess(_ result: FincodeResult) {
+        // no thing
+    }
+    
+    func cardUpdateSuccess(_ result: FincodeResult) {
+        viewNotify?.cardUpdateSuccess(result)
+    }
+    
+    func cardOperateFailure() {
+        viewNotify?.cardUpdateFailure()
     }
 }
