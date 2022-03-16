@@ -7,34 +7,25 @@
 //
 
 import Foundation
-import UIKit
 
 protocol PaymentPresenterDelegate: BasePresenterDelegate {
-    // ViewからPresenterに委譲する処理を定義
     func cardInfoList(_ config: FincodeConfiguration)
-    // PresenterからViewに通知する際のインスタンスを保持
-    var viewNotify: PaymentPresenterNotify! { get set }
-}
-
-protocol PaymentPresenterNotify: AnyObject {
-    // PresenterからViewに通知する処理を定義
-    func cardListSuccess(_ list: [CardInfo]?)
-    func cardListFailure()
-    func paymentSuccess(_ result: FincodeResult)
-    func paymentFailure()
 }
 
 class PaymentPresenter {
     
-    weak var viewNotify: PaymentPresenterNotify!
+    private weak var view: FincodeCommonDelegate!
     private let interactor: PaymentInteractorDelegate
     private let interactorCard: CardOperateInteractorDelegate
+    private let router: PaymentRouterDelegate
     private var mInputInfo: InputInfo?
     var externalResultDelegate: ResultDelegate?
     
-    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate) {
+    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, router: PaymentRouter, view: FincodeCommonDelegate) {
         self.interactor = interactor
         self.interactorCard = interactorCard
+        self.router = router
+        self.view = view
     }
 }
 
@@ -58,7 +49,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         param.cardNo = inputInfo.cardNumber
         param.expire = inputInfo.expireYear + inputInfo.expireMonth
         param.securityCode = inputInfo.securityCode
-        param.method = config.method
+        param.method = inputInfo.payTimes?.method ?? nil
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
@@ -70,7 +61,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
 extension PaymentPresenter: CardOperateInteractorNotify {
     
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
-        viewNotify.cardListSuccess(result.cardInfoList)
+        view.setCardList(result.cardInfoList)
     }
     
     func cardRegisterSuccess(_ result: FincodeResult) {
@@ -82,14 +73,15 @@ extension PaymentPresenter: CardOperateInteractorNotify {
     }
     
     func cardOperateFailure() {
-        viewNotify.cardListFailure()
+        // no thing
     }
 }
 
 extension PaymentPresenter: PaymentInteractorNotify {
     
     func success(_ result: FincodeResult) {
-        externalResultDelegate?.success(result)
+        guard let paymentResponse = result as? FincodePaymentResponse else { return }
+        router.showWebView(paymentResponse)
     }
     
     func failure() {

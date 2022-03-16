@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 protocol CardUpdatePresenterDelegate: BasePresenterDelegate {
-    // PresenterからViewに通知する際のインスタンスを保持
-    var viewNotify: CardUpdatePresenterNotify! { get set }
 }
 
 protocol CardUpdatePresenterNotify: AnyObject {
@@ -23,7 +21,7 @@ class CardUpdatePresenter {
     
     private let interactor: CardOperateInteractorDelegate
     private var mInputInfo: InputInfo?
-    weak var viewNotify: CardUpdatePresenterNotify!
+    var externalResultDelegate: ResultDelegate?
     
     init(interactor: CardOperateInteractorDelegate) {
         self.interactor = interactor
@@ -59,10 +57,10 @@ extension CardUpdatePresenter: CardOperateInteractorNotify {
     }
     
     func cardUpdateSuccess(_ result: FincodeResult) {
-        viewNotify?.cardUpdateSuccess(result)
+        externalResultDelegate?.success(result)
     }
     
     func cardOperateFailure() {
-        viewNotify?.cardUpdateFailure()
+        externalResultDelegate?.failure()
     }
 }

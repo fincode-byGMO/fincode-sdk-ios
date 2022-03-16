@@ -9,21 +9,13 @@ import Foundation
 import UIKit
 
 protocol CardRegisterPresenterDelegate: BasePresenterDelegate {
-    // PresenterからViewに通知する際のインスタンスを保持
-    var viewNotify: CardRegisterPresenterNotify! { get set }
-}
-
-protocol CardRegisterPresenterNotify: AnyObject {
-    // PresenterからViewに通知する処理を定義
-    func cardRegisterSuccess(_ result: FincodeResult)
-    func cardRegisterFailure()
 }
 
 class CardRegisterPresenter {
     
     private let interactor: CardOperateInteractorDelegate
     private var mInputInfo: InputInfo?
-    weak var viewNotify: CardRegisterPresenterNotify!
+    var externalResultDelegate: ResultDelegate?
     
     init(interactor: CardOperateInteractorDelegate) {
         self.interactor = interactor
@@ -56,7 +48,7 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
     }
     
     func cardRegisterSuccess(_ result: FincodeResult) {
-        viewNotify?.cardRegisterSuccess(result)
+        externalResultDelegate?.success(result)
     }
     
     func cardUpdateSuccess(_ result: FincodeResult) {
@@ -64,6 +56,6 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
     }
     
     func cardOperateFailure() {
-        viewNotify?.cardRegisterFailure()
+        externalResultDelegate?.failure()
     }
 }

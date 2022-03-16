@@ -45,9 +45,9 @@ class FincodeSelectCardView: UIView {
         }
     }
     
-    var cardNumber: String {
+    var selectedCard: CardInfo? {
         get {
-            return selected?.cardNo ?? ""
+            return selected
         }
     }
 }

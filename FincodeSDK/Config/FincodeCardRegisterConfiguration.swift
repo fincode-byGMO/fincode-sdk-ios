@@ -11,6 +11,8 @@ public class FincodeCardRegisterConfiguration: FincodeConfiguration {
     /// デフォルトフラグ
     public var defaultFlag: DefaultFlg = .OFF
     
-    /// トークン
-    public var token = ""
+    override public init() {
+        super.init()
+        self.useCase = .registerCard
+    }
 }

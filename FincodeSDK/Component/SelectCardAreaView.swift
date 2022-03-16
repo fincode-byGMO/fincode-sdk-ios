@@ -16,6 +16,7 @@ class SelectCardAreaView: UIView {
     @IBOutlet weak var selectCardView: FincodeSelectCardView!
     
     private var radioViewController: RadioViewController?
+    var selectedRadio: RadioType?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,14 +32,22 @@ class SelectCardAreaView: UIView {
 
     fileprivate func initialize() {
         radioViewController = RadioViewController(radioRegisteredCardView, radioNewCardView)
+        radioViewController?.delegate = self
     }
     
-    var cardInfoList: [CardInfo] {
-        get {
-            return selectCardView.cardInfoList
-        }
-        set {
-            selectCardView.cardInfoList = newValue
-        }
+//    var cardInfoList: [CardInfo] {
+//        get {
+//            return selectCardView.cardInfoList
+//        }
+//        set {
+//            selectCardView.cardInfoList = newValue
+//        }
+//    }
+}
+
+extension SelectCardAreaView: RadioViewControllerDelegate {
+    
+    func didTouch(_ view: RadioView, radioType: RadioType) {
+        self.selectedRadio = radioType
     }
 }

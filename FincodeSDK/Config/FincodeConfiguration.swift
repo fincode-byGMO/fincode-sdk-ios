@@ -16,27 +16,23 @@ public class FincodeConfiguration {
     /// registerCard : クレジットカード登録
     ///
     /// updateCard :  クレジットカード更新
-    public var useCase: UseCase = .none
+    var useCase: UseCase = .none
     
-    /// 認証方式およびシークレットキーを設定
-    ///
-    /// Basic認証 ( Base64でエンコードしたシークレットキー)
-    ///
-    /// Bearer認証
-    public var authorizationSecret: Authorization = .Bearer(apiKey: "")
-    
-    /// 認証方式およびパブリックキーを設定
+    /// 認証方式およびパブリックキー
     ///
     /// Basic認証 ( Base64でエンコードしたパブリックキー )
     ///
     /// Bearer認証
     public var authorizationPublic: Authorization = .Bearer(apiKey: "")
     
-    /// APIバージョンを設定
+    /// APIバージョン
     public var apiVersion: String = ""
     
     /// 顧客ID
     public var customerId = ""
+    
+    /// トークン
+    public var token = ""
     
     public init() {
     }
