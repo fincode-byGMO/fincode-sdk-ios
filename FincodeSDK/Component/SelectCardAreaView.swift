@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol SelectCardAreaViewDelegate: AnyObject {
+    func didTouch(_ useCard: UseCard)
+}
+
 @IBDesignable
 class SelectCardAreaView: UIView {
     
@@ -16,7 +20,8 @@ class SelectCardAreaView: UIView {
     @IBOutlet weak var selectCardView: FincodeSelectCardView!
     
     private var radioViewController: RadioViewController?
-    var selectedRadio: RadioType?
+    var delegate: SelectCardAreaViewDelegate?
+    var selected: UseCard = .newCard
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,23 +36,22 @@ class SelectCardAreaView: UIView {
     }
 
     fileprivate func initialize() {
+        if radioRegisteredCardView.isChecked { selected = .registeredCard }
+        if radioNewCardView.isChecked { selected = .newCard }
         radioViewController = RadioViewController(radioRegisteredCardView, radioNewCardView)
         radioViewController?.delegate = self
     }
-    
-//    var cardInfoList: [CardInfo] {
-//        get {
-//            return selectCardView.cardInfoList
-//        }
-//        set {
-//            selectCardView.cardInfoList = newValue
-//        }
-//    }
 }
 
 extension SelectCardAreaView: RadioViewControllerDelegate {
     
     func didTouch(_ view: RadioView, radioType: RadioType) {
-        self.selectedRadio = radioType
+        if radioType == .registeredCard {
+            selected = .registeredCard
+        }
+        if radioType == .newCard {
+            selected = .newCard
+        }
+        delegate?.didTouch(selected)
     }
 }

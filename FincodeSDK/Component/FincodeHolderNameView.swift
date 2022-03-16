@@ -57,6 +57,12 @@ extension FincodeHolderNameView: ComponentDelegate {
     func validate() -> Bool {
         return holderTextView.validete()
     }
+    
+    func clear() {
+        errorLabelView.isHidden = true
+        holderTextView.endEditingBorder(false)
+        holderTextView.isPlaceholderError(false)
+    }
 }
 
 extension FincodeHolderNameView: CustomTextFieldDelegate {

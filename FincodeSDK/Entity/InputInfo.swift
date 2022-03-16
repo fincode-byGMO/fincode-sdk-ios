@@ -9,16 +9,18 @@ import Foundation
 
 public class InputInfo {
     
-    private let mCardNumber: String
+    private let mUseCard: UseCard
+    private let mCardNumber: String?
     private let mCardId: String?
     private let mExpireMonth: String
     private let mExpireYear: String
-    private let mSecurityCode: String
+    private let mSecurityCode: String?
     private let mHolderName: String?
     private let mPayTimes: (method: String, payTimes: String?)?
     
     init() {
-        self.mCardNumber = ""
+        self.mUseCard = .newCard
+        self.mCardNumber = nil
         self.mCardId = nil
         self.mExpireMonth = ""
         self.mExpireYear = ""
@@ -27,7 +29,8 @@ public class InputInfo {
         self.mPayTimes = ("", nil)
     }
     
-    init(cardNumber: String, cardId: String?, expireMonth: String, expireYear: String, securityCode: String, holderName: String?, payTimes: (method: String, payTimes: String?)?) {
+    init(useCard: UseCard, cardNumber: String?, cardId: String?, expireMonth: String, expireYear: String, securityCode: String?, holderName: String?, payTimes: (method: String, payTimes: String?)?) {
+        self.mUseCard = useCard
         self.mCardNumber = cardNumber
         self.mCardId = cardId
         self.mExpireMonth = expireMonth
@@ -37,7 +40,15 @@ public class InputInfo {
         self.mPayTimes = payTimes
     }
     
-    var cardNumber: String {
+    var cardId: String? {
+        return mCardId
+    }
+    
+    var useCard: UseCard {
+        return mUseCard
+    }
+    
+    var cardNumber: String? {
         return mCardNumber
     }
     
@@ -49,7 +60,7 @@ public class InputInfo {
         return mExpireYear
     }
     
-    var securityCode: String {
+    var securityCode: String? {
         return mSecurityCode
     }
     

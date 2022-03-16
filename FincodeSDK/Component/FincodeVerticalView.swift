@@ -23,19 +23,23 @@ public class FincodeVerticalView: FincodeCommon {
   
     override func initialize(_ components :Components?) {
         super.initialize(Components(cardNoView: cardNoView, expireView: expireView, securityCodeView: securityCodeView,
-                                    submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView))
+                                    submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView,
+                                    selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, selectCardAreaConstraints: viewConstraints))
     }
     
     override func getInputInfo() -> InputInfo {
         
+        var useCard: UseCard = .newCard
         var cardId: String?
-        var cardNumber = cardNoView.cardNumber
-        if let view = selectCardAreaView, view.selectedRadio == .registeredCard {
-            cardNumber = view.selectCardView.selectedCard?.cardNo ?? ""
+        var cardNumber: String? = cardNoView.cardNumber
+        if let view = selectCardAreaView, view.selected == .registeredCard {
+            useCard = .registeredCard
             cardId = view.selectCardView.selectedCard?.id
+            cardNumber = nil
         }
         
         return InputInfo(
+            useCard: useCard,
             cardNumber: cardNumber,
             cardId: cardId,
             expireMonth: expireView.month,
@@ -43,15 +47,5 @@ public class FincodeVerticalView: FincodeCommon {
             securityCode: securityCodeView.cvc,
             holderName: holderNameView.holderName,
             payTimes: payTimesView.payTimes)
-    }
-    
-    override func setCardList(_ list: [CardInfo]?) {
-        if let li = list, 0 < li.count {
-            viewConstraints.constant = 124
-            selectCardAreaView = SelectCardAreaView()
-            selectCardAreaView!.selectCardView.cardInfoList = li
-            view.addSubview(selectCardAreaView!)
-            selectCardAreaView!.anchorAll(equalTo: view)
-        }
     }
 }

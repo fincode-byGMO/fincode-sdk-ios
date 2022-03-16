@@ -42,19 +42,49 @@ extension PaymentPresenter: PaymentPresenterDelegate {
     func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
         guard let config = config as? FincodePaymentConfiguration else { return }
          
+        let param: FincodePaymentRequest
+        switch inputInfo.useCard {
+        case .registeredCard:
+            param = customerIdMethod(config, inputInfo)
+        case .newCard:
+            param = directMethod(config, inputInfo)
+        }
+        
+        let header = ApiConfiguration.instance.requestHeader(config)
+        interactor.presenterNotify = self
+        interactor.payment(config.id, request: param, header: header)
+    }
+    
+    // 直接入力方式の場合
+    private func directMethod(_ config: FincodePaymentConfiguration, _ inputInfo: InputInfo) -> FincodePaymentRequest {
         let param = FincodePaymentRequest()
         param.payType = config.payType
         param.accessId = config.accessId
         param.id = config.id
         param.cardNo = inputInfo.cardNumber
         param.expire = inputInfo.expireYear + inputInfo.expireMonth
+        param.method = inputInfo.payTimes?.method
+        param.payTimes = inputInfo.payTimes?.payTimes
         param.securityCode = inputInfo.securityCode
-        param.method = inputInfo.payTimes?.method ?? nil
+        param.holderName = inputInfo.holderName
         
-        let header = ApiConfiguration.instance.requestHeader(config)
+        return param
+    }
+    
+    // 顧客ID方式の場合
+    private func customerIdMethod(_ config: FincodePaymentConfiguration, _ inputInfo: InputInfo) -> FincodePaymentRequest {
+        let param = FincodePaymentRequest()
+        param.payType = config.payType
+        param.accessId = config.accessId
+        param.id = config.id
+        param.customerId = config.customerId
+        param.cardId = inputInfo.cardId
+        param.method = inputInfo.payTimes?.method
+        param.payTimes = inputInfo.payTimes?.payTimes
+        param.securityCode = inputInfo.securityCode
+        param.holderName = inputInfo.holderName
         
-        interactor.presenterNotify = self
-        interactor.payment(config.id, request: param, header: header)
+        return param
     }
 }
 

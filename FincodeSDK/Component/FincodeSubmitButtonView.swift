@@ -49,20 +49,20 @@ class FincodeSubmitButtonView: UIView {
     }
 }
 
-extension FincodeSubmitButtonView: ComponentDelegate {
-    
-    var headingHidden: Bool {
-        get {
-            // do nothing
-            return false
-        }
-        set {
-            // do nothing
-        }
-    }
-    
-    func validate() -> Bool {
-        // do nothing
-        return false
-    }
-}
+//extension FincodeSubmitButtonView: ComponentDelegate {
+//
+//    var headingHidden: Bool {
+//        get {
+//            // do nothing
+//            return false
+//        }
+//        set {
+//            // do nothing
+//        }
+//    }
+//    
+//    func validate() -> Bool {
+//        // do nothing
+//        return false
+//    }
+//}

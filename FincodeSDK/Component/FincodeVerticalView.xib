@@ -16,7 +16,7 @@
                 <outlet property="securityCodeView" destination="ncJ-uk-XCe" id="x1P-Pw-ncQ"/>
                 <outlet property="submitButtonView" destination="KcG-gr-Fap" id="dGN-8G-kO2"/>
                 <outlet property="view" destination="U3r-fz-42d" id="KMV-MF-Ce4"/>
-                <outlet property="viewConstraints" destination="hTW-KM-2wp" id="DLI-dY-vyD"/>
+                <outlet property="viewConstraints" destination="4O6-Xv-1Nt" id="NlC-Mx-A1J"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,7 +27,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-fz-42d">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" id="hTW-KM-2wp"/>
+                        <constraint firstAttribute="height" id="4O6-Xv-1Nt"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">

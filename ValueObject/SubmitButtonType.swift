@@ -1,5 +1,5 @@
 //
-//  UseCase.swift
+//  SubmitButtonType.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/01/19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum UseCase {
+public enum SubmitButtonType {
     /// なし
     case none
     /// クレジットカードを登録
