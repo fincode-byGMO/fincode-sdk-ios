@@ -5,7 +5,7 @@
 	<key>APIMajorVersion</key>
 	<string>/v1</string>
 	<key>APIBaseURL</key>
-	<string>https://api.dev2.fincode.jp</string>
+	<string>https://api.dev.fincode.jp</string>
 	<key>PayTimes</key>
 	<array>
 		<integer>3</integer>

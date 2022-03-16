@@ -18,6 +18,7 @@ class FincodePayTimesView: UIView {
     @IBOutlet weak var textFieldConstraint: NSLayoutConstraint!
     
     private var radioViewController: RadioViewController?
+    private var radioType: RadioType = .paymentBulk
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +38,17 @@ class FincodePayTimesView: UIView {
         radioViewController?.delegate = self
     }
     
-    var payTimes: String {
+    var payTimes: (method: String, payTimes: String?)? {
         get {
-            guard let value = textField.extText else { return "" }
-            return String(value)
+            switch(radioType) {
+            case .paymentBulk:
+                return ("1" , nil)
+            case .paymentDivision:
+                guard let value = textField.extText else { return nil }
+                return ("2", String(value))
+            default:
+                return nil
+            }
         }
     }
 }
@@ -65,6 +73,7 @@ extension FincodePayTimesView: ComponentDelegate {
 extension FincodePayTimesView: RadioViewControllerDelegate {
     
     func didTouch(_ view: RadioView, radioType: RadioType) {
+        self.radioType = radioType
         switch(radioType) {
         case .paymentDivision:
             textField.isHidden = false
@@ -75,21 +84,3 @@ extension FincodePayTimesView: RadioViewControllerDelegate {
         }
     }
 }
-
-//extension FincodeMethodView: CustomTextFieldDelegate {
-//    func textChanged(_ view: CustomTextField) {
-//        // do nothing
-//    }
-//
-//    func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-//        let isError = cvcTextView.text?.isEmpty ?? false
-//        errorLabelView.text = AppStrings.errorSecurityCode.value
-//        errorLabelView.isHidden = !isError
-//
-//        imageView.image = isError ?
-//                UIImage(named: "cvc_error_ic", in: BundleUtil.instance.bundle, compatibleWith: nil) :
-//                UIImage(named: "cvc_ic", in: BundleUtil.instance.bundle, compatibleWith: nil)
-//
-//        return isError
-//    }
-//}

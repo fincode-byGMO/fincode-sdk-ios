@@ -35,10 +35,4 @@ public class CardInfo {
         brand = json["brand"].stringValue
 
     }
-    
-//    // DEBUG用 削除予定
-//    init(_ no: String, _ ex: String) {
-//        cardNo = no
-//        expire = ex
-//    }
 }

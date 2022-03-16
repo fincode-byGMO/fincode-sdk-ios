@@ -8,6 +8,6 @@
 import Foundation
 
 public enum DefaultFlg: String {
-    case ON = "ON"
-    case OFF = "OFF"
+    case OFF = "0"
+    case ON = "1"
 }

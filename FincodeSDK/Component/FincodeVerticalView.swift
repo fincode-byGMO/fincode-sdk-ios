@@ -18,6 +18,8 @@ public class FincodeVerticalView: FincodeCommon {
     @IBOutlet weak var holderNameView: FincodeHolderNameView!
     @IBOutlet weak var payTimesView: FincodePayTimesView!
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
+    
+    private var selectCardAreaView: SelectCardAreaView?
   
     override func initialize(_ components :Components?) {
         super.initialize(Components(cardNoView: cardNoView, expireView: expireView, securityCodeView: securityCodeView,
@@ -25,8 +27,17 @@ public class FincodeVerticalView: FincodeCommon {
     }
     
     override func getInputInfo() -> InputInfo {
+        
+        var cardId: String?
+        var cardNumber = cardNoView.cardNumber
+        if let view = selectCardAreaView, view.selectedRadio == .registeredCard {
+            cardNumber = view.selectCardView.selectedCard?.cardNo ?? ""
+            cardId = view.selectCardView.selectedCard?.id
+        }
+        
         return InputInfo(
-            cardNumber: cardNoView.cardNumber,
+            cardNumber: cardNumber,
+            cardId: cardId,
             expireMonth: expireView.month,
             expireYear: expireView.year,
             securityCode: securityCodeView.cvc,
@@ -34,13 +45,13 @@ public class FincodeVerticalView: FincodeCommon {
             payTimes: payTimesView.payTimes)
     }
     
-    override func cardListSuccess(_ list: [CardInfo]?) {
+    override func setCardList(_ list: [CardInfo]?) {
         if let li = list, 0 < li.count {
             viewConstraints.constant = 124
-            let selectCardAreaView = SelectCardAreaView()
-            selectCardAreaView.cardInfoList = li
-            view.addSubview(selectCardAreaView)
-            selectCardAreaView.anchorAll(equalTo: view)
+            selectCardAreaView = SelectCardAreaView()
+            selectCardAreaView!.selectCardView.cardInfoList = li
+            view.addSubview(selectCardAreaView!)
+            selectCardAreaView!.anchorAll(equalTo: view)
         }
     }
 }

@@ -27,6 +27,18 @@
 		4F0526AB27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
 		4F0526AD27D101B60047546D /* DefaultFlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526AC27D101B60047546D /* DefaultFlg.swift */; };
 		4F0526AE27D101B60047546D /* DefaultFlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526AC27D101B60047546D /* DefaultFlg.swift */; };
+		4F08AAD127D7552A0075CD5D /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAD027D7552A0075CD5D /* PaymentRouter.swift */; };
+		4F08AAD227D755330075CD5D /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAD027D7552A0075CD5D /* PaymentRouter.swift */; };
+		4F08AAD427D757360075CD5D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAD327D757360075CD5D /* UIViewController.swift */; };
+		4F08AAD527D757360075CD5D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAD327D757360075CD5D /* UIViewController.swift */; };
+		4F08AAD827D762620075CD5D /* WebContentView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F08AAD727D762620075CD5D /* WebContentView.storyboard */; };
+		4F08AAD927D762620075CD5D /* WebContentView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F08AAD727D762620075CD5D /* WebContentView.storyboard */; };
+		4F08AADB27D762AD0075CD5D /* WebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AADA27D762AD0075CD5D /* WebContentViewController.swift */; };
+		4F08AADC27D762AD0075CD5D /* WebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AADA27D762AD0075CD5D /* WebContentViewController.swift */; };
+		4F08AADE27D772010075CD5D /* WebContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AADD27D772010075CD5D /* WebContentPresenter.swift */; };
+		4F08AADF27D772010075CD5D /* WebContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AADD27D772010075CD5D /* WebContentPresenter.swift */; };
+		4F08AAE127D796CB0075CD5D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAE027D796CB0075CD5D /* URL.swift */; };
+		4F08AAE227D796CB0075CD5D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08AAE027D796CB0075CD5D /* URL.swift */; };
 		4F0ABCE727C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCE827C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
@@ -222,6 +234,8 @@
 		4FF24B9E279A36DE00360959 /* FincodeVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9C279A36DE00360959 /* FincodeVerticalView.swift */; };
 		4FF24BA0279A3B8E00360959 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9F279A3B8E00360959 /* RadioViewController.swift */; };
 		4FF24BA1279A3B8E00360959 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF24B9F279A3B8E00360959 /* RadioViewController.swift */; };
+		4FF96D9827D9979200620818 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96D9727D9979200620818 /* URLRequest.swift */; };
+		4FF96D9927D9979200620818 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96D9727D9979200620818 /* URLRequest.swift */; };
 		4FF97F7C27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */; };
 		4FF97F7D27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */; };
 		97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */; };
@@ -246,6 +260,12 @@
 		4F0526A627D07C620047546D /* PayTimesPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayTimesPickerField.swift; sourceTree = "<group>"; };
 		4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUpdatePresenter.swift; sourceTree = "<group>"; };
 		4F0526AC27D101B60047546D /* DefaultFlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFlg.swift; sourceTree = "<group>"; };
+		4F08AAD027D7552A0075CD5D /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentRouter.swift; path = ValueObject/PaymentRouter.swift; sourceTree = SOURCE_ROOT; };
+		4F08AAD327D757360075CD5D /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4F08AAD727D762620075CD5D /* WebContentView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebContentView.storyboard; sourceTree = "<group>"; };
+		4F08AADA27D762AD0075CD5D /* WebContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentViewController.swift; sourceTree = "<group>"; };
+		4F08AADD27D772010075CD5D /* WebContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentPresenter.swift; sourceTree = "<group>"; };
+		4F08AAE027D796CB0075CD5D /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOperateRepository.swift; sourceTree = "<group>"; };
 		4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRegisterPresenter.swift; sourceTree = "<group>"; };
 		4F17161B27C3C08500CC9D96 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -347,6 +367,7 @@
 		4FE77801278EB00900414CD3 /* FincodeSecurityCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSecurityCodeView.swift; sourceTree = "<group>"; };
 		4FF24B9C279A36DE00360959 /* FincodeVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeVerticalView.swift; sourceTree = "<group>"; };
 		4FF24B9F279A3B8E00360959 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		4FF96D9727D9979200620818 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardInfoListRequest.swift; sourceTree = "<group>"; };
 		C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -371,6 +392,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F08AAD627D761DF0075CD5D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F08AADA27D762AD0075CD5D /* WebContentViewController.swift */,
+				4F08AAD727D762620075CD5D /* WebContentView.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		4F25A060278D1FCD004F8ADC /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,11 +513,14 @@
 		4F25A393278D2004004F8ADC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4F08AAD327D757360075CD5D /* UIViewController.swift */,
 				4F25A5F1278D98DC004F8ADC /* UIView.swift */,
 				4F1DE77E27A78C240057CB9F /* UITextField .swift */,
 				4F25A394278D2004004F8ADC /* Request+ErrorHandler.swift */,
 				4F25A395278D2004004F8ADC /* NSDate.swift */,
 				4F17161B27C3C08500CC9D96 /* JSON.swift */,
+				4F08AAE027D796CB0075CD5D /* URL.swift */,
+				4FF96D9727D9979200620818 /* URLRequest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +532,7 @@
 				4F25A397278D2004004F8ADC /* PaymentPresenter.swift */,
 				4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */,
 				4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */,
+				4F08AADD27D772010075CD5D /* WebContentPresenter.swift */,
 			);
 			name = Presenter;
 			path = FincodeSDK/Presenter;
@@ -507,6 +541,7 @@
 		4F25A398278D2004004F8ADC /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				4F08AAD027D7552A0075CD5D /* PaymentRouter.swift */,
 			);
 			name = Router;
 			path = FincodeSDK/Router;
@@ -592,15 +627,16 @@
 				4F86CBA327981163005E49E9 /* ValueObject */,
 				4F8040EE27AB82530036742D /* Util */,
 				4F25A391278D2004004F8ADC /* Common */,
+				4F08AAD627D761DF0075CD5D /* ViewController */,
 				4F25A38A278D2004004F8ADC /* Component */,
 				4F25A386278D2004004F8ADC /* Config */,
 				4F25A381278D2004004F8ADC /* Infra */,
 				4F25A396278D2004004F8ADC /* Presenter */,
 				4F25A37F278D2004004F8ADC /* Interactor */,
+				4F25A398278D2004004F8ADC /* Router */,
 				4F25A399278D2004004F8ADC /* UseCase */,
 				4F25A3A1278D2004004F8ADC /* Repository */,
 				4F25A39C278D2004004F8ADC /* Entity */,
-				4F25A398278D2004004F8ADC /* Router */,
 				4F25A38F278D2004004F8ADC /* SupportingFiles */,
 				4F45D18D278D1D6B00FB3483 /* FincodeSDKTests */,
 				4F45D182278D1D6A00FB3483 /* Products */,
@@ -812,6 +848,7 @@
 				4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9E2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
 				4FE777F9278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4F08AAD827D762620075CD5D /* WebContentView.storyboard in Resources */,
 				4FC4DE1B27CF568300723574 /* FincodePayTimesView.xib in Resources */,
 				4FE777FF278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
 				4F7713B22799584900B2CB81 /* ColorAssets.xcassets in Resources */,
@@ -835,6 +872,7 @@
 				4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9F2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
 				4FE777FA278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
+				4F08AAD927D762620075CD5D /* WebContentView.storyboard in Resources */,
 				4FC4DE1C27CF568300723574 /* FincodePayTimesView.xib in Resources */,
 				4FE77800278EAFF700414CD3 /* FincodeSecurityCodeView.xib in Resources */,
 				4F7713B32799584900B2CB81 /* ColorAssets.xcassets in Resources */,
@@ -916,6 +954,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F25A3C7278D2005004F8ADC /* APIError.swift in Sources */,
+				4F08AAD127D7552A0075CD5D /* PaymentRouter.swift in Sources */,
 				4F25A3BF278D2004004F8ADC /* NSDate.swift in Sources */,
 				4F67A8A427CCFB3C00A6E665 /* FincodePaymentConfiguration.swift in Sources */,
 				4FD2F9A827CE39B90076374E /* FincodeHolderNameView.swift in Sources */,
@@ -939,6 +978,7 @@
 				4F67A8A127CCFAE500A6E665 /* FincodeCardUpdateConfiguration.swift in Sources */,
 				4F25A3A5278D2004004F8ADC /* ApiManager.swift in Sources */,
 				4F25A470278D2804004F8ADC /* AFError.swift in Sources */,
+				4F08AADB27D762AD0075CD5D /* WebContentViewController.swift in Sources */,
 				4F6ACB5627913DBA003ECE1D /* CardInfo.swift in Sources */,
 				4F25A3BB278D2004004F8ADC /* Log.swift in Sources */,
 				4F8040F627ABDCE30036742D /* FincodeCommon.swift in Sources */,
@@ -960,6 +1000,7 @@
 				4F25A45F278D2804004F8ADC /* MultipartFormData.swift in Sources */,
 				4F1DE78B27A7D6520057CB9F /* CustomTextField.swift in Sources */,
 				4F25A463278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
+				4F08AAE127D796CB0075CD5D /* URL.swift in Sources */,
 				4F25A467278D2804004F8ADC /* SessionManager.swift in Sources */,
 				4F0526AA27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */,
 				4F25A3A7278D2004004F8ADC /* APIResult.swift in Sources */,
@@ -973,6 +1014,7 @@
 				4FE77802278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */,
 				4F8040EC27AB78AF0036742D /* AppStrings.swift in Sources */,
 				4F67A89827CCD41200A6E665 /* FincodeCardRegisterRequest.swift in Sources */,
+				4F08AAD427D757360075CD5D /* UIViewController.swift in Sources */,
 				4F4D1FAD27C3742C0012EB9C /* ResultDelegate.swift in Sources */,
 				4F6CBDF027A3DE3200BFF64E /* ComponentDelegate.swift in Sources */,
 				4F86CBA52798118C005E49E9 /* UseCase.swift in Sources */,
@@ -986,11 +1028,13 @@
 				4FF24BA0279A3B8E00360959 /* RadioViewController.swift in Sources */,
 				4F7713AF27994D6A00B2CB81 /* RadioType.swift in Sources */,
 				4FE777FC278EA84200414CD3 /* FincodeExpireView.swift in Sources */,
+				4FF96D9827D9979200620818 /* URLRequest.swift in Sources */,
 				4F25A5EF278D7668004F8ADC /* AppConfiguration.swift in Sources */,
 				4F7713AC27993E3E00B2CB81 /* RadioView.swift in Sources */,
 				4F25A3CD278D2005004F8ADC /* PaymentRepository.swift in Sources */,
 				4F20E84527B3832B00C9DE22 /* FincodeHorizontalView.swift in Sources */,
 				4F25A5F8278DA978004F8ADC /* FincodeCardNoView.swift in Sources */,
+				4F08AADE27D772010075CD5D /* WebContentPresenter.swift in Sources */,
 				4F90049927A9295500AFFE10 /* LayoutType.swift in Sources */,
 				4F25A465278D2804004F8ADC /* Validation.swift in Sources */,
 				4FBEF15827A26D0300D8E145 /* ColorController.swift in Sources */,
@@ -1029,6 +1073,7 @@
 				4F8040ED27AB78AF0036742D /* AppStrings.swift in Sources */,
 				4F25A3AC278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
 				4F25A3C2278D2005004F8ADC /* PaymentPresenter.swift in Sources */,
+				4F08AAD527D757360075CD5D /* UIViewController.swift in Sources */,
 				4F25A3B0278D2004004F8ADC /* FincodeConfiguration.swift in Sources */,
 				4F25A464278D2804004F8ADC /* ParameterEncoding.swift in Sources */,
 				4F6ACB5D27917491003ECE1D /* CustomPickerView.swift in Sources */,
@@ -1041,6 +1086,7 @@
 				4F6CBDF127A3DE3200BFF64E /* ComponentDelegate.swift in Sources */,
 				4FF24BA1279A3B8E00360959 /* RadioViewController.swift in Sources */,
 				4F25A473278D2804004F8ADC /* TaskDelegate.swift in Sources */,
+				4F08AADF27D772010075CD5D /* WebContentPresenter.swift in Sources */,
 				4F7713A727982FCA00B2CB81 /* CardBrandType.swift in Sources */,
 				4F25A466278D2804004F8ADC /* Validation.swift in Sources */,
 				4F67A89C27CCDE5400A6E665 /* FincodeCardUpdateRequest.swift in Sources */,
@@ -1055,6 +1101,7 @@
 				4F90049A27A9295500AFFE10 /* LayoutType.swift in Sources */,
 				4F25A3BE278D2004004F8ADC /* Request+ErrorHandler.swift in Sources */,
 				4F25A456278D2803004F8ADC /* SessionDelegate.swift in Sources */,
+				4F08AAE227D796CB0075CD5D /* URL.swift in Sources */,
 				4F1DE79227A80DA50057CB9F /* StringUtil.swift in Sources */,
 				4F25A47B278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
 				4F67A8A527CCFB3C00A6E665 /* FincodePaymentConfiguration.swift in Sources */,
@@ -1063,6 +1110,7 @@
 				4F67A8A227CCFAE500A6E665 /* FincodeCardUpdateConfiguration.swift in Sources */,
 				4F7713B027994D6A00B2CB81 /* RadioType.swift in Sources */,
 				4F17162327C3C75300CC9D96 /* CardOperateInteractor.swift in Sources */,
+				4F08AADC27D762AD0075CD5D /* WebContentViewController.swift in Sources */,
 				4FD2F9A927CE39B90076374E /* FincodeHolderNameView.swift in Sources */,
 				4F25A475278D2804004F8ADC /* Response.swift in Sources */,
 				4F25A3C6278D2005004F8ADC /* PaymentUseCase.swift in Sources */,
@@ -1070,6 +1118,7 @@
 				4F25A3CA278D2005004F8ADC /* FincodePaymentRequest.swift in Sources */,
 				4FF97F7D27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */,
 				4F8040F127AB82820036742D /* BundleUtil.swift in Sources */,
+				4FF96D9927D9979200620818 /* URLRequest.swift in Sources */,
 				4F25A3A4278D2004004F8ADC /* PaymentInteractor.swift in Sources */,
 				4F25A5F9278DA978004F8ADC /* FincodeCardNoView.swift in Sources */,
 				4F20E84927B3957600C9DE22 /* InputInfo.swift in Sources */,
@@ -1077,6 +1126,7 @@
 				4F0526AE27D101B60047546D /* DefaultFlg.swift in Sources */,
 				4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */,
 				4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */,
+				4F08AAD227D755330075CD5D /* PaymentRouter.swift in Sources */,
 				4F25A3CE278D2005004F8ADC /* PaymentRepository.swift in Sources */,
 				4F6ACB5327913524003ECE1D /* CardPickerParts.swift in Sources */,
 				4F25A471278D2804004F8ADC /* AFError.swift in Sources */,

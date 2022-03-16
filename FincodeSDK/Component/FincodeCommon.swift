@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
+protocol FincodeCommonDelegate: AnyObject {
+    func setCardList(_ list: [CardInfo]?)
+}
+
 @IBDesignable
-public class FincodeCommon: UIView, PaymentPresenterNotify, CardRegisterPresenterNotify, CardUpdatePresenterNotify {
+public class FincodeCommon: UIView, FincodeCommonDelegate {
     
     struct Components {
         var cardNoView: FincodeCardNoView
@@ -67,17 +71,21 @@ public class FincodeCommon: UIView, PaymentPresenterNotify, CardRegisterPresente
     }
     
     private func initComponent() {
-        guard let config = DataHolder.instance.config, let button = components?.submitButtonView else { return }
+        guard let config = DataHolder.instance.config,
+              let button = components?.submitButtonView,
+              let parentViewController = parentViewController else { return }
         
         button.buttonTitle(config.useCase.title)
         switch config.useCase {
         case .registerCard:
             cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor())
+            cardOperatePresenter?.externalResultDelegate = externalResultDelegate
         case .updateCard:
             cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor())
+            cardUpdatePresenter?.externalResultDelegate = externalResultDelegate
         case .payment:
-            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor())
-            paymentPresenter?.viewNotify = self
+            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
+            paymentPresenter?.externalResultDelegate = externalResultDelegate
             paymentPresenter?.cardInfoList(config)
         default:
             break
@@ -182,44 +190,8 @@ public class FincodeCommon: UIView, PaymentPresenterNotify, CardRegisterPresente
         initComponent()
     }
     
-    // 決済実行 成功
-    func paymentSuccess(_ result: FincodeResult) {
-        externalResultDelegate?.success(result)
-    }
-    
-    // 決済実行 失敗
-    func paymentFailure() {
-        externalResultDelegate?.failure()
-    }
-    
-    // カード登録 成功
-    func cardRegisterSuccess(_ result: FincodeResult) {
-        externalResultDelegate?.success(result)
-    }
-    
-    // カード登録 失敗
-    func cardRegisterFailure() {
-        externalResultDelegate?.failure()
-    }
-    
-    // カード更新 成功
-    func cardUpdateSuccess(_ result: FincodeResult) {
-        externalResultDelegate?.success(result)
-    }
-    
-    // カード更新 失敗
-    func cardUpdateFailure() {
-        externalResultDelegate?.failure()
-    }
-    
-    // カード一覧取得 成功
-    func cardListSuccess(_ list: [CardInfo]?) {
+    func setCardList(_ list: [CardInfo]?) {
         // 派生先で実装
-    }
-    
-    // カード一覧取得 失敗
-    func cardListFailure() {
-        // do nothing
     }
 }
 
@@ -231,13 +203,10 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate {
 
         switch config.useCase {
         case .registerCard:
-            cardOperatePresenter?.viewNotify = self
             return cardOperatePresenter
         case .updateCard:
-            cardUpdatePresenter?.viewNotify = self
             return cardUpdatePresenter
         case .payment:
-            paymentPresenter?.viewNotify = self
             return paymentPresenter
         default:
             return nil

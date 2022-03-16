@@ -9,13 +9,13 @@ import Foundation
 
 public class FincodeCardUpdateConfiguration: FincodeConfiguration {
     /// カードID
-    ///
-    /// ※カード更新する場合に使用します
     public var cardId = ""
     
     /// デフォルトフラグ
     public var defaultFlag: DefaultFlg = .OFF
     
-    /// トークン
-    public var token = ""
+    override public init() {
+        super.init()
+        self.useCase = .updateCard
+    }
 }

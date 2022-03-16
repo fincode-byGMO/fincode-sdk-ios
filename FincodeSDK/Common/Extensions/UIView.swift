@@ -75,11 +75,12 @@ extension UIView {
             // do nothing
         }
         alert.addAction(yesAction)
-        guard let vc = parentViewController() else { return }
+        guard let vc = parentViewController else { return }
         vc.present(alert, animated: true, completion: nil)
     }
     
-    func parentViewController() -> UIViewController? {
+    // 自身を配置しているViewControllerを取得する
+    var parentViewController: UIViewController? {
         var parent: UIResponder? = self
         while let next = parent?.next {
             if let viewController = next as? UIViewController {
