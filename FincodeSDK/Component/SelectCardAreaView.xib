@@ -67,6 +67,7 @@
                 <constraint firstItem="pum-So-fi8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h5h-7o-117"/>
                 <constraint firstAttribute="trailing" secondItem="pum-So-fi8" secondAttribute="trailing" id="lwk-dM-UgK"/>
                 <constraint firstItem="pum-So-fi8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mtf-mD-6eZ"/>
+                <constraint firstAttribute="bottom" secondItem="pum-So-fi8" secondAttribute="bottom" id="w75-c5-x2C"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

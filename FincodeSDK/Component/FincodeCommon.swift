@@ -22,19 +22,26 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         var submitButtonView: FincodeSubmitButtonView
         var holderNameView: FincodeHolderNameView
         var payTimesView: FincodePayTimesView
+        var selectCardAreaView: SelectCardAreaView
+        var selectCardAreaBaseView: UIView
+        var selectCardAreaConstraints: NSLayoutConstraint
         
         init(cardNoView: FincodeCardNoView, expireView: FincodeExpireView, securityCodeView: FincodeSecurityCodeView,
-             submitButtonView: FincodeSubmitButtonView, holderNameView: FincodeHolderNameView, payTimesView: FincodePayTimesView) {
+             submitButtonView: FincodeSubmitButtonView, holderNameView: FincodeHolderNameView, payTimesView: FincodePayTimesView,
+             selectCardAreaView: SelectCardAreaView, selectCardAreaBaseView: UIView, selectCardAreaConstraints: NSLayoutConstraint) {
             self.cardNoView = cardNoView
             self.expireView = expireView
             self.securityCodeView = securityCodeView
             self.submitButtonView = submitButtonView
             self.holderNameView = holderNameView
             self.payTimesView = payTimesView
+            self.selectCardAreaView = selectCardAreaView
+            self.selectCardAreaBaseView = selectCardAreaBaseView
+            self.selectCardAreaConstraints = selectCardAreaConstraints
         }
         
-        func componetList() -> [ComponentDelegate] {
-            return [cardNoView, expireView, securityCodeView, submitButtonView, holderNameView, payTimesView]
+        func list() -> [ComponentDelegate] {
+            return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
         }
     }
     
@@ -104,7 +111,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         set {
             mHeadingHidden = newValue
             guard let comp = components else { return }
-            for item in comp.componetList() {
+            for item in comp.list() {
                 item.headingHidden = !newValue
             }
         }
@@ -191,16 +198,34 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     }
     
     func setCardList(_ list: [CardInfo]?) {
-        // 派生先で実装
+        guard let comp = components else { return }
+        
+        let baseView = comp.selectCardAreaBaseView
+        let selectCardArea = comp.selectCardAreaView
+        selectCardArea.delegate = self
+        
+        if let li = list, 0 < li.count {
+            comp.selectCardAreaConstraints.constant = 124
+            selectCardArea.selectCardView.cardInfoList = li
+            baseView.addSubview(selectCardArea)
+            selectCardArea.anchorAll(equalTo: baseView)
+            baseView.sizeToFit()
+        }
     }
 }
 
-extension FincodeCommon: FincodeSubmitButtonViewDelegate {
+extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDelegate {
 
+    // 決済・カード登録・カード更新のボタンをタッチで実行され
+    // 各入力コンポーネントの入力チェック、処理に応じたPresenterを返す
     func fincodeSubmitButtonView() -> BasePresenterDelegate? {
         DataHolder.instance.inputInfo = getInputInfo()
-        guard !validate(), let config = DataHolder.instance.config else { return nil }
+        guard let config = DataHolder.instance.config, let comp = components else { return nil }
 
+        if comp.selectCardAreaView.selected == .registeredCard || validate() {
+            return nil
+        }
+        
         switch config.useCase {
         case .registerCard:
             return cardOperatePresenter
@@ -213,13 +238,24 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate {
         }
     }
     
+    // 各入力コンポーネントの入力チェックを行う
     fileprivate func validate() -> Bool {
         guard let comp = components else { return false }
         var isError = false
-        for item in comp.componetList() {
+        for item in comp.list() {
             let result = item.validate()
             isError = isError || result
         }
         return isError
+    }
+    
+    // 登録済みカードと新しいカードの選択ラジオボタン切り替え時に実行される
+    func didTouch(_ useCard: UseCard) {
+        guard let comp = components else { return }
+        if useCard == .registeredCard {
+            for item in comp.list() {
+                item.clear()
+            }
+        }
     }
 }

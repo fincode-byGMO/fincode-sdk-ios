@@ -1,5 +1,5 @@
 //
-//  SubmitButtonType.swift
+//  UseCase.swift
 //  FincodeSDK
 //
 //  Created by fincode on 2022/01/19.

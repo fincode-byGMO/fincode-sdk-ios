@@ -25,13 +25,6 @@ enum AppStrings: String {
     case errorSecurityCode
     case errorHolderName
     
-//    case apiPaymentSuccessMessage
-//    case apiPaymentFailureMessage
-//    case apiCardRegisterSuccessMessage
-//    case apiCardRegisterFailureMessage
-//    case apiCardUpdateSuccessMessage
-//    case apiCardUpdateFailureMessage
-    
     var value: String {
         return NSLocalizedString(rawValue,
                                  tableName: BundleUtil.instance.bundle.infoDictionary?["CFBundleName"] as? String,

@@ -17,13 +17,19 @@ class FincodeCardUpdateRequest {
     
     func parameters() -> [String: AnyObject] {
         var data: [String: AnyObject] = [:]
-        data["default_flag"] = defaultFlag as AnyObject
-        data["expire"] = expire as AnyObject
-        data["holder_name"] = holderName as AnyObject
-        data["security_code"] = securityCode as AnyObject
-        data["token"] = token as AnyObject
+        setParam(&data, key: "default_flag", param: defaultFlag)
+        setParam(&data, key: "expire", param: expire)
+        setParam(&data, key: "holder_name", param: holderName)
+        setParam(&data, key: "security_code", param: securityCode)
+        setParam(&data, key: "token", param: token)
         
         return data
+    }
+    
+    private func setParam(_ data: inout [String: AnyObject], key: String, param: Any?) {
+        if let p = param {
+            data[key] = p as AnyObject
+        }
     }
 }
 

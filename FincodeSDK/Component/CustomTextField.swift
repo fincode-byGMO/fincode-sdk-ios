@@ -74,7 +74,7 @@ class CustomTextField: UITextField {
         view?.isBorderFocus(true)
     }
     
-    private func endEditingBorder(_ isError: Bool) {
+    func endEditingBorder(_ isError: Bool) {
         var view: UIView?
         if borderView != nil {
             view = borderView

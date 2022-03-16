@@ -68,6 +68,10 @@ extension FincodePayTimesView: ComponentDelegate {
         // do nothing
         return false
     }
+    
+    func clear() {
+        // do nothing
+    }
 }
 
 extension FincodePayTimesView: RadioViewControllerDelegate {

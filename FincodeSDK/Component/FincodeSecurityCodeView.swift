@@ -17,6 +17,8 @@ class FincodeSecurityCodeView: UIView {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
+    static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{3,4}$")
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
@@ -56,6 +58,13 @@ extension FincodeSecurityCodeView: ComponentDelegate {
     func validate() -> Bool {
         return cvcTextView.validete()
     }
+    
+    func clear() {
+        errorLabelView.isHidden = true
+        cvcTextView.endEditingBorder(false)
+        cvcTextView.isPlaceholderError(false)
+        imageView.image = UIImage(named: "cvc_ic", in: BundleUtil.instance.bundle, compatibleWith: nil)
+    }
 }
 
 extension FincodeSecurityCodeView: CustomTextFieldDelegate {
@@ -64,7 +73,13 @@ extension FincodeSecurityCodeView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        let isError = cvcTextView.text?.isEmpty ?? false
+        guard let value = cvcTextView.text, !value.isEmpty, let regex = FincodeSecurityCodeView.regex else { return false }
+
+        var isError = false
+        if regex.matches(in: value, range: NSRange(location: 0, length: value.count)).count <= 0 {
+            isError = true
+        }
+        
         errorLabelView.text = AppStrings.errorSecurityCode.value
         errorLabelView.isHidden = !isError
         

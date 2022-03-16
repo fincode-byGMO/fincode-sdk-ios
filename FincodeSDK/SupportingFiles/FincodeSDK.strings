@@ -6,26 +6,22 @@
   
 */
 
+// ラジオボタン タイトル
 titleRegisteredCardRadio = "登録済みのカード";
 titleNewCardRadio = "新しいクレジットカード";
 titlePaymentBulkRadio = "一括";
 titlePaymentDivisionRadio = "分割";
 
+// ボタン タイトル
 titleRegisterCardButton = "クレジットカードを登録";
 titleUpdateCardButton = "クレジットカードを更新";
 titlePaymentButton = "お支払い";
 
+// 入力エラー文言
 errorCardNumberFormat = "カード番号の書式が正しくありません";
-errorCardNumber = "カード番号が無効です";
+errorCardNumber = "カード番号が指定されていません";
 errorExpireMonthFormat = "有効期限 (月) の書式が正しくありません";
-errorExpireMonth = "有効期限 (月) が無効です";
-errorExpireYear = "有効期限 (年) が無効です";
-errorSecurityCode = "セキュリティコード (CVC) が無効です";
+errorExpireMonth = "有効期限 (月) が指定されていません";
+errorExpireYear = "有効期限 (年) が指定されていません";
+errorSecurityCode = "セキュリティコードの書式が正しくありません";
 errorHolderName = "カード名義人の書式が正しくありません";
-
-//apiPaymentSuccessMessage = "お支払いが完了しました";
-//apiPaymentFailureMessage = "お支払いに失敗しました";
-//apiCardRegisterSuccessMessage = "カード情報の登録が完了しました";
-//apiCardRegisterFailureMessage = "カード情報の登録に失敗しました";
-//apiCardUpdateSuccessMessage = "カード情報の更新が完了しました";
-//apiCardUpdateFailureMessage = "カード情報の更新に失敗しました";

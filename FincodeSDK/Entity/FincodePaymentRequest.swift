@@ -13,22 +13,38 @@ class FincodePaymentRequest {
     var payType: String?
     var accessId: String?
     var id: String?
+    var token: String?
     var cardNo: String?
     var expire: String?
-    var securityCode: String?
+    var customerId: String?
+    var cardId: String?
     var method: String?
+    var payTimes: String?
+    var securityCode: String?
+    var holderName: String?
     
     func parameters() -> [String: AnyObject] {
         var data: [String: AnyObject] = [:]
-        data["pay_type"] = payType as AnyObject
-        data["access_id"] = accessId as AnyObject
-        data["id"] = id as AnyObject
-        data["card_no"] = cardNo as AnyObject
-        data["expire"] = expire as AnyObject
-        data["security_code"] = securityCode as AnyObject
-        data["method"] = method as AnyObject
+        setParam(&data, key: "pay_type", param: payType)
+        setParam(&data, key: "access_id", param: accessId)
+        setParam(&data, key: "id", param: id)
+        setParam(&data, key: "token", param: token)
+        setParam(&data, key: "card_no", param: cardNo)
+        setParam(&data, key: "expire", param: expire)
+        setParam(&data, key: "customer_id", param: customerId)
+        setParam(&data, key: "card_id", param: cardId)
+        setParam(&data, key: "method", param: method)
+        setParam(&data, key: "pay_times", param: payTimes)
+        setParam(&data, key: "security_code", param: securityCode)
+        setParam(&data, key: "holder_name", param: holderName)
         
         return data
+    }
+    
+    private func setParam(_ data: inout [String: AnyObject], key: String, param: Any?) {
+        if let p = param {
+            data[key] = p as AnyObject
+        }
     }
 }
 

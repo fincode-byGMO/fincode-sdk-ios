@@ -26,7 +26,8 @@ class FincodeExpireView: UIView {
     var monthConstraints: NSLayoutConstraint?
     var yearConstraints: NSLayoutConstraint?
     
-    private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^[1-9]$)|(^0[1-9]$)|(^1[0-2]$)")
+    //private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^[1-9]$)|(^0[1-9]$)|(^1[0-2]$)")
+    private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{2}(0[1-9]|1[0-2])$")
     private var mLayoutType: LayoutType = .vertical
     private var errorMonthMsg: String = ""
     private var isErrorMonth: Bool = false
@@ -137,6 +138,17 @@ extension FincodeExpireView: ComponentDelegate {
         let isYearError = yearTextView.validete()
         return isMonthError || isYearError
     }
+    
+    func clear() {
+        errorMonthLabelView.isHidden = true
+        errorYearLabelView.isHidden = true
+        
+        monthTextView.endEditingBorder(false)
+        monthTextView.isPlaceholderError(false)
+        
+        yearTextView.endEditingBorder(false)
+        yearTextView.isPlaceholderError(false)
+    }
 }
 
 extension FincodeExpireView: CustomTextFieldDelegate {
@@ -145,8 +157,13 @@ extension FincodeExpireView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
+        
+        var isError = false
         guard let text = view.text else { return true }
-        var isError: Bool = text.isEmpty
+        if let config = DataHolder.instance.config, config.useCase != .updateCard {
+            isError = text.isEmpty
+        }
+        
         if view.identifier == monthIdentifier {
             isError = isError || errorMonthFormat(text)
         }
@@ -196,7 +213,7 @@ extension FincodeExpireView: CustomTextFieldDelegate {
         errorMonthLabelView.text = result
         errorMonthLabelView.isHidden = !(isErrorMonth || isErrorYear)
         errorYearLabelView.isHidden = true
-        setFormatErrorColor(view)
+        //setFormatErrorColor(view)
     }
     
     private func setFormatErrorColor(_ view: CustomTextField) {

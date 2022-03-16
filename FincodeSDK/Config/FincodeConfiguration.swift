@@ -16,7 +16,7 @@ public class FincodeConfiguration {
     /// registerCard : クレジットカード登録
     ///
     /// updateCard :  クレジットカード更新
-    var useCase: UseCase = .none
+    var useCase: SubmitButtonType = .none
     
     /// 認証方式およびパブリックキー
     ///

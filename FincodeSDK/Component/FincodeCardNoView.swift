@@ -21,6 +21,7 @@ class FincodeCardNoView: UIView {
     @IBOutlet weak var cardImageWidthConstraints: NSLayoutConstraint!
     
     private var mLayoutType: LayoutType = .vertical
+    static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{10,16}$")
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,6 +94,12 @@ extension FincodeCardNoView: ComponentDelegate {
     func validate() -> Bool {
         return cardNumberTextView.validete()
     }
+    
+    func clear() {
+        errorLabelView.isHidden = true
+        cardNumberTextView.endEditingBorder(false)
+        cardNumberTextView.isPlaceholderError(false)
+    }
 }
 
 extension FincodeCardNoView: CustomTextFieldDelegate {
@@ -104,12 +111,11 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        guard let value = cardNumberTextView.text else { return true }
-        let isError = value.isEmpty || CardBrandType.getType(value).validateDigits(value)
+        let isError = cardNumber.isEmpty || isFormatCheck(cardNumber) || CardBrandType.getType(cardNumber).validateDigits(cardNumber)
         
-        errorLabelView.text = getErrorMessage(value)
+        errorLabelView.text = getErrorMessage(cardNumber)
         errorLabelView.isHidden = !isError
-        setFormatErrorColor(view)
+        //setFormatErrorColor(view)
         
         return isError
     }
@@ -123,15 +129,19 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
         }
     }
     
-    private func getErrorMessage(_ value: String?) -> String {
-        guard let val = value else { return "" }
-        if val.isEmpty {
+    private func getErrorMessage(_ value: String) -> String {
+        if value.isEmpty {
             return AppStrings.errorCardNumber.value
-        } else if CardBrandType.getType(val).validateDigits(val) {
+        } else if isFormatCheck(value) || CardBrandType.getType(cardNumber).validateDigits(cardNumber) {
             return AppStrings.errorCardNumberFormat.value
         } else {
             // ブランクだと表示領域の高さだけ縮まるためダミーを返す
             return " "
         }
+    }
+    
+    private func isFormatCheck(_ value: String) -> Bool {
+        guard let regex = FincodeCardNoView.regex else { return true }
+        return regex.matches(in: value, range: NSRange(location: 0, length: value.count)).count <= 0
     }
 }
