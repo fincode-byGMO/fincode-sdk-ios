@@ -100,6 +100,10 @@ extension FincodeCardNoView: ComponentDelegate {
         cardNumberTextView.endEditingBorder(false)
         cardNumberTextView.isPlaceholderError(false)
     }
+    
+    func enabled(_ isEnabled: Bool) {
+        cardNumberTextView.isEnabled = isEnabled
+    }
 }
 
 extension FincodeCardNoView: CustomTextFieldDelegate {

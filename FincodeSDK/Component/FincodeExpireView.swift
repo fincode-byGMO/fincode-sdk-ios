@@ -26,8 +26,8 @@ class FincodeExpireView: UIView {
     var monthConstraints: NSLayoutConstraint?
     var yearConstraints: NSLayoutConstraint?
     
-    //private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^[1-9]$)|(^0[1-9]$)|(^1[0-2]$)")
-    private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{2}(0[1-9]|1[0-2])$")
+    private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^[1-9]$)|(^0[1-9]$)|(^1[0-2]$)")
+    //private let monthFormatRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{2}(0[1-9]|1[0-2])$")
     private var mLayoutType: LayoutType = .vertical
     private var errorMonthMsg: String = ""
     private var isErrorMonth: Bool = false
@@ -149,6 +149,11 @@ extension FincodeExpireView: ComponentDelegate {
         yearTextView.endEditingBorder(false)
         yearTextView.isPlaceholderError(false)
     }
+    
+    func enabled(_ isEnabled: Bool) {
+        monthTextView.isEnabled = isEnabled
+        yearTextView.isEnabled = isEnabled
+    }
 }
 
 extension FincodeExpireView: CustomTextFieldDelegate {
@@ -187,7 +192,7 @@ extension FincodeExpireView: CustomTextFieldDelegate {
         if view.identifier == monthIdentifier {
             errorMonthLabelView.text = getMonthErrorMessage(view.text)
             errorMonthLabelView.isHidden = !isError
-            setFormatErrorColor(view)
+            //setFormatErrorColor(view)
         } else {
             errorYearLabelView.text = getYearErrorMessage(view.text)
             errorYearLabelView.isHidden = !isError

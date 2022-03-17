@@ -72,6 +72,10 @@ extension FincodePayTimesView: ComponentDelegate {
     func clear() {
         // do nothing
     }
+    
+    func enabled(_ isEnabled: Bool) {
+        textField.isEnabled = isEnabled
+    }
 }
 
 extension FincodePayTimesView: RadioViewControllerDelegate {

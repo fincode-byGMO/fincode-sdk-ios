@@ -48,21 +48,3 @@ class FincodeSubmitButtonView: UIView {
         presenter.execute(config, inputInfo: inputInfo)
     }
 }
-
-//extension FincodeSubmitButtonView: ComponentDelegate {
-//
-//    var headingHidden: Bool {
-//        get {
-//            // do nothing
-//            return false
-//        }
-//        set {
-//            // do nothing
-//        }
-//    }
-//    
-//    func validate() -> Bool {
-//        // do nothing
-//        return false
-//    }
-//}

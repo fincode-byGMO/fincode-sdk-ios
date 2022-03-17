@@ -29,7 +29,7 @@ extension UIViewController {
             with: "", options: .backwards, range: nil)
     }
 
-    class func instantiateViewControllerFromStoryboard(_ bundle: Bundle? = nil,
+    class func instantiateViewControllerFromStoryboard(_ bundle: Bundle? = BundleUtil.instance.bundle,
         storyboardName: String? = nil,
         storyboardIdentifier: String? = nil)
         -> UIViewController?

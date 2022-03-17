@@ -63,6 +63,10 @@ extension FincodeHolderNameView: ComponentDelegate {
         holderTextView.endEditingBorder(false)
         holderTextView.isPlaceholderError(false)
     }
+    
+    func enabled(_ isEnabled: Bool) {
+        holderTextView.isEnabled = isEnabled
+    }
 }
 
 extension FincodeHolderNameView: CustomTextFieldDelegate {

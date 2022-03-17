@@ -65,6 +65,10 @@ extension FincodeSecurityCodeView: ComponentDelegate {
         cvcTextView.isPlaceholderError(false)
         imageView.image = UIImage(named: "cvc_ic", in: BundleUtil.instance.bundle, compatibleWith: nil)
     }
+    
+    func enabled(_ isEnabled: Bool) {
+        cvcTextView.isEnabled = isEnabled
+    }
 }
 
 extension FincodeSecurityCodeView: CustomTextFieldDelegate {

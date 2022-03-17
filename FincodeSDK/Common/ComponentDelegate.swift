@@ -13,6 +13,8 @@ protocol ComponentDelegate: AnyObject {
     func validate() -> Bool
     /// バリデーション チェックの表示クリア
     func clear()
+    /// 入力欄の活性・非活性
+    func enabled(_ isEnabled: Bool)
     /// 見出しの表示・非表示
     var headingHidden: Bool { get set }
 }

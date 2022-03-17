@@ -72,9 +72,35 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         self.components?.submitButtonView.delegate = self
     }
     
-    func getInputInfo() -> InputInfo {
-        // 派生先で実装
-        return InputInfo()
+    func getInputInfo() -> InputInfo? {
+        guard let comp = components else { return nil }
+        
+        var inputInfo: InputInfo?
+        if comp.selectCardAreaView.selected == .registeredCard {
+            inputInfo = InputInfo(
+                useCard: .registeredCard,
+                cardNumber: nil,
+                cardId: comp.selectCardAreaView.selectCardView.selectedCard?.id,
+                expireMonth: nil,
+                expireYear: nil,
+                securityCode: nil,
+                holderName: nil,
+                payTimes: comp.payTimesView.payTimes
+            )
+        } else {
+            inputInfo = InputInfo(
+                useCard: .newCard,
+                cardNumber: comp.cardNoView.cardNumber,
+                cardId: nil,
+                expireMonth: comp.expireView.month,
+                expireYear: comp.expireView.year,
+                securityCode: comp.securityCodeView.cvc,
+                holderName: comp.holderNameView.holderName,
+                payTimes: comp.payTimesView.payTimes
+            )
+        }
+        
+        return inputInfo
     }
     
     private func initComponent() {
@@ -222,7 +248,7 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
         DataHolder.instance.inputInfo = getInputInfo()
         guard let config = DataHolder.instance.config, let comp = components else { return nil }
 
-        if comp.selectCardAreaView.selected == .registeredCard || validate() {
+        if comp.selectCardAreaView.selected == .newCard, validate() {
             return nil
         }
         
@@ -253,8 +279,14 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
     func didTouch(_ useCard: UseCard) {
         guard let comp = components else { return }
         if useCard == .registeredCard {
+            self.endEditing(true)
             for item in comp.list() {
                 item.clear()
+                item.enabled(false)
+            }
+        } else {
+            for item in comp.list() {
+                item.enabled(true)
             }
         }
     }

@@ -43,6 +43,8 @@
 		4F0ABCE827C71D2900E12B13 /* CardOperateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */; };
 		4F0ABCEA27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
 		4F0ABCEB27C71DE300E12B13 /* CardRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */; };
+		4F0D430127E37307008AD3FD /* FincodePaymentSecureRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D430027E37307008AD3FD /* FincodePaymentSecureRequest.swift */; };
+		4F0D430227E37307008AD3FD /* FincodePaymentSecureRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D430027E37307008AD3FD /* FincodePaymentSecureRequest.swift */; };
 		4F17161C27C3C08500CC9D96 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161B27C3C08500CC9D96 /* JSON.swift */; };
 		4F17161D27C3C08500CC9D96 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161B27C3C08500CC9D96 /* JSON.swift */; };
 		4F17161F27C3C49900CC9D96 /* CardOperateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17161E27C3C49900CC9D96 /* CardOperateUseCase.swift */; };
@@ -272,6 +274,7 @@
 		4F08AAE027D796CB0075CD5D /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		4F0ABCE627C71D2900E12B13 /* CardOperateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOperateRepository.swift; sourceTree = "<group>"; };
 		4F0ABCE927C71DE300E12B13 /* CardRegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRegisterPresenter.swift; sourceTree = "<group>"; };
+		4F0D430027E37307008AD3FD /* FincodePaymentSecureRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FincodePaymentSecureRequest.swift; sourceTree = "<group>"; };
 		4F17161B27C3C08500CC9D96 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		4F17161E27C3C49900CC9D96 /* CardOperateUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOperateUseCase.swift; sourceTree = "<group>"; };
 		4F17162127C3C75300CC9D96 /* CardOperateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOperateInteractor.swift; sourceTree = "<group>"; };
@@ -569,6 +572,7 @@
 				4F6ACB5427913D79003ECE1D /* SubEntity */,
 				4F25A39D278D2004004F8ADC /* APIError.swift */,
 				4F25A39E278D2004004F8ADC /* FincodePaymentRequest.swift */,
+				4F0D430027E37307008AD3FD /* FincodePaymentSecureRequest.swift */,
 				4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */,
 				4F67A89727CCD41200A6E665 /* FincodeCardRegisterRequest.swift */,
 				4F67A89A27CCDE5400A6E665 /* FincodeCardUpdateRequest.swift */,
@@ -983,6 +987,7 @@
 				4F67A89527CCCF6700A6E665 /* BasePresenterDelegate.swift in Sources */,
 				4F17162227C3C75300CC9D96 /* CardOperateInteractor.swift in Sources */,
 				4F6ACB5C27917491003ECE1D /* CustomPickerView.swift in Sources */,
+				4F0D430127E37307008AD3FD /* FincodePaymentSecureRequest.swift in Sources */,
 				4F25A47A278D2862004F8ADC /* SwiftyJSON.swift in Sources */,
 				4F1DE78527A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */,
 				4F67A8A127CCFAE500A6E665 /* FincodeCardUpdateConfiguration.swift in Sources */,
@@ -1129,6 +1134,7 @@
 				4F17162027C3C49900CC9D96 /* CardOperateUseCase.swift in Sources */,
 				4F25A3CA278D2005004F8ADC /* FincodePaymentRequest.swift in Sources */,
 				4FF97F7D27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */,
+				4F0D430227E37307008AD3FD /* FincodePaymentSecureRequest.swift in Sources */,
 				4F8040F127AB82820036742D /* BundleUtil.swift in Sources */,
 				4FF96D9927D9979200620818 /* URLRequest.swift in Sources */,
 				4F25A3A4278D2004004F8ADC /* PaymentInteractor.swift in Sources */,

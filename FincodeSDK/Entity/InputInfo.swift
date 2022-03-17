@@ -12,8 +12,8 @@ public class InputInfo {
     private let mUseCard: UseCard
     private let mCardNumber: String?
     private let mCardId: String?
-    private let mExpireMonth: String
-    private let mExpireYear: String
+    private let mExpireMonth: String?
+    private let mExpireYear: String?
     private let mSecurityCode: String?
     private let mHolderName: String?
     private let mPayTimes: (method: String, payTimes: String?)?
@@ -22,14 +22,15 @@ public class InputInfo {
         self.mUseCard = .newCard
         self.mCardNumber = nil
         self.mCardId = nil
-        self.mExpireMonth = ""
-        self.mExpireYear = ""
-        self.mSecurityCode = ""
-        self.mHolderName = ""
+        self.mExpireMonth = nil
+        self.mExpireYear = nil
+        self.mSecurityCode = nil
+        self.mHolderName = nil
         self.mPayTimes = ("", nil)
     }
     
-    init(useCard: UseCard, cardNumber: String?, cardId: String?, expireMonth: String, expireYear: String, securityCode: String?, holderName: String?, payTimes: (method: String, payTimes: String?)?) {
+    init(useCard: UseCard, cardNumber: String?, cardId: String?, expireMonth: String?, expireYear: String?,
+         securityCode: String?, holderName: String?, payTimes: (method: String, payTimes: String?)?) {
         self.mUseCard = useCard
         self.mCardNumber = cardNumber
         self.mCardId = cardId
@@ -52,11 +53,11 @@ public class InputInfo {
         return mCardNumber
     }
     
-    var expireMonth: String {
+    var expireMonth: String? {
         return mExpireMonth
     }
     
-    var expireYear: String {
+    var expireYear: String? {
         return mExpireYear
     }
     
