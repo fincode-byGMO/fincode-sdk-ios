@@ -19,6 +19,8 @@ class PaymentPresenter {
     private let interactorCard: CardOperateInteractorDelegate
     private let router: PaymentRouterDelegate
     private var mInputInfo: InputInfo?
+    private var mConfig: FincodePaymentConfiguration?
+    private var paymentResponse: FincodePaymentResponse?
     var externalResultDelegate: ResultDelegate?
     
     init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, router: PaymentRouter, view: FincodeCommonDelegate) {
@@ -41,6 +43,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
     
     func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
         guard let config = config as? FincodePaymentConfiguration else { return }
+        mConfig = config
          
         let param: FincodePaymentRequest
         switch inputInfo.useCard {
@@ -62,7 +65,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         param.accessId = config.accessId
         param.id = config.id
         param.cardNo = inputInfo.cardNumber
-        param.expire = inputInfo.expireYear + inputInfo.expireMonth
+        param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
         param.method = inputInfo.payTimes?.method
         param.payTimes = inputInfo.payTimes?.payTimes
         param.securityCode = inputInfo.securityCode
@@ -107,14 +110,36 @@ extension PaymentPresenter: CardOperateInteractorNotify {
     }
 }
 
-extension PaymentPresenter: PaymentInteractorNotify {
+extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     
-    func success(_ result: FincodeResult) {
+    func paymentSuccess(_ result: FincodeResult) {
         guard let paymentResponse = result as? FincodePaymentResponse else { return }
-        router.showWebView(paymentResponse)
+        if paymentResponse.status == "AUTHENTICATED"  {
+            router.showWebView(paymentResponse, delegate: self)
+        } else {
+            externalResultDelegate?.success(result)
+        }
+    }
+    
+    func paymentSecureSuccess(_ result: FincodeResult) {
+        externalResultDelegate?.success(result)
     }
     
     func failure() {
         externalResultDelegate?.failure()
+    }
+    
+    // WebView上で3DS認証が完了したら処理される
+    func tdsComplete(_ paRes: String?) {
+        guard let paymentResponse = paymentResponse, let config = mConfig, let id = paymentResponse.id else { return }
+        
+        let param = FincodePaymentSecureRequest()
+        param.payType = paymentResponse.payType
+        param.accessId = paymentResponse.accessId
+        param.id = paymentResponse.id
+        param.paRes = paRes
+        
+        let header = ApiConfiguration.instance.requestHeader(config)
+        interactor.paymentSecure(id, request: param, header: header)
     }
 }

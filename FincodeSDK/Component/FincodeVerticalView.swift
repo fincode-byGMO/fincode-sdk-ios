@@ -26,26 +26,4 @@ public class FincodeVerticalView: FincodeCommon {
                                     submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView,
                                     selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, selectCardAreaConstraints: viewConstraints))
     }
-    
-    override func getInputInfo() -> InputInfo {
-        
-        var useCard: UseCard = .newCard
-        var cardId: String?
-        var cardNumber: String? = cardNoView.cardNumber
-        if let view = selectCardAreaView, view.selected == .registeredCard {
-            useCard = .registeredCard
-            cardId = view.selectCardView.selectedCard?.id
-            cardNumber = nil
-        }
-        
-        return InputInfo(
-            useCard: useCard,
-            cardNumber: cardNumber,
-            cardId: cardId,
-            expireMonth: expireView.month,
-            expireYear: expireView.year,
-            securityCode: securityCodeView.cvc,
-            holderName: holderNameView.holderName,
-            payTimes: payTimesView.payTimes)
-    }
 }

@@ -30,7 +30,7 @@ extension CardRegisterPresenter: CardRegisterPresenterDelegate {
         let param = FincodeCardRegisterRequest()
         param.defaultFlag = config.defaultFlag.rawValue
         param.cardNo = inputInfo.cardNumber
-        param.expire = inputInfo.expireYear + inputInfo.expireMonth
+        param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
         param.holderName = inputInfo.holderName
         param.securityCode = inputInfo.securityCode
         param.token = config.token
