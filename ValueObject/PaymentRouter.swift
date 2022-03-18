@@ -36,8 +36,8 @@ extension PaymentRouter: PaymentRouterDelegate {
         guard let view = nextView() else { return }
         view.paymentResponse = paymentResponse
         view.delegate = delegate
-        //viewController.navigationController?.pushViewController(view, animated: true)
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.present(view, animated: true)
+        viewController.navigationController?.pushViewController(view, animated: true)
+        //view.modalPresentationStyle = .fullScreen
+        //viewController.present(view, animated: true)
     }
 }
