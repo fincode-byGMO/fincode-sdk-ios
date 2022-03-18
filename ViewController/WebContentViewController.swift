@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 protocol WebContentViewDelegate: AnyObject {
-    func tdsComplete(_ paRes: String?)
+    func tdsComplete(_ result: [String:String])
 }
 
 class WebContentViewController: UIViewController {
@@ -32,9 +32,10 @@ class WebContentViewController: UIViewController {
             var request = URLRequest(url: nsurl)
             request.httpMethod = "POST"
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.httpBodyForForm([
-                "PaReq": pareq,
-                "MD": accessId
+            request.setHttpBodyForForm([
+                "PaReq": pareq.urlEncoded,
+                "MD": accessId,
+                "TermUrl": "https://webhook.site/cd6e0969-2e65-46a7-87ec-d1a3f18cf073" // TODO: 加盟店側からもらう情報として実装する
             ])
             
             wkWebView.navigationDelegate = self
@@ -44,29 +45,10 @@ class WebContentViewController: UIViewController {
 }
 
 extension WebContentViewController: WKNavigationDelegate {
-
-    #if DEBUG
-    // 読み込み開始時イベント
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("start")
-    }
-
-    // 読み込み終了時イベント
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("finish")
-    }
-
-    // 読み込み失敗時イベント
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("fail")
-    }
-    #endif
     
     private func isTermUrl(_ url: URL?) -> Bool {
-        if let u = url, let host = u.host, let sendUrl = paymentResponse?.sendUrl {
-            if host == sendUrl {
-                return true
-            }
+        if let u = url, u.absoluteString == "https://webhook.site/cd6e0969-2e65-46a7-87ec-d1a3f18cf073" {  // TODO: 加盟店側からもらう情報として実装する
+            return true
         }
         return false
     }
@@ -76,8 +58,13 @@ extension WebContentViewController: WKNavigationDelegate {
         
         if isTermUrl(navigationAction.request.url) {
             decisionHandler(.allow)
-            self.dismiss(animated: true)
-            delegate?.tdsComplete("paRes")
+            self.navigationController?.popViewController(animated: true)
+            
+            var request = navigationAction.request
+            if let body = request.getHttpBodyForForm() {
+                delegate?.tdsComplete(body)
+            }
+            
             return
         }
         

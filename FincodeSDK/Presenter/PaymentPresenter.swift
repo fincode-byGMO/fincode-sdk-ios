@@ -20,7 +20,7 @@ class PaymentPresenter {
     private let router: PaymentRouterDelegate
     private var mInputInfo: InputInfo?
     private var mConfig: FincodePaymentConfiguration?
-    private var paymentResponse: FincodePaymentResponse?
+    private var mPaymentResponse: FincodePaymentResponse?
     var externalResultDelegate: ResultDelegate?
     
     init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, router: PaymentRouter, view: FincodeCommonDelegate) {
@@ -114,6 +114,8 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     
     func paymentSuccess(_ result: FincodeResult) {
         guard let paymentResponse = result as? FincodePaymentResponse else { return }
+        mPaymentResponse = paymentResponse
+        
         if paymentResponse.status == "AUTHENTICATED"  {
             router.showWebView(paymentResponse, delegate: self)
         } else {
@@ -130,14 +132,14 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     }
     
     // WebView上で3DS認証が完了したら処理される
-    func tdsComplete(_ paRes: String?) {
-        guard let paymentResponse = paymentResponse, let config = mConfig, let id = paymentResponse.id else { return }
+    func tdsComplete(_ result: [String:String]) {
+        guard let paymentResponse = mPaymentResponse, let config = mConfig, let id = paymentResponse.id else { return }
         
         let param = FincodePaymentSecureRequest()
         param.payType = paymentResponse.payType
         param.accessId = paymentResponse.accessId
         param.id = paymentResponse.id
-        param.paRes = paRes
+        param.paRes = result["PaRes"]?.urlDecoded
         
         let header = ApiConfiguration.instance.requestHeader(config)
         interactor.paymentSecure(id, request: param, header: header)
