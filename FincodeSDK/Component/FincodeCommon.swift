@@ -50,7 +50,6 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     private var mHolderNameHidden: Bool = false
     private var mMethodHidden: Bool = false
     private var components: Components?
-    private var externalResultDelegate :ResultDelegate?
     var paymentPresenter: PaymentPresenterDelegate?
     var cardOperatePresenter: CardRegisterPresenterDelegate?
     var cardUpdatePresenter: CardUpdatePresenterDelegate?
@@ -103,7 +102,18 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         return inputInfo
     }
     
-    private func initComponent() {
+    private func gonePayTimesView() {
+        if let comp = components {
+            if type(of: self) == FincodeVerticalView.self {
+                comp.payTimesView.setViewGoneVertical()
+            } else {
+                comp.payTimesView.setViewGoneHorizontal()
+                
+            }
+        }
+    }
+    
+    private func initComponent(_ delegate: ResultDelegate) {
         guard let config = DataHolder.instance.config,
               let button = components?.submitButtonView,
               let parentViewController = parentViewController else { return }
@@ -111,14 +121,16 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         button.buttonTitle(config.useCase.title)
         switch config.useCase {
         case .registerCard:
+            gonePayTimesView()
             cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor())
-            cardOperatePresenter?.externalResultDelegate = externalResultDelegate
+            cardOperatePresenter?.externalResultDelegate = delegate
         case .updateCard:
+            gonePayTimesView()
             cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor())
-            cardUpdatePresenter?.externalResultDelegate = externalResultDelegate
+            cardUpdatePresenter?.externalResultDelegate = delegate
         case .payment:
             paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
-            paymentPresenter?.externalResultDelegate = externalResultDelegate
+            paymentPresenter?.externalResultDelegate = delegate
             paymentPresenter?.cardInfoList(config)
         default:
             break
@@ -191,36 +203,27 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
     }
     
-    /// 処理結果を返します
-    ///
-    /// 処理に対応したクラスを使用してください
-    ///
-    /// - 決済: FincodePaymentRequest
-    ///
-    /// - カード登録: FincodeCardRegisterRequest
-    ///
-    /// - カード更新: FincodeCardUpdateResponse
-    public var resultDelegate: ResultDelegate? {
-        get {
-            return externalResultDelegate
-        }
-        set {
-            externalResultDelegate = newValue
-        }
-    }
-    
     /// 処理に必要な情報を設定します
     ///
     /// 処理に対応したクラスを使用してください
     ///
-    /// - 決済: FincodePaymentConfiguration
+    /// - Parameters:
+    ///   - config: 設定情報
+    ///     - 決済: FincodePaymentConfiguration
     ///
-    /// - カード登録: FincodeCardRegisterConfiguration
+    ///     - カード登録: FincodeCardRegisterConfiguration
     ///
-    /// - カード更新: FincodeCardUpdateConfiguration
-    public func configuration(_ config: FincodeConfiguration?) {
+    ///     - カード更新: FincodeCardUpdateConfiguration
+    ///
+    ///   - delegate: 処理結果
+    ///     - 決済: FincodePaymentRequest
+    ///
+    ///     - カード登録: FincodeCardRegisterRequest
+    ///
+    ///     - カード更新: FincodeCardUpdateResponse
+    public func configuration(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
         DataHolder.instance.config = config
-        initComponent()
+        initComponent(delegate)
     }
     
     func setCardList(_ list: [CardInfo]?) {
