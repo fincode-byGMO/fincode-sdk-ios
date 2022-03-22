@@ -90,6 +90,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
     }
 }
 
+// カード一覧取得の結果を処理する
 extension PaymentPresenter: CardOperateInteractorNotify {
     
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
@@ -104,11 +105,12 @@ extension PaymentPresenter: CardOperateInteractorNotify {
         // no thing
     }
     
-    func cardOperateFailure() {
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
         // no thing
     }
 }
 
+// 決済実行・認証後決済の結果を処理する
 extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     
     func paymentSuccess(_ result: FincodeResult) {
@@ -126,8 +128,8 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
         externalResultDelegate?.success(result)
     }
     
-    func failure() {
-        externalResultDelegate?.failure()
+    func failure(_ useCase: PaymentUseCase, withError error: APIError) {
+        externalResultDelegate?.failure(error.errorResponse)
     }
     
     // WebView上で3DS認証が完了したら処理される

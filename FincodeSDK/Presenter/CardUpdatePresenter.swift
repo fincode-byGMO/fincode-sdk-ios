@@ -47,6 +47,7 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
     }
 }
 
+// カード更新の結果を処理する
 extension CardUpdatePresenter: CardOperateInteractorNotify {
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
         // no thing
@@ -60,7 +61,7 @@ extension CardUpdatePresenter: CardOperateInteractorNotify {
         externalResultDelegate?.success(result)
     }
     
-    func cardOperateFailure() {
-        externalResultDelegate?.failure()
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+        externalResultDelegate?.failure(error.errorResponse)
     }
 }

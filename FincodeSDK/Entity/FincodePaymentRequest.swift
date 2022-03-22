@@ -50,47 +50,47 @@ class FincodePaymentRequest {
 
 public class FincodePaymentResponse: FincodeResult {
 
-    let acs: String?
-    let shopId: String?
-    let id: String?
-    let payType: String?
-    let status: String?
-    let accessId: String?
-    let processDate: Date?
-    let jobCode: String?
-    let itemCode: String?
-    let amount: Int64?
-    let tax: Int64?
-    let totalAmount: Int64?
-    let customerGroupId: String?
-    let customerId: String?
-    let cardNo: String?
-    let cardId: String?
-    let expire: String?
-    let holderName: String?
-    let cardNoHash: String?
-    let method: String?
-    let payTimes: Int64?
-    let forward: String?
-    let issuer: String?
-    let transactionId: String?
-    let approve: String?
-    let authMaxDate: Date?
-    let clientField1: String?
-    let clientField2: String?
-    let clientField3: String?
-    let tdsType: String?
-    let tds2Type: String?
-    let tds2RetUrl: String?
-    let tds2Status: String?
-    let merchantName: String?
-    let sendUrl: String?
-    let subscriptionId: String?
-    let errorCode: String?
-    let acsUrl: String?
-    let paReq: String?
-    let created: Date?
-    let updated: Date?
+    public let acs: String?
+    public let shopId: String?
+    public let id: String?
+    public let payType: String?
+    public let status: String?
+    public let accessId: String?
+    public let processDate: Date?
+    public let jobCode: String?
+    public let itemCode: String?
+    public let amount: Int64?
+    public let tax: Int64?
+    public let totalAmount: Int64?
+    public let customerGroupId: String?
+    public let customerId: String?
+    public let cardNo: String?
+    public let cardId: String?
+    public let expire: String?
+    public let holderName: String?
+    public let cardNoHash: String?
+    public let method: String?
+    public let payTimes: Int64?
+    public let forward: String?
+    public let issuer: String?
+    public let transactionId: String?
+    public let approve: String?
+    public let authMaxDate: Date?
+    public let clientField1: String?
+    public let clientField2: String?
+    public let clientField3: String?
+    public let tdsType: String?
+    public let tds2Type: String?
+    public let tds2RetUrl: String?
+    public let tds2Status: String?
+    public let merchantName: String?
+    public let sendUrl: String?
+    public let subscriptionId: String?
+    public let errorCode: String?
+    public let acsUrl: String?
+    public let paReq: String?
+    public let created: Date?
+    public let updated: Date?
     
     init(json: JSON) {
         self.acs = json["acs"].string

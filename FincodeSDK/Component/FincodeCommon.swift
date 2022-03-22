@@ -69,7 +69,6 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     func initialize(_ componets: Components? = nil) {
         self.components = componets
         self.components?.submitButtonView.delegate = self
-        componentEnabled(false)
     }
     
     func getInputInfo() -> InputInfo? {
@@ -119,6 +118,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
               let button = components?.submitButtonView,
               let parentViewController = parentViewController else { return }
         
+        activeNewCard()
         button.buttonTitle(config.useCase.title)
         switch config.useCase {
         case .registerCard:
@@ -132,7 +132,9 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         case .payment:
             paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
             paymentPresenter?.externalResultDelegate = delegate
-            paymentPresenter?.cardInfoList(config)
+            if !config.customerId.isEmpty {
+                paymentPresenter?.cardInfoList(config)
+            }
         default:
             break
         }
@@ -150,6 +152,18 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         for item in comp.list() {
             item.clear()
         }
+    }
+    
+    private func activeRegisteredCard() {
+        guard let comp = components else { return }
+        componentEnabled(false)
+        comp.selectCardAreaView.selectCardView.enabled(true)
+    }
+    
+    private func activeNewCard() {
+        guard let comp = components else { return }
+        componentEnabled(true)
+        comp.selectCardAreaView.selectCardView.enabled(false)
     }
     
     /// 見出しの表示・非表示を設定します
@@ -242,18 +256,22 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     }
     
     func setCardList(_ list: [CardInfo]?) {
-        guard let comp = components else { return }
+        guard let comp = components, let li = list else { return }
         
-        let baseView = comp.selectCardAreaBaseView
-        let selectCardArea = comp.selectCardAreaView
-        selectCardArea.delegate = self
-        
-        if let li = list, 0 < li.count {
-            comp.selectCardAreaConstraints.constant = 149
-            selectCardArea.selectCardView.cardInfoList = li
-            baseView.addSubview(selectCardArea)
-            selectCardArea.anchorAll(equalTo: baseView)
-            baseView.sizeToFit()
+        if 0 < li.count {
+            activeRegisteredCard()
+            
+            let baseView = comp.selectCardAreaBaseView
+            let selectCardArea = comp.selectCardAreaView
+            selectCardArea.delegate = self
+            
+            if let li = list, 0 < li.count {
+                comp.selectCardAreaConstraints.constant = 149
+                selectCardArea.selectCardView.cardInfoList = li
+                baseView.addSubview(selectCardArea)
+                selectCardArea.anchorAll(equalTo: baseView)
+                baseView.sizeToFit()
+            }
         }
     }
 }
@@ -295,15 +313,12 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
     
     // 登録済みカードと新しいカードの選択ラジオボタン切り替え時に実行される
     func didTouch(_ useCard: UseCard) {
-        guard let comp = components else { return }
         if useCard == .registeredCard {
             self.endEditing(true)
             componentClear()
-            componentEnabled(false)
-            comp.selectCardAreaView.selectCardView.enabled(true)
+            activeRegisteredCard()
         } else {
-            componentEnabled(true)
-            comp.selectCardAreaView.selectCardView.enabled(false)
+            activeNewCard()
         }
     }
 }
