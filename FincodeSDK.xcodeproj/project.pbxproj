@@ -222,6 +222,8 @@
 		4FC4DE1F27CF57B100723574 /* FincodePayTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */; };
 		4FC7E68827E4693B0093EA17 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E68727E4693B0093EA17 /* String.swift */; };
 		4FC7E68927E4693B0093EA17 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E68727E4693B0093EA17 /* String.swift */; };
+		4FC7E68B27E4C2580093EA17 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E68A27E4C2580093EA17 /* UIControl.swift */; };
+		4FC7E68C27E4C2580093EA17 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E68A27E4C2580093EA17 /* UIControl.swift */; };
 		4FD2F99D27CDCBB40076374E /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99C27CDCBB40076374E /* DataHolder.swift */; };
 		4FD2F99E27CDCBB40076374E /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99C27CDCBB40076374E /* DataHolder.swift */; };
 		4FD2F9A027CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2F99F27CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift */; };
@@ -369,6 +371,7 @@
 		4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodePayTimesView.xib; sourceTree = "<group>"; };
 		4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodePayTimesView.swift; sourceTree = "<group>"; };
 		4FC7E68727E4693B0093EA17 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4FC7E68A27E4C2580093EA17 /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
 		4FD2F99C27CDCBB40076374E /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		4FD2F99F27CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardRegisterConfiguration.swift; sourceTree = "<group>"; };
 		4FD2F9A627CE39B80076374E /* FincodeHolderNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FincodeHolderNameView.swift; sourceTree = "<group>"; };
@@ -534,6 +537,7 @@
 				4F08AAE027D796CB0075CD5D /* URL.swift */,
 				4FF96D9727D9979200620818 /* URLRequest.swift */,
 				4FC7E68727E4693B0093EA17 /* String.swift */,
+				4FC7E68A27E4C2580093EA17 /* UIControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1034,6 +1038,7 @@
 				4F8040EC27AB78AF0036742D /* AppStrings.swift in Sources */,
 				4F67A89827CCD41200A6E665 /* FincodeCardRegisterRequest.swift in Sources */,
 				4F08AAD427D757360075CD5D /* UIViewController.swift in Sources */,
+				4FC7E68B27E4C2580093EA17 /* UIControl.swift in Sources */,
 				4F4D1FAD27C3742C0012EB9C /* ResultDelegate.swift in Sources */,
 				4FC7E68827E4693B0093EA17 /* String.swift in Sources */,
 				4F6CBDF027A3DE3200BFF64E /* ComponentDelegate.swift in Sources */,
@@ -1090,6 +1095,7 @@
 				4F25A3AE278D2004004F8ADC /* Authorization.swift in Sources */,
 				4F25A3AA278D2004004F8ADC /* APIEndpoint.swift in Sources */,
 				4FD2F99E27CDCBB40076374E /* DataHolder.swift in Sources */,
+				4FC7E68C27E4C2580093EA17 /* UIControl.swift in Sources */,
 				4F8040ED27AB78AF0036742D /* AppStrings.swift in Sources */,
 				4F25A3AC278D2004004F8ADC /* ApiConfiguration.swift in Sources */,
 				4F25A3C2278D2005004F8ADC /* PaymentPresenter.swift in Sources */,

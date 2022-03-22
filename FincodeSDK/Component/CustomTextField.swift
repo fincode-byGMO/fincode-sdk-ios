@@ -55,7 +55,7 @@ class CustomTextField: UITextField {
     private func endEditingConvert(_ text: String) -> String {
         switch(formatType) {
         case .cardNumber:
-            return CardBrandType.getType(text).delimit(text)
+            return CardBrandType.init(value: text).delimit(text)
         case .expire:
             return StringUtil.twoDigitsPaddingZero(text)
         default:

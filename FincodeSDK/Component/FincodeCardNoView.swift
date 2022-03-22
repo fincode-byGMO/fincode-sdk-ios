@@ -109,13 +109,13 @@ extension FincodeCardNoView: ComponentDelegate {
 extension FincodeCardNoView: CustomTextFieldDelegate {
     func textChanged(_ view: CustomTextField) {
         guard let text = view.text else { return }
-        let cardBrandType = CardBrandType.getType(text)
+        let cardBrandType = CardBrandType.init(value: text)
         selectCardImage.image = cardBrandType.cardImage
         view.maxLength = cardBrandType.digits
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        let isError = cardNumber.isEmpty || isFormatCheck(cardNumber) || CardBrandType.getType(cardNumber).validateDigits(cardNumber)
+        let isError = cardNumber.isEmpty || isFormatCheck(cardNumber) || CardBrandType.init(value: cardNumber).validateDigits(cardNumber)
         
         errorLabelView.text = getErrorMessage(cardNumber)
         errorLabelView.isHidden = !isError
@@ -126,7 +126,7 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
     
     private func setFormatErrorColor(_ view: CustomTextField) {
         guard let value = cardNumberTextView.text else { return }
-        if CardBrandType.getType(value).validateDigits(value) {
+        if CardBrandType.init(value: value).validateDigits(value) {
             view.textColor = UIColor.red
         } else {
             view.textColor = UIColor.black
@@ -136,7 +136,7 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
     private func getErrorMessage(_ value: String) -> String {
         if value.isEmpty {
             return AppStrings.errorCardNumber.value
-        } else if isFormatCheck(value) || CardBrandType.getType(cardNumber).validateDigits(cardNumber) {
+        } else if isFormatCheck(value) || CardBrandType.init(value: cardNumber).validateDigits(cardNumber) {
             return AppStrings.errorCardNumberFormat.value
         } else {
             // ブランクだと表示領域の高さだけ縮まるためダミーを返す

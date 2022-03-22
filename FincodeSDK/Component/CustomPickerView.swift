@@ -39,25 +39,7 @@ final class CustomPickerView: UIControl {
     }
     
     override var inputAccessoryView: UIView? {
-        
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-        view.frame = CGRect(x: 0, y: 0, width: frame.width, height: 44)
-        
-        let closeButton = UIButton(type: .custom)
-        closeButton.setTitle("閉じる", for: .normal)
-        closeButton.sizeToFit()
-        closeButton.addTarget(self, action: #selector(tappedCloseButton(_:)), for: .touchUpInside)
-        closeButton.setTitleColor(UIColor(red: 0, green: 122/255, blue: 1, alpha: 1.0), for: .normal)
-        
-        view.contentView.addSubview(closeButton)
-        
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.widthAnchor.constraint(equalToConstant: closeButton.frame.size.width).isActive = true
-        closeButton.heightAnchor.constraint(equalToConstant: closeButton.frame.size.height).isActive = true
-        closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 5).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        
-        return view
+        return completedButton()
     }
     
     @objc private func tappedCloseButton(_ sender: UIButton) {

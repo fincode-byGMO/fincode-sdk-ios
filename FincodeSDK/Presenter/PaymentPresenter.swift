@@ -18,7 +18,6 @@ class PaymentPresenter {
     private let interactor: PaymentInteractorDelegate
     private let interactorCard: CardOperateInteractorDelegate
     private let router: PaymentRouterDelegate
-    private var mInputInfo: InputInfo?
     private var mConfig: FincodePaymentConfiguration?
     private var mPaymentResponse: FincodePaymentResponse?
     var externalResultDelegate: ResultDelegate?
@@ -113,11 +112,11 @@ extension PaymentPresenter: CardOperateInteractorNotify {
 extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     
     func paymentSuccess(_ result: FincodeResult) {
-        guard let paymentResponse = result as? FincodePaymentResponse else { return }
+        guard let paymentResponse = result as? FincodePaymentResponse, let config = mConfig else { return }
         mPaymentResponse = paymentResponse
         
         if paymentResponse.status == "AUTHENTICATED"  {
-            router.showWebView(paymentResponse, delegate: self)
+            router.showWebView(paymentResponse, config: config, delegate: self)
         } else {
             externalResultDelegate?.success(result)
         }

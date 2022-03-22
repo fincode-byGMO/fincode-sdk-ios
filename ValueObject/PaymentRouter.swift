@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PaymentRouterDelegate: AnyObject {
-    func showWebView(_ data: FincodePaymentResponse, delegate: WebContentViewDelegate?)
+    func showWebView(_ data: FincodePaymentResponse, config: FincodePaymentConfiguration, delegate: WebContentViewDelegate?)
 }
 
 class PaymentRouter {
@@ -32,9 +32,10 @@ class PaymentRouter {
 
 extension PaymentRouter: PaymentRouterDelegate {
     
-    func showWebView(_ paymentResponse: FincodePaymentResponse, delegate: WebContentViewDelegate?) {
+    func showWebView(_ paymentResponse: FincodePaymentResponse, config: FincodePaymentConfiguration, delegate: WebContentViewDelegate?) {
         guard let view = nextView() else { return }
         view.paymentResponse = paymentResponse
+        view.config = config
         view.delegate = delegate
         viewController.navigationController?.pushViewController(view, animated: true)
         //view.modalPresentationStyle = .fullScreen

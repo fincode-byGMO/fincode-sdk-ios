@@ -16,11 +16,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="124"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="149"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pum-So-fi8">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="124"/>
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="149"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXB-Yi-XJJ" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="400" height="38"/>
@@ -39,7 +39,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdS-W1-wxD" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="86" width="400" height="38"/>
+                            <rect key="frame" x="0.0" y="111" width="400" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Mmp-vl-1ZI"/>
                             </constraints>
@@ -53,7 +53,7 @@
                         <constraint firstItem="lXB-Yi-XJJ" firstAttribute="top" secondItem="pum-So-fi8" secondAttribute="top" id="51r-go-lKp"/>
                         <constraint firstAttribute="trailing" secondItem="kdS-W1-wxD" secondAttribute="trailing" id="9y8-fv-ZVM"/>
                         <constraint firstItem="kdS-W1-wxD" firstAttribute="leading" secondItem="pum-So-fi8" secondAttribute="leading" id="DSG-zY-t1b"/>
-                        <constraint firstItem="kdS-W1-wxD" firstAttribute="top" secondItem="KW3-vk-Ld4" secondAttribute="bottom" constant="5" id="O4q-dg-IOv"/>
+                        <constraint firstItem="kdS-W1-wxD" firstAttribute="top" secondItem="KW3-vk-Ld4" secondAttribute="bottom" constant="30" id="O4q-dg-IOv"/>
                         <constraint firstItem="lXB-Yi-XJJ" firstAttribute="leading" secondItem="pum-So-fi8" secondAttribute="leading" id="ToY-RP-Y4a"/>
                         <constraint firstAttribute="trailing" secondItem="lXB-Yi-XJJ" secondAttribute="trailing" id="alc-T5-4cP"/>
                         <constraint firstAttribute="trailing" secondItem="KW3-vk-Ld4" secondAttribute="trailing" id="d0W-dq-OMe"/>

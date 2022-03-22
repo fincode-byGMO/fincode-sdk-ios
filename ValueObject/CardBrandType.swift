@@ -11,42 +11,52 @@ import UIKit
 enum CardBrandType: String {
     
     case none = ""
-    case visa = "card_visa_ic"
-    case master = "card_master_ic"
-    case jcb = "card_jcb_ic"
-    case diners = "card_diners-club_ic"
-    case amex = "card_american-xpress_ic"
+    case visa = "VISA"
+    case master = "MASTER"
+    case jcb = "JCB"
+    case diners = "DINERS"
+    case amex = "AMEX"
+    
+    init(brand: String) {
+        self = type(of: self).init(rawValue: brand) ?? .none
+    }
+    
+    init(value: String) {
+        guard let visa = CardBrandType.visaRegex, let master = CardBrandType.masterRegex, let jcb = CardBrandType.jcbRegex,
+              let diners = CardBrandType.dinersRegex, let amex = CardBrandType.amexRegex else {
+                  self = .none
+                  return
+              }
+        
+        if 0 < visa.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .visa
+            return
+        }
+        if 0 < master.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .master
+            return
+        }
+        if 0 < jcb.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .jcb
+            return
+        }
+        if 0 < diners.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .diners
+            return
+        }
+        if 0 < amex.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .amex
+            return
+        }
+        
+        self = .none
+    }
     
     static private let visaRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^4[0-9]{0,15}$")
     static private let masterRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^5[1-5][0-9]{0,14}$)|(^2[2-7][0-9]{0,14}$)")
     static private let jcbRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^35[0-9]{0,14}$")
     static private let dinersRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^30[0-9]{0,12}$)|(^36[0-9]{0,12}$)|(^38[0-9]{0,12}$)|(^39[0-9]{0,12}$)")
     static private let amexRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^34[0-9]{0,13}$)|(^37[0-9]{0,13}$)")
-    
-    static func getType(_ value: String) -> CardBrandType {
-        guard let visa = CardBrandType.visaRegex, let master = CardBrandType.masterRegex, let jcb = CardBrandType.jcbRegex,
-              let diners = CardBrandType.dinersRegex, let amex = CardBrandType.amexRegex else {
-                  return .none
-              }
-        
-        if 0 < visa.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
-            return .visa
-        }
-        if 0 < master.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
-            return .master
-        }
-        if 0 < jcb.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
-            return .jcb
-        }
-        if 0 < diners.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
-            return .diners
-        }
-        if 0 < amex.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
-            return .amex
-        }
-        
-        return .none
-    }
     
     func delimit(_ value: String) -> String {
         switch(self) {
@@ -67,7 +77,7 @@ enum CardBrandType: String {
     
     var cardImage: UIImage? {
         get {
-            return UIImage(named: self.rawValue, in: BundleUtil.instance.bundle, compatibleWith: nil)
+            return UIImage(named: self.imageKey, in: BundleUtil.instance.bundle, compatibleWith: nil)
         }
     }
     
@@ -95,6 +105,25 @@ enum CardBrandType: String {
             return value.count != digits
         } else {
             return false
+        }
+    }
+    
+    private var imageKey: String {
+        get {
+            switch(self) {
+            case .visa:
+                return "card_visa_ic"
+            case .master:
+                return "card_master_ic"
+            case .jcb:
+                return "card_jcb_ic"
+            case .diners:
+                return "card_diners-club_ic"
+            case .amex:
+                return "card_american-xpress_ic"
+            case .none:
+                return ""
+            }
         }
     }
 }
