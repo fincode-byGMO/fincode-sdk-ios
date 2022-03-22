@@ -20,6 +20,9 @@ public class FincodePaymentConfiguration: FincodeConfiguration {
     /// カードID
     public var cardId: String = ""
     
+    /// 3Dセキュア認証 加盟店様 URL
+    public var termUrl: String = ""
+    
     override public init() {
         super.init()
         self.useCase = .payment

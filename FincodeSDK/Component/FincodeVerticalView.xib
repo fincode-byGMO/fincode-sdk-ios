@@ -49,7 +49,7 @@
                             <rect key="frame" x="0.0" y="149" width="240" height="69.5"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="360" width="400" height="34"/>
+                            <rect key="frame" x="0.0" y="390" width="400" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>
                             </constraints>
@@ -58,7 +58,7 @@
                             <rect key="frame" x="0.0" y="218.5" width="400" height="69.5"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="288" width="320" height="57"/>
+                            <rect key="frame" x="0.0" y="318" width="320" height="57"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -67,7 +67,7 @@
                         <constraint firstItem="hJX-T8-W1J" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="EsT-5N-D8i"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="JRk-WT-b5o"/>
                         <constraint firstItem="F9G-LJ-rRT" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.8" id="KUa-mk-AsK"/>
-                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="top" secondItem="hJX-T8-W1J" secondAttribute="bottom" id="Mlk-K7-s6f"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="top" secondItem="hJX-T8-W1J" secondAttribute="bottom" constant="30" id="Mlk-K7-s6f"/>
                         <constraint firstItem="KcG-gr-Fap" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="On2-ls-LfF"/>
                         <constraint firstAttribute="trailing" secondItem="hJX-T8-W1J" secondAttribute="trailing" id="QbU-8x-O1I"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="top" secondItem="Elx-H1-JJa" secondAttribute="bottom" id="RGu-CM-bmX"/>

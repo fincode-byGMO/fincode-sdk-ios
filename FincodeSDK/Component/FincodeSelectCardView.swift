@@ -97,3 +97,28 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
         return parts
     }
 }
+
+extension FincodeSelectCardView: ComponentDelegate {
+    func validate() -> Bool {
+        // do nothing
+        return false
+    }
+    
+    func clear() {
+        // do nothing
+    }
+    
+    func enabled(_ isEnabled: Bool) {
+        pickerView.isEnabled = isEnabled
+    }
+    
+    var headingHidden: Bool {
+        get {
+            // do nothing
+            return false
+        }
+        set {
+            // do nothing
+        }
+    }
+}

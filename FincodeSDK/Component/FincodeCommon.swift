@@ -41,7 +41,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
         
         func list() -> [ComponentDelegate] {
-            return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
+            return [cardNoView, expireView, securityCodeView, holderNameView]
         }
     }
     
@@ -69,6 +69,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     func initialize(_ componets: Components? = nil) {
         self.components = componets
         self.components?.submitButtonView.delegate = self
+        componentEnabled(false)
     }
     
     func getInputInfo() -> InputInfo? {
@@ -134,6 +135,20 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             paymentPresenter?.cardInfoList(config)
         default:
             break
+        }
+    }
+    
+    private func componentEnabled(_ isEnabled: Bool) {
+        guard let comp = components else { return }
+        for item in comp.list() {
+            item.enabled(isEnabled)
+        }
+    }
+    
+    private func componentClear() {
+        guard let comp = components else { return }
+        for item in comp.list() {
+            item.clear()
         }
     }
     
@@ -234,7 +249,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         selectCardArea.delegate = self
         
         if let li = list, 0 < li.count {
-            comp.selectCardAreaConstraints.constant = 124
+            comp.selectCardAreaConstraints.constant = 149
             selectCardArea.selectCardView.cardInfoList = li
             baseView.addSubview(selectCardArea)
             selectCardArea.anchorAll(equalTo: baseView)
@@ -283,14 +298,12 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
         guard let comp = components else { return }
         if useCard == .registeredCard {
             self.endEditing(true)
-            for item in comp.list() {
-                item.clear()
-                item.enabled(false)
-            }
+            componentClear()
+            componentEnabled(false)
+            comp.selectCardAreaView.selectCardView.enabled(true)
         } else {
-            for item in comp.list() {
-                item.enabled(true)
-            }
+            componentEnabled(true)
+            comp.selectCardAreaView.selectCardView.enabled(false)
         }
     }
 }

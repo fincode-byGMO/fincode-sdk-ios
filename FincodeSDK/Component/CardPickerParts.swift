@@ -13,6 +13,7 @@ class CardPickerParts: UIView {
     
     @IBOutlet weak var cardNoLabel: UILabel!
     @IBOutlet weak var expireLabel: UILabel!
+    @IBOutlet weak var brandImage: UIImageView!
         
     override public init(frame: CGRect) {
         super.init(frame: frame)

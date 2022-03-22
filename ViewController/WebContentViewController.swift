@@ -18,6 +18,7 @@ class WebContentViewController: UIViewController {
     
     var presenter: WebContentPresenterDelegate?
     var paymentResponse: FincodePaymentResponse?
+    var config: FincodePaymentConfiguration?
     var delegate: WebContentViewDelegate?
     
     override func viewDidLoad() {
@@ -25,7 +26,8 @@ class WebContentViewController: UIViewController {
         guard let res = paymentResponse,
               let acsUrl = res.acsUrl,
               let pareq = res.paReq,
-              let accessId = res.accessId else { return }
+              let accessId = res.accessId,
+              let config = config else { return }
         
         if let nsurl = URL(string: acsUrl) {
             logger("url = \(acsUrl)")
@@ -35,7 +37,7 @@ class WebContentViewController: UIViewController {
             request.setHttpBodyForForm([
                 "PaReq": pareq.urlEncoded,
                 "MD": accessId,
-                "TermUrl": "https://webhook.site/cd6e0969-2e65-46a7-87ec-d1a3f18cf073" // TODO: 加盟店側からもらう情報として実装する
+                "TermUrl": config.termUrl
             ])
             
             wkWebView.navigationDelegate = self
@@ -47,7 +49,7 @@ class WebContentViewController: UIViewController {
 extension WebContentViewController: WKNavigationDelegate {
     
     private func isTermUrl(_ url: URL?) -> Bool {
-        if let u = url, u.absoluteString == "https://webhook.site/cd6e0969-2e65-46a7-87ec-d1a3f18cf073" {  // TODO: 加盟店側からもらう情報として実装する
+        if let config = config, let u = url, u.absoluteString == config.termUrl {
             return true
         }
         return false
