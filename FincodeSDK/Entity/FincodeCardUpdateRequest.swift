@@ -35,17 +35,17 @@ class FincodeCardUpdateRequest {
 
 public class FincodeCardUpdateResponse: FincodeResult {
 
-    let customerId: String
-    let id: String
-    var defaultFlag: String
-    var cardNo: String
-    var expire: String
-    var holderName: String?
-    var cardNoHash: String
-    let created: Date?
-    let updated: Date?
-    let type: String
-    let brand: String
+    public let customerId: String
+    public let id: String
+    public let defaultFlag: String
+    public let cardNo: String
+    public let expire: String
+    public let holderName: String?
+    public let cardNoHash: String
+    public let created: Date?
+    public let updated: Date?
+    public let type: String
+    public let brand: String
     
     init(json: JSON) {
         customerId = json["customer_id"].stringValue

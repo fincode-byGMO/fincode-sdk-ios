@@ -248,6 +248,10 @@
 		4FF96D9927D9979200620818 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96D9727D9979200620818 /* URLRequest.swift */; };
 		4FF97F7C27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */; };
 		4FF97F7D27C3BA4600496B83 /* FincodeCardInfoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */; };
+		4FFEA0F627E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */; };
+		4FFEA0F727E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */; };
+		4FFEA0F927E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
+		4FFEA0FA27E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
 		97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -384,6 +388,8 @@
 		4FF24B9F279A3B8E00360959 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		4FF96D9727D9979200620818 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardInfoListRequest.swift; sourceTree = "<group>"; };
+		4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorResponse.swift; sourceTree = "<group>"; };
+		4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorInfo.swift; sourceTree = "<group>"; };
 		C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -584,6 +590,7 @@
 				4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */,
 				4F67A89727CCD41200A6E665 /* FincodeCardRegisterRequest.swift */,
 				4F67A89A27CCDE5400A6E665 /* FincodeCardUpdateRequest.swift */,
+				4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */,
 				4F20E84727B3957600C9DE22 /* InputInfo.swift */,
 				4F4711D127C8B4570078BA71 /* FincodeResult.swift */,
 			);
@@ -708,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6ACB5527913DBA003ECE1D /* CardInfo.swift */,
+				4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */,
 			);
 			name = SubEntity;
 			sourceTree = "<group>";
@@ -1036,10 +1044,12 @@
 				4F8040F027AB82820036742D /* BundleUtil.swift in Sources */,
 				4FE77802278EB00900414CD3 /* FincodeSecurityCodeView.swift in Sources */,
 				4F8040EC27AB78AF0036742D /* AppStrings.swift in Sources */,
+				4FFEA0F927E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */,
 				4F67A89827CCD41200A6E665 /* FincodeCardRegisterRequest.swift in Sources */,
 				4F08AAD427D757360075CD5D /* UIViewController.swift in Sources */,
 				4FC7E68B27E4C2580093EA17 /* UIControl.swift in Sources */,
 				4F4D1FAD27C3742C0012EB9C /* ResultDelegate.swift in Sources */,
+				4FFEA0F627E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */,
 				4FC7E68827E4693B0093EA17 /* String.swift in Sources */,
 				4F6CBDF027A3DE3200BFF64E /* ComponentDelegate.swift in Sources */,
 				4FD2F9A027CDFE4B0076374E /* FincodeCardRegisterConfiguration.swift in Sources */,
@@ -1074,12 +1084,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFEA0FA27E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */,
 				4F25A462278D2804004F8ADC /* Timeline.swift in Sources */,
 				4F1DE78627A7B39B0057CB9F /* SelectCardAreaView.swift in Sources */,
 				4F67A89927CCD41200A6E665 /* FincodeCardRegisterRequest.swift in Sources */,
 				4F4711D327C8B4570078BA71 /* FincodeResult.swift in Sources */,
 				4FE777FD278EA84200414CD3 /* FincodeExpireView.swift in Sources */,
 				4F25A45C278D2804004F8ADC /* Request.swift in Sources */,
+				4FFEA0F727E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */,
 				4F1DE78F27A7F99F0057CB9F /* TextFormatType.swift in Sources */,
 				4F1DE78C27A7D6520057CB9F /* CustomTextField.swift in Sources */,
 				4F20E84627B3832B00C9DE22 /* FincodeHorizontalView.swift in Sources */,

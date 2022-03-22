@@ -55,7 +55,7 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
         // no thing
     }
     
-    func cardOperateFailure() {
-        externalResultDelegate?.failure()
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+        externalResultDelegate?.failure(error.errorResponse)
     }
 }

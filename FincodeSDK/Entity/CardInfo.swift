@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class CardInfo {
+class CardInfo {
     
     let customerId: String
     let id: String

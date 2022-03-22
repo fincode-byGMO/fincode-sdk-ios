@@ -21,7 +21,7 @@ protocol CardOperateInteractorNotify: AnyObject {
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse)
     func cardRegisterSuccess(_ result: FincodeResult)
     func cardUpdateSuccess(_ result: FincodeResult)
-    func cardOperateFailure()
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError)
 }
 
 class CardOperateInteractor {
@@ -65,7 +65,6 @@ extension CardOperateInteractor: CardUseCaseDelegate {
     }
     
     func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: APIError) {
-        // TODO API失敗の実装をする
-        presenterNotify?.cardOperateFailure()
+        presenterNotify?.cardOperateFailure(useCase, withError: error)
     }
 }
