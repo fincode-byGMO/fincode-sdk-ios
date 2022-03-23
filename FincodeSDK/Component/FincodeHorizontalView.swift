@@ -17,6 +17,8 @@ public class FincodeHorizontalView: FincodeCommon {
     @IBOutlet weak var submitButtonView: FincodeSubmitButtonView!
     @IBOutlet weak var holderNameView: FincodeHolderNameView!
     @IBOutlet weak var payTimesView: FincodePayTimesView!
+    @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var viewConstraints: NSLayoutConstraint!
     
     private var selectCardAreaView: SelectCardAreaView?
@@ -24,6 +26,7 @@ public class FincodeHorizontalView: FincodeCommon {
     override func initialize(_ components :Components?) {
         super.initialize(Components(cardNoView: cardNoView, expireView: expireView, securityCodeView: securityCodeView,
                                     submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView,
-                                    selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, selectCardAreaConstraints: viewConstraints))
+                                    selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, indicatorView: indicatorView, indicator: indicator,
+                                    selectCardAreaConstraints: viewConstraints))
     }
 }

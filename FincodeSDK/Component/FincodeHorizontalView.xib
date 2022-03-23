@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19455"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +12,8 @@
                 <outlet property="cardNoView" destination="oPZ-tW-4QE" id="Gq3-V7-5ff"/>
                 <outlet property="expireView" destination="Sed-Qa-kk2" id="Hpa-Bh-gbx"/>
                 <outlet property="holderNameView" destination="f8X-2G-Epc" id="6Wn-QK-QMv"/>
+                <outlet property="indicator" destination="XBD-cB-38f" id="naF-nV-sPf"/>
+                <outlet property="indicatorView" destination="laO-zY-7bU" id="N2e-EQ-H9B"/>
                 <outlet property="payTimesView" destination="bKo-lK-utJ" id="AeR-cV-mHW"/>
                 <outlet property="securityCodeView" destination="Erc-JK-fh6" id="eQE-OG-bUK"/>
                 <outlet property="submitButtonView" destination="Jrl-8z-6ek" id="Ytu-oW-bvo"/>
@@ -101,14 +103,32 @@
                         <constraint firstItem="f8X-2G-Epc" firstAttribute="top" secondItem="e0D-ye-QSb" secondAttribute="top" id="eCd-H4-asq"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laO-zY-7bU">
+                    <rect key="frame" x="0.0" y="0.0" width="1290" height="170"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XBD-cB-38f">
+                            <rect key="frame" x="626.5" y="66.5" width="37" height="37"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.38852769500000001" alpha="0.20408347426660803" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="XBD-cB-38f" firstAttribute="centerX" secondItem="laO-zY-7bU" secondAttribute="centerX" id="b75-bC-ey2"/>
+                        <constraint firstItem="XBD-cB-38f" firstAttribute="centerY" secondItem="laO-zY-7bU" secondAttribute="centerY" id="pn9-Uk-Qan"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="laO-zY-7bU" firstAttribute="top" secondItem="Ai2-fi-po6" secondAttribute="top" id="9PW-W3-C8Q"/>
                 <constraint firstItem="e0D-ye-QSb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BID-lt-2VJ"/>
+                <constraint firstAttribute="trailing" secondItem="laO-zY-7bU" secondAttribute="trailing" id="CqW-x7-H7o"/>
                 <constraint firstItem="QWW-qL-zqn" firstAttribute="top" secondItem="Ai2-fi-po6" secondAttribute="bottom" constant="10" id="Dnq-JX-VlC"/>
                 <constraint firstAttribute="trailing" secondItem="QWW-qL-zqn" secondAttribute="trailing" id="Rgr-c4-na0"/>
                 <constraint firstItem="Ai2-fi-po6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UWn-De-W06"/>
                 <constraint firstItem="QWW-qL-zqn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UtY-Zc-JvU"/>
+                <constraint firstItem="laO-zY-7bU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VPm-IY-oUB"/>
                 <constraint firstAttribute="trailing" secondItem="e0D-ye-QSb" secondAttribute="trailing" id="b3k-tz-vhP"/>
+                <constraint firstAttribute="bottom" secondItem="laO-zY-7bU" secondAttribute="bottom" id="bbk-31-x7F"/>
                 <constraint firstItem="e0D-ye-QSb" firstAttribute="top" secondItem="QWW-qL-zqn" secondAttribute="bottom" id="lSJ-on-TvT"/>
                 <constraint firstItem="Ai2-fi-po6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uH2-7w-LFv"/>
                 <constraint firstAttribute="trailing" secondItem="Ai2-fi-po6" secondAttribute="trailing" id="zfL-Gh-rtf"/>
@@ -116,7 +136,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-176.81159420289856" y="215.95982142857142"/>
+            <point key="canvasLocation" x="-176.81159420289856" y="215.625"/>
         </view>
     </objects>
 </document>

@@ -165,9 +165,7 @@ extension FincodeExpireView: CustomTextFieldDelegate {
         
         var isError = false
         guard let text = view.text else { return true }
-        if let config = DataHolder.instance.config, config.useCase != .updateCard {
-            isError = text.isEmpty
-        }
+        isError = text.isEmpty
         
         if view.identifier == monthIdentifier {
             isError = isError || errorMonthFormat(text)
