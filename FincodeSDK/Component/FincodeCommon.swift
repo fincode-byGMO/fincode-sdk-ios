@@ -10,6 +10,8 @@ import UIKit
 
 protocol FincodeCommonDelegate: AnyObject {
     func setCardList(_ list: [CardInfo]?)
+    func showIndicator()
+    func hideIndicator()
 }
 
 @IBDesignable
@@ -25,10 +27,13 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         var selectCardAreaView: SelectCardAreaView
         var selectCardAreaBaseView: UIView
         var selectCardAreaConstraints: NSLayoutConstraint
+        var indicatorView: UIView
+        var indicator: UIActivityIndicatorView
         
         init(cardNoView: FincodeCardNoView, expireView: FincodeExpireView, securityCodeView: FincodeSecurityCodeView,
              submitButtonView: FincodeSubmitButtonView, holderNameView: FincodeHolderNameView, payTimesView: FincodePayTimesView,
-             selectCardAreaView: SelectCardAreaView, selectCardAreaBaseView: UIView, selectCardAreaConstraints: NSLayoutConstraint) {
+             selectCardAreaView: SelectCardAreaView, selectCardAreaBaseView: UIView, indicatorView: UIView, indicator: UIActivityIndicatorView,
+             selectCardAreaConstraints: NSLayoutConstraint) {
             self.cardNoView = cardNoView
             self.expireView = expireView
             self.securityCodeView = securityCodeView
@@ -38,6 +43,8 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             self.selectCardAreaView = selectCardAreaView
             self.selectCardAreaBaseView = selectCardAreaBaseView
             self.selectCardAreaConstraints = selectCardAreaConstraints
+            self.indicatorView = indicatorView
+            self.indicator = indicator
         }
         
         func list() -> [ComponentDelegate] {
@@ -123,11 +130,11 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         switch config.useCase {
         case .registerCard:
             gonePayTimesView()
-            cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor())
+            cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor(), view: self)
             cardOperatePresenter?.externalResultDelegate = delegate
         case .updateCard:
             gonePayTimesView()
-            cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor())
+            cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor(), view: self)
             cardUpdatePresenter?.externalResultDelegate = delegate
         case .payment:
             paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
@@ -164,6 +171,18 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         guard let comp = components else { return }
         componentEnabled(true)
         comp.selectCardAreaView.selectCardView.enabled(false)
+    }
+    
+    func showIndicator() {
+        guard let comp = components else { return }
+        comp.indicatorView.isHidden = false
+        comp.indicator.startAnimating()
+    }
+    
+    func hideIndicator() {
+        guard let comp = components else { return }
+        comp.indicatorView.isHidden = true
+        comp.indicator.stopAnimating()
     }
     
     /// 見出しの表示・非表示を設定します

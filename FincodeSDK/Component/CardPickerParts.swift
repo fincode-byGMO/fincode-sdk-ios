@@ -28,5 +28,6 @@ class CardPickerParts: UIView {
     func setData(_ cardInfo: CardInfo) {
         cardNoLabel.text = cardInfo.cardNo
         expireLabel.text = cardInfo.expire
+        brandImage.image = CardBrandType.init(brand: cardInfo.brand).cardImage
     }
 }

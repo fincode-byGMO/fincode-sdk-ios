@@ -13,12 +13,14 @@ protocol CardRegisterPresenterDelegate: BasePresenterDelegate {
 
 class CardRegisterPresenter {
     
+    private weak var view: FincodeCommonDelegate!
     private let interactor: CardOperateInteractorDelegate
     private var mInputInfo: InputInfo?
     var externalResultDelegate: ResultDelegate?
     
-    init(interactor: CardOperateInteractorDelegate) {
+    init(interactor: CardOperateInteractorDelegate, view: FincodeCommonDelegate) {
         self.interactor = interactor
+        self.view = view
     }
 }
 
@@ -27,6 +29,7 @@ extension CardRegisterPresenter: CardRegisterPresenterDelegate {
     func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
         guard let config = config as? FincodeCardRegisterConfiguration else { return }
         
+        view.showIndicator()
         let param = FincodeCardRegisterRequest()
         param.defaultFlag = config.defaultFlag.rawValue
         param.cardNo = inputInfo.cardNumber
@@ -48,6 +51,7 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
     }
     
     func cardRegisterSuccess(_ result: FincodeResult) {
+        view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
@@ -56,6 +60,7 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
     }
     
     func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+        view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }
 }

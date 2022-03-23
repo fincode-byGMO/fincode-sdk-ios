@@ -19,12 +19,14 @@ protocol CardUpdatePresenterNotify: AnyObject {
 
 class CardUpdatePresenter {
     
+    private weak var view: FincodeCommonDelegate!
     private let interactor: CardOperateInteractorDelegate
     private var mInputInfo: InputInfo?
     var externalResultDelegate: ResultDelegate?
     
-    init(interactor: CardOperateInteractorDelegate) {
+    init(interactor: CardOperateInteractorDelegate, view: FincodeCommonDelegate) {
         self.interactor = interactor
+        self.view = view
     }
 }
 
@@ -33,6 +35,7 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
     func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
         guard let config = config as? FincodeCardUpdateConfiguration else { return }
         
+        view.showIndicator()
         let param = FincodeCardUpdateRequest()
         param.defaultFlag = config.defaultFlag.rawValue
         param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
@@ -58,10 +61,12 @@ extension CardUpdatePresenter: CardOperateInteractorNotify {
     }
     
     func cardUpdateSuccess(_ result: FincodeResult) {
+        view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
     func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+        view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }
 }

@@ -36,8 +36,6 @@ class SelectCardAreaView: UIView {
     }
 
     fileprivate func initialize() {
-        if radioRegisteredCardView.isChecked { selected = .registeredCard }
-        if radioNewCardView.isChecked { selected = .newCard }
         radioViewController = RadioViewController(radioRegisteredCardView, radioNewCardView)
         radioViewController?.delegate = self
     }

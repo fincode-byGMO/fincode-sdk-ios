@@ -35,6 +35,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
     func cardInfoList(_ config: FincodeConfiguration) {
         guard let config = config as? FincodePaymentConfiguration else { return }
         
+        view.showIndicator()
         let header = ApiConfiguration.instance.requestHeader(config)
         interactorCard.presenterNotify = self
         interactorCard.cardInfoList(config.customerId, header: header)
@@ -44,6 +45,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
         guard let config = config as? FincodePaymentConfiguration else { return }
         mConfig = config
          
+        view.showIndicator()
         let param: FincodePaymentRequest
         switch inputInfo.useCard {
         case .registeredCard:
@@ -94,6 +96,7 @@ extension PaymentPresenter: PaymentPresenterDelegate {
 extension PaymentPresenter: CardOperateInteractorNotify {
     
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
+        view.hideIndicator()
         view.setCardList(result.cardInfoList)
     }
     
@@ -106,7 +109,7 @@ extension PaymentPresenter: CardOperateInteractorNotify {
     }
     
     func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
-        // no thing
+        view.hideIndicator()
     }
 }
 
@@ -117,6 +120,7 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
         guard let paymentResponse = result as? FincodePaymentResponse, let config = mConfig else { return }
         mPaymentResponse = paymentResponse
         
+        view.hideIndicator()
         if paymentResponse.status == "AUTHENTICATED"  {
             router.showWebView(paymentResponse, config: config, delegate: self)
         } else {
@@ -125,10 +129,12 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     }
     
     func paymentSecureSuccess(_ result: FincodeResult) {
+        view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
     func failure(_ useCase: PaymentUseCase, withError error: APIError) {
+        view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }
     

@@ -28,7 +28,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="hFp-33-hJJ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hFp-33-hJJ">
                     <rect key="frame" x="297" y="8" width="28" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="5hB-38-lAG"/>
@@ -74,7 +74,4 @@
             <point key="canvasLocation" x="215.94202898550725" y="-103.79464285714285"/>
         </view>
     </objects>
-    <resources>
-        <image name="card_visa_ic" width="241" height="78"/>
-    </resources>
 </document>
