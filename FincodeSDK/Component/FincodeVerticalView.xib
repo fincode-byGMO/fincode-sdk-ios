@@ -84,7 +84,7 @@
                         <constraint firstAttribute="trailing" secondItem="HQQ-rZ-fER" secondAttribute="trailing" id="xnG-pS-rDa"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-HZ-sX1" userLabel="indicatorView">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-HZ-sX1" userLabel="IndicatorView">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qzk-Ce-Mqt">

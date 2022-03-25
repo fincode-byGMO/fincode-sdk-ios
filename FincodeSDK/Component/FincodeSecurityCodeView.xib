@@ -36,10 +36,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrH-ci-7pA">
-                            <rect key="frame" x="5" y="21" width="295" height="34"/>
+                            <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="7.5" width="232" height="19.5"/>
+                                    <rect key="frame" x="10" y="7.5" width="227" height="19.5"/>
                                     <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="aTm-sJ-WAr"/>
@@ -59,7 +59,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cvc_ic" translatesAutoresizingMaskIntoConstraints="NO" id="DmR-wQ-hrz">
-                                    <rect key="frame" x="247" y="5" width="31" height="24"/>
+                                    <rect key="frame" x="242" y="5" width="31" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DmR-wQ-hrz" secondAttribute="height" multiplier="1:0.78" id="Fr3-8T-TI3"/>
                                         <constraint firstAttribute="height" constant="24" id="gwj-oD-zCb"/>
@@ -99,7 +99,7 @@
                         <constraint firstItem="b2d-ff-i7b" firstAttribute="top" secondItem="CrH-ci-7pA" secondAttribute="bottom" id="52Z-pD-bPR"/>
                         <constraint firstItem="CrH-ci-7pA" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="69f-Nl-iQh"/>
                         <constraint firstAttribute="bottom" secondItem="b2d-ff-i7b" secondAttribute="bottom" id="NU8-8W-HjX"/>
-                        <constraint firstAttribute="trailing" secondItem="CrH-ci-7pA" secondAttribute="trailing" id="SD3-q4-SFH"/>
+                        <constraint firstAttribute="trailing" secondItem="CrH-ci-7pA" secondAttribute="trailing" constant="5" id="SD3-q4-SFH"/>
                         <constraint firstItem="NXI-HT-f53" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="d6s-cK-Ima"/>
                         <constraint firstItem="NXI-HT-f53" firstAttribute="top" secondItem="R0r-H9-HMC" secondAttribute="top" id="fv3-wM-VEN"/>
                         <constraint firstItem="b2d-ff-i7b" firstAttribute="leading" secondItem="R0r-H9-HMC" secondAttribute="leading" constant="5" id="gId-wF-VU4"/>
