@@ -7,11 +7,11 @@
 
 import Foundation
 
-class CardInfo {
+public class CardInfo {
     
     let customerId: String
     let id: String
-    let defaultFlag: String
+    var defaultFlag: DefaultFlg
     let cardNo: String
     let expire: String
     let holderName: String
@@ -24,7 +24,7 @@ class CardInfo {
     init(json: JSON) {
         customerId = json["customer_id"].stringValue
         id = json["id"].stringValue
-        defaultFlag = json["default_flag"].stringValue
+        defaultFlag = DefaultFlg(value: json["default_flag"].stringValue)
         cardNo = json["card_no"].stringValue
         expire = json["expire"].stringValue
         holderName = json["holder_name"].stringValue

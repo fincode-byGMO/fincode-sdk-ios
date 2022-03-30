@@ -31,9 +31,6 @@ public class FincodeConfiguration {
     /// 顧客ID
     public var customerId = ""
     
-    /// トークン
-    public var token = ""
-    
     public init() {
     }
 }

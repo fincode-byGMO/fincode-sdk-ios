@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FincodePaymentRequest {
+public class FincodePaymentRequest {
     
     var payType: String?
     var accessId: String?

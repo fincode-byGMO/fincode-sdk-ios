@@ -77,10 +77,10 @@ extension FincodeSecurityCodeView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        guard let value = cvcTextView.text, !value.isEmpty, let regex = FincodeSecurityCodeView.regex else { return false }
+        guard let value = cvcTextView.text, let regex = FincodeSecurityCodeView.regex else { return false }
 
         var isError = false
-        if regex.matches(in: value, range: NSRange(location: 0, length: value.count)).count <= 0 {
+        if !value.isEmpty, regex.matches(in: value, range: NSRange(location: 0, length: value.count)).count <= 0 {
             isError = true
         }
         

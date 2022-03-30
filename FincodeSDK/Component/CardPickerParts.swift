@@ -26,8 +26,19 @@ class CardPickerParts: UIView {
     }
 
     func setData(_ cardInfo: CardInfo) {
-        cardNoLabel.text = cardInfo.cardNo
-        expireLabel.text = cardInfo.expire
-        brandImage.image = CardBrandType.init(brand: cardInfo.brand).cardImage
+        let type = CardBrandType.init(brand: cardInfo.brand)
+        cardNoLabel.text = type.delimit(cardInfo.cardNo)
+        expireLabel.text = format(cardInfo.expire)
+        brandImage.image = type.cardImage
+    }
+    
+    func format(_ value: String) -> String {
+        if !value.isEmpty, value.count == 4 {
+            let year = String(value[value.startIndex...value.index(value.startIndex, offsetBy: 1)])
+            let month = String(value[value.index(value.startIndex, offsetBy: 2)...value.index(value.startIndex, offsetBy: 3)])
+            return "\(month)/\(year)"
+        } else {
+            return value
+        }
     }
 }

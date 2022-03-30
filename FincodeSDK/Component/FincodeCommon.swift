@@ -48,14 +48,14 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
         
         func list() -> [ComponentDelegate] {
-            return [cardNoView, expireView, securityCodeView, holderNameView]
+            return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
         }
     }
     
     private var mHeadingHidden: Bool = false
     private var mDynamicLogDisplay: Bool = false
     private var mHolderNameHidden: Bool = false
-    private var mMethodHidden: Bool = false
+    private var mPayTimesHidden: Bool = false
     private var components: Components?
     var paymentPresenter: PaymentPresenterDelegate?
     var cardOperatePresenter: CardRegisterPresenterDelegate?
@@ -120,6 +120,26 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
     }
     
+    private func goneHolderNameView() {
+        if let comp = components {
+            if type(of: self) == FincodeVerticalView.self {
+                comp.holderNameView.setViewGoneVertical()
+            } else {
+                comp.holderNameView.setViewGoneHorizontal()
+            }
+        }
+    }
+    
+    private func goneCardNoView() {
+        if let comp = components {
+            if type(of: self) == FincodeVerticalView.self {
+                comp.cardNoView.setViewGoneVertical()
+            } else {
+                comp.cardNoView.setViewGoneHorizontal()
+            }
+        }
+    }
+    
     private func initComponent(_ delegate: ResultDelegate) {
         guard let config = DataHolder.instance.config,
               let button = components?.submitButtonView,
@@ -134,6 +154,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             cardOperatePresenter?.externalResultDelegate = delegate
         case .updateCard:
             gonePayTimesView()
+            goneCardNoView()
             cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor(), view: self)
             cardUpdatePresenter?.externalResultDelegate = delegate
         case .payment:
@@ -230,8 +251,9 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
         set {
             mHolderNameHidden = newValue
-            guard !newValue, let view: FincodeHolderNameView = components?.holderNameView else { return }
-            view.setViewGoneVertical()
+            if !newValue {
+                goneHolderNameView()
+            }
         }
     }
     
@@ -240,14 +262,15 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @IBInspectable public var methodHidden: Bool {
+    @IBInspectable public var payTimesHidden: Bool {
         get {
-            return mMethodHidden
+            return mPayTimesHidden
         }
         set {
-            mMethodHidden = newValue
-            guard !newValue, let view: FincodePayTimesView = components?.payTimesView else { return }
-            view.setViewGoneVertical()
+            mPayTimesHidden = newValue
+            if !newValue {
+                gonePayTimesView()
+            }
         }
     }
     
