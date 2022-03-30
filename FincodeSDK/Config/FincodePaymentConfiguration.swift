@@ -17,9 +17,6 @@ public class FincodePaymentConfiguration: FincodeConfiguration {
     /// オーダーID
     public var id: String = ""
     
-    /// カードID
-    public var cardId: String = ""
-    
     /// 3Dセキュア認証 加盟店様 URL
     public var termUrl: String = ""
     

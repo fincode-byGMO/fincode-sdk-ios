@@ -8,9 +8,9 @@
 
 import Foundation
 
-class PaymentRepository {
+public class PaymentRepository {
     
-    static let sharedInstance = PaymentRepository()
+    public static let sharedInstance = PaymentRepository()
     
     /// 決済実行
     /// - Parameters:
@@ -18,7 +18,7 @@ class PaymentRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func payment(_ id: String,
+    public func payment(_ id: String,
                  request: FincodePaymentRequest,
                  header: [String: String],
                  complete: @escaping (_ result: APIResult<FincodePaymentResponse>) -> Void)
@@ -42,7 +42,7 @@ class PaymentRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func payment(_ id: String,
+    public func payment(_ id: String,
                  request: FincodePaymentSecureRequest,
                  header: [String: String],
                  complete: @escaping (_ result: APIResult<FincodePaymentSecureResponse>) -> Void)

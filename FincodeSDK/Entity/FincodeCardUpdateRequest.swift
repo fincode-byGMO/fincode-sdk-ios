@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FincodeCardUpdateRequest {
+public class FincodeCardUpdateRequest {
     
     var defaultFlag: String?
     var expire: String?

@@ -36,12 +36,33 @@ class FincodeSelectCardView: UIView {
         pickerView.picker = pi
     }
     
+    func sortForDefaultFlag(_ value: [CardInfo]) -> [CardInfo] {
+        var fList: [CardInfo] = []
+        var sList: [CardInfo] = []
+        
+        value.forEach {
+            if $0.defaultFlag == .ON {
+                fList.append($0)
+            } else {
+                sList.append($0)
+            }
+        }
+        
+        return fList + sList
+    }
+    
     var cardInfoList: [CardInfo] {
         get {
             return mCardInfoList
         }
         set {
-            mCardInfoList = newValue
+            let list = sortForDefaultFlag(newValue)
+            mCardInfoList = list
+            
+            if 0 < list.count {
+                selected = list[0]
+                applyCardInfo(getParts(list[0]))
+            }
         }
     }
     
@@ -71,6 +92,10 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 選択後
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedRow(row)
+    }
+    
+    func selectedRow(_ row: Int) {
         let value = cardInfoList[row]
         selected = value
         applyCardInfo(getParts(value))

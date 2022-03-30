@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FincodeCardRegisterRequest {
+public class FincodeCardRegisterRequest {
     
     var defaultFlag: String?
     var cardNo: String?

@@ -26,7 +26,7 @@ final class CustomPickerView: UIControl {
         addTarget(self, action: #selector(viewTouch(_:)), for: .touchDown)
     }
     
-    @objc private func viewTouch(_ sender: CustomPickerView) {
+    @objc func viewTouch(_ sender: CustomPickerView) {
         self.becomeFirstResponder()
     }
     

@@ -10,4 +10,8 @@ import Foundation
 public enum DefaultFlg: String {
     case OFF = "0"
     case ON = "1"
+    
+    init(value: String) {
+        self = type(of: self).init(rawValue: value) ?? .OFF
+    }
 }

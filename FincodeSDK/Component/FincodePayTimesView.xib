@@ -35,17 +35,17 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jM0-dS-b63">
-                            <rect key="frame" x="0.0" y="19" width="318" height="38"/>
+                            <rect key="frame" x="0.0" y="19" width="240" height="38"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-tV-i3g" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="159" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="38"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="radioType" value="paymentBulk"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG4-Kx-URu" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="159" y="0.0" width="159" height="38"/>
+                                    <rect key="frame" x="120" y="0.0" width="120" height="38"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="radioType" value="paymentDivision"/>
@@ -54,6 +54,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Ypn-tV-i3g" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="leading" id="2Kw-Fj-phh"/>
+                                <constraint firstAttribute="width" constant="240" id="4mo-7k-WC0"/>
                                 <constraint firstItem="BG4-Kx-URu" firstAttribute="leading" secondItem="Ypn-tV-i3g" secondAttribute="trailing" id="8Gs-Em-40H"/>
                                 <constraint firstItem="BG4-Kx-URu" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="top" id="IhO-nY-AWj"/>
                                 <constraint firstAttribute="bottom" secondItem="BG4-Kx-URu" secondAttribute="bottom" id="KBa-wm-mSn"/>
@@ -65,7 +66,7 @@
                             </constraints>
                         </view>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAB-FC-UnE" customClass="PayTimesPickerField" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="325" y="21" width="70" height="34"/>
+                            <rect key="frame" x="247" y="21" width="70" height="34"/>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="Noi-Jm-Jjh"/>
@@ -96,7 +97,6 @@
                         <constraint firstAttribute="bottom" secondItem="gXL-Ax-LbQ" secondAttribute="bottom" id="emJ-1n-h70"/>
                         <constraint firstItem="gXL-Ax-LbQ" firstAttribute="leading" secondItem="nao-nn-sHQ" secondAttribute="leading" id="hFb-hY-1F5"/>
                         <constraint firstAttribute="trailing" secondItem="xQd-j9-PnV" secondAttribute="trailing" constant="5" id="hTK-Wd-uhB"/>
-                        <constraint firstAttribute="trailing" secondItem="HAB-FC-UnE" secondAttribute="trailing" constant="5" id="mEW-hI-sAa"/>
                         <constraint firstItem="xQd-j9-PnV" firstAttribute="top" secondItem="nao-nn-sHQ" secondAttribute="top" id="puh-kh-mje"/>
                         <constraint firstItem="HAB-FC-UnE" firstAttribute="centerY" secondItem="BG4-Kx-URu" secondAttribute="centerY" id="sDa-0X-TDq"/>
                     </constraints>

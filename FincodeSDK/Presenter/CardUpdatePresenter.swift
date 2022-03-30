@@ -41,7 +41,6 @@ extension CardUpdatePresenter: CardUpdatePresenterDelegate {
         param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
         param.holderName = inputInfo.holderName
         param.securityCode = inputInfo.securityCode
-        param.token = config.token
         
         let header = ApiConfiguration.instance.requestHeader(config)
         

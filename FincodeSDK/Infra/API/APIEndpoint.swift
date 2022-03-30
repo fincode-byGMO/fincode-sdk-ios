@@ -93,7 +93,7 @@ enum APIEndpoint {
         
         req.responseString { responce in
             if responce.result.isSuccess {
-                logger(req, "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
+                logger(req, "  request header: \(String(describing: headers))", "  request body: \(String(describing: data))", "  response: \(responce)", function: "api")
             } else {
                 let _: () -> String = {
                     if let response = responce.data,
@@ -103,7 +103,7 @@ enum APIEndpoint {
                     }
                     return "nil"
                 }
-                logger(req, "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
+                logger(req, "  request header: \(String(describing: headers))", "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
             }
         }
         
