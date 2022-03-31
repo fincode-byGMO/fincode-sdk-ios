@@ -35,31 +35,31 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="10" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="79.5" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="149" width="240" height="69.5"/>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="390" width="400" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-T8-W1J" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-T8-W1J" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="218.5" width="400" height="69.5"/>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="318" width="400" height="57"/>
                         </view>
                     </subviews>
