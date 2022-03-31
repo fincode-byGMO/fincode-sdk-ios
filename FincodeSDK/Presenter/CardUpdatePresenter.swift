@@ -13,7 +13,7 @@ protocol CardUpdatePresenterDelegate: BasePresenterDelegate {
 
 protocol CardUpdatePresenterNotify: AnyObject {
     // PresenterからViewに通知する処理を定義
-    func cardUpdateSuccess(_ result: FincodeResult)
+    func cardUpdateSuccess(_ result: FincodeResponse)
     func cardUpdateFailure()
 }
 
@@ -55,16 +55,16 @@ extension CardUpdatePresenter: CardOperateInteractorNotify {
         // no thing
     }
     
-    func cardRegisterSuccess(_ result: FincodeResult) {
+    func cardRegisterSuccess(_ result: FincodeResponse) {
         // no thing
     }
     
-    func cardUpdateSuccess(_ result: FincodeResult) {
+    func cardUpdateSuccess(_ result: FincodeResponse) {
         view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
-    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: FincodeAPIError) {
         view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }

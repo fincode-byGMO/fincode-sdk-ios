@@ -1,5 +1,5 @@
 //
-//  APIResult.swift
+//  FincodeApiResult.swift
 //  fincode-ios
 //
 //  Created by 中嶋彰 on 2021/12/15.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-public enum APIResult<T> {
+public enum FincodeApiResult<T> {
     case success(T)
-    case failure(APIError)
+    case failure(FincodeAPIError)
 
     init(_ value: T) {
         self = .success(value)
     }
 
-    init(_ error: APIError) {
+    init(_ error: FincodeAPIError) {
         self = .failure(error)
     }
 }

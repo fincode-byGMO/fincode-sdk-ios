@@ -11,7 +11,7 @@ protocol CardUseCaseDelegate: AnyObject {
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardInfoListResponse)
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardRegisterResponse)
     func CardUseCase(_ useCase: CardOperateUseCase, response: FincodeCardUpdateResponse)
-    func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: APIError)
+    func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: FincodeAPIError)
 }
 
 class CardOperateUseCase {
@@ -21,7 +21,7 @@ class CardOperateUseCase {
     /// - Parameter customerId: 顧客ID
     /// - Parameter header: ヘッダー
     func cardInfoList(_ customerId: String, header: [String: String]) {
-        CardOperateRepository.sharedInstance.cardInfoList(customerId, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.cardInfoList(customerId, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)
@@ -36,7 +36,7 @@ class CardOperateUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String]) {
-        CardOperateRepository.sharedInstance.registerCard(customerId, request: request, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.registerCard(customerId, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)
@@ -52,7 +52,7 @@ class CardOperateUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func updateCard(_ customerId: String, cardId: String, request: FincodeCardUpdateRequest, header: [String: String]) {
-        CardOperateRepository.sharedInstance.updateCard(customerId, cardId: cardId, request: request, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.updateCard(customerId, cardId: cardId, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)

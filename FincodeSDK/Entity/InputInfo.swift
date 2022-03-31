@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class InputInfo {
+class InputInfo {
     
     private let mUseCard: UseCard
     private let mCardNumber: String?

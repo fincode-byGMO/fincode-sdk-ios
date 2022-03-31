@@ -95,14 +95,18 @@ extension PayTimesPickerField: UIPickerViewDelegate, UIPickerViewDataSource {
 
     // 1行ごとの初期化
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = items[row].value
-        label.font = label.font.withSize(20)
-        return label
+        let view = PayTimesPickerParts()
+        view.labelView.textAlignment = .center
+        view.labelView.text = items[row].value
+        view.labelView.font = view.labelView.font.withSize(20)
+        return view.labelView
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         select(row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return 100
     }
 }

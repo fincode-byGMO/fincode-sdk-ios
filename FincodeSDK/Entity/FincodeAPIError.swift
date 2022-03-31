@@ -1,5 +1,5 @@
 //
-//  APIError.swift
+//  FincodeAPIError.swift
 //  fincode-ios
 //
 //  Created by 中嶋彰 on 2021/12/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class APIError: Error {
+public class FincodeAPIError: Error {
 
     let errorResponse: FincodeErrorResponse
 

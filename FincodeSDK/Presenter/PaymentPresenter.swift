@@ -100,15 +100,15 @@ extension PaymentPresenter: CardOperateInteractorNotify {
         view.setCardList(result.cardInfoList)
     }
     
-    func cardRegisterSuccess(_ result: FincodeResult) {
+    func cardRegisterSuccess(_ result: FincodeResponse) {
         // no thing
     }
     
-    func cardUpdateSuccess(_ result: FincodeResult) {
+    func cardUpdateSuccess(_ result: FincodeResponse) {
         // no thing
     }
     
-    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: FincodeAPIError) {
         view.hideIndicator()
     }
 }
@@ -116,7 +116,7 @@ extension PaymentPresenter: CardOperateInteractorNotify {
 // 決済実行・認証後決済の結果を処理する
 extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     
-    func paymentSuccess(_ result: FincodeResult) {
+    func paymentSuccess(_ result: FincodeResponse) {
         guard let paymentResponse = result as? FincodePaymentResponse, let config = mConfig else { return }
         mPaymentResponse = paymentResponse
         
@@ -128,12 +128,12 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
         }
     }
     
-    func paymentSecureSuccess(_ result: FincodeResult) {
+    func paymentSecureSuccess(_ result: FincodeResponse) {
         view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
-    func failure(_ useCase: PaymentUseCase, withError error: APIError) {
+    func failure(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
         view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }

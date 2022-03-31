@@ -1,5 +1,5 @@
 //
-//  PaymentRepository.swift
+//  FincodePaymentRepository.swift
 //  fincode-ios
 //
 //  Created by 中嶋彰 on 2021/12/06.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class PaymentRepository {
+public class FincodePaymentRepository {
     
-    public static let sharedInstance = PaymentRepository()
+    public static let sharedInstance = FincodePaymentRepository()
     
     /// 決済実行
     /// - Parameters:
@@ -21,7 +21,7 @@ public class PaymentRepository {
     public func payment(_ id: String,
                  request: FincodePaymentRequest,
                  header: [String: String],
-                 complete: @escaping (_ result: APIResult<FincodePaymentResponse>) -> Void)
+                 complete: @escaping (_ result: FincodeApiResult<FincodePaymentResponse>) -> Void)
     {
         APIEndpoint
             .payment(id: id, data: request.parameters(), header: header)
@@ -31,7 +31,7 @@ public class PaymentRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodePaymentResponse(json: JSON(json))))
             } else {
-                complete(.failure(APIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
             }
         }
     }
@@ -45,7 +45,7 @@ public class PaymentRepository {
     public func payment(_ id: String,
                  request: FincodePaymentSecureRequest,
                  header: [String: String],
-                 complete: @escaping (_ result: APIResult<FincodePaymentSecureResponse>) -> Void)
+                 complete: @escaping (_ result: FincodeApiResult<FincodePaymentSecureResponse>) -> Void)
     {
         APIEndpoint
             .paymentSecure(id: id, data: request.parameters(), header: header)
@@ -55,7 +55,7 @@ public class PaymentRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodePaymentSecureResponse(json: JSON(json))))
             } else {
-                complete(.failure(APIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
             }
         }
     }

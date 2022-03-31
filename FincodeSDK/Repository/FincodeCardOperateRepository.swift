@@ -1,5 +1,5 @@
 //
-//  CardOperateRepository.swift
+//  FincodeCardOperateRepository.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/02/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class CardOperateRepository {
+public class FincodeCardOperateRepository {
     
-    static let sharedInstance = CardOperateRepository()
+    public static let sharedInstance = FincodeCardOperateRepository()
     
     /// カード一覧取得
     /// - Parameters:
@@ -17,9 +17,9 @@ class CardOperateRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func cardInfoList(_ customerId: String,
+    public func cardInfoList(_ customerId: String,
                       header: [String: String],
-                      complete: @escaping (_ result: APIResult<FincodeCardInfoListResponse>) -> Void)
+                      complete: @escaping (_ result: FincodeApiResult<FincodeCardInfoListResponse>) -> Void)
     {
         APIEndpoint
             .cardInfoList(customerId: customerId, header: header)
@@ -29,7 +29,7 @@ class CardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardInfoListResponse(json: JSON(json))))
             } else {
-                complete(.failure(APIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
             }
         }
     }
@@ -40,10 +40,10 @@ class CardOperateRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func registerCard(_ customerId: String,
+    public func registerCard(_ customerId: String,
                       request: FincodeCardRegisterRequest,
                       header: [String: String],
-                      complete: @escaping (_ result: APIResult<FincodeCardRegisterResponse>) -> Void)
+                      complete: @escaping (_ result: FincodeApiResult<FincodeCardRegisterResponse>) -> Void)
     {
         APIEndpoint
             .cardRegister(customerId: customerId, data: request.parameters(), header: header)
@@ -53,7 +53,7 @@ class CardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardRegisterResponse(json: JSON(json))))
             } else {
-                complete(.failure(APIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
             }
         }
     }
@@ -65,11 +65,11 @@ class CardOperateRepository {
     ///   - request: パラメータ
     ///   - header: ヘッダー
     ///   - complete: 結果返却
-    func updateCard(_ customerId: String,
+    public func updateCard(_ customerId: String,
                     cardId: String,
                     request: FincodeCardUpdateRequest,
                     header: [String: String],
-                    complete: @escaping (_ result: APIResult<FincodeCardUpdateResponse>) -> Void)
+                    complete: @escaping (_ result: FincodeApiResult<FincodeCardUpdateResponse>) -> Void)
     {
         APIEndpoint
             .cardUpdate(customerId: customerId, cardId: cardId, data: request.parameters(), header: header)
@@ -79,7 +79,7 @@ class CardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardUpdateResponse(json: JSON(json))))
             } else {
-                complete(.failure(APIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  CardInfo.swift
+//  FincodeCardInfo.swift
 //  FincodeSDK
 //
 //  Created by 中嶋彰 on 2022/01/14.
@@ -7,19 +7,19 @@
 
 import Foundation
 
-public class CardInfo {
+public class FincodeCardInfo {
     
-    let customerId: String
-    let id: String
-    var defaultFlag: DefaultFlg
-    let cardNo: String
-    let expire: String
-    let holderName: String
-    let cardNoHash: String
-    let created: Date?
-    let updated: Date?
-    let type: String
-    let brand: String
+    public let customerId: String
+    public let id: String
+    public let defaultFlag: DefaultFlg
+    public let cardNo: String
+    public let expire: String
+    public let holderName: String
+    public let cardNoHash: String
+    public let created: Date?
+    public let updated: Date?
+    public let type: String
+    public let brand: String
     
     init(json: JSON) {
         customerId = json["customer_id"].stringValue

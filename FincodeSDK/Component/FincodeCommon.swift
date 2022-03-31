@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FincodeCommonDelegate: AnyObject {
-    func setCardList(_ list: [CardInfo]?)
+    func setCardList(_ list: [FincodeCardInfo]?)
     func showIndicator()
     func hideIndicator()
 }
@@ -50,6 +50,10 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         func list() -> [ComponentDelegate] {
             return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
         }
+        
+        func enabledList() -> [ComponentDelegate] {
+            return [cardNoView, expireView, securityCodeView, holderNameView]
+        }
     }
     
     private var mHeadingHidden: Bool = false
@@ -76,6 +80,11 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     func initialize(_ componets: Components? = nil) {
         self.components = componets
         self.components?.submitButtonView.delegate = self
+        if #available(iOS 13.0, *) {
+            self.components?.indicator.activityIndicatorViewStyle = .large
+        } else {
+            self.components?.indicator.activityIndicatorViewStyle = .gray
+        }
     }
     
     func getInputInfo() -> InputInfo? {
@@ -170,7 +179,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     
     private func componentEnabled(_ isEnabled: Bool) {
         guard let comp = components else { return }
-        for item in comp.list() {
+        for item in comp.enabledList() {
             item.enabled(isEnabled)
         }
     }
@@ -297,11 +306,12 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         initComponent(delegate)
     }
     
-    func setCardList(_ list: [CardInfo]?) {
+    func setCardList(_ list: [FincodeCardInfo]?) {
         guard let comp = components, let li = list else { return }
         
         if 0 < li.count {
             activeRegisteredCard()
+            comp.selectCardAreaView.selected = .registeredCard
             
             let baseView = comp.selectCardAreaBaseView
             let selectCardArea = comp.selectCardAreaView

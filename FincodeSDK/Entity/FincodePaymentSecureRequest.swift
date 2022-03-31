@@ -32,7 +32,7 @@ public class FincodePaymentSecureRequest {
     }
 }
 
-public class FincodePaymentSecureResponse: FincodeResult {
+public class FincodePaymentSecureResponse: FincodeResponse {
 
     public let shopId: String?
     public let id: String?
