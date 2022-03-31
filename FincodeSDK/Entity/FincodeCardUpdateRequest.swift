@@ -33,7 +33,7 @@ public class FincodeCardUpdateRequest {
     }
 }
 
-public class FincodeCardUpdateResponse: FincodeResult {
+public class FincodeCardUpdateResponse: FincodeResponse {
 
     public let customerId: String
     public let id: String

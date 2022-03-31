@@ -6,6 +6,6 @@
 //
 
 public protocol ResultDelegate: AnyObject {
-    func success(_ result: FincodeResult)
+    func success(_ result: FincodeResponse)
     func failure(_ result: FincodeErrorResponse)
 }

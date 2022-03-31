@@ -48,7 +48,7 @@ public class FincodePaymentRequest {
     }
 }
 
-public class FincodePaymentResponse: FincodeResult {
+public class FincodePaymentResponse: FincodeResponse {
 
     public let acs: String?
     public let shopId: String?

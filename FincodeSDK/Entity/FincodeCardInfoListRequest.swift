@@ -12,10 +12,10 @@ public class FincodeCardInfoListRequest {
 
 public class FincodeCardInfoListResponse {
 
-    let cardInfoList: [CardInfo]
+    public let cardInfoList: [FincodeCardInfo]
     
     init(json: JSON) {
         let data = json["list"]
-        cardInfoList = data.arrayValue.map { CardInfo(json: $0) }
+        cardInfoList = data.arrayValue.map { FincodeCardInfo(json: $0) }
     }
 }

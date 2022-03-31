@@ -49,16 +49,16 @@ extension CardRegisterPresenter: CardOperateInteractorNotify {
         // no thing
     }
     
-    func cardRegisterSuccess(_ result: FincodeResult) {
+    func cardRegisterSuccess(_ result: FincodeResponse) {
         view.hideIndicator()
         externalResultDelegate?.success(result)
     }
     
-    func cardUpdateSuccess(_ result: FincodeResult) {
+    func cardUpdateSuccess(_ result: FincodeResponse) {
         // no thing
     }
     
-    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError) {
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: FincodeAPIError) {
         view.hideIndicator()
         externalResultDelegate?.failure(error.errorResponse)
     }

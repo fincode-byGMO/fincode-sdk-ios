@@ -19,9 +19,9 @@ protocol CardOperateInteractorDelegate: AnyObject {
 protocol CardOperateInteractorNotify: AnyObject {
     // InteractorからPresenterに通知する処理を定義
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse)
-    func cardRegisterSuccess(_ result: FincodeResult)
-    func cardUpdateSuccess(_ result: FincodeResult)
-    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: APIError)
+    func cardRegisterSuccess(_ result: FincodeResponse)
+    func cardUpdateSuccess(_ result: FincodeResponse)
+    func cardOperateFailure(_ useCase: CardOperateUseCase, withError error: FincodeAPIError)
 }
 
 class CardOperateInteractor {
@@ -64,7 +64,7 @@ extension CardOperateInteractor: CardUseCaseDelegate {
         presenterNotify?.cardUpdateSuccess(response)
     }
     
-    func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: APIError) {
+    func CardUseCaseFaild(_ useCase: CardOperateUseCase, withError error: FincodeAPIError) {
         presenterNotify?.cardOperateFailure(useCase, withError: error)
     }
 }

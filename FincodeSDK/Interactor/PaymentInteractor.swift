@@ -18,9 +18,9 @@ protocol PaymentInteractorDelegate: AnyObject {
 
 protocol PaymentInteractorNotify: AnyObject {
     // InteractorからPresenterに通知する処理を定義
-    func paymentSuccess(_ result: FincodeResult)
-    func paymentSecureSuccess(_ result: FincodeResult)
-    func failure(_ useCase: PaymentUseCase, withError error: APIError)
+    func paymentSuccess(_ result: FincodeResponse)
+    func paymentSecureSuccess(_ result: FincodeResponse)
+    func failure(_ useCase: PaymentUseCase, withError error: FincodeAPIError)
 }
 
 class PaymentInteractor {
@@ -55,7 +55,7 @@ extension PaymentInteractor: PaymentUseCaseDelegate {
         presenterNotify?.paymentSecureSuccess(response)
     }
     
-    func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: APIError) {
+    func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
         presenterNotify?.failure(useCase, withError: error)
     }
 }

@@ -14,8 +14,8 @@ class FincodeSelectCardView: UIView {
     @IBOutlet weak var selectedCardInfo: UIView!
     @IBOutlet weak var pickerView: CustomPickerView!
     
-    fileprivate var mCardInfoList: [CardInfo] = []
-    fileprivate var selected: CardInfo?
+    fileprivate var mCardInfoList: [FincodeCardInfo] = []
+    fileprivate var selected: FincodeCardInfo?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,9 +36,9 @@ class FincodeSelectCardView: UIView {
         pickerView.picker = pi
     }
     
-    func sortForDefaultFlag(_ value: [CardInfo]) -> [CardInfo] {
-        var fList: [CardInfo] = []
-        var sList: [CardInfo] = []
+    func sortForDefaultFlag(_ value: [FincodeCardInfo]) -> [FincodeCardInfo] {
+        var fList: [FincodeCardInfo] = []
+        var sList: [FincodeCardInfo] = []
         
         value.forEach {
             if $0.defaultFlag == .ON {
@@ -51,7 +51,7 @@ class FincodeSelectCardView: UIView {
         return fList + sList
     }
     
-    var cardInfoList: [CardInfo] {
+    var cardInfoList: [FincodeCardInfo] {
         get {
             return mCardInfoList
         }
@@ -66,7 +66,7 @@ class FincodeSelectCardView: UIView {
         }
     }
     
-    var selectedCard: CardInfo? {
+    var selectedCard: FincodeCardInfo? {
         get {
             return selected
         }
@@ -115,7 +115,7 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    fileprivate func getParts(_ info: CardInfo) -> CardPickerParts {
+    fileprivate func getParts(_ info: FincodeCardInfo) -> CardPickerParts {
         let parts = CardPickerParts()
         parts.setData(info)
         

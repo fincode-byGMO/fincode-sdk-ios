@@ -25,7 +25,7 @@ class CardPickerParts: UIView {
         viewSetup()
     }
 
-    func setData(_ cardInfo: CardInfo) {
+    func setData(_ cardInfo: FincodeCardInfo) {
         let type = CardBrandType.init(brand: cardInfo.brand)
         cardNoLabel.text = type.delimit(cardInfo.cardNo)
         expireLabel.text = format(cardInfo.expire)

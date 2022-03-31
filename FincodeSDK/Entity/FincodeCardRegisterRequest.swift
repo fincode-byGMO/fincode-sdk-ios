@@ -35,7 +35,7 @@ public class FincodeCardRegisterRequest {
     }
 }
 
-public class FincodeCardRegisterResponse: FincodeResult {
+public class FincodeCardRegisterResponse: FincodeResponse {
 
     public let customerId: String
     public let id: String
