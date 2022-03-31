@@ -47,11 +47,11 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             self.indicator = indicator
         }
         
-        func list() -> [ComponentDelegate] {
+        func allComp() -> [ComponentDelegate] {
             return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
         }
         
-        func enabledList() -> [ComponentDelegate] {
+        func enabledComp() -> [ComponentDelegate] {
             return [cardNoView, expireView, securityCodeView, holderNameView]
         }
     }
@@ -179,14 +179,14 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     
     private func componentEnabled(_ isEnabled: Bool) {
         guard let comp = components else { return }
-        for item in comp.enabledList() {
+        for item in comp.enabledComp() {
             item.enabled(isEnabled)
         }
     }
     
     private func componentClear() {
         guard let comp = components else { return }
-        for item in comp.list() {
+        for item in comp.allComp() {
             item.clear()
         }
     }
@@ -227,7 +227,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         set {
             mHeadingHidden = newValue
             guard let comp = components else { return }
-            for item in comp.list() {
+            for item in comp.allComp() {
                 item.headingHidden = !newValue
             }
         }
@@ -356,7 +356,7 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
     fileprivate func validate() -> Bool {
         guard let comp = components else { return false }
         var isError = false
-        for item in comp.list() {
+        for item in comp.allComp() {
             let result = item.validate()
             isError = isError || result
         }

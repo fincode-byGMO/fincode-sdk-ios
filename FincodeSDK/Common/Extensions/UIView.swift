@@ -69,14 +69,16 @@ extension UIView {
         showMessage(message, title: "エラー")
     }
     
-    func showMessage(_ message: String, title: String = "", buttonTitle: String = "OK") {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: buttonTitle, style: .default) { action in
-            // do nothing
-        }
-        alert.addAction(yesAction)
+    func showMessage(_ message: String, title: String = "",
+                     type: MessageDialogViewController.ButtonType = .close, action: ((UIButton) -> Void)? = nil) {
         guard let vc = parentViewController else { return }
-        vc.present(alert, animated: true, completion: nil)
+        guard let view = MessageDialogViewController.instantiateViewControllerFromStoryboard() as? MessageDialogViewController else { return }
+        view.modalPresentationStyle = .overCurrentContext
+        view.dialogTitle = title
+        view.dialogMessage = message
+        view.buttonType = type
+        view.action = action
+        vc.present(view, animated: false, completion: nil)
     }
     
     // 自身を配置しているViewControllerを取得する

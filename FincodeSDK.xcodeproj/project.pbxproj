@@ -218,6 +218,10 @@
 		4F90049727A924E700AFFE10 /* FincodeHorizontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F90049527A924E700AFFE10 /* FincodeHorizontalView.xib */; };
 		4F90049927A9295500AFFE10 /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90049827A9295500AFFE10 /* LayoutType.swift */; };
 		4F90049A27A9295500AFFE10 /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90049827A9295500AFFE10 /* LayoutType.swift */; };
+		4FA6335527F5A73600E54762 /* MessageDialogView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6335427F5A73600E54762 /* MessageDialogView.storyboard */; };
+		4FA6335627F5A73600E54762 /* MessageDialogView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6335427F5A73600E54762 /* MessageDialogView.storyboard */; };
+		4FA6335827F5A75D00E54762 /* MessageDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6335727F5A75D00E54762 /* MessageDialogViewController.swift */; };
+		4FA6335927F5A75D00E54762 /* MessageDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6335727F5A75D00E54762 /* MessageDialogViewController.swift */; };
 		4FBEF15827A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
 		4FBEF15927A26D0300D8E145 /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBEF15727A26D0300D8E145 /* ColorController.swift */; };
 		4FC4DE1B27CF568300723574 /* FincodePayTimesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */; };
@@ -377,6 +381,8 @@
 		4F86CBA02798019D005E49E9 /* FincodeSubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeSubmitButtonView.swift; sourceTree = "<group>"; };
 		4F90049527A924E700AFFE10 /* FincodeHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodeHorizontalView.xib; sourceTree = "<group>"; };
 		4F90049827A9295500AFFE10 /* LayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
+		4FA6335427F5A73600E54762 /* MessageDialogView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDialogView.storyboard; sourceTree = "<group>"; };
+		4FA6335727F5A75D00E54762 /* MessageDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDialogViewController.swift; sourceTree = "<group>"; };
 		4FBEF15727A26D0300D8E145 /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
 		4FC4DE1A27CF568300723574 /* FincodePayTimesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FincodePayTimesView.xib; sourceTree = "<group>"; };
 		4FC4DE1D27CF57B100723574 /* FincodePayTimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodePayTimesView.swift; sourceTree = "<group>"; };
@@ -485,6 +491,7 @@
 		4F25A38A278D2004004F8ADC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4FA6335027F5A37100E54762 /* Dialog */,
 				4F6ACB4D279134BA003ECE1D /* Parts */,
 				4F8040F527ABDCE30036742D /* FincodeCommon.swift */,
 				4F20E84427B3832B00C9DE22 /* FincodeHorizontalView.swift */,
@@ -754,6 +761,15 @@
 			path = ValueObject;
 			sourceTree = "<group>";
 		};
+		4FA6335027F5A37100E54762 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6335427F5A73600E54762 /* MessageDialogView.storyboard */,
+				4FA6335727F5A75D00E54762 /* MessageDialogViewController.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		87991D53D46A22DC7F07FDD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +899,7 @@
 				4F25A5F5278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
 				4F6ACB412790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9E2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
+				4FA6335527F5A73600E54762 /* MessageDialogView.storyboard in Resources */,
 				4FE777F9278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
 				4F08AAD827D762620075CD5D /* WebContentView.storyboard in Resources */,
 				4F25220327F578E40002E974 /* PayTimesPickerParts.xib in Resources */,
@@ -908,6 +925,7 @@
 				4F25A5F6278DA961004F8ADC /* FincodeCardNoView.xib in Resources */,
 				4F6ACB422790FB4E003ECE1D /* ImageAssets.xcassets in Resources */,
 				4F86CB9F2798016D005E49E9 /* FincodeSubmitButtonView.xib in Resources */,
+				4FA6335627F5A73600E54762 /* MessageDialogView.storyboard in Resources */,
 				4FE777FA278EA7C500414CD3 /* FincodeExpireView.xib in Resources */,
 				4F08AAD927D762620075CD5D /* WebContentView.storyboard in Resources */,
 				4F25220427F578E40002E974 /* PayTimesPickerParts.xib in Resources */,
@@ -997,6 +1015,7 @@
 				4F25A3BF278D2004004F8ADC /* NSDate.swift in Sources */,
 				4F67A8A427CCFB3C00A6E665 /* FincodePaymentConfiguration.swift in Sources */,
 				4FD2F9A827CE39B90076374E /* FincodeHolderNameView.swift in Sources */,
+				4FA6335827F5A75D00E54762 /* MessageDialogViewController.swift in Sources */,
 				4F25A3C9278D2005004F8ADC /* FincodePaymentRequest.swift in Sources */,
 				4F20E84827B3957600C9DE22 /* InputInfo.swift in Sources */,
 				4F0ABCE727C71D2900E12B13 /* FincodeCardOperateRepository.swift in Sources */,
@@ -1113,6 +1132,7 @@
 				4F25A3BC278D2004004F8ADC /* Log.swift in Sources */,
 				4F25A5F3278D98DC004F8ADC /* UIView.swift in Sources */,
 				4F0526AB27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */,
+				4FA6335927F5A75D00E54762 /* MessageDialogViewController.swift in Sources */,
 				4F25A46F278D2804004F8ADC /* Alamofire.swift in Sources */,
 				4F86CBA22798019D005E49E9 /* FincodeSubmitButtonView.swift in Sources */,
 				4F25A3AE278D2004004F8ADC /* Authorization.swift in Sources */,
