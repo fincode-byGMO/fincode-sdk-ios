@@ -19,6 +19,7 @@ class FincodePayTimesView: UIView {
     
     private var radioViewController: RadioViewController?
     private var radioType: RadioType = .paymentBulk
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

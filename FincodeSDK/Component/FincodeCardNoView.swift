@@ -22,6 +22,7 @@ class FincodeCardNoView: UIView {
     
     private var mLayoutType: LayoutType = .vertical
     static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{10,16}$")
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -115,33 +116,21 @@ extension FincodeCardNoView: CustomTextFieldDelegate {
     }
     
     func valideteTextEndEditing(_ view: CustomTextField) -> Bool {
-        let isError = cardNumber.isEmpty || isFormatCheck(cardNumber) || CardBrandType.init(value: cardNumber).validateDigits(cardNumber)
-        
-        errorLabelView.text = getErrorMessage(cardNumber)
-        errorLabelView.isHidden = !isError
-        //setFormatErrorColor(view)
-        
-        return isError
-    }
-    
-    private func setFormatErrorColor(_ view: CustomTextField) {
-        guard let value = cardNumberTextView.text else { return }
-        if CardBrandType.init(value: value).validateDigits(value) {
-            view.textColor = UIColor.red
-        } else {
-            view.textColor = UIColor.black
+        // 必須チェック
+        if self.required, cardNumber.isEmpty {
+            errorLabelView.text = AppStrings.errorCardNumber.value
+            errorLabelView.isHidden = false
+            return true
         }
-    }
-    
-    private func getErrorMessage(_ value: String) -> String {
-        if value.isEmpty {
-            return AppStrings.errorCardNumber.value
-        } else if isFormatCheck(value) || CardBrandType.init(value: cardNumber).validateDigits(cardNumber) {
-            return AppStrings.errorCardNumberFormat.value
-        } else {
-            // ブランクだと表示領域の高さだけ縮まるためダミーを返す
-            return " "
+        // 書式チェック
+        if isFormatCheck(cardNumber) || CardBrandType.init(value: cardNumber).validateDigits(cardNumber) {
+            errorLabelView.text = AppStrings.errorCardNumberFormat.value
+            errorLabelView.isHidden = false
+            return true
         }
+        errorLabelView.isHidden = true
+        errorLabelView.text = " "
+        return false
     }
     
     private func isFormatCheck(_ value: String) -> Bool {

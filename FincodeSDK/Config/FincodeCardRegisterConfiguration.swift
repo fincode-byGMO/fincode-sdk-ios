@@ -9,7 +9,7 @@ import Foundation
 
 public class FincodeCardRegisterConfiguration: FincodeConfiguration {
     /// デフォルトフラグ
-    public var defaultFlag: DefaultFlg = .OFF
+    public var defaultFlag: DefaultFlg = .ON
     
     override public init() {
         super.init()

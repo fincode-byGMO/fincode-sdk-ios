@@ -10,7 +10,7 @@ import Foundation
 
 public class FincodeAPIError: Error {
 
-    let errorResponse: FincodeErrorResponse
+    public let errorResponse: FincodeErrorResponse
 
     init(response: HTTPURLResponse? = nil, data: Data? = nil) {
         

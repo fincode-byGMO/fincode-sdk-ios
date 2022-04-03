@@ -60,8 +60,6 @@ extension WebContentViewController: WKNavigationDelegate {
         
         if isTermUrl(navigationAction.request.url) {
             decisionHandler(.allow)
-            self.navigationController?.popViewController(animated: true)
-            
             var request = navigationAction.request
             if let body = request.getHttpBodyForForm() {
                 delegate?.tdsComplete(body)
@@ -70,17 +68,17 @@ extension WebContentViewController: WKNavigationDelegate {
             return
         }
         
-        if navigationAction.navigationType == .linkActivated {
-            if let scheme = navigationAction.request.url?.scheme {
-                if scheme == "tel" {
-                    if UIApplication.shared.canOpenURL(navigationAction.request.url!) {
-                        UIApplication.shared.openURL(navigationAction.request.url!)
-                        decisionHandler(.cancel)
-                        return
-                    }
-                }
-            }
-        }
+//        if navigationAction.navigationType == .linkActivated {
+//            if let scheme = navigationAction.request.url?.scheme {
+//                if scheme == "tel" {
+//                    if UIApplication.shared.canOpenURL(navigationAction.request.url!) {
+//                        UIApplication.shared.openURL(navigationAction.request.url!)
+//                        decisionHandler(.cancel)
+//                        return
+//                    }
+//                }
+//            }
+//        }
         decisionHandler(.allow)
     }
     

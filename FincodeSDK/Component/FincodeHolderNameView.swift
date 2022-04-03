@@ -17,6 +17,7 @@ class FincodeHolderNameView: UIView {
     @IBOutlet weak var borderView: UIView!
     
     static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[a-zA-Z0-9 ¥¥x2c-¥¥x2f]{0,50}$")
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

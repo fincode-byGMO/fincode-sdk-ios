@@ -18,6 +18,7 @@ class FincodeSecurityCodeView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     
     static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{3,4}$")
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,10 +10,9 @@ import Foundation
 
 protocol PaymentUseCaseDelegate: AnyObject {
     func paymentUseCase(_ useCase: PaymentUseCase, response: FincodePaymentResponse)
-    func paymentSecureUseCase(_ useCase: PaymentUseCase, response: FincodePaymentSecureResponse)
     func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: FincodeAPIError)
-
-//    func paymentUseCase(_ result: APIResult<PaymentResponse>)
+    func paymentSecureUseCase(_ useCase: PaymentUseCase, response: FincodePaymentSecureResponse)
+    func paymentSecureUseCaseFaild(_ useCase: PaymentUseCase, withError error: FincodeAPIError)
 }
 
 class PaymentUseCase {
@@ -44,7 +43,7 @@ class PaymentUseCase {
             case .success(let data):
                 self.delegate?.paymentSecureUseCase(self, response: data)
             case .failure(let error):
-                self.delegate?.paymentUseCaseFaild(self, withError: error)
+                self.delegate?.paymentSecureUseCaseFaild(self, withError: error)
             }
         }
     }
