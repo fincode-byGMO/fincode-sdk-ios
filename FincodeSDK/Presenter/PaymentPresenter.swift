@@ -128,13 +128,20 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
         }
     }
     
+    func paymentFailure(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
+        view.hideIndicator()
+        externalResultDelegate?.failure(error.errorResponse)
+    }
+    
     func paymentSecureSuccess(_ result: FincodeResponse) {
         view.hideIndicator()
+        self.view.getParentViewController()?.navigationController?.popViewController(animated: true)
         externalResultDelegate?.success(result)
     }
     
-    func failure(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
+    func paymentSecureFailure(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
         view.hideIndicator()
+        self.view.getParentViewController()?.navigationController?.popViewController(animated: true)
         externalResultDelegate?.failure(error.errorResponse)
     }
     
@@ -142,6 +149,7 @@ extension PaymentPresenter: PaymentInteractorNotify, WebContentViewDelegate {
     func tdsComplete(_ result: [String:String]) {
         guard let paymentResponse = mPaymentResponse, let config = mConfig, let id = paymentResponse.id else { return }
         
+        view.showIndicator()
         let param = FincodePaymentSecureRequest()
         param.payType = paymentResponse.payType
         param.accessId = paymentResponse.accessId

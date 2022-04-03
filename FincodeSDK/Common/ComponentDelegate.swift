@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 protocol ComponentDelegate: AnyObject {
+    /// 必須か否か
+    var required: Bool { get set }
     /// バリデーション チェック
     func validate() -> Bool
     /// バリデーション チェックの表示クリア

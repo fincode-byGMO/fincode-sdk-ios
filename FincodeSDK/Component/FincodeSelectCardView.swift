@@ -16,6 +16,7 @@ class FincodeSelectCardView: UIView {
     
     fileprivate var mCardInfoList: [FincodeCardInfo] = []
     fileprivate var selected: FincodeCardInfo?
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

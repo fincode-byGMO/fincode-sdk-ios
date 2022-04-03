@@ -12,7 +12,7 @@ public class FincodeCardUpdateConfiguration: FincodeConfiguration {
     public var cardId = ""
     
     /// デフォルトフラグ
-    public var defaultFlag: DefaultFlg = .OFF
+    public var defaultFlag: DefaultFlg = .ON
     
     override public init() {
         super.init()

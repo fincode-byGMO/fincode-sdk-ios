@@ -12,6 +12,7 @@ protocol FincodeCommonDelegate: AnyObject {
     func setCardList(_ list: [FincodeCardInfo]?)
     func showIndicator()
     func hideIndicator()
+    func getParentViewController() -> UIViewController?
 }
 
 @IBDesignable
@@ -51,6 +52,18 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             return [cardNoView, expireView, securityCodeView, holderNameView, payTimesView]
         }
         
+        func checkCompForPayment() -> [ComponentDelegate] {
+            return [cardNoView, expireView, securityCodeView, holderNameView]
+        }
+        
+        func checkCompForCardRegister() -> [ComponentDelegate] {
+            return [cardNoView, expireView, securityCodeView, holderNameView]
+        }
+        
+        func checkCompForCardUpdate() -> [ComponentDelegate] {
+            return [expireView, securityCodeView, holderNameView]
+        }
+        
         func enabledComp() -> [ComponentDelegate] {
             return [cardNoView, expireView, securityCodeView, holderNameView]
         }
@@ -88,7 +101,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     }
     
     func getInputInfo() -> InputInfo? {
-        guard let comp = components else { return nil }
+        guard let comp = components, let config = DataHolder.instance.config else { return nil }
         
         var inputInfo: InputInfo?
         if comp.selectCardAreaView.selected == .registeredCard {
@@ -103,16 +116,52 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
                 payTimes: comp.payTimesView.payTimes
             )
         } else {
-            inputInfo = InputInfo(
-                useCard: .newCard,
-                cardNumber: comp.cardNoView.cardNumber,
-                cardId: nil,
-                expireMonth: comp.expireView.month,
-                expireYear: comp.expireView.year,
-                securityCode: comp.securityCodeView.cvc,
-                holderName: comp.holderNameView.holderName,
-                payTimes: comp.payTimesView.payTimes
-            )
+            switch config.useCase {
+            case .payment:
+                inputInfo = InputInfo(
+                    useCard: .newCard,
+                    cardNumber: comp.cardNoView.cardNumber,
+                    cardId: nil,
+                    expireMonth: comp.expireView.month,
+                    expireYear: comp.expireView.year,
+                    securityCode: comp.securityCodeView.cvc.isEmpty ? nil : comp.securityCodeView.cvc,
+                    holderName: comp.holderNameView.holderName.isEmpty ? nil : comp.holderNameView.holderName,
+                    payTimes: comp.payTimesView.payTimes
+                )
+            case .registerCard:
+                inputInfo = InputInfo(
+                    useCard: .newCard,
+                    cardNumber: comp.cardNoView.cardNumber,
+                    cardId: nil,
+                    expireMonth: comp.expireView.month,
+                    expireYear: comp.expireView.year,
+                    securityCode: comp.securityCodeView.cvc.isEmpty ? nil : comp.securityCodeView.cvc,
+                    holderName: comp.holderNameView.holderName.isEmpty ? nil : comp.holderNameView.holderName,
+                    payTimes: nil
+                )
+            case .updateCard:
+                inputInfo = InputInfo(
+                    useCard: .newCard,
+                    cardNumber: nil,
+                    cardId: nil,
+                    expireMonth: comp.expireView.month.isEmpty ? nil : comp.expireView.month,
+                    expireYear: comp.expireView.year.isEmpty ? nil : comp.expireView.year,
+                    securityCode: comp.securityCodeView.cvc.isEmpty ? nil : comp.securityCodeView.cvc,
+                    holderName: comp.holderNameView.holderName.isEmpty ? nil : comp.holderNameView.holderName,
+                    payTimes: nil
+                )
+            default:
+                inputInfo = InputInfo(
+                    useCard: .newCard,
+                    cardNumber: comp.cardNoView.cardNumber,
+                    cardId: nil,
+                    expireMonth: comp.expireView.month,
+                    expireYear: comp.expireView.year,
+                    securityCode: comp.securityCodeView.cvc,
+                    holderName: comp.holderNameView.holderName,
+                    payTimes: comp.payTimesView.payTimes
+                )
+            }
         }
         
         return inputInfo
@@ -151,13 +200,15 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     
     private func initComponent(_ delegate: ResultDelegate) {
         guard let config = DataHolder.instance.config,
-              let button = components?.submitButtonView,
+              let comp = components,
               let parentViewController = parentViewController else { return }
         
         activeNewCard()
-        button.buttonTitle(config.useCase.title)
+        comp.submitButtonView.buttonTitle(config.useCase.title)
         switch config.useCase {
         case .registerCard:
+            comp.cardNoView.required = true
+            comp.expireView.required = true
             gonePayTimesView()
             cardOperatePresenter = CardRegisterPresenter(interactor: CardOperateInteractor(), view: self)
             cardOperatePresenter?.externalResultDelegate = delegate
@@ -166,7 +217,12 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
             goneCardNoView()
             cardUpdatePresenter = CardUpdatePresenter(interactor: CardOperateInteractor(), view: self)
             cardUpdatePresenter?.externalResultDelegate = delegate
+//            if !config.customerId.isEmpty {
+//                cardUpdatePresenter?.cardInfoList(config)
+//            }
         case .payment:
+            comp.cardNoView.required = true
+            comp.expireView.required = true
             paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
             paymentPresenter?.externalResultDelegate = delegate
             if !config.customerId.isEmpty {
@@ -213,6 +269,10 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         guard let comp = components else { return }
         comp.indicatorView.isHidden = true
         comp.indicator.stopAnimating()
+    }
+    
+    func getParentViewController() -> UIViewController? {
+        return self.parentViewController
     }
     
     /// 見出しの表示・非表示を設定します
@@ -336,7 +396,7 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
         DataHolder.instance.inputInfo = getInputInfo()
         guard let config = DataHolder.instance.config, let comp = components else { return nil }
 
-        if comp.selectCardAreaView.selected == .newCard, validate() {
+        if comp.selectCardAreaView.selected == .newCard, validate(config.useCase) {
             return nil
         }
         
@@ -353,10 +413,23 @@ extension FincodeCommon: FincodeSubmitButtonViewDelegate, SelectCardAreaViewDele
     }
     
     // 各入力コンポーネントの入力チェックを行う
-    fileprivate func validate() -> Bool {
+    fileprivate func validate(_ useCase: SubmitButtonType) -> Bool {
         guard let comp = components else { return false }
+        
+        var target: [ComponentDelegate] = []
+        switch useCase {
+        case .registerCard:
+            target = comp.checkCompForCardRegister()
+        case .updateCard:
+            target = comp.checkCompForCardUpdate()
+        case .payment:
+            target = comp.checkCompForPayment()
+        default:
+            break
+        }
+        
         var isError = false
-        for item in comp.allComp() {
+        for item in target {
             let result = item.validate()
             isError = isError || result
         }

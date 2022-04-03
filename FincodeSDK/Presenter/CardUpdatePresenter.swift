@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol CardUpdatePresenterDelegate: BasePresenterDelegate {
+//    func cardInfoList(_ config: FincodeConfiguration)
 }
 
 protocol CardUpdatePresenterNotify: AnyObject {
@@ -32,27 +33,39 @@ class CardUpdatePresenter {
 
 extension CardUpdatePresenter: CardUpdatePresenterDelegate {
 
+//    func cardInfoList(_ config: FincodeConfiguration) {
+//        guard let config = config as? FincodeCardUpdateConfiguration else { return }
+//
+//        view.showIndicator()
+//        let header = ApiConfiguration.instance.requestHeader(config)
+//        interactor.presenterNotify = self
+//        interactor.cardInfoList(config.customerId, header: header)
+//    }
+    
     func execute(_ config: FincodeConfiguration, inputInfo: InputInfo) {
         guard let config = config as? FincodeCardUpdateConfiguration else { return }
         
         view.showIndicator()
         let param = FincodeCardUpdateRequest()
         param.defaultFlag = config.defaultFlag.rawValue
-        param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
+        if inputInfo.expireMonth != nil, inputInfo.expireYear != nil {
+            param.expire = (inputInfo.expireYear ?? "") + (inputInfo.expireMonth ?? "")
+        }
         param.holderName = inputInfo.holderName
         param.securityCode = inputInfo.securityCode
         
         let header = ApiConfiguration.instance.requestHeader(config)
         
         interactor.presenterNotify = self
-        interactor.updateCard(config.customerId, cardId: "", request: param, header: header)
+        interactor.updateCard(config.customerId, cardId: config.cardId, request: param, header: header)
     }
 }
 
 // カード更新の結果を処理する
 extension CardUpdatePresenter: CardOperateInteractorNotify {
     func cardInfoListSuccess(_ result: FincodeCardInfoListResponse) {
-        // no thing
+//        view.hideIndicator()
+//        view.setCardList(result.cardInfoList)
     }
     
     func cardRegisterSuccess(_ result: FincodeResponse) {
