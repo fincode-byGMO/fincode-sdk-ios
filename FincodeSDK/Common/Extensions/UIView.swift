@@ -144,7 +144,7 @@ extension UIView {
     }
     
     /// 背景色を取得・設定
-    @IBInspectable public var backgroundColor: UIColor {
+    @IBInspectable public var extBackgroundColor: UIColor {
         get {
             if let cgColor = self.layer.backgroundColor {
                 return UIColor(cgColor: cgColor)

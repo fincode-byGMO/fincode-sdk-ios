@@ -69,7 +69,7 @@ class RadioView: UIControl {
     
     fileprivate func checkedBackgroundColor(_ isChecked: Bool) {
         
-        insideCircle.backgroundColor = isChecked ? ColorController.instance.color(.primary) : ColorController.instance.color(.radioCheckedOff)
+        insideCircle.extBackgroundColor = isChecked ? ColorController.instance.color(.primary) : ColorController.instance.color(.radioCheckedOff)
     }
     
     @IBAction func didTouch(_ sender: Any) {
