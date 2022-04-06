@@ -21,7 +21,7 @@ class CardOperateUseCase {
     /// - Parameter customerId: 顧客ID
     /// - Parameter header: ヘッダー
     func cardInfoList(_ customerId: String, header: [String: String]) {
-        FincodeCardOperateRepository.instance.cardInfoList(customerId, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.cardInfoList(customerId, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)
@@ -36,7 +36,7 @@ class CardOperateUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String]) {
-        FincodeCardOperateRepository.instance.registerCard(customerId, request: request, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.registerCard(customerId, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)
@@ -52,7 +52,7 @@ class CardOperateUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func updateCard(_ customerId: String, cardId: String, request: FincodeCardUpdateRequest, header: [String: String]) {
-        FincodeCardOperateRepository.instance.updateCard(customerId, cardId: cardId, request: request, header: header) { result in
+        FincodeCardOperateRepository.sharedInstance.updateCard(customerId, cardId: cardId, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.CardUseCase(self, response: data)

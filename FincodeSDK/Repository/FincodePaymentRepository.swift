@@ -10,7 +10,7 @@ import Foundation
 
 public class FincodePaymentRepository {
     
-    public static let instance = FincodePaymentRepository()
+    public static let sharedInstance = FincodePaymentRepository()
     
     /// 決済実行
     /// - Parameters:
