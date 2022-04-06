@@ -10,18 +10,21 @@ import Foundation
 
 public class FincodePaymentRequest {
     
-    var payType: String?
-    var accessId: String?
-    var id: String?
-    var token: String?
-    var cardNo: String?
-    var expire: String?
-    var customerId: String?
-    var cardId: String?
-    var method: String?
-    var payTimes: String?
-    var securityCode: String?
-    var holderName: String?
+    public var payType: String?
+    public var accessId: String?
+    public var id: String?
+    public var token: String?
+    public var cardNo: String?
+    public var expire: String?
+    public var customerId: String?
+    public var cardId: String?
+    public var method: String?
+    public var payTimes: String?
+    public var securityCode: String?
+    public var holderName: String?
+    
+    public init() {
+    }
     
     func parameters() -> [String: AnyObject] {
         var data: [String: AnyObject] = [:]

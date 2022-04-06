@@ -23,7 +23,7 @@ class PaymentUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func payment(_ id: String, request: FincodePaymentRequest, header: [String: String]) {
-        FincodePaymentRepository.sharedInstance.payment(id, request: request, header: header) { result in
+        FincodePaymentRepository.instance.payment(id, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.paymentUseCase(self, response: data)
@@ -38,7 +38,7 @@ class PaymentUseCase {
     /// - Parameter request: パラメータ
     /// - Parameter header: ヘッダー
     func paymentSecure(_ id: String, request: FincodePaymentSecureRequest, header: [String: String]) {
-        FincodePaymentRepository.sharedInstance.payment(id, request: request, header: header) { result in
+        FincodePaymentRepository.instance.payment(id, request: request, header: header) { result in
             switch result {
             case .success(let data):
                 self.delegate?.paymentSecureUseCase(self, response: data)
