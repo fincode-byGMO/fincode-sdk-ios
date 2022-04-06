@@ -9,11 +9,14 @@ import Foundation
 
 public class FincodeCardUpdateRequest {
     
-    var defaultFlag: String?
-    var expire: String?
-    var holderName: String?
-    var securityCode: String?
-    var token: String?
+    public var defaultFlag: String?
+    public var expire: String?
+    public var holderName: String?
+    public var securityCode: String?
+    public var token: String?
+    
+    public init() {
+    }
     
     func parameters() -> [String: AnyObject] {
         var data: [String: AnyObject] = [:]
