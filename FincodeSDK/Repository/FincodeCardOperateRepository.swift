@@ -9,7 +9,7 @@ import Foundation
 
 public class FincodeCardOperateRepository {
     
-    public static let instance = FincodeCardOperateRepository()
+    public static let sharedInstance = FincodeCardOperateRepository()
     
     /// カード一覧取得
     /// - Parameters:
