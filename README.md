@@ -17,6 +17,7 @@ FincodeSDKを使用すると、iOSアプリで決済、カード登録・更新�
 ## リリース
 
 FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付けページのリンクに置き換える](https://www.google.com) ページのバージョンを使用して、xcframeworkまたはFincodeSDKプロジェクトを追加してください。
+
 - FincodeSDK.xcframework
 
 手動でリンクする方法は、こちらの[導入](#導入)を行ってください。
@@ -38,7 +39,6 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   1. 任意の場所にFincodeSDKのプロジェクトを配置します。
   2. 「Add Files to {プロジェクト名}」を選択しFincodeSDKのプロジェクトを追加します。
   3. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDKプロジェクトが内包するFincodeSDK.frameworkを追加します。
-<br>
 <br>
 
 ## コンポーネント
@@ -169,7 +169,6 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   |Class|説明|
   |:--|:--|
   |FincodeCardUpdateResponse|カード更新APIのResponse情報を保持|
-<br>
 
 ## 表示設定
 XcodeのAttributes Inspectorを開き、以下のプロパティを変更することで表示・非表示を切り替えます。
@@ -179,7 +178,6 @@ XcodeのAttributes Inspectorを開き、以下のプロパティを変更する�
 |DynamicLogDisplay|ブランド画像 動的切り替えをON：表示、OFF：非表示|
 |HolderNameHidden|名義人名欄をON：表示、OFF：非表示|
 |PayTimesHidden|お支払い回数欄をON：表示、OFF：非表示|
-<br>
 
 ## Repository
 FincodeSDKは、以下のAPIを実行するメソッドを用意しています。
