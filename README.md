@@ -62,7 +62,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
 * 初期化
 
   * 決済実行 - 実装例
-  ```
+  ```swift
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -101,7 +101,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   <br>
 
   * カード登録
-  ```
+  ```swift
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -136,7 +136,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   <br>
 
   * カード更新
-  ```
+  ```swift
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -195,7 +195,7 @@ FincodeSDKは、以下のAPIを実行するメソッドを用意しています�
 <br>
 
 * 決済実行 - 例
-```
+```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodePaymentRequest()
@@ -212,7 +212,7 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 ```
 
 * 認証後決済 - 例
-```
+```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodePaymentSecureRequest()
@@ -230,7 +230,7 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 ```
 
 * カード_一覧取得 - 例
-```
+```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: header) { result in
@@ -244,7 +244,7 @@ FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: h
 ```
 
 * カード_登録 - 例
-```
+```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodeCardRegisterRequest()
@@ -261,7 +261,7 @@ FincodeCardOperateRepository.sharedInstance.registerCard("customerId", request: 
 ```
 
 * カード_更新 - 例
-```
+```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodeCardUpdateRequest()
