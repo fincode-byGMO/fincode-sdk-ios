@@ -21,157 +21,151 @@ FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付け
 - FincodeSDK.xcframework
 
 手動でリンクする方法は、こちらの[導入](#導入)を行ってください。
-<br>
-<br>
 
 ## 要件
 
 FincodeSDKは、iOS SDK 11以降/Swift4以降が必要です。
-<br>
-<br>
 
 ## 導入
 FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプロジェクトを組み込むことが必要です。
-* xcframeworkの組み込み
+
+- xcframeworkの組み込み
   1. 任意の場所にFincodeSDK.xcframeworkを配置します。
   2. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDK.xcframeworkを追加します。
-* プロジェクトの組み込み
+
+- プロジェクトの組み込み
   1. 任意の場所にFincodeSDKのプロジェクトを配置します。
   2. 「Add Files to {プロジェクト名}」を選択しFincodeSDKのプロジェクトを追加します。
   3. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDKプロジェクトが内包するFincodeSDK.frameworkを追加します。
-<br>
 
 ## コンポーネント
-* 配置
+- 配置
 
-  コンポーネントの配置は、StoryboardにUIViewを配置しIdentity Inspectorに以下の値を設定します。
+    コンポーネントの配置は、StoryboardにUIViewを配置しIdentity Inspectorに以下の値を設定します。
 
-     * `Vertical Layout`
+    - `Vertical Layout`
 
         |Class|Module|
         |:--:|:--:|
         |FincodeVerticalView|FincodeSDK|
 
-     * `Horizontal Layout`
+    - `Horizontal Layout`
 
         |Class|Module|
         |:--:|:--:|
         |FincodeHorizontalView|FincodeSDK|
 
 
-* 初期化
+- 初期化
 
-  * 決済実行 - 実装例
-  ```swift
-  import FincodeSDK
-  
-  class VerticalViewController: UIViewController, ResultDelegate {
-      
-      @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
-      
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          
-          let config = FincodePaymentConfiguration()
-          config.authorizationPublic = .Bearer(apiKey: "apiKey")
-          config.apiVersion = "20211001"
-          config.accessId = "accessId"
-          config.id = "id"
-          config.payType = "payType"
-          config.customerId = "customerId"
-          config.termUrl = "termUrl@com"
-          fincodeVerticalView.configuration(config, delegate: self)
-      }
-      
-      func success(_ result: FincodeResponse) {
-          // 正常
-      }
-  
-      func failure(_ result: FincodeErrorResponse) {
-          // 異常
-      }
-  }
-  ```
-  処理成功時の結果は、以下のClassでキャストすることで参照することができます。
-  |3DS1.0有無|Class|説明|
-  |:--|:--|:--|
-  |無し|FincodePaymentResponse|決済実行APIのResponse情報を保持|
-  |有り|FincodePaymentSecureResponse|認証後決済APIのResponse情報を保持| 
+    - 決済実行 - 実装例
+    ```swift
+    import FincodeSDK
 
-  <br>
+    class VerticalViewController: UIViewController, ResultDelegate {
+        
+        @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let config = FincodePaymentConfiguration()
+            config.authorizationPublic = .Bearer(apiKey: "apiKey")
+            config.apiVersion = "20211001"
+            config.accessId = "accessId"
+            config.id = "id"
+            config.payType = "payType"
+            config.customerId = "customerId"
+            config.termUrl = "termUrl@com"
+            fincodeVerticalView.configuration(config, delegate: self)
+        }
+        
+        func success(_ result: FincodeResponse) {
+            // 正常
+        }
 
-  * カード登録
-  ```swift
-  import FincodeSDK
-  
-  class VerticalViewController: UIViewController, ResultDelegate {
-      
-      @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
-  
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          
-          let config = FincodeCardRegisterConfiguration()
-          config.authorizationPublic = .Bearer(apiKey: "apiKey")
-          config.apiVersion = "20211001"
-          config.customerId = "customerId"
-          config.defaultFlag = .ON
-          fincodeVerticalView.configuration(config, delegate: self)
-      } 
-  
-      func success(_ result: FincodeResponse) {
-          // 正常
-      }
-  
-      func failure(_ result: FincodeErrorResponse) {
-          // 異常
-      }
-  }
-  ```
-  処理成功時の結果は、以下のClassでキャストすることで参照することができます。
-  |Class|説明|
-  |:--|:--|
-  |FincodeCardRegisterResponse|カード登録APIのResponse情報を保持|
-  
-  <br>
+        func failure(_ result: FincodeErrorResponse) {
+            // 異常
+        }
+    }
+    ```
+    処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+    |3DS1.0有無|Class|説明|
+    |:--|:--|:--|
+    |無し|FincodePaymentResponse|決済実行APIのResponse情報を保持|
+    |有り|FincodePaymentSecureResponse|認証後決済APIのResponse情報を保持|
 
-  * カード更新
-  ```swift
-  import FincodeSDK
-  
-  class VerticalViewController: UIViewController, ResultDelegate {
-      
-      @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
-  
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          
-          let config = FincodeCardUpdateConfiguration()
-          config.authorizationPublic = .Bearer(apiKey: "apiKey")
-          config.apiVersion = "20211001"
-          config.customerId = "customerId"
-          config.cardId = "cardId"
-          config.defaultFlag = .ON
-          
-          fincodeVerticalView.configuration(config, delegate: self)
-      }
-  
-      func success(_ result: FincodeResponse) {
-          // 正常
-      }
-  
-      func failure(_ result: FincodeErrorResponse) {
-          // 異常
-      }
-  }
-  ```
-  処理成功時の結果は、以下のClassでキャストすることで参照することができます。
-  |Class|説明|
-  |:--|:--|
-  |FincodeCardUpdateResponse|カード更新APIのResponse情報を保持|
+    - カード登録
+    ```swift
+    import FincodeSDK
+
+    class VerticalViewController: UIViewController, ResultDelegate {
+        
+        @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let config = FincodeCardRegisterConfiguration()
+            config.authorizationPublic = .Bearer(apiKey: "apiKey")
+            config.apiVersion = "20211001"
+            config.customerId = "customerId"
+            config.defaultFlag = .ON
+            fincodeVerticalView.configuration(config, delegate: self)
+        } 
+
+        func success(_ result: FincodeResponse) {
+            // 正常
+        }
+
+        func failure(_ result: FincodeErrorResponse) {
+            // 異常
+        }
+    }
+    ```
+    処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+    |Class|説明|
+    |:--|:--|
+    |FincodeCardRegisterResponse|カード登録APIのResponse情報を保持|
+
+    - カード更新
+    ```swift
+    import FincodeSDK
+
+    class VerticalViewController: UIViewController, ResultDelegate {
+        
+        @IBOutlet weak var fincodeVerticalView: FincodeVerticalView!
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            let config = FincodeCardUpdateConfiguration()
+            config.authorizationPublic = .Bearer(apiKey: "apiKey")
+            config.apiVersion = "20211001"
+            config.customerId = "customerId"
+            config.cardId = "cardId"
+            config.defaultFlag = .ON
+            
+            fincodeVerticalView.configuration(config, delegate: self)
+        }
+
+        func success(_ result: FincodeResponse) {
+            // 正常
+        }
+
+        func failure(_ result: FincodeErrorResponse) {
+            // 異常
+        }
+    }
+    ```
+    処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+    |Class|説明|
+    |:--|:--|
+    |FincodeCardUpdateResponse|カード更新APIのResponse情報を保持|
 
 ## 表示設定
 XcodeのAttributes Inspectorを開き、以下のプロパティを変更することで表示・非表示を切り替えます。
+
 |Property|説明|
 |:--|:--|
 |HeadingHidden|各欄の見出しをON：表示、OFF：非表示|
@@ -190,9 +184,8 @@ FincodeSDKは、以下のAPIを実行するメソッドを用意しています�
 |カード_登録|FincodeCardOperateRepository|func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String], complete: @escaping (_ result: FincodeApiResult<FincodeCardRegisterResponse>) -> Void)|
 |カード_更新|FincodeCardOperateRepository|func updateCard(_ customerId: String, cardId: String, request: FincodeCardUpdateRequest, header: [String: String], complete: @escaping (_ result: FincodeApiResult<FincodeCardUpdateResponse>) -> Void)|
 
-<br>
+- 決済実行 - 例
 
-* 決済実行 - 例
 ```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
@@ -209,7 +202,8 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 }
 ```
 
-* 認証後決済 - 例
+- 認証後決済 - 例
+
 ```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
@@ -227,7 +221,8 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 // ※FincodePaymentSecureRequest.paRes 変数に設定する値は、URLエンコードが必要です。
 ```
 
-* カード_一覧取得 - 例
+- カード_一覧取得 - 例
+
 ```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
@@ -241,7 +236,8 @@ FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: h
 }
 ```
 
-* カード_登録 - 例
+- カード_登録 - 例
+
 ```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
@@ -258,7 +254,8 @@ FincodeCardOperateRepository.sharedInstance.registerCard("customerId", request: 
 }
 ```
 
-* カード_更新 - 例
+- カード_更新 - 例
+
 ```swift
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
