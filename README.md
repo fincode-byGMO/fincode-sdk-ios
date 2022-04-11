@@ -13,9 +13,7 @@ FincodeSDKを使用すると、iOSアプリで決済、カード登録・更新�
    * [Repository](#repository)
    * [Licenses](#licenses)
 <br>
-<br>
 
----
 ## リリース
 
 FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付けページのリンクに置き換える](https://www.google.com) ページのバージョンを使用して、xcframeworkまたはFincodeSDKプロジェクトを追加してください。
@@ -25,14 +23,12 @@ FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付け
 <br>
 <br>
 
----
 ## 要件
 
 FincodeSDKは、iOS SDK 11以降/Swift4以降が必要です。
 <br>
 <br>
 
----
 ## 導入
 FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプロジェクトを組み込むことが必要です。
 * xcframeworkの組み込み
@@ -45,8 +41,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
 <br>
 <br>
 
----
-### コンポーネント
+## コンポーネント
 * 配置
 
   コンポーネントの配置は、StoryboardにUIViewを配置しIdentity Inspectorに以下の値を設定します。
@@ -63,10 +58,11 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
         |:--:|:--:|
         |FincodeHorizontalView|FincodeSDK|
 
+
 * 初期化
 
   * 決済実行 - 実装例
-  ```swift
+  ```
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -101,10 +97,11 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   |:--|:--|:--|
   |無し|FincodePaymentResponse|決済実行APIのResponse情報を保持|
   |有り|FincodePaymentSecureResponse|認証後決済APIのResponse情報を保持| 
+
   <br>
 
   * カード登録
-  ```swift
+  ```
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -135,10 +132,11 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   |Class|説明|
   |:--|:--|
   |FincodeCardRegisterResponse|カード登録APIのResponse情報を保持|
+  
   <br>
 
   * カード更新
-  ```swift
+  ```
   import FincodeSDK
   
   class VerticalViewController: UIViewController, ResultDelegate {
@@ -173,8 +171,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
   |FincodeCardUpdateResponse|カード更新APIのResponse情報を保持|
 <br>
 
----
-### 表示設定
+## 表示設定
 XcodeのAttributes Inspectorを開き、以下のプロパティを変更することで表示・非表示を切り替えます。
 |Property|説明|
 |:--|:--|
@@ -184,8 +181,7 @@ XcodeのAttributes Inspectorを開き、以下のプロパティを変更する�
 |PayTimesHidden|お支払い回数欄をON：表示、OFF：非表示|
 <br>
 
----
-### Repository
+## Repository
 FincodeSDKは、以下のAPIを実行するメソッドを用意しています。
 
 |API|Class|Method|
@@ -195,10 +191,11 @@ FincodeSDKは、以下のAPIを実行するメソッドを用意しています�
 |カード_一覧取得|FincodeCardOperateRepository|func cardInfoList(_ customerId: String, header: [String: String], complete: @escaping (_ result: FincodeApiResult<FincodeCardInfoListResponse>) -> Void)|
 |カード_登録|FincodeCardOperateRepository|func registerCard(_ customerId: String, request: FincodeCardRegisterRequest, header: [String: String], complete: @escaping (_ result: FincodeApiResult<FincodeCardRegisterResponse>) -> Void)|
 |カード_更新|FincodeCardOperateRepository|func updateCard(_ customerId: String, cardId: String, request: FincodeCardUpdateRequest, header: [String: String], complete: @escaping (_ result: FincodeApiResult<FincodeCardUpdateResponse>) -> Void)|
+
 <br>
 
 * 決済実行 - 例
-```swift
+```
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodePaymentRequest()
@@ -215,7 +212,7 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 ```
 
 * 認証後決済 - 例
-```swift
+```
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodePaymentSecureRequest()
@@ -233,7 +230,7 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 ```
 
 * カード_一覧取得 - 例
-```swift
+```
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: header) { result in
@@ -247,7 +244,7 @@ FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: h
 ```
 
 * カード_登録 - 例
-```swift
+```
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodeCardRegisterRequest()
@@ -264,7 +261,7 @@ FincodeCardOperateRepository.sharedInstance.registerCard("customerId", request: 
 ```
 
 * カード_更新 - 例
-```swift
+```
 let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
  
 let request = FincodeCardUpdateRequest()
@@ -279,9 +276,7 @@ FincodeCardOperateRepository.sharedInstance.updateCard("customerId", cardId: "ca
     }
 }
 ```
-<br>
 
----
 ## Licenses
 
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON/blob/master/LICENSE)
