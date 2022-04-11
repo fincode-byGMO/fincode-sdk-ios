@@ -30,13 +30,13 @@ FincodeSDKは、iOS SDK 11以降/Swift4以降が必要です。
 FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプロジェクトを組み込むことが必要です。
 
 - xcframeworkの組み込み
-  1. 任意の場所にFincodeSDK.xcframeworkを配置します。
-  2. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDK.xcframeworkを追加します。
+    1. 任意の場所にFincodeSDK.xcframeworkを配置します。
+    2. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDK.xcframeworkを追加します。
 
 - プロジェクトの組み込み
-  1. 任意の場所にFincodeSDKのプロジェクトを配置します。
-  2. 「Add Files to {プロジェクト名}」を選択しFincodeSDKのプロジェクトを追加します。
-  3. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDKプロジェクトが内包するFincodeSDK.frameworkを追加します。
+    1. 任意の場所にFincodeSDKのプロジェクトを配置します。
+    2. 「Add Files to {プロジェクト名}」を選択しFincodeSDKのプロジェクトを追加します。
+    3. Xcodeでプロジェクトファイルを選択し「General > Frameworks」にFincodeSDKプロジェクトが内包するFincodeSDK.frameworkを追加します。
 
 ## コンポーネント
 - 配置
@@ -45,20 +45,20 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
 
     - `Vertical Layout`
 
-        |Class|Module|
-        |:--:|:--:|
-        |FincodeVerticalView|FincodeSDK|
+    |Class|Module|
+    |:--:|:--:|
+    |FincodeVerticalView|FincodeSDK|
 
     - `Horizontal Layout`
 
-        |Class|Module|
-        |:--:|:--:|
-        |FincodeHorizontalView|FincodeSDK|
-
+    |Class|Module|
+    |:--:|:--:|
+    |FincodeHorizontalView|FincodeSDK|
 
 - 初期化
 
     - 決済実行 - 実装例
+
     ```swift
     import FincodeSDK
 
@@ -89,13 +89,16 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
         }
     }
     ```
+
     処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+
     |3DS1.0有無|Class|説明|
     |:--|:--|:--|
     |無し|FincodePaymentResponse|決済実行APIのResponse情報を保持|
     |有り|FincodePaymentSecureResponse|認証後決済APIのResponse情報を保持|
 
     - カード登録
+
     ```swift
     import FincodeSDK
 
@@ -123,12 +126,15 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
         }
     }
     ```
+
     処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+
     |Class|説明|
     |:--|:--|
     |FincodeCardRegisterResponse|カード登録APIのResponse情報を保持|
 
     - カード更新
+
     ```swift
     import FincodeSDK
 
@@ -158,7 +164,9 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
         }
     }
     ```
+
     処理成功時の結果は、以下のClassでキャストすることで参照することができます。
+
     |Class|説明|
     |:--|:--|
     |FincodeCardUpdateResponse|カード更新APIのResponse情報を保持|
