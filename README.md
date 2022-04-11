@@ -57,7 +57,7 @@ FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプ�
 
 - 初期化
 
-- 決済実行 - 実装例
+- 決済実行 - 例
 
 ```
 import FincodeSDK
@@ -97,7 +97,7 @@ class VerticalViewController: UIViewController, ResultDelegate {
 |無し|FincodePaymentResponse|決済実行APIのResponse情報を保持|
 |有り|FincodePaymentSecureResponse|認証後決済APIのResponse情報を保持|
 
-- カード登録 - 実装例 - 実装例
+- カード登録 - 例
 
 ```
 import FincodeSDK
@@ -133,7 +133,7 @@ class VerticalViewController: UIViewController, ResultDelegate {
 |:--|:--|
 |FincodeCardRegisterResponse|カード登録APIのResponse情報を保持|
 
-- カード更新 - 実装例
+- カード更新 - 例
 
 ```
 import FincodeSDK
