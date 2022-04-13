@@ -25,8 +25,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0r-H9-HMC">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード名義人名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-HT-f53">
-                            <rect key="frame" x="5" y="0.0" width="107.5" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード名義人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-HT-f53">
+                            <rect key="frame" x="5" y="0.0" width="92" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="VG3-29-6ST"/>
                             </constraints>
@@ -37,7 +37,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrH-ci-7pA">
                             <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
-                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="カード名義人名 (TARO YAMADA)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TARO YAMADA" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="10" y="7.5" width="270" height="19.5"/>
                                     <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -111,7 +111,7 @@
     </objects>
     <designables>
         <designable name="bLr-gh-dZ5">
-            <size key="intrinsicContentSize" width="226.5" height="19.5"/>
+            <size key="intrinsicContentSize" width="104" height="19.5"/>
         </designable>
     </designables>
     <resources>

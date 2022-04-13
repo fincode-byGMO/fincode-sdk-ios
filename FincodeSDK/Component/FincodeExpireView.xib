@@ -55,7 +55,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
                             <rect key="frame" x="5" y="21" width="390" height="34"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="34"/>
                                     <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -89,7 +89,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="200" y="0.0" width="190" height="34"/>
                                     <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -160,10 +160,10 @@
     </objects>
     <designables>
         <designable name="Gze-iS-wnR">
-            <size key="intrinsicContentSize" width="84.5" height="34"/>
+            <size key="intrinsicContentSize" width="44" height="34"/>
         </designable>
         <designable name="xdE-9h-piY">
-            <size key="intrinsicContentSize" width="77.5" height="34"/>
+            <size key="intrinsicContentSize" width="46" height="34"/>
         </designable>
     </designables>
     <resources>
