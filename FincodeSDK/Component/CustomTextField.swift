@@ -168,7 +168,6 @@ extension CustomTextField: UITextFieldDelegate {
         guard let valid = customTextFieldDelegate else { return false }
         let isError = valid.valideteTextEndEditing(self)
         endEditingBorder(isError)
-        isPlaceholderError(isError)
         
         return isError
     }

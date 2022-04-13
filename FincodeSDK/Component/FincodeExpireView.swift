@@ -146,10 +146,7 @@ extension FincodeExpireView: ComponentDelegate {
         errorYearLabelView.isHidden = true
         
         monthTextView.endEditingBorder(false)
-        monthTextView.isPlaceholderError(false)
-        
         yearTextView.endEditingBorder(false)
-        yearTextView.isPlaceholderError(false)
     }
     
     func enabled(_ isEnabled: Bool) {

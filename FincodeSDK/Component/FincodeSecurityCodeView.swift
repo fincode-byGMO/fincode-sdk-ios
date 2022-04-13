@@ -63,7 +63,6 @@ extension FincodeSecurityCodeView: ComponentDelegate {
     func clear() {
         errorLabelView.isHidden = true
         cvcTextView.endEditingBorder(false)
-        cvcTextView.isPlaceholderError(false)
         imageView.image = UIImage(named: "cvc_ic", in: BundleUtil.instance.bundle, compatibleWith: nil)
     }
     
