@@ -62,7 +62,6 @@ extension FincodeHolderNameView: ComponentDelegate {
     func clear() {
         errorLabelView.isHidden = true
         holderTextView.endEditingBorder(false)
-        holderTextView.isPlaceholderError(false)
     }
     
     func enabled(_ isEnabled: Bool) {

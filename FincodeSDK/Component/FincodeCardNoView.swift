@@ -99,7 +99,6 @@ extension FincodeCardNoView: ComponentDelegate {
     func clear() {
         errorLabelView.isHidden = true
         cardNumberTextView.endEditingBorder(false)
-        cardNumberTextView.isPlaceholderError(false)
     }
     
     func enabled(_ isEnabled: Bool) {
