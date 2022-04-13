@@ -38,7 +38,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrH-ci-7pA">
                             <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
-                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVC" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="001" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-gh-dZ5" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="10" y="7.5" width="227" height="19.5"/>
                                     <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -121,7 +121,7 @@
     </objects>
     <designables>
         <designable name="bLr-gh-dZ5">
-            <size key="intrinsicContentSize" width="31" height="19.5"/>
+            <size key="intrinsicContentSize" width="25.5" height="19.5"/>
         </designable>
     </designables>
     <resources>

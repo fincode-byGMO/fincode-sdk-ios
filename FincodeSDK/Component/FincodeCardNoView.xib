@@ -110,7 +110,7 @@
                                         <constraint firstAttribute="height" constant="24" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" カード番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234 5678 9012 3456" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
                                     <rect key="frame" x="10" y="7.5" width="227" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
@@ -200,7 +200,7 @@
     </objects>
     <designables>
         <designable name="3G6-fm-KWx">
-            <size key="intrinsicContentSize" width="80.5" height="19.5"/>
+            <size key="intrinsicContentSize" width="153" height="19.5"/>
         </designable>
     </designables>
     <resources>
