@@ -215,18 +215,18 @@ FincodePaymentRepository.sharedInstance.payment("o_XqXw_hhlQAa7FFzCSample", requ
 
 |項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
 |:--|:--|:--|:--|:--|:--|:--|
-|決済種別|payType|〇|String|1|50||
-|取引ID|accessId|〇|String|24|24||
-|オーダーID|id|〇|String|1|30||
+|決済種別|payType|〇|String|1|50| |
+|取引ID|accessId|〇|String|24|24| |
+|オーダーID|id|〇|String|1|30| |
 |トークン|token|△|String|1|512|カード番号入力方式：トークン方式の場合 必須|
 |カード番号|cardNo|△|String|10|16|カード番号入力方式：直接方式の場合 必須|
 |有効期限|expire|△|String|4|4|カード番号入力方式：直接方式の場合 必須|
 |顧客ID|customerId|△|String|1|60|カード番号入力方式：顧客ID方式の場合 必須|
 |カードID|cardId|△|String|25|25|カード番号入力方式：顧客ID方式の場合 必須|
-|支払方法|method||String|1|1|1：一括  2：分割|
-|支払回数|payTimes||String|1|2|支払方法にて、分割を指定していた場合  必須|
-|セキュリティコード|securityCode||String|4|4||
-|カード名義人|holderName||String|1|50|カード番号入力方式：顧客ID方式の場合 は登録時のカード名義人が優先されます|
+|支払方法|method| |String|1|1|1：一括  2：分割|
+|支払回数|payTimes| |String|1|2|支払方法にて、分割を指定していた場合  必須|
+|セキュリティコード|securityCode| |String|4|4| |
+|カード名義人|holderName| |String|1|50|カード番号入力方式：顧客ID方式の場合 は登録時のカード名義人が優先されます|
 
 - 引数一覧
 
@@ -262,10 +262,10 @@ FincodePaymentRepository.sharedInstance.payment("o_XqXw_hhlQAa7FFzCSample", requ
 
 |項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
 |:--|:--|:--|:--|:--|:--|:--|
-|決済種別|payType|〇|String|1|50||
-|取引ID|accessId|〇|String|24|24||
-|オーダーID|id|〇|String|1|30||
-|3DS認証結果|paRes||String|1|27|3DS1.0 のみ使用 ( 設定値はURLエンコードが必要です )|
+|決済種別|payType|〇|String|1|50| |
+|取引ID|accessId|〇|String|24|24| |
+|オーダーID|id|〇|String|1|30| |
+|3DS認証結果|paRes| |String|1|27|3DS1.0 のみ使用 ( 設定値はURLエンコードが必要です )|
 
 - 引数一覧
 
@@ -330,9 +330,9 @@ FincodeCardOperateRepository.sharedInstance.registerCard("c_HSZkCAxNS2q_7TbLcO9y
 |デフォルトフラグ|defaultFlag|〇|String|1|1|1：ON　0：OFF|
 |カード番号|cardNo|△|String|10|16|トークンに入力がある場合は無視、なしの場合は必須。|
 |有効期限|expire|△|String|4|4|トークンに入力がある場合は無視、なしの場合は必須。( YYMM形式 )|
-|カード名義人|holderName||String|1|50|トークンに入力がある場合は無視。|
-|セキュリティコード|securityCode||String|3|4|トークンに入力がある場合は無視。|
-|トークン|token||String|1|512||
+|カード名義人|holderName| |String|1|50|トークンに入力がある場合は無視。|
+|セキュリティコード|securityCode| |String|3|4|トークンに入力がある場合は無視。|
+|トークン|token| |String|1|512| |
 
 - 引数一覧
 
@@ -370,9 +370,9 @@ FincodeCardOperateRepository.sharedInstance.updateCard("c_HSZkCAxNS2q_7TbLcO9y1A
 |:--|:--|:--|:--|:--|:--|:--|
 |デフォルトフラグ|defaultFlag|〇|String|1|1|パラメータありの場合のみ更新。  1：ON　（0：OFFは設定不可）|
 |有効期限|expire|△|String|4|4|トークンに入力がある場合は無視。  パラメータありの場合のみ更新。 ( YYMM形式 )|
-|カード名義人|holderName||String|1|50|トークンに入力がある場合は無視。  パラメータありの場合のみ更新。|
-|セキュリティコード|securityCode||String|3|4|トークンに入力がある場合は無視。|
-|トークン|token||String|1|512||
+|カード名義人|holderName| |String|1|50|トークンに入力がある場合は無視。  パラメータありの場合のみ更新。|
+|セキュリティコード|securityCode| |String|3|4|トークンに入力がある場合は無視。|
+|トークン|token| |String|1|512| |
 
 - 引数一覧
 
