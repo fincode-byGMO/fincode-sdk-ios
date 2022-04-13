@@ -9,7 +9,7 @@
 // ラジオボタン タイトル
 titleRegisteredCardRadio = "登録済みのカード";
 titleNewCardRadio = "新しいクレジットカード";
-titlePaymentBulkRadio = "一括";
+titlePaymentBulkRadio = "一括払い";
 titlePaymentDivisionRadio = "分割";
 
 // ボタン タイトル
