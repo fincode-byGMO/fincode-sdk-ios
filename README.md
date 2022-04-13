@@ -70,12 +70,12 @@ class VerticalViewController: UIViewController, ResultDelegate {
         super.viewDidLoad()
         
         let config = FincodePaymentConfiguration()
-        config.authorizationPublic = .Bearer(apiKey: "apiKey")
+        config.authorizationPublic = .Bearer(apiKey: "p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample")
         config.apiVersion = "20211001"
-        config.accessId = "accessId"
-        config.id = "id"
-        config.payType = "payType"
-        config.customerId = "customerId"
+        config.accessId = "a_B1egvGN_Rge19dO14Sample"
+        config.id = "o_XqXw_hhlQAa7FFzCSample"
+        config.payType = "Card"
+        config.customerId = "c_HSZkCAxNS2q_7TbLcO9y1A"
         config.termUrl = "termUrl@com"
         fincodeVerticalView.configuration(config, delegate: self)
     }
@@ -110,9 +110,9 @@ class VerticalViewController: UIViewController, ResultDelegate {
         super.viewDidLoad()
         
         let config = FincodeCardRegisterConfiguration()
-        config.authorizationPublic = .Bearer(apiKey: "apiKey")
+        config.authorizationPublic = .Bearer(apiKey: "p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample")
         config.apiVersion = "20211001"
-        config.customerId = "customerId"
+        config.customerId = "c_HSZkCAxNS2q_7TbLcO9y1A"
         config.defaultFlag = .ON
         fincodeVerticalView.configuration(config, delegate: self)
     } 
@@ -146,10 +146,10 @@ class VerticalViewController: UIViewController, ResultDelegate {
         super.viewDidLoad()
         
         let config = FincodeCardUpdateConfiguration()
-        config.authorizationPublic = .Bearer(apiKey: "apiKey")
+        config.authorizationPublic = .Bearer(apiKey: "p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample")
         config.apiVersion = "20211001"
-        config.customerId = "customerId"
-        config.cardId = "cardId"
+        config.customerId = "c_HSZkCAxNS2q_7TbLcO9y1A"
+        config.cardId = "cs_UrDeMDBlQfShg9QZsMPLE"
         config.defaultFlag = .ON
         
         fincodeVerticalView.configuration(config, delegate: self)
@@ -195,12 +195,13 @@ FincodeSDKは、以下のAPIを実行するメソッドを用意しています�
 - 決済実行 - 例
 
 ```
-let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
- 
+let header = ["Content-Type":"application/json", "Authorization":"Bearer p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample"]
+
+// プロパティの詳細は一覧をご参照ください
 let request = FincodePaymentRequest()
---- パラメータ設定 省略 ---
- 
-FincodePaymentRepository.sharedInstance.payment("orderId", request: request, header: header) { result in
+
+// 引数の詳細は一覧をご参照ください
+FincodePaymentRepository.sharedInstance.payment("o_XqXw_hhlQAa7FFzCSample", request: request, header: header) { result in
     switch result {
     case .success(let data):
         // 正常
@@ -210,15 +211,44 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
 }
 ```
 
+- FincodePaymentRequest プロパティ一覧
+
+|項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
+|:--|:--|:--|:--|:--|:--|:--|
+|決済種別|payType|〇|String|1|50||
+|取引ID|accessId|〇|String|24|24||
+|オーダーID|id|〇|String|1|30||
+|トークン|token|△|String|1|512|カード番号入力方式：トークン方式の場合 必須|
+|カード番号|cardNo|△|String|10|16|カード番号入力方式：直接方式の場合 必須|
+|有効期限|expire|△|String|4|4|カード番号入力方式：直接方式の場合 必須|
+|顧客ID|customerId|△|String|1|60|カード番号入力方式：顧客ID方式の場合 必須|
+|カードID|cardId|△|String|25|25|カード番号入力方式：顧客ID方式の場合 必須|
+|支払方法|method||String|1|1|1：一括  2：分割|
+|支払回数|payTimes||String|1|2|支払方法にて、分割を指定していた場合  必須|
+|セキュリティコード|securityCode||String|4|4||
+|カード名義人|holderName||String|1|50|カード番号入力方式：顧客ID方式の場合 は登録時のカード名義人が優先されます|
+
+- 引数一覧
+
+|引数|説明|
+|:--|:--|
+|id|FincodePaymentRequestのidと同値|
+|request|リクエスト パラメータ|
+|header|リクエスト ヘッダー|
+|complete|API実行結果を処理するクロージャー|
+
+---
+
 - 認証後決済 - 例
 
 ```
-let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
+let header = ["Content-Type":"application/json", "Authorization":"Bearer p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample"]
  
+// プロパティの詳細は一覧をご参照ください
 let request = FincodePaymentSecureRequest()
---- パラメータ設定 省略 ---
- 
-FincodePaymentRepository.sharedInstance.payment("orderId", request: request, header: header) { result in
+
+// 引数の詳細は一覧をご参照ください 
+FincodePaymentRepository.sharedInstance.payment("o_XqXw_hhlQAa7FFzCSample", request: request, header: header) { result in
     switch result {
     case .success(let data):
          // 正常
@@ -226,15 +256,35 @@ FincodePaymentRepository.sharedInstance.payment("orderId", request: request, hea
          // 異常
     }
 }
-// ※FincodePaymentSecureRequest.paRes 変数に設定する値は、URLエンコードが必要です。
 ```
+
+- FincodePaymentSecureRequestプロパティ一覧
+
+|項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
+|:--|:--|:--|:--|:--|:--|:--|
+|決済種別|payType|〇|String|1|50||
+|取引ID|accessId|〇|String|24|24||
+|オーダーID|id|〇|String|1|30||
+|3DS認証結果|paRes||String|1|27|3DS1.0 のみ使用 ( 設定値はURLエンコードが必要です )|
+
+- 引数一覧
+
+|引数|説明|
+|:--|:--|
+|id|FincodePaymentSecureRequestのidと同値|
+|request|リクエスト パラメータ|
+|header|リクエスト ヘッダー|
+|complete|API実行結果を処理するクロージャー|
+
+---
 
 - カード_一覧取得 - 例
 
 ```
-let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
+let header = ["Content-Type":"application/json", "Authorization":"Bearer p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample"]
  
-FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: header) { result in
+// 引数の詳細は一覧をご参照ください
+FincodeCardOperateRepository.sharedInstance.cardInfoList("c_HSZkCAxNS2q_7TbLcO9y1A", header: header) { result in
     switch result {
     case .success(let data):
           // 正常
@@ -244,15 +294,26 @@ FincodeCardOperateRepository.sharedInstance.cardInfoList("customerId", header: h
 }
 ```
 
+- 引数一覧
+
+|引数|説明|
+|:--|:--|
+|customerId|顧客ID|
+|header|リクエスト ヘッダー|
+|complete|API実行結果を処理するクロージャー|
+
+---
+
 - カード_登録 - 例
 
 ```
-let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
- 
+let header = ["Content-Type":"application/json", "Authorization":"Bearer p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample"]
+
+// プロパティの詳細は一覧をご参照ください 
 let request = FincodeCardRegisterRequest()
---- パラメータ設定 省略 ---
- 
-FincodeCardOperateRepository.sharedInstance.registerCard("customerId", request: request, header: header) { result in
+
+// 引数の詳細は一覧をご参照ください
+FincodeCardOperateRepository.sharedInstance.registerCard("c_HSZkCAxNS2q_7TbLcO9y1A", request: request, header: header) { result in
     switch result {
     case .success(let data):
         // 正常
@@ -262,15 +323,38 @@ FincodeCardOperateRepository.sharedInstance.registerCard("customerId", request: 
 }
 ```
 
+- FincodeCardRegisterRequestプロパティ一覧
+
+|項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
+|:--|:--|:--|:--|:--|:--|:--|
+|デフォルトフラグ|defaultFlag|〇|String|1|1|1：ON　0：OFF|
+|カード番号|cardNo|△|String|10|16|トークンに入力がある場合は無視、なしの場合は必須。|
+|有効期限|expire|△|String|4|4|トークンに入力がある場合は無視、なしの場合は必須。( YYMM形式 )|
+|カード名義人|holderName||String|1|50|トークンに入力がある場合は無視。|
+|セキュリティコード|securityCode||String|3|4|トークンに入力がある場合は無視。|
+|トークン|token||String|1|512||
+
+- 引数一覧
+
+|引数|説明|
+|:--|:--|
+|customerId|顧客ID|
+|request|リクエスト パラメータ|
+|header|リクエスト ヘッダー|
+|complete|API実行結果を処理するクロージャー|
+
+---
+
 - カード_更新 - 例
 
 ```
-let header = ["Content-Type":"application/json", "Authorization":"Bearer xxx"]
- 
+let header = ["Content-Type":"application/json", "Authorization":"Bearer p_prod_ZTlkN2JkMzctZDY4Ni00ZDE4LTSample"]
+
+// プロパティの詳細は一覧をご参照ください
 let request = FincodeCardUpdateRequest()
---- パラメータ設定 省略 ---
- 
-FincodeCardOperateRepository.sharedInstance.updateCard("customerId", cardId: "cardId", request: request, header: header) { result in
+
+// 引数の詳細は一覧をご参照ください
+FincodeCardOperateRepository.sharedInstance.updateCard("c_HSZkCAxNS2q_7TbLcO9y1A", cardId: "cs_UrDeMDBlQfShg9QZsMPLE", request: request, header: header) { result in
     switch result {
     case .success(let data):
          // 正常
@@ -279,6 +363,26 @@ FincodeCardOperateRepository.sharedInstance.updateCard("customerId", cardId: "ca
     }
 }
 ```
+
+- FincodeCardUpdateRequestプロパティ一覧
+
+|項目名|プロパティ名|必須|型|最小桁数|最大桁数|備考|
+|:--|:--|:--|:--|:--|:--|:--|
+|デフォルトフラグ|defaultFlag|〇|String|1|1|パラメータありの場合のみ更新。  1：ON　（0：OFFは設定不可）|
+|有効期限|expire|△|String|4|4|トークンに入力がある場合は無視。  パラメータありの場合のみ更新。 ( YYMM形式 )|
+|カード名義人|holderName||String|1|50|トークンに入力がある場合は無視。  パラメータありの場合のみ更新。|
+|セキュリティコード|securityCode||String|3|4|トークンに入力がある場合は無視。|
+|トークン|token||String|1|512||
+
+- 引数一覧
+
+|引数|説明|
+|:--|:--|
+|customerId|顧客ID|
+|cardId|カードID|
+|request|リクエスト パラメータ|
+|header|リクエスト ヘッダー|
+|complete|API実行結果を処理するクロージャー|
 
 ## Licenses
 
