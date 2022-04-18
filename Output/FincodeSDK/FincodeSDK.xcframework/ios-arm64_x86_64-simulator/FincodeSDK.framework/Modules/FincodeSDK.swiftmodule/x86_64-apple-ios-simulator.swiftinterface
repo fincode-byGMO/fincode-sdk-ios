@@ -1,0 +1,1571 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 effective-4.1.50 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name FincodeSDK
+import Dispatch
+@_exported import FincodeSDK
+import Foundation
+import MobileCoreServices
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+@_hasMissingDesignatedInitializers public class FincodeAPIError : Swift.Error {
+  final public let errorResponse: FincodeSDK.FincodeErrorResponse
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class FincodePaymentConfiguration : FincodeSDK.FincodeConfiguration {
+  public var payType: Swift.String
+  public var accessId: Swift.String
+  public var id: Swift.String
+  public var termUrl: Swift.String
+  override public init()
+  @objc deinit
+}
+public class FincodePaymentRequest {
+  public var payType: Swift.String?
+  public var accessId: Swift.String?
+  public var id: Swift.String?
+  public var token: Swift.String?
+  public var cardNo: Swift.String?
+  public var expire: Swift.String?
+  public var customerId: Swift.String?
+  public var cardId: Swift.String?
+  public var method: Swift.String?
+  public var payTimes: Swift.String?
+  public var securityCode: Swift.String?
+  public var holderName: Swift.String?
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodePaymentResponse : FincodeSDK.FincodeResponse {
+  final public let acs: Swift.String?
+  final public let shopId: Swift.String?
+  final public let id: Swift.String?
+  final public let payType: Swift.String?
+  final public let status: Swift.String?
+  final public let accessId: Swift.String?
+  final public let processDate: Foundation.Date?
+  final public let jobCode: Swift.String?
+  final public let itemCode: Swift.String?
+  final public let amount: Swift.Int64?
+  final public let tax: Swift.Int64?
+  final public let totalAmount: Swift.Int64?
+  final public let customerGroupId: Swift.String?
+  final public let customerId: Swift.String?
+  final public let cardNo: Swift.String?
+  final public let cardId: Swift.String?
+  final public let expire: Swift.String?
+  final public let holderName: Swift.String?
+  final public let cardNoHash: Swift.String?
+  final public let method: Swift.String?
+  final public let payTimes: Swift.Int64?
+  final public let forward: Swift.String?
+  final public let issuer: Swift.String?
+  final public let transactionId: Swift.String?
+  final public let approve: Swift.String?
+  final public let authMaxDate: Foundation.Date?
+  final public let clientField1: Swift.String?
+  final public let clientField2: Swift.String?
+  final public let clientField3: Swift.String?
+  final public let tdsType: Swift.String?
+  final public let tds2Type: Swift.String?
+  final public let tds2RetUrl: Swift.String?
+  final public let tds2Status: Swift.String?
+  final public let merchantName: Swift.String?
+  final public let sendUrl: Swift.String?
+  final public let subscriptionId: Swift.String?
+  final public let errorCode: Swift.String?
+  final public let acsUrl: Swift.String?
+  final public let paReq: Swift.String?
+  final public let created: Foundation.Date?
+  final public let updated: Foundation.Date?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodeCardOperateRepository {
+  public static let sharedInstance: FincodeSDK.FincodeCardOperateRepository
+  public func cardInfoList(_ customerId: Swift.String, header: [Swift.String : Swift.String], complete: @escaping (_ result: FincodeSDK.FincodeApiResult<FincodeSDK.FincodeCardInfoListResponse>) -> Swift.Void)
+  public func registerCard(_ customerId: Swift.String, request: FincodeSDK.FincodeCardRegisterRequest, header: [Swift.String : Swift.String], complete: @escaping (_ result: FincodeSDK.FincodeApiResult<FincodeSDK.FincodeCardRegisterResponse>) -> Swift.Void)
+  public func updateCard(_ customerId: Swift.String, cardId: Swift.String, request: FincodeSDK.FincodeCardUpdateRequest, header: [Swift.String : Swift.String], complete: @escaping (_ result: FincodeSDK.FincodeApiResult<FincodeSDK.FincodeCardUpdateResponse>) -> Swift.Void)
+  @objc deinit
+}
+open class ServerTrustPolicyManager {
+  final public let policies: [Swift.String : FincodeSDK.ServerTrustPolicy]
+  public init(policies: [Swift.String : FincodeSDK.ServerTrustPolicy])
+  open func serverTrustPolicy(forHost host: Swift.String) -> FincodeSDK.ServerTrustPolicy?
+  @objc deinit
+}
+public enum ServerTrustPolicy {
+  case performDefaultEvaluation(validateHost: Swift.Bool)
+  case performRevokedEvaluation(validateHost: Swift.Bool, revocationFlags: CoreFoundation.CFOptionFlags)
+  case pinCertificates(certificates: [Security.SecCertificate], validateCertificateChain: Swift.Bool, validateHost: Swift.Bool)
+  case pinPublicKeys(publicKeys: [Security.SecKey], validateCertificateChain: Swift.Bool, validateHost: Swift.Bool)
+  case disableEvaluation
+  case customEvaluation((_ serverTrust: Security.SecTrust, _ host: Swift.String) -> Swift.Bool)
+  public static func certificates(in bundle: Foundation.Bundle = Bundle.main) -> [Security.SecCertificate]
+  public static func publicKeys(in bundle: Foundation.Bundle = Bundle.main) -> [Security.SecKey]
+  public func evaluate(_ serverTrust: Security.SecTrust, forHost host: Swift.String) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers public class FincodeCardInfoListRequest {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodeCardInfoListResponse {
+  final public let cardInfoList: [FincodeSDK.FincodeCardInfo]
+  @objc deinit
+}
+public enum DefaultFlg : Swift.String {
+  case OFF
+  case ON
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DefaultDataResponse {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let data: Foundation.Data?
+  public let error: Swift.Error?
+  public let timeline: FincodeSDK.Timeline
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?, timeline: FincodeSDK.Timeline = Timeline(), metrics: Swift.AnyObject? = nil)
+}
+public struct DataResponse<Value> {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let data: Foundation.Data?
+  public let result: FincodeSDK.Result<Value>
+  public let timeline: FincodeSDK.Timeline
+  public var value: Value? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, result: FincodeSDK.Result<Value>, timeline: FincodeSDK.Timeline = Timeline())
+}
+extension FincodeSDK.DataResponse : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.DataResponse {
+  public func map<T>(_ transform: (Value) -> T) -> FincodeSDK.DataResponse<T>
+  public func flatMap<T>(_ transform: (Value) throws -> T) -> FincodeSDK.DataResponse<T>
+  public func mapError<E>(_ transform: (Swift.Error) -> E) -> FincodeSDK.DataResponse<Value> where E : Swift.Error
+  public func flatMapError<E>(_ transform: (Swift.Error) throws -> E) -> FincodeSDK.DataResponse<Value> where E : Swift.Error
+}
+public struct DefaultDownloadResponse {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let temporaryURL: Foundation.URL?
+  public let destinationURL: Foundation.URL?
+  public let resumeData: Foundation.Data?
+  public let error: Swift.Error?
+  public let timeline: FincodeSDK.Timeline
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, temporaryURL: Foundation.URL?, destinationURL: Foundation.URL?, resumeData: Foundation.Data?, error: Swift.Error?, timeline: FincodeSDK.Timeline = Timeline(), metrics: Swift.AnyObject? = nil)
+}
+public struct DownloadResponse<Value> {
+  public let request: Foundation.URLRequest?
+  public let response: Foundation.HTTPURLResponse?
+  public let temporaryURL: Foundation.URL?
+  public let destinationURL: Foundation.URL?
+  public let resumeData: Foundation.Data?
+  public let result: FincodeSDK.Result<Value>
+  public let timeline: FincodeSDK.Timeline
+  public var value: Value? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+  public init(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, temporaryURL: Foundation.URL?, destinationURL: Foundation.URL?, resumeData: Foundation.Data?, result: FincodeSDK.Result<Value>, timeline: FincodeSDK.Timeline = Timeline())
+}
+extension FincodeSDK.DownloadResponse : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.DownloadResponse {
+  public func map<T>(_ transform: (Value) -> T) -> FincodeSDK.DownloadResponse<T>
+  public func flatMap<T>(_ transform: (Value) throws -> T) -> FincodeSDK.DownloadResponse<T>
+  public func mapError<E>(_ transform: (Swift.Error) -> E) -> FincodeSDK.DownloadResponse<Value> where E : Swift.Error
+  public func flatMapError<E>(_ transform: (Swift.Error) throws -> E) -> FincodeSDK.DownloadResponse<Value> where E : Swift.Error
+}
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+extension FincodeSDK.DefaultDataResponse {
+  public var metrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+}
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+extension FincodeSDK.DataResponse {
+  public var metrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+}
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+extension FincodeSDK.DefaultDownloadResponse {
+  public var metrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+}
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+extension FincodeSDK.DownloadResponse {
+  public var metrics: Foundation.URLSessionTaskMetrics? {
+    get
+  }
+}
+public enum UseCase {
+  case none
+  case registerCard
+  case updateCard
+  case payment
+  public static func == (a: FincodeSDK.UseCase, b: FincodeSDK.UseCase) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class FincodePaymentSecureRequest {
+  public var payType: Swift.String?
+  public var accessId: Swift.String?
+  public var id: Swift.String?
+  public var paRes: Swift.String?
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodePaymentSecureResponse : FincodeSDK.FincodeResponse {
+  final public let shopId: Swift.String?
+  final public let id: Swift.String?
+  final public let payType: Swift.String?
+  final public let status: Swift.String?
+  final public let accessId: Swift.String?
+  final public let processDate: Foundation.Date?
+  final public let jobCode: Swift.String?
+  final public let itemCode: Swift.String?
+  final public let amount: Swift.Int64?
+  final public let tax: Swift.Int64?
+  final public let totalAmount: Swift.Int64?
+  final public let customerGroupId: Swift.String?
+  final public let customerId: Swift.String?
+  final public let cardNo: Swift.String?
+  final public let cardId: Swift.String?
+  final public let expire: Swift.String?
+  final public let holderName: Swift.String?
+  final public let cardNoHash: Swift.String?
+  final public let method: Swift.String?
+  final public let payTimes: Swift.Int64?
+  final public let forward: Swift.String?
+  final public let issuer: Swift.String?
+  final public let transactionId: Swift.String?
+  final public let approve: Swift.String?
+  final public let authMaxDate: Foundation.Date?
+  final public let clientField1: Swift.String?
+  final public let clientField2: Swift.String?
+  final public let clientField3: Swift.String?
+  final public let tdsType: Swift.String?
+  final public let tds2Type: Swift.String?
+  final public let tds2RetUrl: Swift.String?
+  final public let tds2Status: Swift.String?
+  final public let merchantName: Swift.String?
+  final public let sendUrl: Swift.String?
+  final public let subscriptionId: Swift.String?
+  final public let errorCode: Swift.String?
+  final public let created: Foundation.Date?
+  final public let updated: Foundation.Date?
+  @objc deinit
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension FincodeSDK.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct JSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: FincodeSDK.JSON) throws
+  public func merged(with other: FincodeSDK.JSON) throws -> FincodeSDK.JSON
+  public var type: FincodeSDK.`Type` {
+    get
+  }
+  public var error: FincodeSDK.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: FincodeSDK.JSON {
+    get
+  }
+  public static var null: FincodeSDK.JSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: FincodeSDK.Index<T>, rhs: FincodeSDK.Index<T>) -> Swift.Bool
+  public static func < (lhs: FincodeSDK.Index<T>, rhs: FincodeSDK.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = FincodeSDK.Index<FincodeSDK.JSON>
+public typealias JSONRawIndex = FincodeSDK.Index<Any>
+extension FincodeSDK.JSON : Swift.Collection {
+  public typealias Index = FincodeSDK.JSONRawIndex
+  public var startIndex: FincodeSDK.JSON.Index {
+    get
+  }
+  public var endIndex: FincodeSDK.JSON.Index {
+    get
+  }
+  public func index(after i: FincodeSDK.JSON.Index) -> FincodeSDK.JSON.Index
+  public subscript(position: FincodeSDK.JSON.Index) -> (Swift.String, FincodeSDK.JSON) {
+    get
+  }
+  public typealias Element = (Swift.String, FincodeSDK.JSON)
+  public typealias Indices = Swift.DefaultIndices<FincodeSDK.JSON>
+  public typealias Iterator = Swift.IndexingIterator<FincodeSDK.JSON>
+  public typealias SubSequence = Swift.Slice<FincodeSDK.JSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: FincodeSDK.JSONKey { get }
+}
+extension Swift.Int : FincodeSDK.JSONSubscriptType {
+  public var jsonKey: FincodeSDK.JSONKey {
+    get
+  }
+}
+extension Swift.String : FincodeSDK.JSONSubscriptType {
+  public var jsonKey: FincodeSDK.JSONKey {
+    get
+  }
+}
+extension FincodeSDK.JSON {
+  public subscript(path: [FincodeSDK.JSONSubscriptType]) -> FincodeSDK.JSON {
+    get
+    set
+  }
+  public subscript(path: FincodeSDK.JSONSubscriptType...) -> FincodeSDK.JSON {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension FincodeSDK.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension FincodeSDK.JSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [FincodeSDK.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension FincodeSDK.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.JSON {
+  public var array: [FincodeSDK.JSON]? {
+    get
+  }
+  public var arrayValue: [FincodeSDK.JSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var dictionary: [Swift.String : FincodeSDK.JSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : FincodeSDK.JSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension FincodeSDK.JSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension FincodeSDK.JSON : Swift.Comparable {
+}
+public func == (lhs: FincodeSDK.JSON, rhs: FincodeSDK.JSON) -> Swift.Bool
+public func <= (lhs: FincodeSDK.JSON, rhs: FincodeSDK.JSON) -> Swift.Bool
+public func >= (lhs: FincodeSDK.JSON, rhs: FincodeSDK.JSON) -> Swift.Bool
+public func > (lhs: FincodeSDK.JSON, rhs: FincodeSDK.JSON) -> Swift.Bool
+public func < (lhs: FincodeSDK.JSON, rhs: FincodeSDK.JSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: FincodeSDK.writingOptionsKeys, b: FincodeSDK.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension FincodeSDK.JSON : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers public class FincodeCardUpdateConfiguration : FincodeSDK.FincodeConfiguration {
+  public var cardId: Swift.String
+  public var defaultFlag: FincodeSDK.DefaultFlg
+  override public init()
+  @objc deinit
+}
+public enum AFError : Swift.Error {
+  public enum ParameterEncodingFailureReason {
+    case missingURL
+    case jsonEncodingFailed(error: Swift.Error)
+    case propertyListEncodingFailed(error: Swift.Error)
+  }
+  public enum MultipartEncodingFailureReason {
+    case bodyPartURLInvalid(url: Foundation.URL)
+    case bodyPartFilenameInvalid(in: Foundation.URL)
+    case bodyPartFileNotReachable(at: Foundation.URL)
+    case bodyPartFileNotReachableWithError(atURL: Foundation.URL, error: Swift.Error)
+    case bodyPartFileIsDirectory(at: Foundation.URL)
+    case bodyPartFileSizeNotAvailable(at: Foundation.URL)
+    case bodyPartFileSizeQueryFailedWithError(forURL: Foundation.URL, error: Swift.Error)
+    case bodyPartInputStreamCreationFailed(for: Foundation.URL)
+    case outputStreamCreationFailed(for: Foundation.URL)
+    case outputStreamFileAlreadyExists(at: Foundation.URL)
+    case outputStreamURLInvalid(url: Foundation.URL)
+    case outputStreamWriteFailed(error: Swift.Error)
+    case inputStreamReadFailed(error: Swift.Error)
+  }
+  public enum ResponseValidationFailureReason {
+    case dataFileNil
+    case dataFileReadFailed(at: Foundation.URL)
+    case missingContentType(acceptableContentTypes: [Swift.String])
+    case unacceptableContentType(acceptableContentTypes: [Swift.String], responseContentType: Swift.String)
+    case unacceptableStatusCode(code: Swift.Int)
+  }
+  public enum ResponseSerializationFailureReason {
+    case inputDataNil
+    case inputDataNilOrZeroLength
+    case inputFileNil
+    case inputFileReadFailed(at: Foundation.URL)
+    case stringSerializationFailed(encoding: Swift.String.Encoding)
+    case jsonSerializationFailed(error: Swift.Error)
+    case propertyListSerializationFailed(error: Swift.Error)
+  }
+  case invalidURL(url: FincodeSDK.URLConvertible)
+  case parameterEncodingFailed(reason: FincodeSDK.AFError.ParameterEncodingFailureReason)
+  case multipartEncodingFailed(reason: FincodeSDK.AFError.MultipartEncodingFailureReason)
+  case responseValidationFailed(reason: FincodeSDK.AFError.ResponseValidationFailureReason)
+  case responseSerializationFailed(reason: FincodeSDK.AFError.ResponseSerializationFailureReason)
+}
+extension FincodeSDK.AFError {
+  public var isInvalidURLError: Swift.Bool {
+    get
+  }
+  public var isParameterEncodingError: Swift.Bool {
+    get
+  }
+  public var isMultipartEncodingError: Swift.Bool {
+    get
+  }
+  public var isResponseValidationError: Swift.Bool {
+    get
+  }
+  public var isResponseSerializationError: Swift.Bool {
+    get
+  }
+}
+extension FincodeSDK.AFError {
+  public var urlConvertible: FincodeSDK.URLConvertible? {
+    get
+  }
+  public var url: Foundation.URL? {
+    get
+  }
+  public var underlyingError: Swift.Error? {
+    get
+  }
+  public var acceptableContentTypes: [Swift.String]? {
+    get
+  }
+  public var responseContentType: Swift.String? {
+    get
+  }
+  public var responseCode: Swift.Int? {
+    get
+  }
+  public var failedStringEncoding: Swift.String.Encoding? {
+    get
+  }
+}
+extension FincodeSDK.AFError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class FincodeCardInfo {
+  final public let customerId: Swift.String
+  final public let id: Swift.String
+  final public let defaultFlag: FincodeSDK.DefaultFlg
+  final public let cardNo: Swift.String
+  final public let expire: Swift.String
+  final public let holderName: Swift.String
+  final public let cardNoHash: Swift.String
+  final public let created: Foundation.Date?
+  final public let updated: Foundation.Date?
+  final public let type: Swift.String
+  final public let brand: Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class FincodeCommon : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var headingHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var dynamicLogDisplay: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var holderNameHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var payTimesHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public func configuration(_ config: FincodeSDK.FincodeConfiguration?, delegate: FincodeSDK.ResultDelegate)
+  @objc deinit
+}
+public struct Timeline {
+  public let requestStartTime: CoreFoundation.CFAbsoluteTime
+  public let initialResponseTime: CoreFoundation.CFAbsoluteTime
+  public let requestCompletedTime: CoreFoundation.CFAbsoluteTime
+  public let serializationCompletedTime: CoreFoundation.CFAbsoluteTime
+  public let latency: Foundation.TimeInterval
+  public let requestDuration: Foundation.TimeInterval
+  public let serializationDuration: Foundation.TimeInterval
+  public let totalDuration: Foundation.TimeInterval
+  public init(requestStartTime: CoreFoundation.CFAbsoluteTime = 0.0, initialResponseTime: CoreFoundation.CFAbsoluteTime = 0.0, requestCompletedTime: CoreFoundation.CFAbsoluteTime = 0.0, serializationCompletedTime: CoreFoundation.CFAbsoluteTime = 0.0)
+}
+extension FincodeSDK.Timeline : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.Timeline : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public protocol DataResponseSerializerProtocol {
+  associatedtype SerializedObject
+  var serializeResponse: (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.Data?, Swift.Error?) -> FincodeSDK.Result<Self.SerializedObject> { get }
+}
+public struct DataResponseSerializer<Value> : FincodeSDK.DataResponseSerializerProtocol {
+  public typealias SerializedObject = Value
+  public var serializeResponse: (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.Data?, Swift.Error?) -> FincodeSDK.Result<Value>
+  public init(serializeResponse: @escaping (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.Data?, Swift.Error?) -> FincodeSDK.Result<Value>)
+}
+public protocol DownloadResponseSerializerProtocol {
+  associatedtype SerializedObject
+  var serializeResponse: (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.URL?, Swift.Error?) -> FincodeSDK.Result<Self.SerializedObject> { get }
+}
+public struct DownloadResponseSerializer<Value> : FincodeSDK.DownloadResponseSerializerProtocol {
+  public typealias SerializedObject = Value
+  public var serializeResponse: (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.URL?, Swift.Error?) -> FincodeSDK.Result<Value>
+  public init(serializeResponse: @escaping (Foundation.URLRequest?, Foundation.HTTPURLResponse?, Foundation.URL?, Swift.Error?) -> FincodeSDK.Result<Value>)
+}
+extension FincodeSDK.DataRequest {
+  @discardableResult
+  public func response(queue: Dispatch.DispatchQueue? = nil, completionHandler: @escaping (FincodeSDK.DefaultDataResponse) -> Swift.Void) -> Self
+  @discardableResult
+  public func response<T>(queue: Dispatch.DispatchQueue? = nil, responseSerializer: T, completionHandler: @escaping (FincodeSDK.DataResponse<T.SerializedObject>) -> Swift.Void) -> Self where T : FincodeSDK.DataResponseSerializerProtocol
+}
+extension FincodeSDK.DownloadRequest {
+  @discardableResult
+  public func response(queue: Dispatch.DispatchQueue? = nil, completionHandler: @escaping (FincodeSDK.DefaultDownloadResponse) -> Swift.Void) -> Self
+  @discardableResult
+  public func response<T>(queue: Dispatch.DispatchQueue? = nil, responseSerializer: T, completionHandler: @escaping (FincodeSDK.DownloadResponse<T.SerializedObject>) -> Swift.Void) -> Self where T : FincodeSDK.DownloadResponseSerializerProtocol
+}
+extension FincodeSDK.Request {
+  public static func serializeResponseData(response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) -> FincodeSDK.Result<Foundation.Data>
+}
+extension FincodeSDK.DataRequest {
+  public static func dataResponseSerializer() -> FincodeSDK.DataResponseSerializer<Foundation.Data>
+  @discardableResult
+  public func responseData(queue: Dispatch.DispatchQueue? = nil, completionHandler: @escaping (FincodeSDK.DataResponse<Foundation.Data>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.DownloadRequest {
+  public static func dataResponseSerializer() -> FincodeSDK.DownloadResponseSerializer<Foundation.Data>
+  @discardableResult
+  public func responseData(queue: Dispatch.DispatchQueue? = nil, completionHandler: @escaping (FincodeSDK.DownloadResponse<Foundation.Data>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.Request {
+  public static func serializeResponseString(encoding: Swift.String.Encoding?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) -> FincodeSDK.Result<Swift.String>
+}
+extension FincodeSDK.DataRequest {
+  public static func stringResponseSerializer(encoding: Swift.String.Encoding? = nil) -> FincodeSDK.DataResponseSerializer<Swift.String>
+  @discardableResult
+  public func responseString(queue: Dispatch.DispatchQueue? = nil, encoding: Swift.String.Encoding? = nil, completionHandler: @escaping (FincodeSDK.DataResponse<Swift.String>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.DownloadRequest {
+  public static func stringResponseSerializer(encoding: Swift.String.Encoding? = nil) -> FincodeSDK.DownloadResponseSerializer<Swift.String>
+  @discardableResult
+  public func responseString(queue: Dispatch.DispatchQueue? = nil, encoding: Swift.String.Encoding? = nil, completionHandler: @escaping (FincodeSDK.DownloadResponse<Swift.String>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.Request {
+  public static func serializeResponseJSON(options: Foundation.JSONSerialization.ReadingOptions, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) -> FincodeSDK.Result<Any>
+}
+extension FincodeSDK.DataRequest {
+  public static func jsonResponseSerializer(options: Foundation.JSONSerialization.ReadingOptions = .allowFragments) -> FincodeSDK.DataResponseSerializer<Any>
+  @discardableResult
+  public func responseJSON(queue: Dispatch.DispatchQueue? = nil, options: Foundation.JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (FincodeSDK.DataResponse<Any>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.DownloadRequest {
+  public static func jsonResponseSerializer(options: Foundation.JSONSerialization.ReadingOptions = .allowFragments) -> FincodeSDK.DownloadResponseSerializer<Any>
+  @discardableResult
+  public func responseJSON(queue: Dispatch.DispatchQueue? = nil, options: Foundation.JSONSerialization.ReadingOptions = .allowFragments, completionHandler: @escaping (FincodeSDK.DownloadResponse<Any>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.Request {
+  public static func serializeResponsePropertyList(options: Foundation.PropertyListSerialization.ReadOptions, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: Swift.Error?) -> FincodeSDK.Result<Any>
+}
+extension FincodeSDK.DataRequest {
+  public static func propertyListResponseSerializer(options: Foundation.PropertyListSerialization.ReadOptions = []) -> FincodeSDK.DataResponseSerializer<Any>
+  @discardableResult
+  public func responsePropertyList(queue: Dispatch.DispatchQueue? = nil, options: Foundation.PropertyListSerialization.ReadOptions = [], completionHandler: @escaping (FincodeSDK.DataResponse<Any>) -> Swift.Void) -> Self
+}
+extension FincodeSDK.DownloadRequest {
+  public static func propertyListResponseSerializer(options: Foundation.PropertyListSerialization.ReadOptions = []) -> FincodeSDK.DownloadResponseSerializer<Any>
+  @discardableResult
+  public func responsePropertyList(queue: Dispatch.DispatchQueue? = nil, options: Foundation.PropertyListSerialization.ReadOptions = [], completionHandler: @escaping (FincodeSDK.DownloadResponse<Any>) -> Swift.Void) -> Self
+}
+public protocol URLConvertible {
+  func asURL() throws -> Foundation.URL
+}
+extension Swift.String : FincodeSDK.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension Foundation.URL : FincodeSDK.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension Foundation.URLComponents : FincodeSDK.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+public protocol URLRequestConvertible {
+  func asURLRequest() throws -> Foundation.URLRequest
+}
+extension FincodeSDK.URLRequestConvertible {
+  public var urlRequest: Foundation.URLRequest? {
+    get
+  }
+}
+extension Foundation.URLRequest : FincodeSDK.URLRequestConvertible {
+  public func asURLRequest() throws -> Foundation.URLRequest
+}
+extension Foundation.URLRequest {
+  public init(url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod, headers: FincodeSDK.HTTPHeaders? = nil) throws
+}
+@discardableResult
+public func request(_ url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .get, parameters: FincodeSDK.Parameters? = nil, encoding: FincodeSDK.ParameterEncoding = URLEncoding.default, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.DataRequest
+@discardableResult
+public func request(_ urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.DataRequest
+@discardableResult
+public func download(_ url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .get, parameters: FincodeSDK.Parameters? = nil, encoding: FincodeSDK.ParameterEncoding = URLEncoding.default, headers: FincodeSDK.HTTPHeaders? = nil, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+@discardableResult
+public func download(_ urlRequest: FincodeSDK.URLRequestConvertible, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+@discardableResult
+public func download(resumingWith resumeData: Foundation.Data, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+@discardableResult
+public func upload(_ fileURL: Foundation.URL, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+@discardableResult
+public func upload(_ fileURL: Foundation.URL, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+@discardableResult
+public func upload(_ data: Foundation.Data, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+@discardableResult
+public func upload(_ data: Foundation.Data, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+@discardableResult
+public func upload(_ stream: Foundation.InputStream, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+@discardableResult
+public func upload(_ stream: Foundation.InputStream, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+public func upload(multipartFormData: @escaping (FincodeSDK.MultipartFormData) -> Swift.Void, usingThreshold encodingMemoryThreshold: Swift.UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil, encodingCompletion: ((FincodeSDK.SessionManager.MultipartFormDataEncodingResult) -> Swift.Void)?)
+public func upload(multipartFormData: @escaping (FincodeSDK.MultipartFormData) -> Swift.Void, usingThreshold encodingMemoryThreshold: Swift.UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold, with urlRequest: FincodeSDK.URLRequestConvertible, encodingCompletion: ((FincodeSDK.SessionManager.MultipartFormDataEncodingResult) -> Swift.Void)?)
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+@discardableResult
+public func stream(withHostName hostName: Swift.String, port: Swift.Int) -> FincodeSDK.StreamRequest
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+@discardableResult
+public func stream(with netService: Foundation.NetService) -> FincodeSDK.StreamRequest
+public protocol RequestAdapter {
+  func adapt(_ urlRequest: Foundation.URLRequest) throws -> Foundation.URLRequest
+}
+public typealias RequestRetryCompletion = (_ shouldRetry: Swift.Bool, _ timeDelay: Foundation.TimeInterval) -> Swift.Void
+public protocol RequestRetrier {
+  func should(_ manager: FincodeSDK.SessionManager, retry request: FincodeSDK.Request, with error: Swift.Error, completion: @escaping FincodeSDK.RequestRetryCompletion)
+}
+public typealias HTTPHeaders = [Swift.String : Swift.String]
+@_hasMissingDesignatedInitializers open class Request {
+  public typealias ProgressHandler = (Foundation.Progress) -> Swift.Void
+  open var delegate: FincodeSDK.TaskDelegate {
+    get
+  }
+  open var task: Foundation.URLSessionTask? {
+    get
+  }
+  final public let session: Foundation.URLSession
+  open var request: Foundation.URLRequest? {
+    get
+  }
+  open var response: Foundation.HTTPURLResponse? {
+    get
+  }
+  open var retryCount: Swift.UInt {
+    get
+  }
+  @discardableResult
+  open func authenticate(user: Swift.String, password: Swift.String, persistence: Foundation.URLCredential.Persistence = .forSession) -> Self
+  @discardableResult
+  open func authenticate(usingCredential credential: Foundation.URLCredential) -> Self
+  open class func authorizationHeader(user: Swift.String, password: Swift.String) -> (key: Swift.String, value: Swift.String)?
+  open func resume()
+  open func suspend()
+  open func cancel()
+  @objc deinit
+}
+extension FincodeSDK.Request : Swift.CustomStringConvertible {
+  open var description: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.Request : Swift.CustomDebugStringConvertible {
+  open var debugDescription: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class DataRequest : FincodeSDK.Request {
+  override open var request: Foundation.URLRequest? {
+    get
+  }
+  open var progress: Foundation.Progress {
+    get
+  }
+  @discardableResult
+  open func stream(closure: ((Foundation.Data) -> Swift.Void)? = nil) -> Self
+  @discardableResult
+  open func downloadProgress(queue: Dispatch.DispatchQueue = DispatchQueue.main, closure: @escaping FincodeSDK.DataRequest.ProgressHandler) -> Self
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class DownloadRequest : FincodeSDK.Request {
+  public struct DownloadOptions : Swift.OptionSet {
+    public let rawValue: Swift.UInt
+    public static let createIntermediateDirectories: FincodeSDK.DownloadRequest.DownloadOptions
+    public static let removePreviousFile: FincodeSDK.DownloadRequest.DownloadOptions
+    public init(rawValue: Swift.UInt)
+    public typealias ArrayLiteralElement = FincodeSDK.DownloadRequest.DownloadOptions
+    public typealias Element = FincodeSDK.DownloadRequest.DownloadOptions
+    public typealias RawValue = Swift.UInt
+  }
+  public typealias DownloadFileDestination = (_ temporaryURL: Foundation.URL, _ response: Foundation.HTTPURLResponse) -> (destinationURL: Foundation.URL, options: FincodeSDK.DownloadRequest.DownloadOptions)
+  override open var request: Foundation.URLRequest? {
+    get
+  }
+  open var resumeData: Foundation.Data? {
+    get
+  }
+  open var progress: Foundation.Progress {
+    get
+  }
+  override open func cancel()
+  open func cancel(createResumeData: Swift.Bool)
+  @discardableResult
+  open func downloadProgress(queue: Dispatch.DispatchQueue = DispatchQueue.main, closure: @escaping FincodeSDK.DownloadRequest.ProgressHandler) -> Self
+  open class func suggestedDownloadDestination(for directory: Foundation.FileManager.SearchPathDirectory = .documentDirectory, in domain: Foundation.FileManager.SearchPathDomainMask = .userDomainMask) -> FincodeSDK.DownloadRequest.DownloadFileDestination
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class UploadRequest : FincodeSDK.DataRequest {
+  override open var request: Foundation.URLRequest? {
+    get
+  }
+  open var uploadProgress: Foundation.Progress {
+    get
+  }
+  @discardableResult
+  open func uploadProgress(queue: Dispatch.DispatchQueue = DispatchQueue.main, closure: @escaping FincodeSDK.UploadRequest.ProgressHandler) -> Self
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+open class StreamRequest : FincodeSDK.Request {
+  @objc deinit
+}
+extension FincodeSDK.JSON {
+  public var date: Foundation.Date? {
+    get
+  }
+}
+@IBDesignable extension UIKit.UITextField {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) dynamic public var placeholderColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+}
+open class MultipartFormData {
+  open var contentType: Swift.String {
+    get
+    set
+  }
+  public var contentLength: Swift.UInt64 {
+    get
+  }
+  public var boundary: Swift.String
+  public init()
+  public func append(_ data: Foundation.Data, withName name: Swift.String)
+  public func append(_ data: Foundation.Data, withName name: Swift.String, mimeType: Swift.String)
+  public func append(_ data: Foundation.Data, withName name: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func append(_ fileURL: Foundation.URL, withName name: Swift.String)
+  public func append(_ fileURL: Foundation.URL, withName name: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func append(_ stream: Foundation.InputStream, withLength length: Swift.UInt64, name: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func append(_ stream: Foundation.InputStream, withLength length: Swift.UInt64, headers: FincodeSDK.HTTPHeaders)
+  public func encode() throws -> Foundation.Data
+  public func writeEncodedData(to fileURL: Foundation.URL) throws
+  @objc deinit
+}
+public enum HTTPMethod : Swift.String {
+  case options
+  case get
+  case head
+  case post
+  case put
+  case patch
+  case delete
+  case trace
+  case connect
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public typealias Parameters = [Swift.String : Any]
+public protocol ParameterEncoding {
+  func encode(_ urlRequest: FincodeSDK.URLRequestConvertible, with parameters: FincodeSDK.Parameters?) throws -> Foundation.URLRequest
+}
+public struct URLEncoding : FincodeSDK.ParameterEncoding {
+  public enum Destination {
+    case methodDependent, queryString, httpBody
+    public static func == (a: FincodeSDK.URLEncoding.Destination, b: FincodeSDK.URLEncoding.Destination) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum ArrayEncoding {
+    case brackets, noBrackets
+    public static func == (a: FincodeSDK.URLEncoding.ArrayEncoding, b: FincodeSDK.URLEncoding.ArrayEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum BoolEncoding {
+    case numeric, literal
+    public static func == (a: FincodeSDK.URLEncoding.BoolEncoding, b: FincodeSDK.URLEncoding.BoolEncoding) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static var `default`: FincodeSDK.URLEncoding {
+    get
+  }
+  public static var methodDependent: FincodeSDK.URLEncoding {
+    get
+  }
+  public static var queryString: FincodeSDK.URLEncoding {
+    get
+  }
+  public static var httpBody: FincodeSDK.URLEncoding {
+    get
+  }
+  public let destination: FincodeSDK.URLEncoding.Destination
+  public let arrayEncoding: FincodeSDK.URLEncoding.ArrayEncoding
+  public let boolEncoding: FincodeSDK.URLEncoding.BoolEncoding
+  public init(destination: FincodeSDK.URLEncoding.Destination = .methodDependent, arrayEncoding: FincodeSDK.URLEncoding.ArrayEncoding = .brackets, boolEncoding: FincodeSDK.URLEncoding.BoolEncoding = .numeric)
+  public func encode(_ urlRequest: FincodeSDK.URLRequestConvertible, with parameters: FincodeSDK.Parameters?) throws -> Foundation.URLRequest
+  public func queryComponents(fromKey key: Swift.String, value: Any) -> [(Swift.String, Swift.String)]
+  public func escape(_ string: Swift.String) -> Swift.String
+}
+public struct JSONEncoding : FincodeSDK.ParameterEncoding {
+  public static var `default`: FincodeSDK.JSONEncoding {
+    get
+  }
+  public static var prettyPrinted: FincodeSDK.JSONEncoding {
+    get
+  }
+  public let options: Foundation.JSONSerialization.WritingOptions
+  public init(options: Foundation.JSONSerialization.WritingOptions = [])
+  public func encode(_ urlRequest: FincodeSDK.URLRequestConvertible, with parameters: FincodeSDK.Parameters?) throws -> Foundation.URLRequest
+  public func encode(_ urlRequest: FincodeSDK.URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> Foundation.URLRequest
+}
+public struct PropertyListEncoding : FincodeSDK.ParameterEncoding {
+  public static var `default`: FincodeSDK.PropertyListEncoding {
+    get
+  }
+  public static var xml: FincodeSDK.PropertyListEncoding {
+    get
+  }
+  public static var binary: FincodeSDK.PropertyListEncoding {
+    get
+  }
+  public let format: Foundation.PropertyListSerialization.PropertyListFormat
+  public let options: Foundation.PropertyListSerialization.WriteOptions
+  public init(format: Foundation.PropertyListSerialization.PropertyListFormat = .xml, options: Foundation.PropertyListSerialization.WriteOptions = 0)
+  public func encode(_ urlRequest: FincodeSDK.URLRequestConvertible, with parameters: FincodeSDK.Parameters?) throws -> Foundation.URLRequest
+}
+open class SessionManager {
+  public enum MultipartFormDataEncodingResult {
+    case success(request: FincodeSDK.UploadRequest, streamingFromDisk: Swift.Bool, streamFileURL: Foundation.URL?)
+    case failure(Swift.Error)
+  }
+  public static let `default`: FincodeSDK.SessionManager
+  public static let defaultHTTPHeaders: FincodeSDK.HTTPHeaders
+  public static let multipartFormDataEncodingMemoryThreshold: Swift.UInt64
+  final public let session: Foundation.URLSession
+  final public let delegate: FincodeSDK.SessionDelegate
+  open var startRequestsImmediately: Swift.Bool
+  open var adapter: FincodeSDK.RequestAdapter?
+  open var retrier: FincodeSDK.RequestRetrier? {
+    get
+    set
+  }
+  open var backgroundCompletionHandler: (() -> Swift.Void)?
+  public init(configuration: Foundation.URLSessionConfiguration = URLSessionConfiguration.default, delegate: FincodeSDK.SessionDelegate = SessionDelegate(), serverTrustPolicyManager: FincodeSDK.ServerTrustPolicyManager? = nil)
+  public init?(session: Foundation.URLSession, delegate: FincodeSDK.SessionDelegate, serverTrustPolicyManager: FincodeSDK.ServerTrustPolicyManager? = nil)
+  @objc deinit
+  @discardableResult
+  open func request(_ url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .get, parameters: FincodeSDK.Parameters? = nil, encoding: FincodeSDK.ParameterEncoding = URLEncoding.default, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.DataRequest
+  @discardableResult
+  open func request(_ urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.DataRequest
+  @discardableResult
+  open func download(_ url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .get, parameters: FincodeSDK.Parameters? = nil, encoding: FincodeSDK.ParameterEncoding = URLEncoding.default, headers: FincodeSDK.HTTPHeaders? = nil, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+  @discardableResult
+  open func download(_ urlRequest: FincodeSDK.URLRequestConvertible, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+  @discardableResult
+  open func download(resumingWith resumeData: Foundation.Data, to destination: FincodeSDK.DownloadRequest.DownloadFileDestination? = nil) -> FincodeSDK.DownloadRequest
+  @discardableResult
+  open func upload(_ fileURL: Foundation.URL, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+  @discardableResult
+  open func upload(_ fileURL: Foundation.URL, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+  @discardableResult
+  open func upload(_ data: Foundation.Data, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+  @discardableResult
+  open func upload(_ data: Foundation.Data, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+  @discardableResult
+  open func upload(_ stream: Foundation.InputStream, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil) -> FincodeSDK.UploadRequest
+  @discardableResult
+  open func upload(_ stream: Foundation.InputStream, with urlRequest: FincodeSDK.URLRequestConvertible) -> FincodeSDK.UploadRequest
+  open func upload(multipartFormData: @escaping (FincodeSDK.MultipartFormData) -> Swift.Void, usingThreshold encodingMemoryThreshold: Swift.UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold, to url: FincodeSDK.URLConvertible, method: FincodeSDK.HTTPMethod = .post, headers: FincodeSDK.HTTPHeaders? = nil, queue: Dispatch.DispatchQueue? = nil, encodingCompletion: ((FincodeSDK.SessionManager.MultipartFormDataEncodingResult) -> Swift.Void)?)
+  open func upload(multipartFormData: @escaping (FincodeSDK.MultipartFormData) -> Swift.Void, usingThreshold encodingMemoryThreshold: Swift.UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold, with urlRequest: FincodeSDK.URLRequestConvertible, queue: Dispatch.DispatchQueue? = nil, encodingCompletion: ((FincodeSDK.SessionManager.MultipartFormDataEncodingResult) -> Swift.Void)?)
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  @discardableResult
+  open func stream(withHostName hostName: Swift.String, port: Swift.Int) -> FincodeSDK.StreamRequest
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  @discardableResult
+  open func stream(with netService: Foundation.NetService) -> FincodeSDK.StreamRequest
+}
+public enum FincodeApiResult<T> {
+  case success(T)
+  case failure(FincodeSDK.FincodeAPIError)
+}
+@IBDesignable extension UIKit.UIView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) dynamic public var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) dynamic public var borderWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) dynamic public var borderColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) dynamic public var extBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class FincodeVerticalView : FincodeSDK.FincodeCommon {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol FincodeResponse {
+}
+extension Foundation.NSNotification.Name {
+  public struct Task {
+    public static let DidResume: Foundation.Notification.Name
+    public static let DidSuspend: Foundation.Notification.Name
+    public static let DidCancel: Foundation.Notification.Name
+    public static let DidComplete: Foundation.Notification.Name
+  }
+}
+extension Foundation.Notification {
+  public struct Key {
+    public static let Task: Swift.String
+    public static let ResponseData: Swift.String
+  }
+}
+public class FincodeConfiguration {
+  public var authorizationPublic: FincodeSDK.Authorization
+  public var apiVersion: Swift.String
+  public var customerId: Swift.String
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodeErrorInfo {
+  final public let code: Swift.String
+  final public let message: Swift.String
+  @objc deinit
+}
+public class FincodeCardRegisterRequest {
+  public var defaultFlag: Swift.String?
+  public var cardNo: Swift.String?
+  public var expire: Swift.String?
+  public var holderName: Swift.String?
+  public var securityCode: Swift.String?
+  public var token: Swift.String?
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodeCardRegisterResponse : FincodeSDK.FincodeResponse {
+  final public let customerId: Swift.String
+  final public let id: Swift.String
+  final public let defaultFlag: Swift.String
+  final public let cardNo: Swift.String
+  final public let expire: Swift.String
+  final public let holderName: Swift.String?
+  final public let cardNoHash: Swift.String
+  final public let created: Foundation.Date?
+  final public let updated: Foundation.Date?
+  final public let type: Swift.String
+  final public let brand: Swift.String
+  @objc deinit
+}
+public protocol ResultDelegate : AnyObject {
+  func success(_ result: FincodeSDK.FincodeResponse)
+  func failure(_ result: FincodeSDK.FincodeErrorResponse)
+}
+@_hasMissingDesignatedInitializers public class FincodeErrorResponse {
+  final public let statusCode: Swift.Int
+  final public let errors: [FincodeSDK.FincodeErrorInfo]
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class FincodeCardRegisterConfiguration : FincodeSDK.FincodeConfiguration {
+  public var defaultFlag: FincodeSDK.DefaultFlg
+  override public init()
+  @objc deinit
+}
+public enum Authorization {
+  case none
+  case Basic(apiKey: Swift.String)
+  case Bearer(apiKey: Swift.String)
+}
+public enum Result<Value> {
+  case success(Value)
+  case failure(Swift.Error)
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public var isFailure: Swift.Bool {
+    get
+  }
+  public var value: Value? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+}
+extension FincodeSDK.Result : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.Result : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension FincodeSDK.Result {
+  public init(value: () throws -> Value)
+  public func unwrap() throws -> Value
+  public func map<T>(_ transform: (Value) -> T) -> FincodeSDK.Result<T>
+  public func flatMap<T>(_ transform: (Value) throws -> T) -> FincodeSDK.Result<T>
+  public func mapError<T>(_ transform: (Swift.Error) -> T) -> FincodeSDK.Result<Value> where T : Swift.Error
+  public func flatMapError<T>(_ transform: (Swift.Error) throws -> T) -> FincodeSDK.Result<Value> where T : Swift.Error
+  @discardableResult
+  public func withValue(_ closure: (Value) throws -> Swift.Void) rethrows -> FincodeSDK.Result<Value>
+  @discardableResult
+  public func withError(_ closure: (Swift.Error) throws -> Swift.Void) rethrows -> FincodeSDK.Result<Value>
+  @discardableResult
+  public func ifSuccess(_ closure: () throws -> Swift.Void) rethrows -> FincodeSDK.Result<Value>
+  @discardableResult
+  public func ifFailure(_ closure: () throws -> Swift.Void) rethrows -> FincodeSDK.Result<Value>
+}
+@objc @_hasMissingDesignatedInitializers open class TaskDelegate : ObjectiveC.NSObject {
+  final public let queue: Foundation.OperationQueue
+  public var data: Foundation.Data? {
+    get
+  }
+  public var error: Swift.Error?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class NetworkReachabilityManager {
+  public enum NetworkReachabilityStatus {
+    case unknown
+    case notReachable
+    case reachable(FincodeSDK.NetworkReachabilityManager.ConnectionType)
+  }
+  public enum ConnectionType {
+    case ethernetOrWiFi
+    case wwan
+    public static func == (a: FincodeSDK.NetworkReachabilityManager.ConnectionType, b: FincodeSDK.NetworkReachabilityManager.ConnectionType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public typealias Listener = (FincodeSDK.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Void
+  open var isReachable: Swift.Bool {
+    get
+  }
+  open var isReachableOnWWAN: Swift.Bool {
+    get
+  }
+  open var isReachableOnEthernetOrWiFi: Swift.Bool {
+    get
+  }
+  open var networkReachabilityStatus: FincodeSDK.NetworkReachabilityManager.NetworkReachabilityStatus {
+    get
+  }
+  open var listenerQueue: Dispatch.DispatchQueue
+  open var listener: FincodeSDK.NetworkReachabilityManager.Listener?
+  open var flags: SystemConfiguration.SCNetworkReachabilityFlags? {
+    get
+  }
+  open var previousFlags: SystemConfiguration.SCNetworkReachabilityFlags
+  convenience public init?(host: Swift.String)
+  convenience public init?()
+  @objc deinit
+  @discardableResult
+  open func startListening() -> Swift.Bool
+  open func stopListening()
+}
+extension FincodeSDK.NetworkReachabilityManager.NetworkReachabilityStatus : Swift.Equatable {
+}
+public func == (lhs: FincodeSDK.NetworkReachabilityManager.NetworkReachabilityStatus, rhs: FincodeSDK.NetworkReachabilityManager.NetworkReachabilityStatus) -> Swift.Bool
+@_hasMissingDesignatedInitializers public class FincodePaymentRepository {
+  public static let sharedInstance: FincodeSDK.FincodePaymentRepository
+  public func payment(_ id: Swift.String, request: FincodeSDK.FincodePaymentRequest, header: [Swift.String : Swift.String], complete: @escaping (_ result: FincodeSDK.FincodeApiResult<FincodeSDK.FincodePaymentResponse>) -> Swift.Void)
+  public func payment(_ id: Swift.String, request: FincodeSDK.FincodePaymentSecureRequest, header: [Swift.String : Swift.String], complete: @escaping (_ result: FincodeSDK.FincodeApiResult<FincodeSDK.FincodePaymentSecureResponse>) -> Swift.Void)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class FincodeHorizontalView : FincodeSDK.FincodeCommon {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension FincodeSDK.Request {
+  public enum ValidationResult {
+    case success
+    case failure(Swift.Error)
+  }
+}
+extension FincodeSDK.DataRequest {
+  public typealias Validation = (Foundation.URLRequest?, Foundation.HTTPURLResponse, Foundation.Data?) -> FincodeSDK.Request.ValidationResult
+  @discardableResult
+  public func validate(_ validation: @escaping FincodeSDK.DataRequest.Validation) -> Self
+  @discardableResult
+  public func validate<S>(statusCode acceptableStatusCodes: S) -> Self where S : Swift.Sequence, S.Element == Swift.Int
+  @discardableResult
+  public func validate<S>(contentType acceptableContentTypes: S) -> Self where S : Swift.Sequence, S.Element == Swift.String
+  @discardableResult
+  public func validate() -> Self
+}
+extension FincodeSDK.DownloadRequest {
+  public typealias Validation = (_ request: Foundation.URLRequest?, _ response: Foundation.HTTPURLResponse, _ temporaryURL: Foundation.URL?, _ destinationURL: Foundation.URL?) -> FincodeSDK.Request.ValidationResult
+  @discardableResult
+  public func validate(_ validation: @escaping FincodeSDK.DownloadRequest.Validation) -> Self
+  @discardableResult
+  public func validate<S>(statusCode acceptableStatusCodes: S) -> Self where S : Swift.Sequence, S.Element == Swift.Int
+  @discardableResult
+  public func validate<S>(contentType acceptableContentTypes: S) -> Self where S : Swift.Sequence, S.Element == Swift.String
+  @discardableResult
+  public func validate() -> Self
+}
+public class FincodeCardUpdateRequest {
+  public var defaultFlag: Swift.String?
+  public var expire: Swift.String?
+  public var holderName: Swift.String?
+  public var securityCode: Swift.String?
+  public var token: Swift.String?
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FincodeCardUpdateResponse : FincodeSDK.FincodeResponse {
+  final public let customerId: Swift.String
+  final public let id: Swift.String
+  final public let defaultFlag: Swift.String
+  final public let cardNo: Swift.String
+  final public let expire: Swift.String
+  final public let holderName: Swift.String?
+  final public let cardNoHash: Swift.String
+  final public let created: Foundation.Date?
+  final public let updated: Foundation.Date?
+  final public let type: Swift.String
+  final public let brand: Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class SessionDelegate : ObjectiveC.NSObject {
+  open var sessionDidBecomeInvalidWithError: ((Foundation.URLSession, Swift.Error?) -> Swift.Void)?
+  open var sessionDidReceiveChallenge: ((Foundation.URLSession, Foundation.URLAuthenticationChallenge) -> (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?))?
+  open var sessionDidReceiveChallengeWithCompletion: ((Foundation.URLSession, Foundation.URLAuthenticationChallenge, @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void) -> Swift.Void)?
+  open var sessionDidFinishEventsForBackgroundURLSession: ((Foundation.URLSession) -> Swift.Void)?
+  open var taskWillPerformHTTPRedirection: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.HTTPURLResponse, Foundation.URLRequest) -> Foundation.URLRequest?)?
+  open var taskWillPerformHTTPRedirectionWithCompletion: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.HTTPURLResponse, Foundation.URLRequest, @escaping (Foundation.URLRequest?) -> Swift.Void) -> Swift.Void)?
+  open var taskDidReceiveChallenge: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.URLAuthenticationChallenge) -> (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?))?
+  open var taskDidReceiveChallengeWithCompletion: ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.URLAuthenticationChallenge, @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void) -> Swift.Void)?
+  open var taskNeedNewBodyStream: ((Foundation.URLSession, Foundation.URLSessionTask) -> Foundation.InputStream?)?
+  open var taskNeedNewBodyStreamWithCompletion: ((Foundation.URLSession, Foundation.URLSessionTask, @escaping (Foundation.InputStream?) -> Swift.Void) -> Swift.Void)?
+  open var taskDidSendBodyData: ((Foundation.URLSession, Foundation.URLSessionTask, Swift.Int64, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  open var taskDidComplete: ((Foundation.URLSession, Foundation.URLSessionTask, Swift.Error?) -> Swift.Void)?
+  open var dataTaskDidReceiveResponse: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.URLResponse) -> Foundation.URLSession.ResponseDisposition)?
+  open var dataTaskDidReceiveResponseWithCompletion: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.URLResponse, @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void) -> Swift.Void)?
+  open var dataTaskDidBecomeDownloadTask: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.URLSessionDownloadTask) -> Swift.Void)?
+  open var dataTaskDidReceiveData: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.Data) -> Swift.Void)?
+  open var dataTaskWillCacheResponse: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.CachedURLResponse) -> Foundation.CachedURLResponse?)?
+  open var dataTaskWillCacheResponseWithCompletion: ((Foundation.URLSession, Foundation.URLSessionDataTask, Foundation.CachedURLResponse, @escaping (Foundation.CachedURLResponse?) -> Swift.Void) -> Swift.Void)?
+  open var downloadTaskDidFinishDownloadingToURL: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Foundation.URL) -> Swift.Void)?
+  open var downloadTaskDidWriteData: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  open var downloadTaskDidResumeAtOffset: ((Foundation.URLSession, Foundation.URLSessionDownloadTask, Swift.Int64, Swift.Int64) -> Swift.Void)?
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  open var streamTaskReadClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
+    get
+    set
+  }
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  open var streamTaskWriteClosed: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
+    get
+    set
+  }
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  open var streamTaskBetterRouteDiscovered: ((Foundation.URLSession, Foundation.URLSessionStreamTask) -> Swift.Void)? {
+    get
+    set
+  }
+  @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+  open var streamTaskDidBecomeInputAndOutputStreams: ((Foundation.URLSession, Foundation.URLSessionStreamTask, Foundation.InputStream, Foundation.OutputStream) -> Swift.Void)? {
+    get
+    set
+  }
+  open subscript(task: Foundation.URLSessionTask) -> FincodeSDK.Request? {
+    get
+    set
+  }
+  @objc override dynamic public init()
+  @objc override dynamic open func responds(to selector: ObjectiveC.Selector) -> Swift.Bool
+  @objc deinit
+}
+extension FincodeSDK.SessionDelegate : Foundation.URLSessionDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, didBecomeInvalidWithError error: Swift.Error?)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc dynamic open func urlSessionDidFinishEvents(forBackgroundURLSession session: Foundation.URLSession)
+}
+extension FincodeSDK.SessionDelegate : Foundation.URLSessionTaskDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, needNewBodyStream completionHandler: @escaping (Foundation.InputStream?) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
+  @objc(URLSession:task:didFinishCollectingMetrics:) dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didFinishCollecting metrics: Foundation.URLSessionTaskMetrics)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+}
+extension FincodeSDK.SessionDelegate : Foundation.URLSessionDataDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didBecome downloadTask: Foundation.URLSessionDownloadTask)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+extension FincodeSDK.SessionDelegate : Foundation.URLSessionDownloadDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+}
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+extension FincodeSDK.SessionDelegate : Foundation.URLSessionStreamDelegate {
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, readClosedFor streamTask: Foundation.URLSessionStreamTask)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, writeClosedFor streamTask: Foundation.URLSessionStreamTask)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, betterRouteDiscoveredFor streamTask: Foundation.URLSessionStreamTask)
+  @objc dynamic open func urlSession(_ session: Foundation.URLSession, streamTask: Foundation.URLSessionStreamTask, didBecome inputStream: Foundation.InputStream, outputStream: Foundation.OutputStream)
+}
+public enum SubmitButtonType {
+  case none
+  case registerCard
+  case updateCard
+  case payment
+  public static func == (a: FincodeSDK.SubmitButtonType, b: FincodeSDK.SubmitButtonType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension FincodeSDK.DefaultFlg : Swift.Equatable {}
+extension FincodeSDK.DefaultFlg : Swift.Hashable {}
+extension FincodeSDK.DefaultFlg : Swift.RawRepresentable {}
+extension FincodeSDK.UseCase : Swift.Equatable {}
+extension FincodeSDK.UseCase : Swift.Hashable {}
+extension FincodeSDK.SwiftyJSONError : Swift.Equatable {}
+extension FincodeSDK.SwiftyJSONError : Swift.Hashable {}
+extension FincodeSDK.SwiftyJSONError : Swift.RawRepresentable {}
+extension FincodeSDK.`Type` : Swift.Equatable {}
+extension FincodeSDK.`Type` : Swift.Hashable {}
+extension FincodeSDK.`Type` : Swift.RawRepresentable {}
+extension FincodeSDK.writingOptionsKeys : Swift.Equatable {}
+extension FincodeSDK.writingOptionsKeys : Swift.Hashable {}
+extension FincodeSDK.HTTPMethod : Swift.Equatable {}
+extension FincodeSDK.HTTPMethod : Swift.Hashable {}
+extension FincodeSDK.HTTPMethod : Swift.RawRepresentable {}
+extension FincodeSDK.URLEncoding.Destination : Swift.Equatable {}
+extension FincodeSDK.URLEncoding.Destination : Swift.Hashable {}
+extension FincodeSDK.URLEncoding.ArrayEncoding : Swift.Equatable {}
+extension FincodeSDK.URLEncoding.ArrayEncoding : Swift.Hashable {}
+extension FincodeSDK.URLEncoding.BoolEncoding : Swift.Equatable {}
+extension FincodeSDK.URLEncoding.BoolEncoding : Swift.Hashable {}
+extension FincodeSDK.NetworkReachabilityManager.ConnectionType : Swift.Equatable {}
+extension FincodeSDK.NetworkReachabilityManager.ConnectionType : Swift.Hashable {}
+extension FincodeSDK.SubmitButtonType : Swift.Equatable {}
+extension FincodeSDK.SubmitButtonType : Swift.Hashable {}
