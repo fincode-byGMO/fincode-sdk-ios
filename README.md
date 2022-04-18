@@ -1,6 +1,6 @@
-# Fincode iOS SDK
+# fincode iOS SDK
 
-FincodeSDKを使用すると、iOSアプリで決済、カード登録・更新・一覧取得が簡単に構築できます。
+fincode iOS SDKを使用すると、iOSアプリで決済、カード登録・更新・一覧取得が簡単に構築できます。
 
 目次
 =================
@@ -16,7 +16,7 @@ FincodeSDKを使用すると、iOSアプリで決済、カード登録・更新�
 
 ## リリース
 
-FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付けページのリンクに置き換える](https://www.google.com) ページのバージョンを使用して、xcframeworkまたはFincodeSDKプロジェクトを追加してください。
+fincode iOS SDKを手動でリンクするには、 [リリース](https://github.com/fincode-byGMO/fincode-sdk-ios/releases) ページのバージョンを使用して、xcframeworkまたはFincodeSDKプロジェクトを追加してください。
 
 - FincodeSDK.xcframework
 
@@ -24,10 +24,10 @@ FincodeSDを手動でリンクするには、 [リリース ※TODO タグ付け
 
 ## 要件
 
-FincodeSDKは、iOS SDK 11以降/Swift4以降が必要です。
+fincode iOS SDKは、iOS SDK 11以降/Swift4以降が必要です。
 
 ## 導入
-FincodeSDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプロジェクトを組み込むことが必要です。
+fincode iOS SDKを利用するには、FincodeSDK.xcframeworkまたはFincodeSDKプロジェクトを組み込むことが必要です。
 
 - xcframeworkの組み込み
     1. 任意の場所にFincodeSDK.xcframeworkを配置します。
