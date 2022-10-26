@@ -109,6 +109,12 @@ extension UIView {
         }
     }
     
+    func removeAllSubviews(){
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
     /// 角の丸みを取得・設定
     @IBInspectable public var cornerRadius: CGFloat {
         get {

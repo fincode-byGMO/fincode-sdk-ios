@@ -9,15 +9,18 @@
 import Foundation
 
 public class FincodeAPIError: Error {
-
+    
     public let errorResponse: FincodeErrorResponse
-
-    init(response: HTTPURLResponse? = nil, data: Data? = nil) {
+    
+    init(response: HTTPURLResponse? = nil, data: Data? = nil, errorOccurredApi: ApiKinds) {
         
-        if let statusCode = response?.statusCode, let data = data, let json = try? JSON(data: data) {
-            let response = FincodeErrorResponse(statusCode, json: json)
-            errorResponse = response
-            logger(json)
+        if let statusCode = response?.statusCode {
+            if let data = data, let json = try? JSON(data: data) {
+                errorResponse = FincodeErrorResponse(statusCode, json: json, errorOccurredApi: errorOccurredApi)
+                logger(json)
+            } else {
+                errorResponse = FincodeErrorResponse(statusCode, errorOccurredApi: errorOccurredApi)
+            }
         } else {
             errorResponse = FincodeErrorResponse()
         }
