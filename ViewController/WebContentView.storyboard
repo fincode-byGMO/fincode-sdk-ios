@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,31 +20,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-2N-JTl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbQ-ne-IPD" userLabel="WebViewContainer">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-Gq-1Th" userLabel="IndicatorView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fb0-y3-xY3">
+                                        <rect key="frame" x="197" y="399" width="20" height="20"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.38852769500000001" alpha="0.20408347430000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fb0-y3-xY3" firstAttribute="centerY" secondItem="gkT-Gq-1Th" secondAttribute="centerY" id="wMR-hh-LSD"/>
+                                    <constraint firstItem="fb0-y3-xY3" firstAttribute="centerX" secondItem="gkT-Gq-1Th" secondAttribute="centerX" id="xgc-DM-XCO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ohk-2N-JTl" secondAttribute="trailing" id="4bp-yV-33I"/>
-                            <constraint firstItem="Ohk-2N-JTl" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Ume-cj-CCh"/>
-                            <constraint firstItem="Ohk-2N-JTl" firstAttribute="top" secondItem="7ZQ-FC-bnh" secondAttribute="bottom" id="gvP-XE-S7k"/>
-                            <constraint firstItem="v6q-DX-9ko" firstAttribute="top" secondItem="Ohk-2N-JTl" secondAttribute="bottom" id="lbg-0Z-UCI"/>
+                            <constraint firstItem="pbQ-ne-IPD" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="F9F-6J-AxK"/>
+                            <constraint firstItem="v6q-DX-9ko" firstAttribute="top" secondItem="pbQ-ne-IPD" secondAttribute="bottom" id="IOf-QH-Dmz"/>
+                            <constraint firstItem="gkT-Gq-1Th" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="JGQ-8N-4Pv"/>
+                            <constraint firstItem="v6q-DX-9ko" firstAttribute="top" secondItem="gkT-Gq-1Th" secondAttribute="bottom" id="e1M-fF-2RS"/>
+                            <constraint firstItem="pbQ-ne-IPD" firstAttribute="top" secondItem="7ZQ-FC-bnh" secondAttribute="bottom" id="ggX-qn-kUB"/>
+                            <constraint firstAttribute="trailing" secondItem="gkT-Gq-1Th" secondAttribute="trailing" id="kXX-N7-WAJ"/>
+                            <constraint firstItem="gkT-Gq-1Th" firstAttribute="top" secondItem="7ZQ-FC-bnh" secondAttribute="bottom" id="lEn-tJ-n6Z"/>
+                            <constraint firstAttribute="trailing" secondItem="pbQ-ne-IPD" secondAttribute="trailing" id="wlc-WQ-0ZU"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="wkWebView" destination="Ohk-2N-JTl" id="y4e-Ku-0jf"/>
+                        <outlet property="indicator" destination="fb0-y3-xY3" id="4Jg-YK-653"/>
+                        <outlet property="indicatorView" destination="gkT-Gq-1Th" id="5rN-ee-eOf"/>
+                        <outlet property="webViewContainer" destination="pbQ-ne-IPD" id="IeW-0T-p35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="96"/>
+            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>

@@ -22,6 +22,54 @@ public class FincodePaymentRequest {
     public var payTimes: String?
     public var securityCode: String?
     public var holderName: String?
+    public var tds2RetUrl: String?
+    public var tds2ChAccChange: String?
+    public var tds2ChAccDate: String?
+    public var tds2ChAccPwChange: String?
+    public var tds2NbPurchaseAccount: String?
+    public var tds2PaymentAccAge: String?
+    public var tds2ProvisionAttemptsDay: String?
+    public var tds2ShipAddressUsage: String?
+    public var tds2ShipNameInd: String?
+    public var tds2SuspiciousAccActivity: String?
+    public var tds2TxnActivityDay: String?
+    public var tds2TxnActivityYear: String?
+    public var tds2ThreeDsReqAuthData: String?
+    public var tds2ThreeDsReqAuthMethod: String?
+    public var tds2ThreeDsReqAuthTimestamp: String?
+    public var tds2AddrMatch: String?
+    public var tds2BillAddrCity: String?
+    public var tds2BillAddrCountry: String?
+    public var tds2BillAddrLine1: String?
+    public var tds2BillAddrLine2: String?
+    public var tds2BillAddrLine3: String?
+    public var tds2BillAddrPostCode: String?
+    public var tds2BillAddrState: String?
+    public var tds2Email: String?
+    public var tds2HomePhoneCc: String?
+    public var tds2HomePhoneNo: String?
+    public var tds2MobilePhoneCc: String?
+    public var tds2MobilePhoneNo: String?
+    public var tds2WorkPhoneCc: String?
+    public var tds2WorkPhoneNo: String?
+    public var tds2ShipAddrCity: String?
+    public var tds2ShipAddrCountry: String?
+    public var tds2ShipAddrLine1: String?
+    public var tds2ShipAddrLine2: String?
+    public var tds2ShipAddrLine3: String?
+    public var tds2ShipAddrPostCode: String?
+    public var tds2ShipAddrState: String?
+    public var tds2DeliveryEmailAddress: String?
+    public var tds2DeliveryTimeframe: String?
+    public var tds2GiftCardAmount: String?
+    public var tds2GiftCardCount: String?
+    public var tds2GiftCardCurr: String?
+    public var tds2PreOrderDate: String?
+    public var tds2PreOrderPurchaseInd: String?
+    public var tds2ReorderItemsInd: String?
+    public var tds2ShipInd: String?
+    public var tds2RecurringExpiry: String?
+    public var tds2RecurringFrequency: String?
     
     public init() {
     }
@@ -40,7 +88,54 @@ public class FincodePaymentRequest {
         setParam(&data, key: "pay_times", param: payTimes)
         setParam(&data, key: "security_code", param: securityCode)
         setParam(&data, key: "holder_name", param: holderName)
-        
+        setParam(&data, key: "tds2_ret_url", param: tds2RetUrl)
+        setParam(&data, key: "tds2_ch_acc_change", param: tds2ChAccChange)
+        setParam(&data, key: "tds2_ch_acc_date", param: tds2ChAccDate)
+        setParam(&data, key: "tds2_ch_acc_pw_change", param: tds2ChAccPwChange)
+        setParam(&data, key: "tds2_nb_purchase_account", param: tds2NbPurchaseAccount)
+        setParam(&data, key: "tds2_payment_acc_age", param: tds2PaymentAccAge)
+        setParam(&data, key: "tds2_provision_attempts_day", param: tds2ProvisionAttemptsDay)
+        setParam(&data, key: "tds2_ship_address_usage", param: tds2ShipAddressUsage)
+        setParam(&data, key: "tds2_ship_name_ind", param: tds2ShipNameInd)
+        setParam(&data, key: "tds2_suspicious_acc_activity", param: tds2SuspiciousAccActivity)
+        setParam(&data, key: "tds2_txn_activity_day", param: tds2TxnActivityDay)
+        setParam(&data, key: "tds2_txn_activity_year", param: tds2TxnActivityYear)
+        setParam(&data, key: "tds2_three_ds_req_auth_data", param: tds2ThreeDsReqAuthData)
+        setParam(&data, key: "tds2_three_ds_req_auth_method", param: tds2ThreeDsReqAuthMethod)
+        setParam(&data, key: "tds2_three_ds_req_auth_timestamp", param: tds2ThreeDsReqAuthTimestamp)
+        setParam(&data, key: "tds2_addr_match", param: tds2AddrMatch)
+        setParam(&data, key: "tds2_bill_addr_city", param: tds2BillAddrCity)
+        setParam(&data, key: "tds2_bill_addr_country", param: tds2BillAddrCountry)
+        setParam(&data, key: "tds2_bill_addr_line_1", param: tds2BillAddrLine1)
+        setParam(&data, key: "tds2_bill_addr_line_2", param: tds2BillAddrLine2)
+        setParam(&data, key: "tds2_bill_addr_line_3", param: tds2BillAddrLine3)
+        setParam(&data, key: "tds2_bill_addr_post_code", param: tds2BillAddrPostCode)
+        setParam(&data, key: "tds2_bill_addr_state", param: tds2BillAddrState)
+        setParam(&data, key: "tds2_email", param: tds2Email)
+        setParam(&data, key: "tds2_home_phone_cc", param: tds2HomePhoneCc)
+        setParam(&data, key: "tds2_home_phone_no", param: tds2HomePhoneNo)
+        setParam(&data, key: "tds2_mobile_phone_cc", param: tds2MobilePhoneCc)
+        setParam(&data, key: "tds2_mobile_phone_no", param: tds2MobilePhoneNo)
+        setParam(&data, key: "tds2_work_phone_cc", param: tds2WorkPhoneCc)
+        setParam(&data, key: "tds2_work_phone_no", param: tds2WorkPhoneNo)
+        setParam(&data, key: "tds2_ship_addr_city", param: tds2ShipAddrCity)
+        setParam(&data, key: "tds2_ship_addr_country", param: tds2ShipAddrCountry)
+        setParam(&data, key: "tds2_ship_addr_line_1", param: tds2ShipAddrLine1)
+        setParam(&data, key: "tds2_ship_addr_line_2", param: tds2ShipAddrLine2)
+        setParam(&data, key: "tds2_ship_addr_line_3", param: tds2ShipAddrLine3)
+        setParam(&data, key: "tds2_ship_addr_post_code", param: tds2ShipAddrPostCode)
+        setParam(&data, key: "tds2_ship_addr_state", param: tds2ShipAddrState)
+        setParam(&data, key: "tds2_delivery_email_address", param: tds2DeliveryEmailAddress)
+        setParam(&data, key: "tds2_delivery_timeframe", param: tds2DeliveryTimeframe)
+        setParam(&data, key: "tds2_gift_card_amount", param: tds2GiftCardAmount)
+        setParam(&data, key: "tds2_gift_card_count", param: tds2GiftCardCount)
+        setParam(&data, key: "tds2_gift_card_curr", param: tds2GiftCardCurr)
+        setParam(&data, key: "tds2_pre_order_date", param: tds2PreOrderDate)
+        setParam(&data, key: "tds2_pre_order_purchase_ind", param: tds2PreOrderPurchaseInd)
+        setParam(&data, key: "tds2_reorder_items_ind", param: tds2ReorderItemsInd)
+        setParam(&data, key: "tds2_ship_ind", param: tds2ShipInd)
+        setParam(&data, key: "tds2_recurring_expiry", param: tds2RecurringExpiry)
+        setParam(&data, key: "tds2_recurring_frequency", param: tds2RecurringFrequency)
         return data
     }
     

@@ -29,7 +29,7 @@ public class FincodeCardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardInfoListResponse(json: JSON(json))))
             } else {
-                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .cardInfoList)))
             }
         }
     }
@@ -53,7 +53,7 @@ public class FincodeCardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardRegisterResponse(json: JSON(json))))
             } else {
-                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .cardRegister)))
             }
         }
     }
@@ -79,7 +79,7 @@ public class FincodeCardOperateRepository {
             if response.result.isSuccess, let json = response.result.value {
                 complete(.success(FincodeCardUpdateResponse(json: JSON(json))))
             } else {
-                complete(.failure(FincodeAPIError(response: response.response, data: response.data)))
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .cardUpdate)))
             }
         }
     }

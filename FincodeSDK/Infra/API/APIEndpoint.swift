@@ -12,6 +12,10 @@ enum APIEndpoint {
     case register(data: [String: AnyObject], header: [String: String])
     /// 決済実行
     case payment(id: String, data: [String: AnyObject], header: [String: String])
+    /// クレカ決済_3DS2.0認証実行
+    case authentication(id: String, data: [String: AnyObject], header: [String: String])
+    /// クレカ決済_3DS2.0認証結果取得
+    case getResult(id: String, header: [String: String])
     /// 認証後決済
     case paymentSecure(id: String, data: [String: AnyObject], header: [String: String])
     /// カード登録
@@ -35,6 +39,12 @@ enum APIEndpoint {
             
         case .paymentSecure(let id, _, _):
             path = "/payments/\(id)/secure"
+            
+        case .authentication(let id, _, _):
+            path = "/secure2/\(id)"
+            
+        case .getResult(let id, _):
+            path = "/secure2/\(id)"
             
         case .cardRegister(let customer_id, _, _):
             path = "/customers/\(customer_id)/cards"
@@ -62,6 +72,12 @@ enum APIEndpoint {
         case .paymentSecure(_, let data, let header):
             return executeApi(method: .put, data: data, headers: header)
             
+        case .authentication(_, let data, let header):
+            return executeApi(method: .put, data: data, headers: header)
+            
+        case .getResult(_, let header):
+            return executeApi(method: .get, headers: header)
+
         case .cardRegister(_, data: let data, header: let header):
             return executeApi(method: .post, data: data, headers: header)
             

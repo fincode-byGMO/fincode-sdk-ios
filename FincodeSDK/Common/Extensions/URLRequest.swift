@@ -33,4 +33,20 @@ extension URLRequest {
         
         return result
     }
+    
+    /// ここでURLデコードは行っていない
+    mutating func getQuery() -> [String : String]? {
+        var result: [String:String] = [:]
+        if let query = self.url?.query {
+            let split = query.split(separator: "&")
+            for param in split {
+                let sp = param.split(separator: "=")
+                let key: String = String(sp[0])
+                let value: String = String(sp[1])
+                result[key] = value
+            }
+        }
+        
+        return result
+    }
 }
