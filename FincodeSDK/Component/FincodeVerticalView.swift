@@ -23,10 +23,10 @@ public class FincodeVerticalView: FincodeCommon {
     
     private var selectCardAreaView: SelectCardAreaView?
   
-    override func initialize(_ components :Components?) {
-        super.initialize(Components(cardNoView: cardNoView, expireView: expireView, securityCodeView: securityCodeView,
-                                    submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView,
-                                    selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, indicatorView: indicatorView, indicator: indicator,
-                                    selectCardAreaConstraints: viewConstraints))
-    }
+//    override func initialize(_ components :Components?) {
+//        super.initialize(Components(cardNoView: cardNoView, expireView: expireView, securityCodeView: securityCodeView,
+//                                    submitButtonView: submitButtonView, holderNameView: holderNameView, payTimesView: payTimesView,
+//                                    selectCardAreaView: SelectCardAreaView(), selectCardAreaBaseView: view, indicatorView: indicatorView, indicator: indicator,
+//                                    selectCardAreaConstraints: viewConstraints))
+//    }
 }
