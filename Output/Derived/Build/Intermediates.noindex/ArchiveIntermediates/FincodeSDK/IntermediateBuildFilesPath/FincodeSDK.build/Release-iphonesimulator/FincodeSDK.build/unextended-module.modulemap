@@ -1,0 +1,10 @@
+framework module FincodeSDK {
+  umbrella header "FincodeSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module FincodeSDK.__Swift {
+    exclude header "FincodeSDK-Swift.h"
+}

@@ -1,0 +1,11 @@
+framework module FincodeSDK {
+  umbrella header "FincodeSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module FincodeSDK.Swift {
+    header "FincodeSDK-Swift.h"
+    requires objc
+}
