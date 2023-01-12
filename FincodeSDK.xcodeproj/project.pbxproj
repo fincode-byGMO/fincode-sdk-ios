@@ -25,7 +25,6 @@
 		4D07444A28D30071004F4DD6 /* FincodeAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07444828D30071004F4DD6 /* FincodeAuthRequest.swift */; };
 		4D30019228D3145500780090 /* FincodeGetResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30019128D3145500780090 /* FincodeGetResultRequest.swift */; };
 		4D30019328D3145500780090 /* FincodeGetResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30019128D3145500780090 /* FincodeGetResultRequest.swift */; };
-		4DFE8AF528EC01500090934D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFE8AF428EC01500090934D /* WebKit.framework */; };
 		4F0526A727D07C620047546D /* PayTimesPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A627D07C620047546D /* PayTimesPickerField.swift */; };
 		4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A627D07C620047546D /* PayTimesPickerField.swift */; };
 		4F0526AA27D0EC4F0047546D /* CardUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0526A927D0EC4F0047546D /* CardUpdatePresenter.swift */; };
@@ -162,6 +161,8 @@
 		4F2F8A3B27E22B8900C6727C /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F8A3927E22B8900C6727C /* UseCase.swift */; };
 		4F2F8A3D27E22BAA00C6727C /* UseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F8A3C27E22BAA00C6727C /* UseCard.swift */; };
 		4F2F8A3E27E22BAA00C6727C /* UseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F8A3C27E22BAA00C6727C /* UseCard.swift */; };
+		4F3EEDF0296FE6D700209F42 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFE8AF428EC01500090934D /* WebKit.framework */; };
+		4F3EEDF1296FE6D700209F42 /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFE8AF428EC01500090934D /* WebKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F45D18A278D1D6B00FB3483 /* FincodeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */; };
 		4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F45D18E278D1D6B00FB3483 /* FincodeSDKTests.swift */; };
 		4F45D190278D1D6B00FB3483 /* FincodeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F45D184278D1D6A00FB3483 /* FincodeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -287,6 +288,20 @@
 			remoteInfo = FincodeSDK;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F3EEDF2296FE6D700209F42 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F3EEDF1296FE6D700209F42 /* WebKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -433,7 +448,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DFE8AF528EC01500090934D /* WebKit.framework in Frameworks */,
+				4F3EEDF0296FE6D700209F42 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +862,7 @@
 				4F45D17D278D1D6A00FB3483 /* Sources */,
 				4F45D17E278D1D6A00FB3483 /* Frameworks */,
 				4F45D17F278D1D6A00FB3483 /* Resources */,
+				4F3EEDF2296FE6D700209F42 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
