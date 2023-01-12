@@ -6,12 +6,14 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = 'test'
 
-  s.platforms    = { :ios => '4.0' }
-  #s.ios.deployment_target = '4.0'
-  s.source       = { :git => 'https://okuyama-GMOPG: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@github.com/okuyama-GMOPG/reactnative-test.git', :tag => '#{s.version}' }
+  #s.platforms    = { :ios => '14.0' }
+  s.ios.deployment_target = '14.0'
+  s.swift_version = '4'
+  
+  s.source       = { :git => "https://okuyama-GMOPG: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@github.com/okuyama-GMOPG/reactnative-test.git", :tag => "#{s.version}" }
 
-  s.vendored_frameworks   = ['Output/FincodeSDK/FincodeSDK.xcframework']
-  #s.ios.vendored_frameworks = ['Output/FincodeSDK/FincodeSDK.xcframework']
+  #s.vendored_frameworks   = ['Output/FincodeSDK/FincodeSDK.xcframework']
+  s.ios.vendored_frameworks = ['Output/FincodeSDK/FincodeSDK.xcframework']
 
   #s.frameworks = 'WebKit'
 
