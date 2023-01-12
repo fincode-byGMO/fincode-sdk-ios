@@ -276,7 +276,6 @@
 		4FFEA0F727E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */; };
 		4FFEA0F927E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
 		4FFEA0FA27E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
-		97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,11 +303,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.debug.xcconfig"; sourceTree = "<group>"; };
-		17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK_FincodeSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-FincodeSDK-FincodeSDKTests/Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D07444828D30071004F4DD6 /* FincodeAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeAuthRequest.swift; sourceTree = "<group>"; };
 		4D30019128D3145500780090 /* FincodeGetResultRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeGetResultRequest.swift; sourceTree = "<group>"; };
 		4DFE8AF428EC01500090934D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -381,6 +375,7 @@
 		4F2F8A3127E2288800C6727C /* SubmitButtonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonType.swift; sourceTree = "<group>"; };
 		4F2F8A3927E22B8900C6727C /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		4F2F8A3C27E22BAA00C6727C /* UseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCard.swift; sourceTree = "<group>"; };
+		4F3EEDF3296FEA1300209F42 /* FincodeSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FincodeSDK.podspec; sourceTree = "<group>"; };
 		4F45D181278D1D6A00FB3483 /* FincodeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FincodeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F45D184278D1D6A00FB3483 /* FincodeSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FincodeSDK.h; sourceTree = "<group>"; };
 		4F45D189278D1D6B00FB3483 /* FincodeSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FincodeSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -440,7 +435,6 @@
 		4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardInfoListRequest.swift; sourceTree = "<group>"; };
 		4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorResponse.swift; sourceTree = "<group>"; };
 		4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorInfo.swift; sourceTree = "<group>"; };
-		C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FincodeSDK.release.xcconfig"; path = "Target Support Files/Pods-FincodeSDK/Pods-FincodeSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,7 +451,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F45D18A278D1D6B00FB3483 /* FincodeSDK.framework in Frameworks */,
-				97AF30AA9164C62B4D6C0561 /* Pods_FincodeSDK_FincodeSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +695,7 @@
 		4F45D177278D1D6A00FB3483 = {
 			isa = PBXGroup;
 			children = (
+				4F3EEDF3296FEA1300209F42 /* FincodeSDK.podspec */,
 				4F45D183278D1D6A00FB3483 /* FincodeSDK */,
 				4F25A060278D1FCD004F8ADC /* Library */,
 				4F86CBA327981163005E49E9 /* ValueObject */,
@@ -720,7 +714,6 @@
 				4F25A38F278D2004004F8ADC /* SupportingFiles */,
 				4F45D18D278D1D6B00FB3483 /* FincodeSDKTests */,
 				4F45D182278D1D6A00FB3483 /* Products */,
-				96E814BB4EF0A4C0133F6BFF /* Pods */,
 				87991D53D46A22DC7F07FDD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -820,21 +813,8 @@
 			isa = PBXGroup;
 			children = (
 				4DFE8AF428EC01500090934D /* WebKit.framework */,
-				45E9F3DCE10106399D4B7C41 /* Pods_FincodeSDK.framework */,
-				17C0214920292C58EA608B25 /* Pods_FincodeSDK_FincodeSDKTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		96E814BB4EF0A4C0133F6BFF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */,
-				C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */,
-				4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */,
-				25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -857,7 +837,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F45D193278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDK" */;
 			buildPhases = (
-				C479CA0A214D5F84AE1987E7 /* [CP] Check Pods Manifest.lock */,
 				4F45D17C278D1D6A00FB3483 /* Headers */,
 				4F45D17D278D1D6A00FB3483 /* Sources */,
 				4F45D17E278D1D6A00FB3483 /* Frameworks */,
@@ -877,7 +856,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F45D196278D1D6B00FB3483 /* Build configuration list for PBXNativeTarget "FincodeSDKTests" */;
 			buildPhases = (
-				7D2D243E94720777726061A4 /* [CP] Check Pods Manifest.lock */,
 				4F45D185278D1D6B00FB3483 /* Sources */,
 				4F45D186278D1D6B00FB3483 /* Frameworks */,
 				4F45D187278D1D6B00FB3483 /* Resources */,
@@ -1005,50 +983,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# xcframeworkを作成します\n# SDK名\nSDK_NAME=FincodeSDK\n\n# 出力先ディレクトリ（プロジェクトの直下）\nOUTPUT_DIR=${PROJECT_DIR}/Output\n\n# 中間ファイルの出力先ディレクトリ\nDERIVED_DIR=${OUTPUT_DIR}/Derived\n\n# archiveの出力先ディレクトリ\nARCHIVE_DIR=${OUTPUT_DIR}/Archive\n\n# xcframeworkの出力先ディレクトリ\nXCFRAMEWORK_DIR=${OUTPUT_DIR}/${SDK_NAME}\n\n# 出力先ディレクトリ削除\nrm -rf ${OUTPUT_DIR}\n\n# 中間ファイルの出力先ディレクトリ作成\nmkdir -p ${DERIVED_DIR}\n\n# アーカイブファイルの出力先ディレクトリ作成\nmkdir -p ${ARCHIVE_DIR}\n\n# xcframeworkの出力先ディレクトリ作成\nmkdir -p ${XCFRAMEWORK_DIR}\n\n# iOS実機用のarchiveファイル\nARCHIVE_FILE_IOS=${ARCHIVE_DIR}/ios.xcarchive\necho \"ARCHIVE_FILE_IOS:${ARCHIVE_FILE_IOS}\"\n\n# iOSシミュレータ用のarchiveファイル\nARCHIVE_FILE_IOS_SIMULATOR=${ARCHIVE_DIR}/iossimulator.xcarchive\necho \"ARCHIVE_FILE_IOS_SIMULATOR:${ARCHIVE_FILE_IOS_SIMULATOR}\"\n\n# iOS実機用のarchiveファイル作成\nxcodebuild \\\narchive \\\n-project 'FincodeSDK.xcodeproj' \\\n-scheme ${PROJECT_NAME} \\\n-destination=\"iOS\" \\\n-archivePath $ARCHIVE_FILE_IOS \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphoneos \\\nSKIP_INSTALL=NO \\\nBUILD_LIBRARY_FOR_DISTRIBUTION=YES \\\n-configuration 'Release'\n\n# iOSシミュレータ用のarchiveファイル作成\nxcodebuild \\\narchive \\\n-project 'FincodeSDK.xcodeproj' \\\n-scheme ${PROJECT_NAME} \\\n-destination=\"iOS Simulator\" \\\n-archivePath $ARCHIVE_FILE_IOS_SIMULATOR \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphonesimulator \\\nSKIP_INSTALL=NO \\\nBUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\nxcodebuild -create-xcframework \\\n-framework $ARCHIVE_FILE_IOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_SIMULATOR/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-output $XCFRAMEWORK_DIR/${SDK_NAME}.xcframework\n\n# xcframeworkの出力ディレクトリをFinderで開く\nopen ${XCFRAMEWORK_DIR}\n";
-		};
-		7D2D243E94720777726061A4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FincodeSDK-FincodeSDKTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C479CA0A214D5F84AE1987E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FincodeSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1431,7 +1365,6 @@
 		};
 		4F45D194278D1D6B00FB3483 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13AEE5B5461D5BADF49AC91B /* Pods-FincodeSDK.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
@@ -1448,7 +1381,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = x86_64;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64e;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64e arm64";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -1473,7 +1406,6 @@
 		};
 		4F45D195278D1D6B00FB3483 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C185A6C300953E4DFCAF8276 /* Pods-FincodeSDK.release.xcconfig */;
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
@@ -1490,7 +1422,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = x86_64;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64e;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64e arm64";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -1515,7 +1447,6 @@
 		};
 		4F45D197278D1D6B00FB3483 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B094654E50B34B405E58ABC /* Pods-FincodeSDK-FincodeSDKTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1538,7 +1469,6 @@
 		};
 		4F45D198278D1D6B00FB3483 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25A7F2878764A197484C0D27 /* Pods-FincodeSDK-FincodeSDKTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
