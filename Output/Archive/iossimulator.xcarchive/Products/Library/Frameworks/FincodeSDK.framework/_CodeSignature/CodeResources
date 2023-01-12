@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		URF8WgMIzgdAl3JaqjU6muRr3gY=
+		ueHJ7w4llEFFHx07m19EQL0vN7I=
 		</data>
 		<key>CardPickerParts.nib</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/FincodeSDK-Swift.h</key>
 		<data>
-		4kNh9SpELqfAj4FPSul/xiwHDns=
+		wn+nW3x1vz99UnallwJI/2EVt5U=
 		</data>
 		<key>Headers/FincodeSDK.h</key>
 		<data>
@@ -79,6 +79,18 @@
 		<key>MessageDialogView.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib</key>
 		<data>
 		zPO8+ogAc0VYyIYCBof7b8uP2Cg=
+		</data>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		SStLQNfF6uYhw+OWP4ZePW382g4=
+		</data>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		NYjPMk0zl882tOo0/zjq+xIbqA4=
+		</data>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		ZTL/dfeyh8RHJW9vVxSUgqzbhic=
 		</data>
 		<key>Modules/FincodeSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -127,7 +139,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6mRchRTgjyFsTQeJQ6rxAcdr2F0eHcgBwvPCIrwoXHQ=
+			/2N6jxP4ay8ZTMXOE35wP8p/axSIyIHWsKBeNqWGEso=
 			</data>
 		</dict>
 		<key>CardPickerParts.nib</key>
@@ -218,7 +230,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7hgUqcWbsqh9i2yqa2bUCWtgoZtYq1bxp5aeOxZCoII=
+			qkahFzp4kRKD057hd3lAPYJ66MBLmwjyB98Tb6vnxeU=
 			</data>
 		</dict>
 		<key>Headers/FincodeSDK.h</key>
@@ -247,6 +259,27 @@
 			<key>hash2</key>
 			<data>
 			qDyuNRy5TuwqP2MDgFtYG1p49swI7zbFK8Ymv7fFZng=
+			</data>
+		</dict>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QnWBeowFMwbjslIXYFhxKsBQjY7ZzhJmBEy4/l0CPZQ=
+			</data>
+		</dict>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cTmMg0w9LJpeSytDL3BFgP5Umdwg0MGVZWbc3kNo5eI=
+			</data>
+		</dict>
+		<key>Modules/FincodeSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JSaVbk6PnamRYeqQzE1F0m0u26X4Aad+BcKdy4b0xx0=
 			</data>
 		</dict>
 		<key>Modules/FincodeSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>

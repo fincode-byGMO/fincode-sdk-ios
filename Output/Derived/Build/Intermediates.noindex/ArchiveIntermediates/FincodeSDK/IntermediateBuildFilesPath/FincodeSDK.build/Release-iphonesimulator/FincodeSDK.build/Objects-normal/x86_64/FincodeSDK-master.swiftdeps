@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
 options: "ad269d58a82675e43935a630bb4a3aabd7655ac7835e220bd99a16bcd87ba1d1"
-build_start_time: [1673511033, 352137088]
-build_end_time: [1673511054, 691103935]
+build_start_time: [1673515319, 805827140]
+build_end_time: [1673515343, 602180957]
 inputs:
   "/Users/nakajimaakira/work/gmo-ep/FincodeSDK/FincodeSDK/Common/ColorController.swift": [1649818879, 902697563]
   "/Users/nakajimaakira/work/gmo-ep/FincodeSDK/FincodeSDK/Common/ComponentDelegate.swift": [1649818879, 907604694]
