@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>30C5B6D1-09E8-4248-8184-695D03E9FA30</key>
+		<key>16935F6D-4AD1-427E-9B17-7B4F3A75B5A5</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>30C5B6D1-09E8-4248-8184-695D03E9FA30.xcactivitylog</string>
+			<string>16935F6D-4AD1-427E-9B17-7B4F3A75B5A5.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
 			<key>timeStartedRecording</key>
-			<real>695132923.02991104</real>
+			<real>695203791.48636305</real>
 			<key>timeStoppedRecording</key>
-			<real>695132970.92921805</real>
+			<real>695203829.77993298</real>
 			<key>title</key>
 			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
 			<key>uniqueIdentifier</key>
-			<string>30C5B6D1-09E8-4248-8184-695D03E9FA30</string>
+			<string>16935F6D-4AD1-427E-9B17-7B4F3A75B5A5</string>
 		</dict>
-		<key>80655888-3976-4ACB-AB21-75D5D4085954</key>
+		<key>2BCDE4BC-9BD1-4146-9FF8-781BAC333EA8</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,7 +49,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>80655888-3976-4ACB-AB21-75D5D4085954.xcactivitylog</string>
+			<string>2BCDE4BC-9BD1-4146-9FF8-781BAC333EA8.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -66,13 +66,13 @@
 			<key>signature</key>
 			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
 			<key>timeStartedRecording</key>
-			<real>695132973.233706</real>
+			<real>695203832.05551195</real>
 			<key>timeStoppedRecording</key>
-			<real>695133002.87853003</real>
+			<real>695203856.69002199</real>
 			<key>title</key>
 			<string>Archiving project FincodeSDK with scheme FincodeSDK</string>
 			<key>uniqueIdentifier</key>
-			<string>80655888-3976-4ACB-AB21-75D5D4085954</string>
+			<string>2BCDE4BC-9BD1-4146-9FF8-781BAC333EA8</string>
 		</dict>
 	</dict>
 </dict>

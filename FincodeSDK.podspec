@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   #s.frameworks = 'WebKit'
 
-  s.source_files = '*'
+  #s.source_files = '*'
   # 'ios/**/*.{h,m,mm,swift}'
   
   #s.dependency 'Alamofire'
