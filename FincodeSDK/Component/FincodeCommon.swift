@@ -16,6 +16,7 @@ protocol FincodeCommonDelegate: AnyObject {
 }
 
 @IBDesignable
+@objc
 public class FincodeCommon: UIView, FincodeCommonDelegate {
     
     struct Components {
@@ -198,10 +199,8 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
     }
     
-    private func initComponent(_ delegate: ResultDelegate) {
-        guard let config = DataHolder.instance.config,
-              let comp = components,
-              let parentViewController = parentViewController else { return }
+    private func initComponent(_ delegate: ResultDelegate, isReact: Bool = false) {
+        guard let config = DataHolder.instance.config, let comp = components else { return }
         
         activeNewCard()
         comp.submitButtonView.buttonTitle(config.useCase.title)
@@ -223,7 +222,11 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         case .payment:
             comp.cardNoView.required = true
             comp.expireView.required = true
-            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
+            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(),
+                                                interactorCard: CardOperateInteractor(),
+                                                router: PaymentRouter(parentViewController),
+                                                view: self,
+                                                isReact: isReact)
             paymentPresenter?.externalResultDelegate = delegate
             if !config.customerId.isEmpty {
                 paymentPresenter?.cardInfoList(config)
@@ -280,7 +283,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @IBInspectable public var headingHidden: Bool {
+    @objc @IBInspectable public var headingHidden: Bool {
         get {
             return mHeadingHidden
         }
@@ -298,7 +301,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @IBInspectable public var dynamicLogDisplay: Bool {
+    @objc @IBInspectable public var dynamicLogDisplay: Bool {
         get {
             return mDynamicLogDisplay
         }
@@ -314,7 +317,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @IBInspectable public var holderNameHidden: Bool {
+    @objc @IBInspectable public var holderNameHidden: Bool {
         get {
             return mHolderNameHidden
         }
@@ -331,7 +334,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @IBInspectable public var payTimesHidden: Bool {
+    @objc @IBInspectable public var payTimesHidden: Bool {
         get {
             return mPayTimesHidden
         }
@@ -361,9 +364,15 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     ///     - カード登録: FincodeCardRegisterRequest
     ///
     ///     - カード更新: FincodeCardUpdateResponse
-    public func configuration(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
+    @objc public func configuration(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
         DataHolder.instance.config = config
         initComponent(delegate)
+    }
+    
+    /// React Native向け
+    @objc public func configurationForReact(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
+        DataHolder.instance.config = config
+        initComponent(delegate, isReact: true)
     }
     
     func setCardList(_ list: [FincodeCardInfo]?) {

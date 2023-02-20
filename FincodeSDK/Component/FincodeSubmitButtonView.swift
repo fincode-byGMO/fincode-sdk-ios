@@ -13,7 +13,7 @@ protocol FincodeSubmitButtonViewDelegate: AnyObject {
 }
 
 @IBDesignable
-public class FincodeSubmitButtonView: UIView {
+class FincodeSubmitButtonView: UIView {
     
     @IBOutlet weak var submitButton: UIButton!
     
@@ -32,11 +32,11 @@ public class FincodeSubmitButtonView: UIView {
     }
     
     fileprivate func initialize() {
-//        submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
+        submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
     }
     
     func buttonTitle(_ title: String) {
-//        submitButton.setTitle(title, for: .normal)
+        submitButton.setTitle(title, for: .normal)
     }
     
     @IBAction func didTouchButton(_ sender: Any) {

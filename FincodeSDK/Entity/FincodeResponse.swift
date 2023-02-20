@@ -5,5 +5,8 @@
 //  Created by fincode on 2022/02/25.
 //
 
+import Foundation
+
+@objc
 public protocol FincodeResponse {
 }
