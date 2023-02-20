@@ -8,7 +8,8 @@
 
 import Foundation
 
-public class FincodeConfiguration {
+@objc
+public class FincodeConfiguration: NSObject {
     /// 利用目的を選択
     ///
     /// payment : 決済
@@ -16,21 +17,22 @@ public class FincodeConfiguration {
     /// registerCard : クレジットカード登録
     ///
     /// updateCard :  クレジットカード更新
-    var useCase: SubmitButtonType = .none
+    @objc public var useCase: SubmitButtonType = .none
     
     /// 認証方式およびパブリックキー
     ///
     /// Basic認証 ( Base64でエンコードしたパブリックキー )
     ///
     /// Bearer認証
-    public var authorizationPublic: Authorization = .Bearer(apiKey: "")
+    @objc public var authorizationPublic: Authorization = .Bearer
+    //@objc public var authorizationPublic: Authorization = .Bearer(apiKey: "")
+    
+    /// API キー
+    @objc public var apiKey: String = ""
     
     /// APIバージョン
-    public var apiVersion: String = ""
+    @objc public var apiVersion: String = ""
     
     /// 顧客ID
-    public var customerId = ""
-    
-    public init() {
-    }
+    @objc public var customerId = ""
 }

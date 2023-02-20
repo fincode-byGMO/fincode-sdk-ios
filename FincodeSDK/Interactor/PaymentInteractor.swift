@@ -20,7 +20,7 @@ protocol PaymentInteractorDelegate: AnyObject {
 
 protocol PaymentInteractorNotify: AnyObject {
     // InteractorからPresenterに通知する処理を定義
-    func paymentSuccess(_ result: FincodeResponse)
+    func paymentSuccess(_ useCase: PaymentUseCase, result: FincodeResponse)
     func paymentFailure(_ useCase: PaymentUseCase, withError error: FincodeAPIError)
     func paymentSecureSuccess(_ result: FincodeResponse)
     func paymentSecureFailure(_ useCase: PaymentUseCase, withError error: FincodeAPIError)
@@ -64,7 +64,7 @@ extension PaymentInteractor: PaymentInteractorDelegate {
 extension PaymentInteractor: PaymentUseCaseDelegate {
     
     func paymentUseCase(_ useCase: PaymentUseCase, response: FincodePaymentResponse) {
-        presenterNotify?.paymentSuccess(response)
+        presenterNotify?.paymentSuccess(useCase, result: response)
     }
 
     func paymentUseCaseFaild(_ useCase: PaymentUseCase, withError error: FincodeAPIError) {
