@@ -57,7 +57,7 @@ extension WebContentPresenter: WebContentPresenterDelegate{
 extension WebContentPresenter: PaymentInteractorNotify {
     
     // 決済実行
-    func paymentSuccess(_ result: FincodeResponse) {
+    func paymentSuccess(_ useCase: PaymentUseCase, result: FincodeResponse) {
         // do nothing
     }
     

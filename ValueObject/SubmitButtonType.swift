@@ -7,7 +7,8 @@
 
 import Foundation
 
-public enum SubmitButtonType {
+@objc
+public enum SubmitButtonType: Int {
     /// なし
     case none
     /// クレジットカードを登録
