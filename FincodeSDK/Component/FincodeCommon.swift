@@ -17,7 +17,7 @@ protocol FincodeCommonDelegate: AnyObject {
 
 @IBDesignable
 @objc
-public class FincodeCommon: UIView, FincodeCommonDelegate {
+open class FincodeCommon: UIView, FincodeCommonDelegate {
     
     struct Components {
         var cardNoView: FincodeCardNoView
@@ -283,7 +283,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @objc @IBInspectable public var headingHidden: Bool {
+    @IBInspectable public var headingHidden: Bool {
         get {
             return mHeadingHidden
         }
@@ -301,7 +301,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @objc @IBInspectable public var dynamicLogDisplay: Bool {
+    @IBInspectable public var dynamicLogDisplay: Bool {
         get {
             return mDynamicLogDisplay
         }
@@ -317,7 +317,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @objc @IBInspectable public var holderNameHidden: Bool {
+    @IBInspectable public var holderNameHidden: Bool {
         get {
             return mHolderNameHidden
         }
@@ -334,7 +334,7 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     /// true: 表示
     ///
     /// false: 非表示
-    @objc @IBInspectable public var payTimesHidden: Bool {
+    @IBInspectable public var payTimesHidden: Bool {
         get {
             return mPayTimesHidden
         }
