@@ -184,6 +184,8 @@ public class FincodePaymentResponse: FincodeResponse {
     public let merchantName: String?
     public let sendUrl: String?
     public let subscriptionId: String?
+    public let bulkPaymentId: String?
+    public let brand: String?
     public let errorCode: String?
     public let acsUrl: String?
     public let paReq: String?
@@ -227,6 +229,8 @@ public class FincodePaymentResponse: FincodeResponse {
         self.merchantName = json["merchant_name"].string
         self.sendUrl = json["send_url"].string
         self.subscriptionId = json["subscription_id"].string
+        self.bulkPaymentId = json["bulk_payment_id"].string
+        self.brand = json["brand"].string
         self.errorCode = json["error_code"].string
         self.acsUrl = json["acs_url"].string
         self.paReq = json["pa_req"].string
