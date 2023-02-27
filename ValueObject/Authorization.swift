@@ -18,7 +18,7 @@ public enum Authorization: Int {
     /// Bearer認証
     case Bearer
         
-    func authorization(_ apiKey: String) -> String {
+    public func authorization(_ apiKey: String) -> String {
         let result: String
         
         switch self {
