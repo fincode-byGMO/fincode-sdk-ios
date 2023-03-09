@@ -45,8 +45,8 @@ public class FincodeCardUpdateResponse: FincodeResponse {
     public let expire: String
     public let holderName: String?
     public let cardNoHash: String
-    public let created: Date?
-    public let updated: Date?
+    public let created: String?
+    public let updated: String?
     public let type: String
     public let brand: String
     
@@ -58,8 +58,8 @@ public class FincodeCardUpdateResponse: FincodeResponse {
         expire = json["expire"].stringValue
         holderName = json["holder_name"].stringValue
         cardNoHash = json["card_no_hash"].stringValue
-        created = json["created"].date
-        updated = json["updated"].date
+        created = json["created"].stringValue
+        updated = json["updated"].stringValue
         type = json["type"].stringValue
         brand = json["brand"].stringValue
     }
