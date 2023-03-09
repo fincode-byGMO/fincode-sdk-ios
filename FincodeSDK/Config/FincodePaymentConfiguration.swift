@@ -103,10 +103,10 @@ public class FincodePaymentConfiguration: FincodeConfiguration {
     @objc public var tds2MobilePhoneNo: String = ""
     
     ///職場電話の国コード
-    @objc var tds2WorkPhoneCc: String = ""
+    @objc public var tds2WorkPhoneCc: String = ""
     
     ///職場電話番号
-    @objc var tds2WorkPhoneNo: String = ""
+    @objc public var tds2WorkPhoneNo: String = ""
     
     ///出荷先住所の都市
     @objc public var tds2ShipAddrCity: String = ""
