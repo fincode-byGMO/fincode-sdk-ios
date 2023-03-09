@@ -189,8 +189,8 @@ public class FincodePaymentResponse: FincodeResponse {
     public let errorCode: String?
     public let acsUrl: String?
     public let paReq: String?
-    public let created: String?
-    public let updated: String?
+    public let created: Date?
+    public let updated: Date?
     
     init(json: JSON) {
         self.acs = json["acs"].string
@@ -234,7 +234,7 @@ public class FincodePaymentResponse: FincodeResponse {
         self.errorCode = json["error_code"].string
         self.acsUrl = json["acs_url"].string
         self.paReq = json["pa_req"].string
-        self.created = json["created"].string
-        self.updated = json["updated"].string
+        self.created = json["created"].date
+        self.updated = json["updated"].date
     }
 }
