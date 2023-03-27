@@ -7,14 +7,15 @@
 
 import Foundation
 
-public class FincodeErrorResponse {
+@objc
+public class FincodeErrorResponse: NSObject {
     
-    public let statusCode: Int
+    public let statusCode: Int?
     public let errorOccurredApi: ApiKinds
     public let errors: [FincodeErrorInfo]
     
-    init() {
-        statusCode = -1
+    override init() {
+        statusCode = nil
         errors = []
         errorOccurredApi = .none
     }
@@ -29,5 +30,11 @@ public class FincodeErrorResponse {
         self.statusCode = statusCode
         errors = json["errors"].arrayValue.map { FincodeErrorInfo(json: $0) }
         self.errorOccurredApi = errorOccurredApi
+    }
+    
+    init(_ message: String, errorOccurredApi: ApiKinds) {
+        self.statusCode = nil
+        self.errorOccurredApi = errorOccurredApi
+        self.errors = [FincodeErrorInfo(message)]
     }
 }
