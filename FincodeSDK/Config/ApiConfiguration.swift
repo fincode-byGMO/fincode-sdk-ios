@@ -29,7 +29,7 @@ class ApiConfiguration {
         
         var header: [String: String] = [:]
         setHeader(key: Constants.contentType, value: Constants.applicationJson, header: &header)
-        setHeader(key: Constants.authorization, value: config.authorizationPublic.authorization, header: &header)
+        setHeader(key: Constants.authorization, value: config.authorizationPublic.authorization(config.apiKey), header: &header)
         setHeader(key: Constants.apiVersion, value: config.apiVersion, header: &header)
         
         return header

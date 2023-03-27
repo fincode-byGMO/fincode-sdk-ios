@@ -14,4 +14,12 @@ public enum DefaultFlg: String {
     init(value: String) {
         self = type(of: self).init(rawValue: value) ?? .OFF
     }
+    
+    public static func getValue(_ value: String) -> DefaultFlg {
+        if value == "0" {
+            return .OFF
+        } else {
+            return .ON
+        }
+    }
 }

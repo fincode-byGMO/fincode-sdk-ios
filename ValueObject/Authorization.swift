@@ -6,27 +6,40 @@
 //  Copyright © 2021年 GMO Payment Gateway, Inc. All rights reserved.
 //
 
+import Foundation
+
 /// 認証方式
-public enum Authorization {
+@objc
+public enum Authorization: Int {
     
     case none
     /// Basic認証 ( Base64でエンコードしたAPIキー )
-    case Basic(apiKey: String)
+    case Basic
     /// Bearer認証
-    case Bearer(apiKey: String)
-    
-    var authorization: String {
+    case Bearer
+        
+    public func authorization(_ apiKey: String) -> String {
         let result: String
         
         switch self {
-        case .Basic(apiKey: let apiKey):
+        case .Basic:
             result = "Basic \(apiKey)"
-        case .Bearer(apiKey: let apiKey):
+        case .Bearer:
             result = "Bearer \(apiKey)"
         case .none:
             result = ""
         }
         
         return result
+    }
+    
+    public static func getValue(_ value: String) -> Authorization {
+      if value.lowercased() == "basic" {
+        return .Basic
+      } else if value.lowercased() == "bearer" {
+        return .Bearer
+      } else {
+        return .none
+      }
     }
 }

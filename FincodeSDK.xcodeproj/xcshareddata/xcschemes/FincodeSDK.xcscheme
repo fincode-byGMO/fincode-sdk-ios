@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1330"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4202FCD1B667AA100C997FB"
-               BuildableName = "Alamofire.framework"
-               BlueprintName = "Alamofire watchOS"
-               ReferencedContainer = "container:Alamofire.xcodeproj">
+               BlueprintIdentifier = "4F45D180278D1D6A00FB3483"
+               BuildableName = "FincodeSDK.framework"
+               BlueprintName = "FincodeSDK"
+               ReferencedContainer = "container:FincodeSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,9 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4F45D188278D1D6B00FB3483"
+               BuildableName = "FincodeSDKTests.xctest"
+               BlueprintName = "FincodeSDKTests"
+               ReferencedContainer = "container:FincodeSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -42,17 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E4202FCD1B667AA100C997FB"
-            BuildableName = "Alamofire.framework"
-            BlueprintName = "Alamofire watchOS"
-            ReferencedContainer = "container:Alamofire.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -63,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E4202FCD1B667AA100C997FB"
-            BuildableName = "Alamofire.framework"
-            BlueprintName = "Alamofire watchOS"
-            ReferencedContainer = "container:Alamofire.xcodeproj">
+            BlueprintIdentifier = "4F45D180278D1D6A00FB3483"
+            BuildableName = "FincodeSDK.framework"
+            BlueprintName = "FincodeSDK"
+            ReferencedContainer = "container:FincodeSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
