@@ -16,7 +16,8 @@ protocol FincodeCommonDelegate: AnyObject {
 }
 
 @IBDesignable
-public class FincodeCommon: UIView, FincodeCommonDelegate {
+@objc
+open class FincodeCommon: UIView, FincodeCommonDelegate {
     
     struct Components {
         var cardNoView: FincodeCardNoView
@@ -198,10 +199,8 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         }
     }
     
-    private func initComponent(_ delegate: ResultDelegate) {
-        guard let config = DataHolder.instance.config,
-              let comp = components,
-              let parentViewController = parentViewController else { return }
+    private func initComponent(_ delegate: ResultDelegate, isReact: Bool = false) {
+        guard let config = DataHolder.instance.config, let comp = components else { return }
         
         activeNewCard()
         comp.submitButtonView.buttonTitle(config.useCase.title)
@@ -223,7 +222,11 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
         case .payment:
             comp.cardNoView.required = true
             comp.expireView.required = true
-            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(), interactorCard: CardOperateInteractor(), router: PaymentRouter(parentViewController), view: self)
+            paymentPresenter = PaymentPresenter(interactor: PaymentInteractor(),
+                                                interactorCard: CardOperateInteractor(),
+                                                router: PaymentRouter(parentViewController),
+                                                view: self,
+                                                isReact: isReact)
             paymentPresenter?.externalResultDelegate = delegate
             if !config.customerId.isEmpty {
                 paymentPresenter?.cardInfoList(config)
@@ -361,9 +364,15 @@ public class FincodeCommon: UIView, FincodeCommonDelegate {
     ///     - カード登録: FincodeCardRegisterRequest
     ///
     ///     - カード更新: FincodeCardUpdateResponse
-    public func configuration(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
+    @objc public func configuration(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
         DataHolder.instance.config = config
         initComponent(delegate)
+    }
+    
+    /// React Native向け
+    @objc public func configurationForReact(_ config: FincodeConfiguration?, delegate: ResultDelegate) {
+        DataHolder.instance.config = config
+        initComponent(delegate, isReact: true)
     }
     
     func setCardList(_ list: [FincodeCardInfo]?) {

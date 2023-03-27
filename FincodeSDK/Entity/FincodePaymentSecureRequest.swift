@@ -42,7 +42,7 @@ public class FincodePaymentSecureResponse: FincodeResponse {
     public let payType: String?
     public let status: String?
     public let accessId: String?
-    public let processDate: Date?
+    public let processDate: String?
     public let jobCode: String?
     public let itemCode: String?
     public let amount: Int64?
@@ -61,7 +61,7 @@ public class FincodePaymentSecureResponse: FincodeResponse {
     public let issuer: String?
     public let transactionId: String?
     public let approve: String?
-    public let authMaxDate: Date?
+    public let authMaxDate: String?
     public let clientField1: String?
     public let clientField2: String?
     public let clientField3: String?
@@ -73,8 +73,8 @@ public class FincodePaymentSecureResponse: FincodeResponse {
     public let sendUrl: String?
     public let subscriptionId: String?
     public let errorCode: String?
-    public let created: Date?
-    public let updated: Date?
+    public let created: String?
+    public let updated: String?
     
     init(json: JSON) {
         self.shopId = json["shop_id"].string
@@ -82,7 +82,7 @@ public class FincodePaymentSecureResponse: FincodeResponse {
         self.payType = json["pay_type"].string
         self.status = json["status"].string
         self.accessId = json["access_id"].string
-        self.processDate = json["process_date"].date
+        self.processDate = json["process_date"].string
         self.jobCode = json["job_code"].string
         self.itemCode = json["item_code"].string
         self.amount = json["amount"].int64
@@ -101,7 +101,7 @@ public class FincodePaymentSecureResponse: FincodeResponse {
         self.issuer = json["issuer"].string
         self.transactionId = json["transaction_id"].string
         self.approve = json["approve"].string
-        self.authMaxDate = json["auth_max_date"].date
+        self.authMaxDate = json["auth_max_date"].string
         self.clientField1 = json["client_field_1"].string
         self.clientField2 = json["client_field_2"].string
         self.clientField3 = json["client_field_3"].string
@@ -113,7 +113,7 @@ public class FincodePaymentSecureResponse: FincodeResponse {
         self.sendUrl = json["send_url"].string
         self.subscriptionId = json["subscription_id"].string
         self.errorCode = json["error_code"].string
-        self.created = json["created"].date
-        self.updated = json["updated"].date
+        self.created = json["created"].string
+        self.updated = json["updated"].string
     }
 }

@@ -7,23 +7,23 @@
 
 import Foundation
 
-public enum ApiKinds {
+public enum ApiKinds: String {
     
-    case none
+    case none = "none"
     /// 決済登録
-    case register
+    case register = "register"
     /// 決済実行
-    case payment
+    case payment = "payment"
     /// 3DS2.0認証実行
-    case authentication
+    case authentication = "authentication"
     /// 3DS2.0認証結果取得
-    case getResult
+    case getResult = "getResult"
     /// 認証後決済
-    case paymentSecure
+    case paymentSecure = "paymentSecure"
     /// カード登録
-    case cardRegister
+    case cardRegister = "cardRegister"
     /// カード更新
-    case cardUpdate
+    case cardUpdate = "cardUpdate"
     /// カード一覧取得
-    case cardInfoList
+    case cardInfoList = "cardInfoList"
 }
