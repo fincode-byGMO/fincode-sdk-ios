@@ -20,13 +20,15 @@ class PaymentPresenter {
     private let router: PaymentRouterDelegate
     private var mConfig: FincodePaymentConfiguration?
     private var mPaymentResponse: FincodePaymentResponse?
+    private let isReact: Bool
     var externalResultDelegate: ResultDelegate?
     
-    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, router: PaymentRouter, view: FincodeCommonDelegate) {
+    init(interactor: PaymentInteractorDelegate, interactorCard: CardOperateInteractorDelegate, router: PaymentRouter, view: FincodeCommonDelegate, isReact: Bool = false) {
         self.interactor = interactor
         self.interactorCard = interactorCard
         self.router = router
         self.view = view
+        self.isReact = isReact
     }
 }
 
@@ -214,11 +216,15 @@ extension PaymentPresenter: CardOperateInteractorNotify {
 // 決済実行・認証後決済の結果を処理する
 extension PaymentPresenter: PaymentInteractorNotify {
     
-    func paymentSuccess(_ result: FincodeResponse) {
+    func paymentSuccess(_ useCase: PaymentUseCase, result: FincodeResponse) {
         guard let paymentResponse = result as? FincodePaymentResponse, let config = mConfig else { return }
         
         view.hideIndicator()
         if paymentResponse.status == "AUTHENTICATED", paymentResponse.tdsType == "2" {
+            if isReact {
+                paymentFailure(useCase, withError: FincodeAPIError("ReactNative: Not Support 3DS2.0", errorOccurredApi: .authentication))
+            }
+            
             router.showWebView(paymentResponse, config: config, externalResultDelegate: externalResultDelegate)
         } else {
             externalResultDelegate?.success(result)

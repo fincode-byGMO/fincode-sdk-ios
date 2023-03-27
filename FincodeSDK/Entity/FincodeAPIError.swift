@@ -25,4 +25,8 @@ public class FincodeAPIError: Error {
             errorResponse = FincodeErrorResponse()
         }
     }
+    
+    init(_ message: String, errorOccurredApi: ApiKinds) {
+        self.errorResponse = FincodeErrorResponse(message, errorOccurredApi: errorOccurredApi)
+    }
 }

@@ -14,9 +14,9 @@ protocol PaymentRouterDelegate: AnyObject {
 
 class PaymentRouter {
     
-    private unowned let viewController: UIViewController
+    private unowned let viewController: UIViewController?
     
-    init(_ viewController: UIViewController) {
+    init(_ viewController: UIViewController?) {
         self.viewController = viewController
     }
 }
@@ -44,7 +44,7 @@ extension PaymentRouter: PaymentRouterDelegate {
         presenter.externalResultDelegate = externalResultDelegate
         presenter.paymentResponse = paymentResponse
         
-        viewController.navigationController?.pushViewController(view, animated: true)
+        viewController?.navigationController?.pushViewController(view, animated: true)
         //view.modalPresentationStyle = .fullScreen
         //viewController.present(view, animated: true)
     }
