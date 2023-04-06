@@ -13,12 +13,8 @@ class FincodePayTimesView: UIView {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var textField: PayTimesPickerField!
-    @IBOutlet weak var bulkView: RadioView!
-    @IBOutlet weak var divisionView: RadioView!
     @IBOutlet weak var textFieldConstraint: NSLayoutConstraint!
     
-    private var radioViewController: RadioViewController?
-    private var radioType: RadioType = .paymentBulk
     var required: Bool = false
     
     override public init(frame: CGRect) {
@@ -34,19 +30,53 @@ class FincodePayTimesView: UIView {
     }
     
     fileprivate func initialize() {
-        textField.isHidden = true
-        radioViewController = RadioViewController(bulkView, divisionView)
-        radioViewController?.delegate = self
+        textField.isHidden = false
+        textField.selectRow(0)
     }
     
     var payTimes: (method: String, payTimes: String?)? {
+        
         get {
-            switch(radioType) {
-            case .paymentBulk:
+            guard let value = textField.extText else { return nil }
+            
+            switch(value) {
+                // 一括選択時
+            case 0:
                 return ("1" , nil)
-            case .paymentDivision:
-                guard let value = textField.extText else { return nil }
+                // リボ
+            case 1:
+                return ("5", nil)
+                // 分割
+            case 2:
                 return ("2", String(value))
+                // 分割
+            case 3:
+                return ("2", String(value))
+                // 分割
+            case 5:
+                return ("2", String(value))
+                // 分割
+            case 6:
+                return ("2", String(value))
+                // 分割
+            case 10:
+                return ("2", String(value))
+                // 分割
+            case 12:
+                return ("2", String(value))
+                // 分割
+            case 15:
+                return ("2", String(value))
+                // 分割
+            case 18:
+                return ("2", String(value))
+                // 分割
+            case 20:
+                return ("2", String(value))
+                // 分割
+            case 24:
+                return ("2", String(value))
+                
             default:
                 return nil
             }
@@ -79,17 +109,4 @@ extension FincodePayTimesView: ComponentDelegate {
     }
 }
 
-extension FincodePayTimesView: RadioViewControllerDelegate {
-    
-    func didTouch(_ view: RadioView, radioType: RadioType) {
-        self.radioType = radioType
-        switch(radioType) {
-        case .paymentDivision:
-            textField.isHidden = false
-            textField.selectRow(0)
-        default:
-            textField.isHidden = true
-            textField.endEditing(true)
-        }
-    }
-}
+
