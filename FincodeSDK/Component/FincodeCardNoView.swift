@@ -16,9 +16,7 @@ class FincodeCardNoView: UIView {
     @IBOutlet weak var selectCardImage: UIImageView!
     @IBOutlet weak var errorLabelView: UILabel!
     @IBOutlet weak var borderView: UIView!
-    @IBOutlet weak var cardImageView: UIView!
-    
-    @IBOutlet weak var cardImageWidthConstraints: NSLayoutConstraint!
+
     
     private var mLayoutType: LayoutType = .vertical
     static private let regex: NSRegularExpression? = try? NSRegularExpression(pattern: "^[0-9]{10,16}$")
@@ -44,8 +42,7 @@ class FincodeCardNoView: UIView {
     
     private func horizontalLayout() {
         selectCardImage.isHidden = true
-        cardImageWidthConstraints.isActive = false
-        cardImageView.setViewGoneHorizontal()
+
     }
     
     /// LayoutTypeの値のみを設定してください。
