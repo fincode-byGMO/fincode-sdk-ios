@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,8 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
                 <outlet property="borderView" destination="cTa-v9-qOg" id="ZgO-fM-gbR"/>
-                <outlet property="cardImageView" destination="F0L-7n-DTC" id="RAO-RE-tIj"/>
-                <outlet property="cardImageWidthConstraints" destination="g38-Q3-NMI" id="bVy-Eo-FXI"/>
                 <outlet property="cardNumberTextView" destination="3G6-fm-KWx" id="yhQ-Hj-FlG"/>
                 <outlet property="errorLabelView" destination="zyU-f6-FYa" id="9XQ-UH-bYv"/>
                 <outlet property="headingLabel" destination="DMJ-ai-wXn" id="Ys8-hu-Iwc"/>
@@ -37,81 +35,18 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0L-7n-DTC">
-                            <rect key="frame" x="300" y="0.0" width="100" height="55"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_jcb_ic" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-eN-pWT">
-                                    <rect key="frame" x="0.0" y="33" width="28" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="qUv-Il-AJy"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_american-xpress_ic" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Yg-axP">
-                                    <rect key="frame" x="30" y="33" width="28.5" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="w7u-iC-6hj"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_diners-club_ic" translatesAutoresizingMaskIntoConstraints="NO" id="0jk-o0-8hV">
-                                    <rect key="frame" x="60.5" y="33" width="28" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="eRb-Ip-9ta"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_visa_ic" translatesAutoresizingMaskIntoConstraints="NO" id="bth-kY-TdY">
-                                    <rect key="frame" x="0.0" y="11" width="28" height="22"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="e2S-Ir-lnc"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_master_ic" translatesAutoresizingMaskIntoConstraints="NO" id="x6f-GY-u4z">
-                                    <rect key="frame" x="30" y="11" width="28.5" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="KvH-J9-Bz7"/>
-                                    </constraints>
-                                </imageView>
-                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-QK-1E3">
-                                    <rect key="frame" x="60.5" y="11" width="28" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="bbv-QK-1E3" secondAttribute="height" multiplier="1:0.78" id="CT8-Co-XDz"/>
-                                        <constraint firstAttribute="height" constant="22" id="ScJ-j8-ff7"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="0jk-o0-8hV" firstAttribute="top" secondItem="bbv-QK-1E3" secondAttribute="bottom" id="7ca-oO-b4G"/>
-                                <constraint firstItem="x6f-GY-u4z" firstAttribute="leading" secondItem="bth-kY-TdY" secondAttribute="trailing" constant="2" id="8KG-O0-kae"/>
-                                <constraint firstItem="QGU-Yg-axP" firstAttribute="leading" secondItem="wsl-eN-pWT" secondAttribute="trailing" constant="2" id="G3a-dW-Op9"/>
-                                <constraint firstItem="QGU-Yg-axP" firstAttribute="top" secondItem="x6f-GY-u4z" secondAttribute="bottom" id="HLW-Yc-6tI"/>
-                                <constraint firstItem="wsl-eN-pWT" firstAttribute="width" secondItem="wsl-eN-pWT" secondAttribute="height" multiplier="1:0.78" id="HXZ-NG-0DN"/>
-                                <constraint firstItem="bth-kY-TdY" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="JId-6i-KJ0"/>
-                                <constraint firstAttribute="height" constant="55" id="Mk2-ql-pec"/>
-                                <constraint firstItem="0jk-o0-8hV" firstAttribute="leading" secondItem="QGU-Yg-axP" secondAttribute="trailing" constant="2" id="eN2-px-bUr"/>
-                                <constraint firstItem="bbv-QK-1E3" firstAttribute="leading" secondItem="x6f-GY-u4z" secondAttribute="trailing" constant="2" id="gzc-T0-5lM"/>
-                                <constraint firstAttribute="bottom" secondItem="QGU-Yg-axP" secondAttribute="bottom" id="hwH-Bm-tBV"/>
-                                <constraint firstItem="wsl-eN-pWT" firstAttribute="leading" secondItem="F0L-7n-DTC" secondAttribute="leading" id="jqK-JG-zv2"/>
-                                <constraint firstItem="QGU-Yg-axP" firstAttribute="width" secondItem="QGU-Yg-axP" secondAttribute="height" multiplier="1:0.78" id="juV-9f-ny6"/>
-                                <constraint firstItem="0jk-o0-8hV" firstAttribute="width" secondItem="0jk-o0-8hV" secondAttribute="height" multiplier="1:0.78" id="kEA-4W-H2C"/>
-                                <constraint firstItem="wsl-eN-pWT" firstAttribute="top" secondItem="bth-kY-TdY" secondAttribute="bottom" id="knd-8U-prN"/>
-                                <constraint firstAttribute="bottom" secondItem="0jk-o0-8hV" secondAttribute="bottom" id="ufI-HR-UWB"/>
-                                <constraint firstItem="x6f-GY-u4z" firstAttribute="width" secondItem="x6f-GY-u4z" secondAttribute="height" multiplier="1:0.78" id="ugS-fP-7ru"/>
-                                <constraint firstAttribute="bottom" secondItem="wsl-eN-pWT" secondAttribute="bottom" id="wDp-5x-MQL"/>
-                                <constraint firstItem="bth-kY-TdY" firstAttribute="width" secondItem="bth-kY-TdY" secondAttribute="height" multiplier="1:0.78" id="wHZ-yK-ITf"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-v9-qOg">
-                            <rect key="frame" x="5" y="21" width="290" height="34"/>
+                            <rect key="frame" x="5" y="21" width="387" height="34.5"/>
                             <subviews>
                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
-                                    <rect key="frame" x="242" y="5" width="31" height="24"/>
+                                    <rect key="frame" x="329" y="5.5" width="31" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DnG-wS-TnZ" secondAttribute="height" multiplier="1:0.78" id="KsQ-ga-FZW"/>
                                         <constraint firstAttribute="height" constant="24" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234 5678 9012 3456" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="7.5" width="227" height="19.5"/>
+                                    <rect key="frame" x="10" y="7.5" width="170" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
                                     </constraints>
@@ -131,8 +66,8 @@
                             </subviews>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="DnG-wS-TnZ" secondAttribute="trailing" constant="17" id="67m-2b-q2W"/>
-                                <constraint firstItem="DnG-wS-TnZ" firstAttribute="leading" secondItem="3G6-fm-KWx" secondAttribute="trailing" constant="5" id="IB1-sG-2yt"/>
+                                <constraint firstAttribute="trailing" secondItem="DnG-wS-TnZ" secondAttribute="trailing" constant="27" id="67m-2b-q2W"/>
+                                <constraint firstItem="DnG-wS-TnZ" firstAttribute="leading" secondItem="3G6-fm-KWx" secondAttribute="trailing" constant="149" id="IB1-sG-2yt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="leading" secondItem="cTa-v9-qOg" secondAttribute="leading" constant="10" id="RWv-XQ-kHH"/>
                                 <constraint firstItem="DnG-wS-TnZ" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="kDM-wp-yDt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="l7T-PH-MZy"/>
@@ -152,10 +87,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jal-eF-zTH">
-                            <rect key="frame" x="0.0" y="55" width="400" height="15"/>
+                            <rect key="frame" x="0.0" y="55.5" width="400" height="14.5"/>
                             <subviews>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード番号が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-f6-FYa">
-                                    <rect key="frame" x="10" y="0.0" width="390" height="15"/>
+                                    <rect key="frame" x="10" y="0.0" width="390" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" systemColor="systemPinkColor"/>
                                     <nil key="highlightedColor"/>
@@ -170,18 +105,13 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="F0L-7n-DTC" firstAttribute="top" secondItem="rON-ok-m7h" secondAttribute="top" id="77z-pC-EpF"/>
-                        <constraint firstItem="F0L-7n-DTC" firstAttribute="leading" secondItem="cTa-v9-qOg" secondAttribute="trailing" constant="5" id="9ch-Fw-Phx"/>
                         <constraint firstItem="jal-eF-zTH" firstAttribute="top" secondItem="cTa-v9-qOg" secondAttribute="bottom" id="EHH-bG-mhT"/>
                         <constraint firstItem="DMJ-ai-wXn" firstAttribute="leading" secondItem="rON-ok-m7h" secondAttribute="leading" constant="5" id="FF1-QI-z0T"/>
-                        <constraint firstItem="jal-eF-zTH" firstAttribute="top" secondItem="F0L-7n-DTC" secondAttribute="bottom" id="HGv-Qd-Dck"/>
                         <constraint firstItem="cTa-v9-qOg" firstAttribute="top" secondItem="DMJ-ai-wXn" secondAttribute="bottom" constant="4" id="Hl1-Ja-J86"/>
                         <constraint firstItem="cTa-v9-qOg" firstAttribute="leading" secondItem="rON-ok-m7h" secondAttribute="leading" constant="5" id="Ttw-t2-x7Z"/>
                         <constraint firstItem="jal-eF-zTH" firstAttribute="leading" secondItem="rON-ok-m7h" secondAttribute="leading" id="We8-vI-mMd"/>
                         <constraint firstAttribute="bottom" secondItem="jal-eF-zTH" secondAttribute="bottom" id="a1J-v6-x9M"/>
-                        <constraint firstAttribute="trailing" secondItem="F0L-7n-DTC" secondAttribute="trailing" id="aqS-ic-ONd"/>
                         <constraint firstItem="DMJ-ai-wXn" firstAttribute="top" secondItem="rON-ok-m7h" secondAttribute="top" id="eme-h6-AQD"/>
-                        <constraint firstItem="F0L-7n-DTC" firstAttribute="width" secondItem="rON-ok-m7h" secondAttribute="width" multiplier="0.25" id="g38-Q3-NMI"/>
                         <constraint firstAttribute="trailing" secondItem="jal-eF-zTH" secondAttribute="trailing" id="qYR-pg-EVC"/>
                     </constraints>
                 </view>
@@ -204,11 +134,6 @@
         </designable>
     </designables>
     <resources>
-        <image name="card_american-xpress_ic" width="100" height="78"/>
-        <image name="card_diners-club_ic" width="100" height="78"/>
-        <image name="card_jcb_ic" width="100" height="78"/>
-        <image name="card_master_ic" width="100" height="78"/>
-        <image name="card_visa_ic" width="241" height="78"/>
         <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
