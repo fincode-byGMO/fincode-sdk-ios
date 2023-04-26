@@ -36,17 +36,17 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-v9-qOg">
-                            <rect key="frame" x="5" y="21" width="387" height="34.5"/>
+                            <rect key="frame" x="5" y="21" width="390" height="34"/>
                             <subviews>
                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
-                                    <rect key="frame" x="329" y="5.5" width="31" height="24"/>
+                                    <rect key="frame" x="332" y="5" width="31" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DnG-wS-TnZ" secondAttribute="height" multiplier="1:0.78" id="KsQ-ga-FZW"/>
                                         <constraint firstAttribute="height" constant="24" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234 5678 9012 3456" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="7.5" width="170" height="19.5"/>
+                                    <rect key="frame" x="10" y="7.5" width="173" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
                                     </constraints>
@@ -71,8 +71,7 @@
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="leading" secondItem="cTa-v9-qOg" secondAttribute="leading" constant="10" id="RWv-XQ-kHH"/>
                                 <constraint firstItem="DnG-wS-TnZ" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="kDM-wp-yDt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="l7T-PH-MZy"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="s2T-yi-PFX"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="s7W-hL-Jj0"/>
+                                <constraint firstAttribute="height" constant="34" id="wDZ-6Y-iaL"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -87,10 +86,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jal-eF-zTH">
-                            <rect key="frame" x="0.0" y="55.5" width="400" height="14.5"/>
+                            <rect key="frame" x="0.0" y="55" width="400" height="15"/>
                             <subviews>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カード番号が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyU-f6-FYa">
-                                    <rect key="frame" x="10" y="0.0" width="390" height="14.5"/>
+                                    <rect key="frame" x="10" y="0.0" width="390" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" systemColor="systemPinkColor"/>
                                     <nil key="highlightedColor"/>
@@ -112,6 +111,7 @@
                         <constraint firstItem="jal-eF-zTH" firstAttribute="leading" secondItem="rON-ok-m7h" secondAttribute="leading" id="We8-vI-mMd"/>
                         <constraint firstAttribute="bottom" secondItem="jal-eF-zTH" secondAttribute="bottom" id="a1J-v6-x9M"/>
                         <constraint firstItem="DMJ-ai-wXn" firstAttribute="top" secondItem="rON-ok-m7h" secondAttribute="top" id="eme-h6-AQD"/>
+                        <constraint firstAttribute="trailing" secondItem="cTa-v9-qOg" secondAttribute="trailing" constant="5" id="nMi-gP-0u9"/>
                         <constraint firstAttribute="trailing" secondItem="jal-eF-zTH" secondAttribute="trailing" id="qYR-pg-EVC"/>
                     </constraints>
                 </view>
