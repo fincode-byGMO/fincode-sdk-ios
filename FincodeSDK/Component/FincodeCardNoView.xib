@@ -46,10 +46,7 @@
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234 5678 9012 3456" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="7.5" width="173" height="19.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="MyB-fW-bBn"/>
-                                    </constraints>
+                                    <rect key="frame" x="10" y="7.5" width="230" height="19.5"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -67,7 +64,7 @@
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="DnG-wS-TnZ" secondAttribute="trailing" constant="27" id="67m-2b-q2W"/>
-                                <constraint firstItem="DnG-wS-TnZ" firstAttribute="leading" secondItem="3G6-fm-KWx" secondAttribute="trailing" constant="149" id="IB1-sG-2yt"/>
+                                <constraint firstItem="DnG-wS-TnZ" firstAttribute="leading" secondItem="3G6-fm-KWx" secondAttribute="trailing" constant="92" id="IB1-sG-2yt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="leading" secondItem="cTa-v9-qOg" secondAttribute="leading" constant="10" id="RWv-XQ-kHH"/>
                                 <constraint firstItem="DnG-wS-TnZ" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="kDM-wp-yDt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="l7T-PH-MZy"/>
