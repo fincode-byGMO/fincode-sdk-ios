@@ -45,7 +45,7 @@ class PayTimesPickerField: UITextField {
         if let value = AppConfiguration.instance.payTimes {
             value.forEach { payTime in
                 if let k = payTime as? Int  {
-                    items.append(Item(key: k, value: "\(payTime)回"))
+                    items.append(Item(key: k, value: "分割 \(payTime)回"))
                 }
             }
         }
