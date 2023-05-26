@@ -35,24 +35,25 @@
                             <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAB-FC-UnE" customClass="PayTimesPickerField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="5" y="0.0" width="280" height="34"/>
+                                    <rect key="frame" x="10" y="0.0" width="270" height="34"/>
                                     <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-jW-7Ii">
-                                    <rect key="frame" x="260" y="5" width="15" height="23.5"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-jW-7Ii">
+                                    <rect key="frame" x="266.5" y="5.5" width="12.5" height="23.5"/>
+                                    <color key="tintColor" name="border_default"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.97275120020000005" green="0.98000663519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="HAB-FC-UnE" firstAttribute="centerY" secondItem="jM0-dS-b63" secondAttribute="centerY" id="0MF-1n-U4v"/>
                                 <constraint firstItem="YoA-jW-7Ii" firstAttribute="centerY" secondItem="jM0-dS-b63" secondAttribute="centerY" id="9rl-M9-8DY"/>
-                                <constraint firstItem="HAB-FC-UnE" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="leading" constant="5" id="L2l-mU-KNO"/>
-                                <constraint firstAttribute="trailing" secondItem="YoA-jW-7Ii" secondAttribute="trailing" constant="15" id="Wmj-wM-5is"/>
+                                <constraint firstItem="HAB-FC-UnE" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="leading" constant="10" id="L2l-mU-KNO"/>
+                                <constraint firstAttribute="trailing" secondItem="YoA-jW-7Ii" secondAttribute="trailing" constant="11" id="Wmj-wM-5is"/>
                                 <constraint firstAttribute="height" constant="34" id="XFt-J8-pFu"/>
                                 <constraint firstItem="HAB-FC-UnE" firstAttribute="height" secondItem="jM0-dS-b63" secondAttribute="height" id="hOx-B0-84k"/>
-                                <constraint firstAttribute="trailing" secondItem="HAB-FC-UnE" secondAttribute="trailing" constant="5" id="n1a-gW-2hX"/>
+                                <constraint firstAttribute="trailing" secondItem="HAB-FC-UnE" secondAttribute="trailing" constant="10" id="n1a-gW-2hX"/>
                                 <constraint firstItem="YoA-jW-7Ii" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="top" constant="3.5" id="vYT-7P-DUO"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -106,7 +107,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

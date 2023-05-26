@@ -39,14 +39,14 @@
                             <rect key="frame" x="5" y="21" width="390" height="34"/>
                             <subviews>
                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnG-wS-TnZ">
-                                    <rect key="frame" x="332" y="5" width="31" height="24"/>
+                                    <rect key="frame" x="350" y="5" width="31" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="DnG-wS-TnZ" secondAttribute="height" multiplier="1:0.78" id="KsQ-ga-FZW"/>
                                         <constraint firstAttribute="height" constant="24" id="auA-Wr-ADb"/>
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234 5678 9012 3456" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-fm-KWx" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="10" y="8" width="314" height="20"/>
+                                    <rect key="frame" x="10" y="8" width="332" height="20"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -63,7 +63,7 @@
                             </subviews>
                             <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="DnG-wS-TnZ" secondAttribute="trailing" constant="27" id="67m-2b-q2W"/>
+                                <constraint firstAttribute="trailing" secondItem="DnG-wS-TnZ" secondAttribute="trailing" constant="9" id="67m-2b-q2W"/>
                                 <constraint firstItem="DnG-wS-TnZ" firstAttribute="leading" secondItem="3G6-fm-KWx" secondAttribute="trailing" constant="8" id="IB1-sG-2yt"/>
                                 <constraint firstItem="3G6-fm-KWx" firstAttribute="leading" secondItem="cTa-v9-qOg" secondAttribute="leading" constant="10" id="RWv-XQ-kHH"/>
                                 <constraint firstItem="DnG-wS-TnZ" firstAttribute="centerY" secondItem="cTa-v9-qOg" secondAttribute="centerY" id="kDM-wp-yDt"/>
