@@ -47,7 +47,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (年) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-6k-IlQ">
-                            <rect key="frame" x="219.5" y="55" width="175.5" height="15"/>
+                            <rect key="frame" x="217" y="55" width="178" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" systemColor="systemPinkColor"/>
                             <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="209.5" y="0.0" width="181.5" height="34"/>
+                                    <rect key="frame" x="207" y="0.0" width="183" height="34"/>
                                     <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -104,10 +104,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kG4-Yt-Xbo">
-                                    <rect key="frame" x="181.5" y="0.0" width="32" height="34"/>
+                                    <rect key="frame" x="183" y="0.0" width="24" height="34"/>
                                     <color key="backgroundColor" red="0.97275120020000005" green="0.98000663519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="32" id="1sa-YY-O3Z"/>
+                                        <constraint firstAttribute="width" constant="24" id="1sa-YY-O3Z"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
@@ -117,13 +117,13 @@
                             <constraints>
                                 <constraint firstItem="Gze-iS-wnR" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="5UC-19-ciW"/>
                                 <constraint firstItem="kG4-Yt-Xbo" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="8mJ-fD-eqe"/>
-                                <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" constant="-1" id="E7t-Tm-OvW"/>
-                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="trailing" constant="-1.5" id="F7d-5P-IyD"/>
+                                <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="E7t-Tm-OvW"/>
+                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="trailing" id="F7d-5P-IyD"/>
                                 <constraint firstAttribute="bottom" secondItem="xdE-9h-piY" secondAttribute="bottom" id="O6Q-HA-Udi"/>
                                 <constraint firstAttribute="bottom" secondItem="Gze-iS-wnR" secondAttribute="bottom" id="RNR-BP-gDn"/>
                                 <constraint firstItem="xdE-9h-piY" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="Uvx-i9-Aqw"/>
-                                <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="kG4-Yt-Xbo" secondAttribute="trailing" constant="-4" id="fYc-z7-UMU"/>
-                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="centerX" secondItem="LPK-9F-Snu" secondAttribute="centerX" constant="2.5" id="naj-VK-hTz"/>
+                                <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="kG4-Yt-Xbo" secondAttribute="trailing" id="fYc-z7-UMU"/>
+                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="centerX" secondItem="LPK-9F-Snu" secondAttribute="centerX" id="naj-VK-hTz"/>
                                 <constraint firstAttribute="bottom" secondItem="kG4-Yt-Xbo" secondAttribute="bottom" id="pNC-5W-Zep"/>
                                 <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" id="rgJ-PK-pGe"/>
                                 <constraint firstAttribute="height" constant="34" id="sWZ-Uh-zXn"/>
@@ -136,7 +136,7 @@
                         <constraint firstItem="3T7-6k-IlQ" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="Lnw-Up-Mhb"/>
                         <constraint firstItem="oi9-cY-H5B" firstAttribute="leading" secondItem="m3s-Sw-fy7" secondAttribute="leading" constant="5" id="NUd-h7-16r"/>
                         <constraint firstAttribute="bottom" secondItem="fXI-tI-KfW" secondAttribute="bottom" id="Xru-P5-FTh"/>
-                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" constant="-1" id="cgo-a9-2MB"/>
+                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="cgo-a9-2MB"/>
                         <constraint firstItem="fXI-tI-KfW" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="leading" constant="5" id="k3n-rL-P4E"/>
                         <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" constant="4" id="q1U-SL-qtD"/>
                         <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="m3s-Sw-fy7" secondAttribute="leading" constant="5" id="qYb-5h-uGY"/>
