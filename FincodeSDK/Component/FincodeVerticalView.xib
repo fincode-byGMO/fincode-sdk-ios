@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,32 +35,32 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="10" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="79.5" width="400" height="69.5"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="149" width="240" height="69.5"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="390" width="400" height="34"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="392" width="400" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-T8-W1J" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-T8-W1J" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="218.5" width="400" height="69.5"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="318" width="400" height="57"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="290" width="240" height="59"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -68,19 +68,19 @@
                         <constraint firstItem="F9G-LJ-rRT" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="5Tv-H6-dA5"/>
                         <constraint firstItem="hJX-T8-W1J" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="EsT-5N-D8i"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="JRk-WT-b5o"/>
-                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="top" secondItem="hJX-T8-W1J" secondAttribute="bottom" constant="30" id="Mlk-K7-s6f"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="top" secondItem="hJX-T8-W1J" secondAttribute="bottom" constant="2" id="Mlk-K7-s6f"/>
                         <constraint firstItem="KcG-gr-Fap" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="On2-ls-LfF"/>
-                        <constraint firstAttribute="trailing" secondItem="F9G-LJ-rRT" secondAttribute="trailing" id="Q2o-60-16j"/>
                         <constraint firstAttribute="trailing" secondItem="hJX-T8-W1J" secondAttribute="trailing" id="QbU-8x-O1I"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="top" secondItem="Elx-H1-JJa" secondAttribute="bottom" id="RGu-CM-bmX"/>
                         <constraint firstItem="Elx-H1-JJa" firstAttribute="top" secondItem="HQQ-rZ-fER" secondAttribute="bottom" id="cTH-5f-eA6"/>
                         <constraint firstItem="ncJ-uk-XCe" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="eS0-pD-UjC"/>
-                        <constraint firstItem="KcG-gr-Fap" firstAttribute="top" secondItem="F9G-LJ-rRT" secondAttribute="bottom" constant="15" id="lI2-xH-SOd"/>
+                        <constraint firstItem="KcG-gr-Fap" firstAttribute="top" secondItem="F9G-LJ-rRT" secondAttribute="bottom" constant="43" id="lI2-xH-SOd"/>
                         <constraint firstItem="Elx-H1-JJa" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="mun-2J-TCo"/>
                         <constraint firstAttribute="trailing" secondItem="KcG-gr-Fap" secondAttribute="trailing" id="t3b-RU-Yp4"/>
                         <constraint firstItem="HQQ-rZ-fER" firstAttribute="top" secondItem="Vur-6f-JZZ" secondAttribute="top" constant="10" id="tdm-fG-GBZ"/>
                         <constraint firstItem="HQQ-rZ-fER" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="teR-KA-HDT"/>
                         <constraint firstItem="hJX-T8-W1J" firstAttribute="top" secondItem="ncJ-uk-XCe" secondAttribute="bottom" id="tvT-uL-bpX"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="vTb-uG-CbS"/>
                         <constraint firstAttribute="trailing" secondItem="HQQ-rZ-fER" secondAttribute="trailing" id="xnG-pS-rDa"/>
                     </constraints>
                 </view>

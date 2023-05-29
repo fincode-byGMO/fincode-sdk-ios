@@ -39,10 +39,13 @@ class PayTimesPickerField: UITextField {
         picker.dataSource = self
         inputView = picker
         
+        items.append(Item(key: 0, value: "一括払い"))
+        items.append(Item(key: 1, value: "リボ払い"))
+        
         if let value = AppConfiguration.instance.payTimes {
             value.forEach { payTime in
                 if let k = payTime as? Int  {
-                    items.append(Item(key: k, value: "\(payTime)回"))
+                    items.append(Item(key: k, value: "分割 \(payTime)回"))
                 }
             }
         }
@@ -107,6 +110,7 @@ extension PayTimesPickerField: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 100
+        return 200
     }
 }
+
