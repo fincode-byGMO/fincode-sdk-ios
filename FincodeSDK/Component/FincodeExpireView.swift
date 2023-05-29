@@ -87,6 +87,9 @@ class FincodeExpireView: UIView {
     private func verticalLayout() {
         errorMonthLabelViewConstraints.isActive = false
         errorYearLabelViewConstraints.isActive = false
+        boundaryLabel.isHidden = false
+        boundaryLabel.backgroundColor = UIColor.clear
+        self.borderView.sendSubview(toBack: boundaryLabel)
         
         monthConstraints = setConstraints(errorMonthLabelView, constraint: monthConstraints, isActive: true)
         yearConstraints = setConstraints(errorYearLabelView, constraint: yearConstraints, isActive: true)
