@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
             <connections>
-                <outlet property="bulkView" destination="Ypn-tV-i3g" id="gTm-GK-PHx"/>
-                <outlet property="divisionView" destination="BG4-Kx-URu" id="6KG-cc-zXD"/>
                 <outlet property="headingLabel" destination="xQd-j9-PnV" id="tyt-bd-z2z"/>
                 <outlet property="textField" destination="HAB-FC-UnE" id="S2T-kh-S9J"/>
-                <outlet property="textFieldConstraint" destination="Noi-Jm-Jjh" id="TlB-OL-T5I"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nao-nn-sHQ">
-                    <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お支払方法" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQd-j9-PnV">
-                            <rect key="frame" x="5" y="0.0" width="390" height="17"/>
+                            <rect key="frame" x="5" y="0.0" width="290" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="WBW-tv-44S"/>
                             </constraints>
@@ -35,70 +32,60 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jM0-dS-b63">
-                            <rect key="frame" x="0.0" y="19" width="240" height="38"/>
+                            <rect key="frame" x="5" y="21" width="290" height="34"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-tV-i3g" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="38"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="radioType" value="paymentBulk"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG4-Kx-URu" customClass="RadioView" customModule="FincodeSDK" customModuleProvider="target">
-                                    <rect key="frame" x="120" y="0.0" width="120" height="38"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="radioType" value="paymentDivision"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAB-FC-UnE" customClass="PayTimesPickerField" customModule="FincodeSDK" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="0.0" width="270" height="34"/>
+                                    <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-jW-7Ii">
+                                    <rect key="frame" x="266.5" y="5.5" width="12.5" height="23.5"/>
+                                    <color key="tintColor" name="border_default"/>
+                                </imageView>
                             </subviews>
+                            <color key="backgroundColor" red="0.97275120020000005" green="0.98000663519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="Ypn-tV-i3g" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="leading" id="2Kw-Fj-phh"/>
-                                <constraint firstAttribute="width" constant="240" id="4mo-7k-WC0"/>
-                                <constraint firstItem="BG4-Kx-URu" firstAttribute="leading" secondItem="Ypn-tV-i3g" secondAttribute="trailing" id="8Gs-Em-40H"/>
-                                <constraint firstItem="BG4-Kx-URu" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="top" id="IhO-nY-AWj"/>
-                                <constraint firstAttribute="bottom" secondItem="BG4-Kx-URu" secondAttribute="bottom" id="KBa-wm-mSn"/>
-                                <constraint firstAttribute="trailing" secondItem="BG4-Kx-URu" secondAttribute="trailing" id="Ua4-LN-0fg"/>
-                                <constraint firstItem="Ypn-tV-i3g" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="top" id="WVz-MZ-4PS"/>
-                                <constraint firstAttribute="height" constant="38" id="XFt-J8-pFu"/>
-                                <constraint firstItem="Ypn-tV-i3g" firstAttribute="width" secondItem="jM0-dS-b63" secondAttribute="width" multiplier="0.5" id="XvS-Sa-zyn"/>
-                                <constraint firstAttribute="bottom" secondItem="Ypn-tV-i3g" secondAttribute="bottom" id="ZyJ-fU-5BV"/>
+                                <constraint firstItem="HAB-FC-UnE" firstAttribute="centerY" secondItem="jM0-dS-b63" secondAttribute="centerY" id="0MF-1n-U4v"/>
+                                <constraint firstItem="YoA-jW-7Ii" firstAttribute="centerY" secondItem="jM0-dS-b63" secondAttribute="centerY" id="9rl-M9-8DY"/>
+                                <constraint firstItem="HAB-FC-UnE" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="leading" constant="10" id="L2l-mU-KNO"/>
+                                <constraint firstAttribute="trailing" secondItem="YoA-jW-7Ii" secondAttribute="trailing" constant="11" id="Wmj-wM-5is"/>
+                                <constraint firstAttribute="height" constant="34" id="XFt-J8-pFu"/>
+                                <constraint firstItem="HAB-FC-UnE" firstAttribute="height" secondItem="jM0-dS-b63" secondAttribute="height" id="hOx-B0-84k"/>
+                                <constraint firstAttribute="trailing" secondItem="HAB-FC-UnE" secondAttribute="trailing" constant="10" id="n1a-gW-2hX"/>
+                                <constraint firstItem="YoA-jW-7Ii" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="top" constant="3.5" id="vYT-7P-DUO"/>
                             </constraints>
-                        </view>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HAB-FC-UnE" customClass="PayTimesPickerField" customModule="FincodeSDK" customModuleProvider="target">
-                            <rect key="frame" x="247" y="21" width="70" height="34"/>
-                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="70" id="Noi-Jm-Jjh"/>
-                                <constraint firstAttribute="height" constant="34" id="oeR-tu-7yR"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
                             <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                     <color key="value" name="border_default"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                        </textField>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXL-Ax-LbQ">
-                            <rect key="frame" x="0.0" y="57" width="400" height="13"/>
+                            <rect key="frame" x="0.0" y="59" width="300" height="11"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="jM0-dS-b63" firstAttribute="leading" secondItem="nao-nn-sHQ" secondAttribute="leading" id="NNQ-T9-NMq"/>
-                        <constraint firstItem="HAB-FC-UnE" firstAttribute="leading" secondItem="jM0-dS-b63" secondAttribute="trailing" constant="7" id="NQ3-3m-Fad"/>
+                        <constraint firstItem="jM0-dS-b63" firstAttribute="leading" secondItem="nao-nn-sHQ" secondAttribute="leading" constant="5" id="NNQ-T9-NMq"/>
                         <constraint firstItem="xQd-j9-PnV" firstAttribute="leading" secondItem="nao-nn-sHQ" secondAttribute="leading" constant="5" id="Nb4-Kw-8wu"/>
-                        <constraint firstItem="jM0-dS-b63" firstAttribute="top" secondItem="xQd-j9-PnV" secondAttribute="bottom" constant="2" id="OGg-1K-hhA"/>
-                        <constraint firstItem="gXL-Ax-LbQ" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="bottom" id="YIt-gZ-NjL"/>
+                        <constraint firstItem="jM0-dS-b63" firstAttribute="top" secondItem="xQd-j9-PnV" secondAttribute="bottom" constant="4" id="OGg-1K-hhA"/>
+                        <constraint firstAttribute="trailing" secondItem="jM0-dS-b63" secondAttribute="trailing" constant="5" id="SAx-Hh-9eS"/>
+                        <constraint firstItem="gXL-Ax-LbQ" firstAttribute="top" secondItem="jM0-dS-b63" secondAttribute="bottom" constant="4" id="YIt-gZ-NjL"/>
                         <constraint firstAttribute="trailing" secondItem="gXL-Ax-LbQ" secondAttribute="trailing" id="YOC-6K-Zrc"/>
                         <constraint firstAttribute="bottom" secondItem="gXL-Ax-LbQ" secondAttribute="bottom" id="emJ-1n-h70"/>
                         <constraint firstItem="gXL-Ax-LbQ" firstAttribute="leading" secondItem="nao-nn-sHQ" secondAttribute="leading" id="hFb-hY-1F5"/>
                         <constraint firstAttribute="trailing" secondItem="xQd-j9-PnV" secondAttribute="trailing" constant="5" id="hTK-Wd-uhB"/>
                         <constraint firstItem="xQd-j9-PnV" firstAttribute="top" secondItem="nao-nn-sHQ" secondAttribute="top" id="puh-kh-mje"/>
-                        <constraint firstItem="HAB-FC-UnE" firstAttribute="centerY" secondItem="BG4-Kx-URu" secondAttribute="centerY" id="sDa-0X-TDq"/>
                     </constraints>
                 </view>
             </subviews>
@@ -116,10 +103,11 @@
     </objects>
     <designables>
         <designable name="HAB-FC-UnE">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18"/>
         </designable>
     </designables>
     <resources>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
