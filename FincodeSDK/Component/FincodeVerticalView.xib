@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeVerticalView" customModule="FincodeSDK" customModuleProvider="target">
+            <connections>
+                <outlet property="cardNoView" destination="HQQ-rZ-fER" id="6Wf-M1-I7D"/>
+                <outlet property="expireView" destination="Elx-H1-JJa" id="xvS-JS-Beq"/>
+                <outlet property="holderNameView" destination="hJX-T8-W1J" id="eCO-6A-DJC"/>
+                <outlet property="indicator" destination="qzk-Ce-Mqt" id="D9m-US-DyZ"/>
+                <outlet property="indicatorView" destination="fOO-HZ-sX1" id="qOR-bH-DHs"/>
+                <outlet property="payTimesView" destination="F9G-LJ-rRT" id="1gl-Dz-wjX"/>
+                <outlet property="securityCodeView" destination="ncJ-uk-XCe" id="x1P-Pw-ncQ"/>
+                <outlet property="submitButtonView" destination="KcG-gr-Fap" id="dGN-8G-kO2"/>
+                <outlet property="view" destination="U3r-fz-42d" id="KMV-MF-Ce4"/>
+                <outlet property="viewConstraints" destination="4O6-Xv-1Nt" id="NlC-Mx-A1J"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-fz-42d">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="4O6-Xv-1Nt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vur-6f-JZZ" userLabel="NewCardArea">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQQ-rZ-fER" customClass="FincodeCardNoView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="10" width="400" height="69.5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-H1-JJa" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="79.5" width="400" height="69.5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layoutType" value="vertical"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-uk-XCe" customClass="FincodeSecurityCodeView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="149" width="240" height="69.5"/>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-gr-Fap" customClass="FincodeSubmitButtonView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="392" width="400" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="9D4-Pb-I5r"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJX-T8-W1J" customClass="FincodeHolderNameView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="218.5" width="400" height="69.5"/>
+                        </view>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-LJ-rRT" customClass="FincodePayTimesView" customModule="FincodeSDK" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="290" width="240" height="59"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Elx-H1-JJa" secondAttribute="trailing" id="4qU-MF-rYC"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="5Tv-H6-dA5"/>
+                        <constraint firstItem="hJX-T8-W1J" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="EsT-5N-D8i"/>
+                        <constraint firstItem="ncJ-uk-XCe" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="JRk-WT-b5o"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="top" secondItem="hJX-T8-W1J" secondAttribute="bottom" constant="2" id="Mlk-K7-s6f"/>
+                        <constraint firstItem="KcG-gr-Fap" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="On2-ls-LfF"/>
+                        <constraint firstAttribute="trailing" secondItem="hJX-T8-W1J" secondAttribute="trailing" id="QbU-8x-O1I"/>
+                        <constraint firstItem="ncJ-uk-XCe" firstAttribute="top" secondItem="Elx-H1-JJa" secondAttribute="bottom" id="RGu-CM-bmX"/>
+                        <constraint firstItem="Elx-H1-JJa" firstAttribute="top" secondItem="HQQ-rZ-fER" secondAttribute="bottom" id="cTH-5f-eA6"/>
+                        <constraint firstItem="ncJ-uk-XCe" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="eS0-pD-UjC"/>
+                        <constraint firstItem="KcG-gr-Fap" firstAttribute="top" secondItem="F9G-LJ-rRT" secondAttribute="bottom" constant="43" id="lI2-xH-SOd"/>
+                        <constraint firstItem="Elx-H1-JJa" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="mun-2J-TCo"/>
+                        <constraint firstAttribute="trailing" secondItem="KcG-gr-Fap" secondAttribute="trailing" id="t3b-RU-Yp4"/>
+                        <constraint firstItem="HQQ-rZ-fER" firstAttribute="top" secondItem="Vur-6f-JZZ" secondAttribute="top" constant="10" id="tdm-fG-GBZ"/>
+                        <constraint firstItem="HQQ-rZ-fER" firstAttribute="leading" secondItem="Vur-6f-JZZ" secondAttribute="leading" id="teR-KA-HDT"/>
+                        <constraint firstItem="hJX-T8-W1J" firstAttribute="top" secondItem="ncJ-uk-XCe" secondAttribute="bottom" id="tvT-uL-bpX"/>
+                        <constraint firstItem="F9G-LJ-rRT" firstAttribute="width" secondItem="Vur-6f-JZZ" secondAttribute="width" multiplier="0.6" id="vTb-uG-CbS"/>
+                        <constraint firstAttribute="trailing" secondItem="HQQ-rZ-fER" secondAttribute="trailing" id="xnG-pS-rDa"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-HZ-sX1" userLabel="IndicatorView">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="516"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qzk-Ce-Mqt">
+                            <rect key="frame" x="190" y="248" width="20" height="20"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.38852769500000001" alpha="0.20156799720612584" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="qzk-Ce-Mqt" firstAttribute="centerX" secondItem="fOO-HZ-sX1" secondAttribute="centerX" id="O91-h0-YRw"/>
+                        <constraint firstItem="qzk-Ce-Mqt" firstAttribute="centerY" secondItem="fOO-HZ-sX1" secondAttribute="centerY" id="xA9-9N-BC0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Vur-6f-JZZ" firstAttribute="top" secondItem="U3r-fz-42d" secondAttribute="bottom" id="1eN-2u-QFW"/>
+                <constraint firstItem="fOO-HZ-sX1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4Ce-Br-2yO"/>
+                <constraint firstAttribute="trailing" secondItem="fOO-HZ-sX1" secondAttribute="trailing" id="5A9-LH-rAN"/>
+                <constraint firstAttribute="trailing" secondItem="U3r-fz-42d" secondAttribute="trailing" id="MUX-Re-E3D"/>
+                <constraint firstAttribute="trailing" secondItem="Vur-6f-JZZ" secondAttribute="trailing" id="NzZ-be-39X"/>
+                <constraint firstItem="fOO-HZ-sX1" firstAttribute="top" secondItem="U3r-fz-42d" secondAttribute="top" id="XWt-oM-xF2"/>
+                <constraint firstItem="Vur-6f-JZZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lj2-Uw-xLg"/>
+                <constraint firstAttribute="bottom" secondItem="Vur-6f-JZZ" secondAttribute="bottom" id="ocj-VX-GFe"/>
+                <constraint firstAttribute="bottom" secondItem="fOO-HZ-sX1" secondAttribute="bottom" id="pTf-BM-CpM"/>
+                <constraint firstItem="U3r-fz-42d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ps6-Wh-evw"/>
+                <constraint firstItem="U3r-fz-42d" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="v9B-px-Bee"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="197.10144927536234" y="-121.20535714285714"/>
+        </view>
+    </objects>
+</document>

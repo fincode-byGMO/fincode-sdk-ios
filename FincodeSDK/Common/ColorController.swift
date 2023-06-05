@@ -13,6 +13,8 @@ class ColorController {
     enum ColorName: String {
         case primary = "primary"
         case radioCheckedOff = "radio_checked_off"
+        case borderDefault = "border_default"
+        case borderError = "border_error"
     }
     
     static let instance = ColorController()
@@ -21,7 +23,8 @@ class ColorController {
     
     func color(_ name: ColorName) -> UIColor {
         
-        let bundle = Bundle(for: type(of: self))
+        // let bundle = Bundle(for: type(of: self))
+        let bundle = BundleUtil.instance.bundle
         return UIColor(named: name.rawValue, in: bundle, compatibleWith: nil) ?? UIColor.clear
     }
 }

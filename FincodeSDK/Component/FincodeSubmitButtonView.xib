@@ -18,12 +18,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH0-Oo-f0C">
-                    <rect key="frame" x="5" y="3" width="390" height="32"/>
+                    <rect key="frame" x="5" y="3" width="390" height="34"/>
                     <color key="backgroundColor" red="0.19201990960000001" green="0.36595720050000002" blue="0.52943098550000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="クレジットカードを登録">
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </buttonConfiguration>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="v2N-A5-OSJ"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="クレジットカードを登録">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="5"/>
@@ -38,13 +41,11 @@
                 <constraint firstItem="kH0-Oo-f0C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="2dm-vY-XYY"/>
                 <constraint firstItem="kH0-Oo-f0C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="67b-g0-BpN"/>
                 <constraint firstAttribute="trailing" secondItem="kH0-Oo-f0C" secondAttribute="trailing" constant="5" id="g34-Zn-acE"/>
-                <constraint firstAttribute="bottom" secondItem="kH0-Oo-f0C" secondAttribute="bottom" constant="3" id="q4I-lS-3yQ"/>
-                <constraint firstItem="kH0-Oo-f0C" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zPw-VC-StM"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="132" y="126"/>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
 </document>

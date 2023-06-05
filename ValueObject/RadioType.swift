@@ -14,14 +14,22 @@ enum RadioType: String {
     case registeredCard = "registeredCard"
     /// 新しいクレジットカード
     case newCard = "newCard"
+    /// 決済（一括）
+    case paymentBulk = "paymentBulk"
+    /// 決済（分割）
+    case paymentDivision = "paymentDivision"
     
-    var text: String {
+    var title: String {
         get {
             switch(self) {
             case .registeredCard:
-                return "登録済みのカード"
+                return AppStrings.titleRegisteredCardRadio.value
             case .newCard:
-                return "新しいクレジットカード"
+                return AppStrings.titleNewCardRadio.value
+            case .paymentBulk:
+                return AppStrings.titlePaymentBulkRadio.value
+            case .paymentDivision:
+                return AppStrings.titlePaymentDivisionRadio.value
             default:
                 return ""
             }

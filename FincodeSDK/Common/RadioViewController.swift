@@ -7,10 +7,15 @@
 
 import Foundation
 
+protocol RadioViewControllerDelegate: AnyObject {
+    func didTouch(_ view: RadioView, radioType: RadioType)
+}
+
 class RadioViewController {
     
     fileprivate var radioViewList: [RadioView] = []
     var selectedRadioType: RadioType = .none
+    var delegate: RadioViewControllerDelegate?
     
     init(_ viewList: RadioView...) {
         radioViewList = viewList
@@ -36,5 +41,8 @@ extension RadioViewController: RadioViewDelegate {
         radioUnCheckedAll()
         view.isChecked = true
         selectedRadioType = radioType
+        
+        guard let delegate = delegate else { return }
+        delegate.didTouch(view, radioType: radioType)
     }
 }
