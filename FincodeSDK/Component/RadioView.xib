@@ -63,8 +63,8 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcO-Z9-CiR">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="38"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=" "/>
                     <connections>
                         <action selector="didTouch:" destination="-1" eventType="touchUpInside" id="tDW-rO-iQ2"/>
                     </connections>
@@ -73,6 +73,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="mcO-Z9-CiR" secondAttribute="trailing" id="927-Te-wnx"/>
                 <constraint firstItem="tq8-LM-0Qi" firstAttribute="leading" secondItem="Jcw-c3-dqU" secondAttribute="trailing" constant="10" id="CFO-8d-ZUc"/>
+                <constraint firstItem="mcO-Z9-CiR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ntt-L3-K0X"/>
                 <constraint firstAttribute="bottom" secondItem="Jcw-c3-dqU" secondAttribute="bottom" constant="6" id="P5n-T1-uGv"/>
                 <constraint firstItem="Jcw-c3-dqU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="YJ4-Nk-BAP"/>
                 <constraint firstAttribute="bottom" secondItem="mcO-Z9-CiR" secondAttribute="bottom" id="c0x-nc-kcH"/>
@@ -80,7 +81,6 @@
                 <constraint firstItem="tq8-LM-0Qi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tz9-03-0o3"/>
                 <constraint firstItem="mcO-Z9-CiR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uED-mV-Evd"/>
                 <constraint firstItem="Jcw-c3-dqU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="xR4-Rg-Njz"/>
-                <constraint firstItem="mcO-Z9-CiR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-400" id="zIB-sx-GTf"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

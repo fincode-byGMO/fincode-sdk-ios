@@ -1,0 +1,27 @@
+/* 
+  FincodeSDK.strings
+  FincodeSDK
+
+  Created by 中嶋彰 on 2022/02/03.
+  
+*/
+
+// ラジオボタン タイトル
+titleRegisteredCardRadio = "登録済みのカード";
+titleNewCardRadio = "新しいクレジットカード";
+titlePaymentBulkRadio = "一括払い";
+titlePaymentDivisionRadio = "分割";
+
+// ボタン タイトル
+titleRegisterCardButton = "クレジットカードを登録";
+titleUpdateCardButton = "クレジットカードを更新";
+titlePaymentButton = "お支払い";
+
+// 入力エラー文言
+errorCardNumberFormat = "カード番号の書式が正しくありません";
+errorCardNumber = "カード番号が指定されていません";
+errorExpireMonthFormat = "有効期限 (月) の書式が正しくありません";
+errorExpireMonth = "有効期限 (月) が指定されていません";
+errorExpireYear = "有効期限 (年) が指定されていません";
+errorSecurityCode = "セキュリティコードの書式が正しくありません";
+errorHolderName = "カード名義人の書式が正しくありません";

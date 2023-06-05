@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,17 +28,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAz-Zb-ld8">
                             <rect key="frame" x="351" y="0.0" width="39" height="34"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4NA-DA-vSe">
-                                    <rect key="frame" x="7" y="6" width="25" height="21.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="4NA-DA-vSe" secondAttribute="height" multiplier="1:1" id="AmL-oU-pa8"/>
-                                        <constraint firstAttribute="height" constant="25" id="yu7-47-PcV"/>
-                                    </constraints>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4NA-DA-vSe">
+                                    <rect key="frame" x="15.5" y="9" width="12.5" height="16.5"/>
+                                    <color key="tintColor" name="border_default"/>
                                 </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="4NA-DA-vSe" firstAttribute="centerX" secondItem="TAz-Zb-ld8" secondAttribute="centerX" id="3Tq-WE-tgN"/>
-                                <constraint firstItem="4NA-DA-vSe" firstAttribute="centerY" secondItem="TAz-Zb-ld8" secondAttribute="centerY" id="v8y-Nj-hoR"/>
+                                <constraint firstAttribute="trailing" secondItem="4NA-DA-vSe" secondAttribute="trailing" constant="11" id="fA9-tw-XpR"/>
+                                <constraint firstItem="4NA-DA-vSe" firstAttribute="centerY" secondItem="TAz-Zb-ld8" secondAttribute="centerY" id="yGg-zm-aOg"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-Wp-oXz" customClass="CustomPickerView" customModule="FincodeSDK" customModuleProvider="target">
@@ -47,23 +44,23 @@
                     </subviews>
                     <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="Adc-Wp-oXz" firstAttribute="leading" secondItem="oKr-4y-cZV" secondAttribute="leading" id="2qH-ly-7Lq"/>
-                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="leading" secondItem="JJp-VI-RKd" secondAttribute="trailing" id="5l4-4s-lEM"/>
-                        <constraint firstItem="JJp-VI-RKd" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="Fh1-hJ-TuE"/>
-                        <constraint firstAttribute="bottom" secondItem="TAz-Zb-ld8" secondAttribute="bottom" id="Il9-MA-aPc"/>
-                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="POy-jB-52X"/>
-                        <constraint firstAttribute="bottom" secondItem="Adc-Wp-oXz" secondAttribute="bottom" id="bIj-UJ-S3p"/>
-                        <constraint firstAttribute="trailing" secondItem="Adc-Wp-oXz" secondAttribute="trailing" id="gBd-Yg-9Jv"/>
-                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="width" secondItem="oKr-4y-cZV" secondAttribute="width" multiplier="0.1" id="glp-Rd-d12"/>
-                        <constraint firstAttribute="bottom" secondItem="JJp-VI-RKd" secondAttribute="bottom" id="qli-d9-9YG"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="rm8-jB-DwQ"/>
-                        <constraint firstItem="Adc-Wp-oXz" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="sv5-8m-0Ia"/>
-                        <constraint firstItem="JJp-VI-RKd" firstAttribute="leading" secondItem="oKr-4y-cZV" secondAttribute="leading" id="xKm-aH-oc8"/>
-                        <constraint firstAttribute="trailing" secondItem="TAz-Zb-ld8" secondAttribute="trailing" id="xWL-VJ-3dn"/>
+                        <constraint firstAttribute="trailing" secondItem="Adc-Wp-oXz" secondAttribute="trailing" id="2dj-My-dDQ"/>
+                        <constraint firstItem="JJp-VI-RKd" firstAttribute="leading" secondItem="oKr-4y-cZV" secondAttribute="leading" id="BS2-Vq-UnL"/>
+                        <constraint firstAttribute="bottom" secondItem="Adc-Wp-oXz" secondAttribute="bottom" id="BvW-au-shC"/>
+                        <constraint firstItem="Adc-Wp-oXz" firstAttribute="leading" secondItem="oKr-4y-cZV" secondAttribute="leading" id="NBJ-5d-gjh"/>
+                        <constraint firstItem="JJp-VI-RKd" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="TWd-FQ-GZ3"/>
+                        <constraint firstAttribute="bottom" secondItem="TAz-Zb-ld8" secondAttribute="bottom" id="VQH-fp-ZI8"/>
+                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="cT4-dw-3dG"/>
+                        <constraint firstAttribute="trailing" secondItem="TAz-Zb-ld8" secondAttribute="trailing" id="csL-VG-NOG"/>
+                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="leading" secondItem="JJp-VI-RKd" secondAttribute="trailing" id="dus-mU-ubm"/>
+                        <constraint firstAttribute="bottom" secondItem="JJp-VI-RKd" secondAttribute="bottom" id="gP5-Gw-qKG"/>
+                        <constraint firstAttribute="height" constant="34" id="gYc-Mp-luU"/>
+                        <constraint firstItem="TAz-Zb-ld8" firstAttribute="width" secondItem="oKr-4y-cZV" secondAttribute="width" multiplier="0.1" id="kVq-OT-GFe"/>
+                        <constraint firstItem="Adc-Wp-oXz" firstAttribute="top" secondItem="oKr-4y-cZV" secondAttribute="top" id="ygM-hR-MnD"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" systemColor="systemGray3Color"/>
+                            <color key="value" name="border_default"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="1"/>
@@ -75,21 +72,20 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="oKr-4y-cZV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0kS-Hg-QJH"/>
-                <constraint firstItem="oKr-4y-cZV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="7Xn-0V-1g2"/>
-                <constraint firstAttribute="trailing" secondItem="oKr-4y-cZV" secondAttribute="trailing" constant="5" id="i8v-Qu-nHb"/>
-                <constraint firstItem="oKr-4y-cZV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="kcm-Fn-d1C"/>
+                <constraint firstItem="oKr-4y-cZV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="66b-DT-od1"/>
+                <constraint firstItem="oKr-4y-cZV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="Xae-bk-nYZ"/>
+                <constraint firstAttribute="trailing" secondItem="oKr-4y-cZV" secondAttribute="trailing" constant="5" id="pOe-ZF-vuh"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="131.8840579710145" y="120.20089285714285"/>
+            <point key="canvasLocation" x="131.8840579710145" y="82.03125"/>
         </view>
     </objects>
     <resources>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
-        <systemColor name="systemGray3Color">
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <namedColor name="border_default">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        </namedColor>
     </resources>
 </document>

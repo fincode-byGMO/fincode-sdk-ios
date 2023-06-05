@@ -45,13 +45,15 @@ class RadioView: UIControl {
     /// RadioTypeの値のみを設定してください。
     /// ・登録済みのカードの場合: registeredCard
     /// ・新しいクレジットカードの場合: newCard
+    /// ・決済（一括）の場合: titlePaymentBulkRadio
+    /// ・決済（分割）の場合: titlePaymentDivisionRadio
     @IBInspectable public var radioType: String {
         get {
             return self.rtype.rawValue
         }
         set {
             self.rtype = RadioType(rawValue: newValue) ?? .none
-            labelView.text = self.rtype.text
+            labelView.text = self.rtype.title
         }
     }
     
@@ -67,7 +69,7 @@ class RadioView: UIControl {
     
     fileprivate func checkedBackgroundColor(_ isChecked: Bool) {
         
-        insideCircle.backgroundColor = isChecked ? ColorController.instance.color(.primary) : ColorController.instance.color(.radioCheckedOff)
+        insideCircle.extBackgroundColor = isChecked ? ColorController.instance.color(.primary) : ColorController.instance.color(.radioCheckedOff)
     }
     
     @IBAction func didTouch(_ sender: Any) {
