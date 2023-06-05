@@ -8,62 +8,43 @@
 import Foundation
 import UIKit
 
+protocol FincodeSubmitButtonViewDelegate: AnyObject {
+    func fincodeSubmitButtonView() -> BasePresenterDelegate?
+}
+
 @IBDesignable
 class FincodeSubmitButtonView: UIView {
     
     @IBOutlet weak var submitButton: UIButton!
     
-    var buttonType: SubmitButtonType = .none
+    var delegate: FincodeSubmitButtonViewDelegate?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
+        initialize()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         viewSetup()
+        initialize()
     }
     
     fileprivate func initialize() {
-        
-        var title: String = ""
-        switch(buttonType) {
-        case .registerCard:
-            title = "クレジットカードを登録"
-        case .updateCard:
-            title = "クレジットカードを更新"
-        case .payment:
-            title = "お支払い"
-        default:
-            break
-        }
+        submitButton.titleLabel?.lineBreakMode = .byTruncatingTail
+    }
+    
+    func buttonTitle(_ title: String) {
         submitButton.setTitle(title, for: .normal)
     }
     
     @IBAction func didTouchButton(_ sender: Any) {
-        
-        switch(buttonType) {
-        case .registerCard:
-            registerCard()
-        case .updateCard:
-            updateCard()
-        case .payment:
-            payment()
-        default:
-            break
+        guard let presenter = delegate?.fincodeSubmitButtonView(), let inputInfo = DataHolder.instance.inputInfo else { return }
+        guard let config = DataHolder.instance.config else {
+            showAlert("no config")
+            return
         }
-    }
-    
-    fileprivate func registerCard() {
-        
-    }
-    
-    fileprivate func updateCard() {
-        
-    }
-    
-    fileprivate func payment() {
-        
+        presenter.execute(config, inputInfo: inputInfo)
     }
 }

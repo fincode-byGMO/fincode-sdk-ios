@@ -12,10 +12,18 @@ enum APIEndpoint {
     case register(data: [String: AnyObject], header: [String: String])
     /// 決済実行
     case payment(id: String, data: [String: AnyObject], header: [String: String])
+    /// クレカ決済_3DS2.0認証実行
+    case authentication(id: String, data: [String: AnyObject], header: [String: String])
+    /// クレカ決済_3DS2.0認証結果取得
+    case getResult(id: String, header: [String: String])
+    /// 認証後決済
+    case paymentSecure(id: String, data: [String: AnyObject], header: [String: String])
     /// カード登録
-    case cardRegister(customer_id: String, data: [String: AnyObject], header: [String: String])
+    case cardRegister(customerId: String, data: [String: AnyObject], header: [String: String])
     /// カード更新
-    case cardUpdate(customer_id: String, id: String, data: [String: AnyObject], header: [String: String])
+    case cardUpdate(customerId: String, cardId: String, data: [String: AnyObject], header: [String: String])
+    /// カード一覧取得
+    case cardInfoList(customerId: String, header: [String: String])
     
     // ///////////////////////////////
     // endpoint
@@ -29,11 +37,23 @@ enum APIEndpoint {
         case .payment(let id, _, _):
             path = "/payments/\(id)"
             
+        case .paymentSecure(let id, _, _):
+            path = "/payments/\(id)/secure"
+            
+        case .authentication(let id, _, _):
+            path = "/secure2/\(id)"
+            
+        case .getResult(let id, _):
+            path = "/secure2/\(id)"
+            
         case .cardRegister(let customer_id, _, _):
             path = "/customers/\(customer_id)/cards"
             
-        case .cardUpdate(let customer_id, let id, _, _):
-            path = "/customers/\(customer_id)/cards/\(id)"
+        case .cardUpdate(let customer_id, let cardId, _, _):
+            path = "/customers/\(customer_id)/cards/\(cardId)"
+            
+        case .cardInfoList(let customer_id, _):
+            path = "/customers/\(customer_id)/cards"
         }
         
         return APIEndpoint.urlString(path)
@@ -49,11 +69,23 @@ enum APIEndpoint {
         case .payment(_, let data, let header):
             return executeApi(method: .put, data: data, headers: header)
             
+        case .paymentSecure(_, let data, let header):
+            return executeApi(method: .put, data: data, headers: header)
+            
+        case .authentication(_, let data, let header):
+            return executeApi(method: .put, data: data, headers: header)
+            
+        case .getResult(_, let header):
+            return executeApi(method: .get, headers: header)
+
         case .cardRegister(_, data: let data, header: let header):
             return executeApi(method: .post, data: data, headers: header)
             
         case .cardUpdate(_, _, data: let data, header: let header):
             return executeApi(method: .put, data: data, headers: header)
+
+        case .cardInfoList(_, header: let header):
+            return executeApi(method: .get, headers: header)
         }
     }
     
@@ -71,13 +103,13 @@ enum APIEndpoint {
             .request(urlString,
                      method: method,
                      parameters: data,
-                     encoding: URLEncoding.default,
+                     encoding: JSONEncoding.default, //URLEncoding.default,
                      headers: headers)
             .validate()
         
         req.responseString { responce in
             if responce.result.isSuccess {
-                logger(req, "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
+                logger(req, "  request header: \(String(describing: headers))", "  request body: \(String(describing: data))", "  response: \(responce)", function: "api")
             } else {
                 let _: () -> String = {
                     if let response = responce.data,
@@ -87,7 +119,7 @@ enum APIEndpoint {
                     }
                     return "nil"
                 }
-                logger(req, "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
+                logger(req, "  request header: \(String(describing: headers))", "  request: \(String(describing: data))", "  response: \(responce)", function: "api")
             }
         }
         

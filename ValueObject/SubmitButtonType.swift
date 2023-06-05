@@ -7,13 +7,29 @@
 
 import Foundation
 
-enum SubmitButtonType {
+@objc
+public enum SubmitButtonType: Int {
     /// なし
     case none
     /// クレジットカードを登録
     case registerCard
     /// クレジットカードを更新
     case updateCard
-    /// お支払い
+    /// 決済
     case payment
+    
+    var title: String {
+        get {
+            switch(self) {
+            case .registerCard:
+                return AppStrings.titleRegisterCardButton.value
+            case .updateCard:
+                return AppStrings.titleUpdateCardButton.value
+            case .payment:
+                return AppStrings.titlePaymentButton.value
+            default:
+                return ""
+            }
+        }
+    }
 }

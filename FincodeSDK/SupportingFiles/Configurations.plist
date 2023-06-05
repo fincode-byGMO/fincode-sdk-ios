@@ -5,6 +5,18 @@
 	<key>APIMajorVersion</key>
 	<string>/v1</string>
 	<key>APIBaseURL</key>
-	<string>https://api.dev.fincode.jp</string>
+	<string>https://api.dev2.fincode.jp</string>
+	<key>PayTimes</key>
+	<array>
+		<integer>3</integer>
+		<integer>5</integer>
+		<integer>6</integer>
+		<integer>10</integer>
+		<integer>12</integer>
+		<integer>15</integer>
+		<integer>18</integer>
+		<integer>20</integer>
+		<integer>24</integer>
+	</array>
 </dict>
 </plist>

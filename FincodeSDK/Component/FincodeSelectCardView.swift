@@ -14,7 +14,9 @@ class FincodeSelectCardView: UIView {
     @IBOutlet weak var selectedCardInfo: UIView!
     @IBOutlet weak var pickerView: CustomPickerView!
     
-    fileprivate var cardInfoList: [CardInfo] = []
+    fileprivate var mCardInfoList: [FincodeCardInfo] = []
+    fileprivate var selected: FincodeCardInfo?
+    var required: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,8 +37,40 @@ class FincodeSelectCardView: UIView {
         pickerView.picker = pi
     }
     
-    func setData(_ list: [CardInfo]) {
-        cardInfoList = list
+    func sortForDefaultFlag(_ value: [FincodeCardInfo]) -> [FincodeCardInfo] {
+        var fList: [FincodeCardInfo] = []
+        var sList: [FincodeCardInfo] = []
+        
+        value.forEach {
+            if $0.defaultFlag == .ON {
+                fList.append($0)
+            } else {
+                sList.append($0)
+            }
+        }
+        
+        return fList + sList
+    }
+    
+    var cardInfoList: [FincodeCardInfo] {
+        get {
+            return mCardInfoList
+        }
+        set {
+            let list = sortForDefaultFlag(newValue)
+            mCardInfoList = list
+            
+            if 0 < list.count {
+                selected = list[0]
+                applyCardInfo(getParts(list[0]))
+            }
+        }
+    }
+    
+    var selectedCard: FincodeCardInfo? {
+        get {
+            return selected
+        }
     }
 }
 
@@ -54,13 +88,18 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 1行ごとの初期化
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
         return getParts(cardInfoList[row])
     }
     
+    // 選択後
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        applyCardInfo(getParts(cardInfoList[row]))
+        selectedRow(row)
+    }
+    
+    func selectedRow(_ row: Int) {
+        let value = cardInfoList[row]
+        selected = value
+        applyCardInfo(getParts(value))
     }
     
     func applyCardInfo(_ parts: CardPickerParts) {
@@ -77,10 +116,35 @@ extension FincodeSelectCardView: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    fileprivate func getParts(_ info: CardInfo) -> CardPickerParts {
+    fileprivate func getParts(_ info: FincodeCardInfo) -> CardPickerParts {
         let parts = CardPickerParts()
         parts.setData(info)
         
         return parts
+    }
+}
+
+extension FincodeSelectCardView: ComponentDelegate {
+    func validate() -> Bool {
+        // do nothing
+        return false
+    }
+    
+    func clear() {
+        // do nothing
+    }
+    
+    func enabled(_ isEnabled: Bool) {
+        pickerView.isEnabled = isEnabled
+    }
+    
+    var headingHidden: Bool {
+        get {
+            // do nothing
+            return false
+        }
+        set {
+            // do nothing
+        }
     }
 }

@@ -1,83 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FincodeExpireView" customModule="FincodeSDK" customModuleProvider="target">
+            <connections>
+                <outlet property="borderView" destination="LPK-9F-Snu" id="2P8-hx-GgV"/>
+                <outlet property="boundaryLabel" destination="kG4-Yt-Xbo" id="jIX-ia-Nve"/>
+                <outlet property="errorMonthLabelView" destination="fXI-tI-KfW" id="VWS-tN-vW7"/>
+                <outlet property="errorMonthLabelViewConstraints" destination="Xru-P5-FTh" id="oGa-RR-x2R"/>
+                <outlet property="errorYearLabelView" destination="3T7-6k-IlQ" id="nwU-5q-dwb"/>
+                <outlet property="errorYearLabelViewConstraints" destination="z3l-Ap-Pw5" id="0lc-VP-AZ8"/>
+                <outlet property="headingLabel" destination="oi9-cY-H5B" id="KKa-wM-pN2"/>
+                <outlet property="monthTextView" destination="Gze-iS-wnR" id="6BH-R1-nbY"/>
+                <outlet property="rootView" destination="m3s-Sw-fy7" id="STM-SU-kXY"/>
+                <outlet property="yearTextView" destination="xdE-9h-piY" id="R02-GF-J8o"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="55"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-cY-H5B">
-                    <rect key="frame" x="5" y="0.0" width="395" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="a4G-gY-m2s"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inv-21-Top">
-                    <rect key="frame" x="0.0" y="17" width="200" height="38"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3s-Sw-fy7">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 月 (MM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR">
-                            <rect key="frame" x="5" y="2" width="192" height="34"/>
-                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-cY-H5B">
+                            <rect key="frame" x="5" y="0.0" width="61.5" height="17"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="34" id="SbE-au-Rw2"/>
+                                <constraint firstAttribute="height" constant="17" id="QgI-Po-dBd"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                        </textField>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (月) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-tI-KfW">
+                            <rect key="frame" x="10" y="55" width="138.5" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" systemColor="systemPinkColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限 (年) が無効です" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-6k-IlQ">
+                            <rect key="frame" x="217" y="55" width="178" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" systemColor="systemPinkColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
+                            <rect key="frame" x="5" y="21" width="390" height="34"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-iS-wnR" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="183" height="34"/>
+                                    <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="border_default"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                            <color key="value" name="text_placeholder"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="expire"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="25" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY" customClass="CustomTextField" customModule="FincodeSDK" customModuleProvider="target">
+                                    <rect key="frame" x="207" y="0.0" width="183" height="34"/>
+                                    <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="border_default"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                            <color key="value" name="text_placeholder"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="textFormatType" value="expire"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kG4-Yt-Xbo">
+                                    <rect key="frame" x="183" y="0.0" width="24" height="34"/>
+                                    <color key="backgroundColor" red="0.97275120020000005" green="0.98000663519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="1sa-YY-O3Z"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Gze-iS-wnR" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="5UC-19-ciW"/>
+                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="8mJ-fD-eqe"/>
+                                <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="E7t-Tm-OvW"/>
+                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="trailing" id="F7d-5P-IyD"/>
+                                <constraint firstAttribute="bottom" secondItem="xdE-9h-piY" secondAttribute="bottom" id="O6Q-HA-Udi"/>
+                                <constraint firstAttribute="bottom" secondItem="Gze-iS-wnR" secondAttribute="bottom" id="RNR-BP-gDn"/>
+                                <constraint firstItem="xdE-9h-piY" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="top" id="Uvx-i9-Aqw"/>
+                                <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="kG4-Yt-Xbo" secondAttribute="trailing" id="fYc-z7-UMU"/>
+                                <constraint firstItem="kG4-Yt-Xbo" firstAttribute="centerX" secondItem="LPK-9F-Snu" secondAttribute="centerX" id="naj-VK-hTz"/>
+                                <constraint firstAttribute="bottom" secondItem="kG4-Yt-Xbo" secondAttribute="bottom" id="pNC-5W-Zep"/>
+                                <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" id="rgJ-PK-pGe"/>
+                                <constraint firstAttribute="height" constant="34" id="sWZ-Uh-zXn"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Gze-iS-wnR" secondAttribute="trailing" constant="3" id="k6q-a7-P0g"/>
-                        <constraint firstItem="Gze-iS-wnR" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="leading" constant="5" id="rRZ-fP-119"/>
-                        <constraint firstItem="Gze-iS-wnR" firstAttribute="centerY" secondItem="inv-21-Top" secondAttribute="centerY" id="sCG-vF-bjB"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-9F-Snu">
-                    <rect key="frame" x="200" y="17" width="200" height="38"/>
-                    <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 年 (YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-9h-piY">
-                            <rect key="frame" x="3" y="2" width="192" height="34"/>
-                            <color key="backgroundColor" red="0.97227032229999999" green="0.97920274169999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="34" id="I8c-SE-hsC"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                        </textField>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="xdE-9h-piY" firstAttribute="leading" secondItem="LPK-9F-Snu" secondAttribute="leading" constant="3" id="773-n2-0zl"/>
-                        <constraint firstItem="xdE-9h-piY" firstAttribute="centerY" secondItem="LPK-9F-Snu" secondAttribute="centerY" id="cxL-AN-p2W"/>
-                        <constraint firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" constant="5" id="qz1-XX-pzb"/>
+                        <constraint firstItem="fXI-tI-KfW" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="2e8-G2-GvO"/>
+                        <constraint firstAttribute="trailing" secondItem="LPK-9F-Snu" secondAttribute="trailing" constant="5" id="EZx-Lq-mfa"/>
+                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="top" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="Lnw-Up-Mhb"/>
+                        <constraint firstItem="oi9-cY-H5B" firstAttribute="leading" secondItem="m3s-Sw-fy7" secondAttribute="leading" constant="5" id="NUd-h7-16r"/>
+                        <constraint firstAttribute="bottom" secondItem="fXI-tI-KfW" secondAttribute="bottom" id="Xru-P5-FTh"/>
+                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="trailing" secondItem="xdE-9h-piY" secondAttribute="trailing" id="cgo-a9-2MB"/>
+                        <constraint firstItem="fXI-tI-KfW" firstAttribute="leading" secondItem="Gze-iS-wnR" secondAttribute="leading" constant="5" id="k3n-rL-P4E"/>
+                        <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" constant="4" id="q1U-SL-qtD"/>
+                        <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="m3s-Sw-fy7" secondAttribute="leading" constant="5" id="qYb-5h-uGY"/>
+                        <constraint firstItem="oi9-cY-H5B" firstAttribute="top" secondItem="m3s-Sw-fy7" secondAttribute="top" id="rke-zN-atC"/>
+                        <constraint firstItem="3T7-6k-IlQ" firstAttribute="leading" secondItem="xdE-9h-piY" secondAttribute="leading" constant="5" id="y00-6b-dR2"/>
+                        <constraint firstAttribute="bottom" secondItem="3T7-6k-IlQ" secondAttribute="bottom" id="z3l-Ap-Pw5"/>
                     </constraints>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="inv-21-Top" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="57L-4Z-h3u"/>
-                <constraint firstItem="inv-21-Top" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="ONj-QZ-bdD"/>
-                <constraint firstItem="LPK-9F-Snu" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" id="OOE-zp-IwI"/>
-                <constraint firstItem="oi9-cY-H5B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Tpg-tZ-cfS"/>
-                <constraint firstItem="oi9-cY-H5B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="UAV-eD-i1I"/>
-                <constraint firstAttribute="trailing" secondItem="LPK-9F-Snu" secondAttribute="trailing" id="UYh-Ed-8dV"/>
-                <constraint firstAttribute="bottom" secondItem="inv-21-Top" secondAttribute="bottom" id="Y3Y-0L-jwm"/>
-                <constraint firstAttribute="bottom" secondItem="LPK-9F-Snu" secondAttribute="bottom" id="fcm-kd-mlC"/>
-                <constraint firstItem="inv-21-Top" firstAttribute="top" secondItem="oi9-cY-H5B" secondAttribute="bottom" id="nLn-uP-8gh"/>
-                <constraint firstItem="LPK-9F-Snu" firstAttribute="leading" secondItem="inv-21-Top" secondAttribute="trailing" id="pgb-J3-9CP"/>
-                <constraint firstAttribute="trailing" secondItem="oi9-cY-H5B" secondAttribute="trailing" id="qnA-l2-Np7"/>
+                <constraint firstAttribute="trailing" secondItem="m3s-Sw-fy7" secondAttribute="trailing" id="Hw6-mR-3ua"/>
+                <constraint firstItem="m3s-Sw-fy7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bmE-BB-e2T"/>
+                <constraint firstAttribute="bottom" secondItem="m3s-Sw-fy7" secondAttribute="bottom" id="nW7-gp-CRa"/>
+                <constraint firstItem="m3s-Sw-fy7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="u2P-NF-2eb"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="131.8840579710145" y="101.45089285714285"/>
+            <point key="canvasLocation" x="131.8840579710145" y="158.03571428571428"/>
         </view>
     </objects>
+    <designables>
+        <designable name="Gze-iS-wnR">
+            <size key="intrinsicContentSize" width="44" height="34"/>
+        </designable>
+        <designable name="xdE-9h-piY">
+            <size key="intrinsicContentSize" width="46" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="border_default">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_placeholder">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

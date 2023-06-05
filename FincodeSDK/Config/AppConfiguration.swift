@@ -7,12 +7,13 @@
 
 import Foundation
 
-public class AppConfiguration {
+class AppConfiguration {
     
     fileprivate struct Constants {
         static let fileName = "Configurations"
         static let apiBaseURL = "APIBaseURL"
         static let apiMajorVersion = "APIMajorVersion"
+        static let payTimes = "PayTimes"
     }
     
     static let instance = AppConfiguration()
@@ -27,15 +28,20 @@ public class AppConfiguration {
         }
     }
     
+    var payTimes: NSArray? {
+        get {
+            let plist =  self.getPlistWithDictionary(Constants.fileName)
+            return plist[Constants.payTimes] as? NSArray ?? nil
+        }
+    }
+    
     fileprivate func getPlistWithDictionary(_ name: String) -> NSDictionary {
         guard let path = getPlistPath(name) else { return [:] }
         return NSDictionary(contentsOfFile: path)!
     }
     
     fileprivate func getPlistPath(_ name: String) -> String? {
-        let bundle = Bundle(for: type(of: self))
-        guard let path = bundle.path(forResource: name, ofType: "plist") else { return nil }
-        
+        guard let path = BundleUtil.instance.bundle.path(forResource: name, ofType: "plist") else { return nil }
         return path
     }
 }
