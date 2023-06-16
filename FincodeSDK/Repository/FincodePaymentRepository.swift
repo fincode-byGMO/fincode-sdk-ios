@@ -35,6 +35,29 @@ public class FincodePaymentRepository {
             }
         }
     }
+    /// 決済実行_ApplePay
+    /// - Parameters:
+    ///   - id: オーダーID
+    ///   - request: パラメータ
+    ///   - header: ヘッダー
+    ///   - complete: 結果返却
+    public func payment(_ id: String,
+                        request: FincodeApplePayRequest,
+                        header: [String: String],
+                        complete: @escaping (_ result: FincodeApiResult<FincodeApplePayResponse>) -> Void)
+    {
+        APIEndpoint
+            .payment(id: id, data: request.parameters(), header: header)
+            .apiRequest
+            .responseJSONWithErrorHandler
+        { response in
+            if response.result.isSuccess, let json = response.result.value {
+                complete(.success(FincodeApplePayResponse(json: JSON(json))))
+            } else {
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .payment)))
+            }
+        }
+    }
     
     /// クレカ決済_3DS2.0認証実行
     /// - Parameters:
