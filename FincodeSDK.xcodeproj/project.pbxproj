@@ -276,6 +276,8 @@
 		4FFEA0F727E9C44C00E359BB /* FincodeErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */; };
 		4FFEA0F927E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
 		4FFEA0FA27E9C5B700E359BB /* FincodeErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */; };
+		84A1524A2A39D4E700219F43 /* FincodeApplePayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A152492A39D4E700219F43 /* FincodeApplePayRequest.swift */; };
+		84A1524B2A39D4E700219F43 /* FincodeApplePayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A152492A39D4E700219F43 /* FincodeApplePayRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -435,6 +437,7 @@
 		4FF97F7B27C3BA4600496B83 /* FincodeCardInfoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeCardInfoListRequest.swift; sourceTree = "<group>"; };
 		4FFEA0F527E9C44C00E359BB /* FincodeErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorResponse.swift; sourceTree = "<group>"; };
 		4FFEA0F827E9C5B700E359BB /* FincodeErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeErrorInfo.swift; sourceTree = "<group>"; };
+		84A152492A39D4E700219F43 /* FincodeApplePayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FincodeApplePayRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +644,7 @@
 				4F4711D127C8B4570078BA71 /* FincodeResponse.swift */,
 				4D07444828D30071004F4DD6 /* FincodeAuthRequest.swift */,
 				4D30019128D3145500780090 /* FincodeGetResultRequest.swift */,
+				84A152492A39D4E700219F43 /* FincodeApplePayRequest.swift */,
 			);
 			name = Entity;
 			path = FincodeSDK/Entity;
@@ -1073,6 +1077,7 @@
 				4F25A3AD278D2004004F8ADC /* Authorization.swift in Sources */,
 				4F25A453278D2803004F8ADC /* Result.swift in Sources */,
 				4F7713A627982FCA00B2CB81 /* CardBrandType.swift in Sources */,
+				84A1524A2A39D4E700219F43 /* FincodeApplePayRequest.swift in Sources */,
 				4F25A472278D2804004F8ADC /* TaskDelegate.swift in Sources */,
 				4F25A457278D2803004F8ADC /* NetworkReachabilityManager.swift in Sources */,
 				4F90FD2028F83476006257AE /* Tds2TransResult.swift in Sources */,
@@ -1194,6 +1199,7 @@
 				4F45D18F278D1D6B00FB3483 /* FincodeSDKTests.swift in Sources */,
 				4F0526AE27D101B60047546D /* DefaultFlg.swift in Sources */,
 				4F25A3A6278D2004004F8ADC /* ApiManager.swift in Sources */,
+				84A1524B2A39D4E700219F43 /* FincodeApplePayRequest.swift in Sources */,
 				4F90FD2D28FA97F8006257AE /* Tds2Event.swift in Sources */,
 				4F0526A827D07C620047546D /* PayTimesPickerField.swift in Sources */,
 				4F25A3CE278D2005004F8ADC /* FincodePaymentRepository.swift in Sources */,
