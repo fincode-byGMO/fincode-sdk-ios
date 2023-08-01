@@ -59,6 +59,54 @@ public class FincodePaymentRepository {
         }
     }
     
+    /// 決済実行_コンビニ決済
+    /// - Parameters:
+    ///   - id: オーダーID
+    ///   - request: パラメータ
+    ///   - header: ヘッダー
+    ///   - complete: 結果返却
+    public func payment(_ id: String,
+                        request: FincodeKonbiniRequest,
+                        header: [String: String],
+                        complete: @escaping (_ result: FincodeApiResult<FincodeKonbiniResponse>) -> Void)
+    {
+        APIEndpoint
+            .payment(id: id, data: request.parameters(), header: header)
+            .apiRequest
+            .responseJSONWithErrorHandler
+        { response in
+            if response.result.isSuccess, let json = response.result.value {
+                complete(.success(FincodeKonbiniResponse(json: JSON(json))))
+            } else {
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .payment)))
+            }
+        }
+    }
+    
+    /// 決済実行_PayPay
+    /// - Parameters:
+    ///   - id: オーダーID
+    ///   - request: パラメータ
+    ///   - header: ヘッダー
+    ///   - complete: 結果返却
+    public func payment(_ id: String,
+                        request: FincodePaypayRequest,
+                        header: [String: String],
+                        complete: @escaping (_ result: FincodeApiResult<FincodePaypayResponse>) -> Void)
+    {
+        APIEndpoint
+            .payment(id: id, data: request.parameters(), header: header)
+            .apiRequest
+            .responseJSONWithErrorHandler
+        { response in
+            if response.result.isSuccess, let json = response.result.value {
+                complete(.success(FincodePaypayResponse(json: JSON(json))))
+            } else {
+                complete(.failure(FincodeAPIError(response: response.response, data: response.data, errorOccurredApi: .payment)))
+            }
+        }
+    }
+    
     /// クレカ決済_3DS2.0認証実行
     /// - Parameters:
     ///   - id: オーダーID
