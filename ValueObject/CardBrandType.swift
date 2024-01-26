@@ -16,6 +16,7 @@ enum CardBrandType: String {
     case jcb = "JCB"
     case diners = "DINERS"
     case amex = "AMEX"
+    case discover = "DISCOVER"
     
     init(brand: String) {
         self = type(of: self).init(rawValue: brand) ?? .none
@@ -23,7 +24,7 @@ enum CardBrandType: String {
     
     init(value: String) {
         guard let visa = CardBrandType.visaRegex, let master = CardBrandType.masterRegex, let jcb = CardBrandType.jcbRegex,
-              let diners = CardBrandType.dinersRegex, let amex = CardBrandType.amexRegex else {
+              let diners = CardBrandType.dinersRegex, let amex = CardBrandType.amexRegex, let discover = CardBrandType.discoverRegex else {
                   self = .none
                   return
               }
@@ -48,6 +49,10 @@ enum CardBrandType: String {
             self = .amex
             return
         }
+        if 0 < discover.matches(in: value, range: NSRange(location: 0, length: value.count)).count {
+            self = .discover
+            return
+        }
         
         self = .none
     }
@@ -57,6 +62,7 @@ enum CardBrandType: String {
     static private let jcbRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "^35[0-9]{0,14}$")
     static private let dinersRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^30[0-9]{0,12}$)|(^36[0-9]{0,12}$)|(^38[0-9]{0,12}$)|(^39[0-9]{0,12}$)")
     static private let amexRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^34[0-9]{0,13}$)|(^37[0-9]{0,13}$)")
+    static private let discoverRegex: NSRegularExpression? = try? NSRegularExpression(pattern: "(^60[0-9]{0,14}$)|(^6[4-5][0-9]{0,14}$)")
     
     func delimit(_ value: String) -> String {
         switch(self) {
@@ -70,6 +76,8 @@ enum CardBrandType: String {
             return StringUtil.fourSixFourDelimit(value)
         case .amex:
             return StringUtil.fourSixFiveDelimit(value)
+        case .discover:
+            return StringUtil.allFourDelimit(value)
         case .none:
             return StringUtil.allFourDelimit(value)
         }
@@ -94,6 +102,8 @@ enum CardBrandType: String {
                 return 14
             case .amex:
                 return 15
+            case .discover:
+                return 16
             case .none:
                 return 16
             }
@@ -121,6 +131,8 @@ enum CardBrandType: String {
                 return "card_diners-club_ic"
             case .amex:
                 return "card_american-xpress_ic"
+            case .discover:
+                return "card_discover_ic"
             case .none:
                 return ""
             }
